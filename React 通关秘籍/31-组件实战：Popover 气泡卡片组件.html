@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+  @font-face {
+  font-family: octicons-link;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #24292e;
+  line-height: 1.5;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b31d28;
+  color: #fafbfc;
+}
+
+.markdown-body .pl-c2 {
+  background-color: #d73a49;
+  color: #fafbfc;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #22863a;
+  font-weight: 700;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #005cc5;
+  font-weight: 700;
+}
+
+.markdown-body .pl-mi {
+  color: #24292e;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #24292e;
+  font-weight: 700;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffeef0;
+  color: #b31d28;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #f0fff4;
+  color: #22863a;
+}
+
+.markdown-body .pl-mc {
+  background-color: #ffebda;
+  color: #e36209;
+}
+
+.markdown-body .pl-mi2 {
+  background-color: #005cc5;
+  color: #f6f8fa;
+}
+
+.markdown-body .pl-mdr {
+  color: #6f42c1;
+  font-weight: 700;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  color: #032f62;
+  text-decoration: underline;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.markdown-body hr:before {
+  content: "";
+  display: table;
+}
+
+.markdown-body hr:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-bottom: 0!important;
+  padding-top: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-bottom: 8px!important;
+  padding-top: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body:before {
+  content: "";
+  display: table;
+}
+
+.markdown-body:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.markdown-body hr {
+  background-color: #e1e4e8;
+  border: 0;
+  height: .25em;
+  margin: 24px 0;
+  padding: 0;
+}
+
+.markdown-body blockquote {
+  border-left: .25em solid #dfe2e5;
+  color: #6a737d;
+  padding: 0 1em;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #fafbfc;
+  border: 1px solid #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+  color: #444d56;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: .3em;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  color: #6a737d;
+  font-size: .85em;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 16px;
+  padding: 0;
+}
+
+.markdown-body dl dd {
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.markdown-body table {
+  display: block;
+  overflow: auto;
+  width: 100%;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  border: 1px solid #dfe2e5;
+  padding: 6px 13px;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  background-color: #fff;
+  box-sizing: content-box;
+  max-width: 100%;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  padding: .2em .4em;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  word-break: normal;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  max-width: auto;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+}
+
+.markdown-body .commit-tease-sha {
+  color: #444d56;
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 90%;
+}
+
+.markdown-body .blob-wrapper {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  color: rgba(27,31,35,.3);
+  cursor: pointer;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  min-width: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+  user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 1%;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  line-height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  color: #24292e;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  overflow: visible;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  background: #ffea7f;
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+  color: #444d56;
+  display: inline-block;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.markdown-body :checked+.radio-label {
+  border-color: #0366d6;
+  position: relative;
+  z-index: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+/*# sourceURL=webpack://./node_modules/github-markdown-css/github-markdown.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL25vZGVfbW9kdWxlcy9naXRodWItbWFya2Rvd24tY3NzL2dpdGh1Yi1tYXJrZG93bi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwwQkFBMEI7RUFDMUIsMkRBQXF0RTtBQUN2dEU7O0FBRUE7RUFDRSxxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLDJCQUEyQjtBQUM3Qjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxjQUFjO0VBQ2Qsa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGFBQWE7QUFDZjs7QUFFQTs7Ozs7O0VBTUUsY0FBYztFQUNkLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7O0FBRUE7Ozs7OztFQU1FLHFCQUFxQjtBQUN2Qjs7QUFFQTs7Ozs7O0VBTUUsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLDhCQUE4QjtFQUM5QixjQUFjO0VBQ2QsZ0JBQWdCO0VBQ2hCLGtJQUFrSTtFQUNsSSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7O0VBRUUsY0FBYztBQUNoQjs7QUFFQTs7RUFFRSxjQUFjO0FBQ2hCOztBQUVBOztFQUVFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTs7Ozs7OztFQU9FLGNBQWM7QUFDaEI7O0FBRUE7O0VBRUUsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsY0FBYztBQUNoQjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0UsY0FBYztFQUNkLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7OztFQUdFLGNBQWM7RUFDZCxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFD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 */
+  </style>
+  <style>
+  /**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #9a6e3a;
+	/* This background color was intended by the author of this theme. */
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function,
+.token.class-name {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+/*# sourceURL=webpack://./node_modules/prismjs/themes/prism.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL25vZGVfbW9kdWxlcy9wcmlzbWpzL3RoZW1lcy9wcmlzbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7RUFJRTs7QUFFRjs7Q0FFQyxZQUFZO0NBQ1osZ0JBQWdCO0NBQ2hCLHdCQUF3QjtDQUN4QixzRUFBc0U7Q0FDdEUsY0FBYztDQUNkLGdCQUFnQjtDQUNoQixnQkFBZ0I7Q0FDaEIsb0JBQW9CO0NBQ3BCLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsZ0JBQWdCOztDQUVoQixnQkFBZ0I7Q0FDaEIsY0FBYztDQUNkLFdBQVc7O0NBRVgscUJBQXFCO0NBQ3JCLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsYUFBYTtBQUNkOztBQUVBOztDQUVDLGlCQUFpQjtDQUNqQixtQkFBbUI7QUFDcEI7O0FBRUE7O0NBRUMsaUJBQWlCO0NBQ2pCLG1CQUFtQjtBQUNwQjs7QUFFQTtDQUNDOztFQUVDLGlCQUFpQjtDQUNsQjtBQUNEOztBQUVBLGdCQUFnQjtBQUNoQjtDQUNDLFlBQVk7Q0FDWixjQUFjO0NBQ2QsY0FBYztBQUNmOztBQUVBOztDQUVDLG1CQUFtQjtBQUNwQjs7QUFFQSxnQkFBZ0I7QUFDaEI7Q0FDQyxhQUFhO0NBQ2IsbUJBQW1CO0NBQ25CLG1CQUFtQjtBQUNwQjs7QUFFQTs7OztDQUlDLGdCQUFnQjtBQUNqQjs7QUFFQTtDQUNDLFdBQVc7QUFDWjs7QUFFQTtDQUNDLFdBQVc7QUFDWjs7QUFFQTs7Ozs7OztDQU9DLFdBQVc7QUFDWjs7QUFFQTs7Ozs7O0NBTUMsV0FBVztBQUNaOztBQUVBOzs7OztDQUtDLGNBQWM7Q0FDZCxvRUFBb0U7Q0FDcEUsaUNBQWlDO0FBQ2xDOztBQUVBOzs7Q0FHQyxXQUFXO0FBQ1o7O0FBRUE7O0NBRUMsY0FBYztBQUNmOztBQUVBOzs7Q0FHQyxXQUFXO0FBQ1o7O0FBRUE7O0NBRUMsaUJBQWlCO0FBQ2xCO0FBQ0E7Q0FDQyxrQkFBa0I7QUFDbkI7O0FBRUE7Q0FDQyxZQUFZO0FBQ2IiLCJzb3VyY2VSb290IjoiIn0= */
+  </style>
+  <style>
+  
+  </style>
+  <style>
+    .markdown-body {
+      font-family: -apple-system,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+
+    @media not print {
+      .markdown-body {
+        padding: 45px;
+      }
+
+      @media (max-width: 767px) {
+        .markdown-body {
+          padding: 15px;
+        }
+      }
+    }
+
+    .hf-container {
+      color: #24292e;
+      line-height: 1.3;
+    }
+
+    .markdown-body .highlight pre,
+    .markdown-body pre {
+      white-space: pre-wrap;
+    }
+    .markdown-body table {
+      display: table;
+    }
+    .markdown-body img[data-align="center"] {
+      display: block;
+      margin: 0 auto;
+    }
+    .markdown-body img[data-align="right"] {
+      display: block;
+      margin: 0 0 0 auto;
+    }
+    .markdown-body li.task-list-item {
+      list-style-type: none;
+    }
+    .markdown-body li > [type=checkbox] {
+      margin: 0 0 0 -1.3em;
+    }
+    .markdown-body input[type="checkbox"] ~ p {
+      margin-top: 0;
+      display: inline-block;
+    }
+    .markdown-body ol ol,
+    .markdown-body ul ol {
+      list-style-type: decimal;
+    }
+    .markdown-body ol ol ol,
+    .markdown-body ol ul ol,
+    .markdown-body ul ol ol,
+    .markdown-body ul ul ol {
+      list-style-type: decimal;
+    }
+  </style>
+  <style>.markdown-body a.footnote-ref {
+  text-decoration: none;
+}
+
+.footnotes {
+  font-size: .85em;
+  opacity: .8;
+}
+
+.footnotes li[role="doc-endnote"] {
+  position: relative;
+}
+
+.footnotes .footnote-back {
+  position: absolute;
+  font-family: initial;
+  top: .2em;
+  right: 1em;
+  text-decoration: none;
+}
+
+.inline-math.invalid,
+.multiple-math.invalid {
+  color: rgb(255, 105, 105);
+}
+
+.toc-container {
+  width: 100%;
+}
+
+.toc-container .toc-title {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+
+.toc-container li,
+.toc-container ul,
+.toc-container ul li {
+  list-style: none !important;
+}
+
+.toc-container > ul {
+  padding-left: 0;
+}
+
+.toc-container ul li span {
+  display : flex;
+}
+
+.toc-container ul li span a {
+  color: inherit;
+  text-decoration: none;
+}
+.toc-container ul li span a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.toc-container ul li span span.dots {
+  flex: 1;
+  height: 0.65em;
+  margin: 0 10px;
+  border-bottom: 2px dotted black;
+}
+
+/*# sourceURL=webpack://./src/muya/lib/assets/styles/exportStyle.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9tdXlhL2xpYi9hc3NldHMvc3R5bGVzL2V4cG9ydFN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixXQUFXO0FBQ2I7O0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsb0JBQW9CO0VBQ3BCLFNBQVM7RUFDVCxVQUFVO0VBQ1YscUJBQXFCO0FBQ3ZCOztBQUVBOztFQUVFLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0FBQ2xCOztBQUVBOzs7RUFHRSwyQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGNBQWM7RUFDZCxxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRSxPQUFPO0VBQ1AsY0FBYztFQUNkLGNBQWM7RUFDZCwrQkFBK0I7QUFDakMiLCJzb3VyY2VSb290IjoiIn0= */</style>
+  <style>.markdown-body{}pre.front-matter{display:none!important;}</style>
+</head>
+<body>
+  <article class="markdown-body"><p>组件库一般都有 Popover 和 Tooltip 这两个组件，它们非常相似。</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c98607761ead4b62a7dcb368119b3013~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1454&amp;h=694&amp;s=101769&amp;e=png&amp;b=fefefe"></p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/483824efb3fa44e3bc85049134652ee4~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1690&amp;h=764&amp;s=136886&amp;e=png&amp;b=fefefe"></p>
+<p>不过应用场景是有区别的：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5ffd0767e4047a68e5f51b6c564b624~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1042&amp;h=542&amp;s=67641&amp;e=png&amp;b=fefefe"></p>
+<p>Tooltip（文字提示） 是用来代替 title 的，做一个文案解释。</p>
+<p>而 Popover（气泡卡片）可以放更多的内容，可以交互：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e5efa61cacf4e0898590b6993368d8e~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1444&amp;h=518&amp;s=86135&amp;e=png&amp;b=fefefe"></p>
+<p>所以说，这俩虽然长得差不多，但确实要分为两个组件来写。</p>
+<p>这个组件看起来比较简单，但实现起来很麻烦。</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc6f8039878e408c95207df6d11e1c2b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=628&amp;h=360&amp;s=27182&amp;e=png&amp;b=fdfdfd"></p>
+<p>你可能会说，不就是写好样式，然后绝对定位到元素上面么？</p>
+<p>不只是这样。</p>
+<p>首先，placement 参数可以指定 12 个方向，top、topleft、topright、bottom 等：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09569079742748cc9923b74402b705fa~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1286&amp;h=752&amp;s=68622&amp;e=png&amp;b=fefefe"></p>
+<p>这些不同方向的位置计算都要实现。</p>
+<p>而且，就算你指定了 left，当左边空间不够的时候，也得做下处理，展示在右边：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14fc65b129094835ad40bbca3c8e45cd~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1164&amp;h=590&amp;s=69166&amp;e=png&amp;b=fdfdfd"></p>
+<p>而且当方向不同时，箭头的显示位置也不一样：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8044225179942678cf1a5011713aea0~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1052&amp;h=468&amp;s=48596&amp;e=png&amp;b=fdfdfd"></p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50ba7a55adad49148e757ade0a0a49ae~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=994&amp;h=710&amp;s=55857&amp;e=png&amp;b=fefefe"></p>
+<p>所以要实现这样一个 Popover 组件，光计算浮层的显示位置就是不小的工作量。</p>
+<p>不过好在这种场景有专门的库做了封装，完全没必要自己写。</p>
+<p>它就是 <a title="https://floating-ui.com/" href="https://floating-ui.com/">floating-ui</a>。</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd0c51403961461fb7a8c044b9f83eb2~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1366&amp;h=802&amp;s=578828&amp;e=png&amp;b=f5f8fd"></p>
+<p>看介绍就可以知道，它是专门用来创建 tooltip、popover、dropdown 这类浮动的元素的。</p>
+<p>它的 logo 也很形象：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f235a16f02024372bdafe0550c28be66~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1038&amp;h=702&amp;s=599610&amp;e=png&amp;b=4f3a6e"></p>
+<p>那它怎么用呢？</p>
+<p>我们新建个项目试试看：</p>
+<pre><code class="fenced-code-block language-lua">npx create<span class="token operator">-</span>vite</code></pre>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ab22ae4ff5c499591597b861a8b1220~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=900&amp;h=418&amp;s=51716&amp;e=png&amp;b=000000"></p>
+<p>用 create-vite 创建个 react 项目。</p>
+<p>进入项目，安装依赖，然后把服务跑起来：</p>
+<pre><code class="fenced-code-block language-arduino">npm install
+npm <span class="token builtin">run</span> dev</code></pre>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89ada9c5558a4bcbbd55332fb971a481~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=790&amp;h=266&amp;s=36173&amp;e=png&amp;b=191919"></p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/497ac1eadb864b638380003f8e3f7f81~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1304&amp;h=1060&amp;s=105357&amp;e=png&amp;b=ffffff"></p>
+<p>没啥问题。</p>
+<p>改下 main.tsx，去掉 index.css，并且把 StrictMode 去掉，它会导致重复渲染：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a81f633ac8dc41758b497a7aaf49f438~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1030&amp;h=402&amp;s=78197&amp;e=png&amp;b=1f1f1f"></p>
+<p>然后安装下 floating-ui 的包：</p>
+<pre><code class="fenced-code-block language-css">npm install --save @floating-ui/react</code></pre>
+<p>改下 App.tsx</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>
+  useInteractions<span class="token punctuation">,</span>
+  useFloating<span class="token punctuation">,</span>
+  useHover<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@floating-ui/react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>isOpen<span class="token punctuation">,</span> setIsOpen<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>refs<span class="token punctuation">,</span> floatingStyles<span class="token punctuation">,</span> context<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useFloating</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">open</span><span class="token operator">:</span> isOpen<span class="token punctuation">,</span>
+    <span class="token literal-property property">onOpenChange</span><span class="token operator">:</span> setIsOpen
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> hover <span class="token operator">=</span> <span class="token function">useHover</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> getReferenceProps<span class="token punctuation">,</span> getFloatingProps <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useInteractions</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    hover
+  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button ref<span class="token operator">=</span><span class="token punctuation">{</span>refs<span class="token punctuation">.</span>setReference<span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token function">getReferenceProps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        hello
+      <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>
+        isOpen <span class="token operator">&amp;&amp;</span> <span class="token operator">&lt;</span>div
+            ref<span class="token operator">=</span><span class="token punctuation">{</span>refs<span class="token punctuation">.</span>setFloating<span class="token punctuation">}</span>
+            style<span class="token operator">=</span><span class="token punctuation">{</span>floatingStyles<span class="token punctuation">}</span>
+            <span class="token punctuation">{</span><span class="token operator">...</span><span class="token function">getFloatingProps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+          <span class="token operator">&gt;</span>
+            光光光光光
+          <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>先看看效果：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8038d65c3bb4c6b8a18fc8be125897b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=46882&amp;e=gif&amp;f=20&amp;b=fefefe"></p>
+<p>可以看到，hover 的时候浮层会在下面出现。</p>
+<p>看下代码：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb9b9312509a498e8fc61fe621100a06~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1058&amp;h=1074&amp;s=148223&amp;e=png&amp;b=1f1f1f"></p>
+<p>首先，用到了 useFloating 这个 hook，它的作用就是计算浮层位置的。</p>
+<p>给它相对的元素、浮层元素的 ref，它就会计算出浮层的 style 来。</p>
+<p>它可以指定浮层出现的方向：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/192478acb40d47bba8590fc81ca72737~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=904&amp;h=568&amp;s=81896&amp;e=png&amp;b=202020"></p>
+<p>比如当 placement 指定为 right 时，效果就是这样的：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c10b7cc935bf4197b99fbbdd9460cff3~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=44480&amp;e=gif&amp;f=25&amp;b=fefefe"></p>
+<p>再就是 useInteractions 这个 hook：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/efa582f8594a42679dbe1bfc83270741~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1040&amp;h=1064&amp;s=150688&amp;e=png&amp;b=202020"></p>
+<p>你可以传入 click、hover 等交互方式，然后把它返回的 props 设置到元素上，就可以绑定对应的交互事件。</p>
+<p>比如把交互事件换成 click：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31855b1a82b54460bb9cdae1195dd74b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=978&amp;h=232&amp;s=31925&amp;e=png&amp;b=202020"></p>
+<p>现在就是点击的时候浮层出现和消失了：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34b27dbf135b45c99e34bfe868c117ba~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=50024&amp;e=gif&amp;f=20&amp;b=fefefe"></p>
+<p>不过现在有个问题：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/abb95c82d3c04fe68d59ebddc92bb69c~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=67254&amp;e=gif&amp;f=28&amp;b=fefefe"></p>
+<p>只有点击按钮，浮层才会消失，点击其他位置不会。</p>
+<p>这时候可以加上 dismiss 的处理：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d6af128bc844883815274c77edf347f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1010&amp;h=286&amp;s=45675&amp;e=png&amp;b=1f1f1f"></p>
+<p>现在点击其它位置，浮层就会消失，并且按 ESC 键也会消失：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/890198602c6a43e295dbdecad7c49240~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=66702&amp;e=gif&amp;f=35&amp;b=fefefe"></p>
+<p>也就是说 <strong>useFloating 是用来给浮层确定位置的，useInteractions 是用来绑定交互事件的</strong>。</p>
+<p>有的同学会说，这也不好看啊。</p>
+<p>我们加一下样式就好了：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a5a1e23a33734c99941e986243514e0b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=970&amp;h=554&amp;s=71840&amp;e=png&amp;b=1f1f1f"></p>
+<p>加上 className，然后在 App.css 里写下样式：</p>
+<pre><code class="fenced-code-block language-css"><span class="token selector">.popover-floating</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 4px 8px<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #000<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>引入看下：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a26d4a4301a1455c9a162ea7cb7ab02c~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=680&amp;h=488&amp;s=72626&amp;e=png&amp;b=1f1f1f"></p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/153bd2dcfd5a40c99caf8eabd64d947b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=49736&amp;e=gif&amp;f=21&amp;b=fefefe"></p>
+<p>但是现在的定位有点问题，离着太近了，能不能修改下定位呢？</p>
+<p>可以。</p>
+<p>加一个 offset 的 middleware 就好了：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01b96436263d464a98861cf5bd03a1da~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=804&amp;h=280&amp;s=43774&amp;e=png&amp;b=1f1f1f"></p>
+<p>它的效果就是修改两者距离的：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ffd325b8bcd047b4b423aef52438d91e~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=778&amp;h=482&amp;s=24357&amp;e=png&amp;b=ffffff"></p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11ce185cb6ab4a6aba4293bcb094a28a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=44086&amp;e=gif&amp;f=20&amp;b=fefefe"></p>
+<p>箭头也不用自己写，有对应的中间件：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23c904d1596e495b8d15ad11bd5d3dc0~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1094&amp;h=1408&amp;s=216830&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>
+  useInteractions<span class="token punctuation">,</span>
+  useFloating<span class="token punctuation">,</span>
+  useHover<span class="token punctuation">,</span>
+  useClick<span class="token punctuation">,</span>
+  useDismiss<span class="token punctuation">,</span>
+  offset<span class="token punctuation">,</span>
+  arrow<span class="token punctuation">,</span>
+  FloatingArrow<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@floating-ui/react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useRef<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> arrowRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>isOpen<span class="token punctuation">,</span> setIsOpen<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>refs<span class="token punctuation">,</span> floatingStyles<span class="token punctuation">,</span> context<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useFloating</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">open</span><span class="token operator">:</span> isOpen<span class="token punctuation">,</span>
+    <span class="token literal-property property">onOpenChange</span><span class="token operator">:</span> setIsOpen<span class="token punctuation">,</span>
+    <span class="token literal-property property">placement</span><span class="token operator">:</span> <span class="token string">'right'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">middleware</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token function">offset</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token function">arrow</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">element</span><span class="token operator">:</span> arrowRef<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> click <span class="token operator">=</span> <span class="token function">useClick</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> dismiss <span class="token operator">=</span> <span class="token function">useDismiss</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> getReferenceProps<span class="token punctuation">,</span> getFloatingProps <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useInteractions</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    click<span class="token punctuation">,</span>
+    dismiss
+  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button ref<span class="token operator">=</span><span class="token punctuation">{</span>refs<span class="token punctuation">.</span>setReference<span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token function">getReferenceProps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        hello
+      <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>
+        isOpen <span class="token operator">&amp;&amp;</span> <span class="token operator">&lt;</span>div
+            className<span class="token operator">=</span><span class="token string">'popover-floating'</span>
+            ref<span class="token operator">=</span><span class="token punctuation">{</span>refs<span class="token punctuation">.</span>setFloating<span class="token punctuation">}</span>
+            style<span class="token operator">=</span><span class="token punctuation">{</span>floatingStyles<span class="token punctuation">}</span>
+            <span class="token punctuation">{</span><span class="token operator">...</span><span class="token function">getFloatingProps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+          <span class="token operator">&gt;</span>
+            光光光
+            <span class="token operator">&lt;</span>FloatingArrow ref<span class="token operator">=</span><span class="token punctuation">{</span>arrowRef<span class="token punctuation">}</span> context<span class="token operator">=</span><span class="token punctuation">{</span>context<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a9d5a8a4c1d841bb96a38bb6542cfff8~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=56468&amp;e=gif&amp;f=24&amp;b=fefefe"></p>
+<p>这样箭头就有了。</p>
+<p>只不过样式不大对，我们修改下：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token operator">&lt;</span>FloatingArrow ref<span class="token operator">=</span><span class="token punctuation">{</span>arrowRef<span class="token punctuation">}</span> context<span class="token operator">=</span><span class="token punctuation">{</span>context<span class="token punctuation">}</span> fill<span class="token operator">=</span><span class="token string">"#fff"</span> stroke<span class="token operator">=</span><span class="token string">"#000"</span> strokeWidth<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span></code></pre>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92045d0610e445eaa9e9370122b3b80b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=48337&amp;e=gif&amp;f=26&amp;b=fefefe"></p>
+<p>这样，箭头位置就有了。</p>
+<p>给 button 加一些 margin，我们试试其它位置的 popover 对不对：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/622d58aef9a1479a948c47280c557bd8~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=584&amp;h=378&amp;s=48028&amp;e=png&amp;b=1f1f1f"></p>
+<p>分别设置不同 placement：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07ccabd81fc94a39a7cca0b9bc465e31~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=622&amp;h=444&amp;s=62258&amp;e=png&amp;b=202020"></p>
+<p>top-end</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b634a7ab0204d87a54661432cf35bfd~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=302&amp;h=202&amp;s=9513&amp;e=png&amp;b=fefefe"></p>
+<p>left-start</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c29ab0ae2d744ab19240904b780d9a1a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=328&amp;h=146&amp;s=8688&amp;e=png&amp;b=fefefe"></p>
+<p>left</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8c10d828d594f1d8d045643b39bf77d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=300&amp;h=146&amp;s=8570&amp;e=png&amp;b=fdfdfd"></p>
+<p>都没问题。</p>
+<p>不过现在并没有做边界的处理：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02a22f65f3ec43078355336750298611~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=59182&amp;e=gif&amp;f=28&amp;b=fefefe"></p>
+<p>设置 top 的时候，浮层超出可视区域，这时候应该显示在下面。</p>
+<p>加上 flip 中间件就好了：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d6f65adc4094bd195a250d2d0cee92c~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=814&amp;h=430&amp;s=55550&amp;e=png&amp;b=1f1f1f"></p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/207d3da0d05b495793d7f720d0a04c4c~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=676&amp;h=378&amp;s=46395&amp;e=gif&amp;f=16&amp;b=fefefe"></p>
+<p>这样，popover 的功能就完成了。</p>
+<p>我们封装下 Popover 组件。</p>
+<p>新建 Popover/index.tsx</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> CSSProperties<span class="token punctuation">,</span> PropsWithChildren<span class="token punctuation">,</span> ReactNode <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+    useInteractions<span class="token punctuation">,</span>
+    useFloating<span class="token punctuation">,</span>
+    useClick<span class="token punctuation">,</span>
+    useDismiss<span class="token punctuation">,</span>
+    offset<span class="token punctuation">,</span>
+    arrow<span class="token punctuation">,</span>
+    FloatingArrow<span class="token punctuation">,</span>
+    flip<span class="token punctuation">,</span>
+    useHover<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@floating-ui/react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useRef<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./index.css'</span><span class="token punctuation">;</span>
+
+type Alignment <span class="token operator">=</span> <span class="token string">'start'</span> <span class="token operator">|</span> <span class="token string">'end'</span><span class="token punctuation">;</span>
+type Side <span class="token operator">=</span> <span class="token string">'top'</span> <span class="token operator">|</span> <span class="token string">'right'</span> <span class="token operator">|</span> <span class="token string">'bottom'</span> <span class="token operator">|</span> <span class="token string">'left'</span><span class="token punctuation">;</span>
+type AlignedPlacement <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Side<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Alignment<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">PopoverProps</span> <span class="token keyword">extends</span> <span class="token class-name">PropsWithChildren</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">content</span><span class="token operator">:</span> ReactNode<span class="token punctuation">,</span>
+    trigger<span class="token operator">?</span><span class="token operator">:</span> <span class="token string">'hover'</span> <span class="token operator">|</span> <span class="token string">'click'</span>
+    placement<span class="token operator">?</span><span class="token operator">:</span> Side <span class="token operator">|</span> AlignedPlacement<span class="token punctuation">,</span>
+    open<span class="token operator">?</span><span class="token operator">:</span> boolean<span class="token punctuation">,</span>
+    onOpenChange<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">open</span><span class="token operator">:</span> boolean</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">,</span>
+    className<span class="token operator">?</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+    style<span class="token operator">?</span><span class="token operator">:</span> CSSProperties
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Popover</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">props</span><span class="token operator">:</span> PopoverProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        open<span class="token punctuation">,</span>
+        onOpenChange<span class="token punctuation">,</span>
+        content<span class="token punctuation">,</span>
+        children<span class="token punctuation">,</span>
+        trigger <span class="token operator">=</span> <span class="token string">'hover'</span><span class="token punctuation">,</span>
+        placement <span class="token operator">=</span> <span class="token string">'bottom'</span><span class="token punctuation">,</span>
+        className<span class="token punctuation">,</span>
+        style
+    <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> arrowRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>isOpen<span class="token punctuation">,</span> setIsOpen<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>open<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>refs<span class="token punctuation">,</span> floatingStyles<span class="token punctuation">,</span> context<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useFloating</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">open</span><span class="token operator">:</span> isOpen<span class="token punctuation">,</span>
+      <span class="token function-variable function">onOpenChange</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">open</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setIsOpen</span><span class="token punctuation">(</span>open<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        onOpenChange<span class="token operator">?.</span><span class="token punctuation">(</span>open<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      placement<span class="token punctuation">,</span>
+      <span class="token literal-property property">middleware</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">offset</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">arrow</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          <span class="token literal-property property">element</span><span class="token operator">:</span> arrowRef<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">flip</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> interaction <span class="token operator">=</span> trigger <span class="token operator">===</span> <span class="token string">'hover'</span> <span class="token operator">?</span> <span class="token function">useHover</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">useClick</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> dismiss <span class="token operator">=</span> <span class="token function">useDismiss</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> getReferenceProps<span class="token punctuation">,</span> getFloatingProps <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useInteractions</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        interaction<span class="token punctuation">,</span>
+        dismiss
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>span ref<span class="token operator">=</span><span class="token punctuation">{</span>refs<span class="token punctuation">.</span>setReference<span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token function">getReferenceProps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span> className<span class="token operator">=</span><span class="token punctuation">{</span>className<span class="token punctuation">}</span> style<span class="token operator">=</span><span class="token punctuation">{</span>style<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+          <span class="token punctuation">{</span>children<span class="token punctuation">}</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+        <span class="token punctuation">{</span>
+          isOpen <span class="token operator">&amp;&amp;</span> <span class="token operator">&lt;</span>div
+              className<span class="token operator">=</span><span class="token string">'popover-floating'</span>
+              ref<span class="token operator">=</span><span class="token punctuation">{</span>refs<span class="token punctuation">.</span>setFloating<span class="token punctuation">}</span>
+              style<span class="token operator">=</span><span class="token punctuation">{</span>floatingStyles<span class="token punctuation">}</span>
+              <span class="token punctuation">{</span><span class="token operator">...</span><span class="token function">getFloatingProps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+            <span class="token operator">&gt;</span>
+              <span class="token punctuation">{</span>content<span class="token punctuation">}</span>
+              <span class="token operator">&lt;</span>FloatingArrow ref<span class="token operator">=</span><span class="token punctuation">{</span>arrowRef<span class="token punctuation">}</span> context<span class="token operator">=</span><span class="token punctuation">{</span>context<span class="token punctuation">}</span> fill<span class="token operator">=</span><span class="token string">"#fff"</span> stroke<span class="token operator">=</span><span class="token string">"#000"</span> strokeWidth<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Popover/index.css</p>
+<pre><code class="fenced-code-block language-css"><span class="token selector">.popover-floating</span> <span class="token punctuation">{</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 4px 8px<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #000<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>整体代码和之前差不多，有几处不同：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a4d5df388594cae82ce7f064403f8ec~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=924&amp;h=582&amp;s=125605&amp;e=png&amp;b=202020"></p>
+<p>参数继承 PropsWithChildren，可以传入 children 参数。</p>
+<p>可以传入 content，也就是浮层的内容。</p>
+<p>trigger 参数是触发浮层的方式，可以是 click 或者 hover。</p>
+<p>placement 就是 12 个方向。</p>
+<p>而 open、onOpenChange 则是可以在组件外控制 popover 的显示隐藏。</p>
+<p>className 和 style 设置到内层的 span 元素上：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a84290765f549d1b16ab15dab8b3c72~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1484&amp;h=606&amp;s=114265&amp;e=png&amp;b=1f1f1f"></p>
+<p>在 App.tsx 里引入下：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> Popover <span class="token keyword">from</span> <span class="token string">'./Popover'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">const</span> popoverContent <span class="token operator">=</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    光光光
+    <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token number">111</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>Popover
+    content<span class="token operator">=</span><span class="token punctuation">{</span>popoverContent<span class="token punctuation">}</span>
+    placement<span class="token operator">=</span><span class="token string">'bottom'</span>
+    trigger<span class="token operator">=</span><span class="token string">'click'</span>
+    style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token literal-property property">margin</span><span class="token operator">:</span> <span class="token string">'200px'</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>button<span class="token operator">&gt;</span>点我点我<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Popover<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b288d14a1a794aea878df4a55d56c4a9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1682&amp;h=688&amp;s=204568&amp;e=gif&amp;f=33&amp;b=fdfdfd"></p>
+<p>这样，Popover 组件的基本功能就完成了。</p>
+<p>但现在 Popover 组件还有个问题：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a3cfe6b95f44168adcecfb8dad49fb4~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1664&amp;h=942&amp;s=161967&amp;e=png&amp;b=fcfbfb"></p>
+<p>浮层使用 position：absolute 定位的，应该是相对于 body 定位，但如果中间有个元素也设置了 position: relative 或者 absolute，那样定位就是相对于那个元素了。</p>
+<p>所以，要把浮层用 createPortal 渲染到 body 之下。</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a5dc4e2d748c451590223c2a5bff0578~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1602&amp;h=1154&amp;s=239595&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">const</span> el <span class="token operator">=</span> <span class="token function">useMemo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    el<span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">wrapper</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> el<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> floating <span class="token operator">=</span> isOpen <span class="token operator">&amp;&amp;</span> <span class="token operator">&lt;</span>div
+    className<span class="token operator">=</span><span class="token string">'popover-floating'</span>
+    ref<span class="token operator">=</span><span class="token punctuation">{</span>refs<span class="token punctuation">.</span>setFloating<span class="token punctuation">}</span>
+    style<span class="token operator">=</span><span class="token punctuation">{</span>floatingStyles<span class="token punctuation">}</span>
+    <span class="token punctuation">{</span><span class="token operator">...</span><span class="token function">getFloatingProps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token operator">&gt;</span>
+    <span class="token punctuation">{</span>content<span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span>FloatingArrow ref<span class="token operator">=</span><span class="token punctuation">{</span>arrowRef<span class="token punctuation">}</span> context<span class="token operator">=</span><span class="token punctuation">{</span>context<span class="token punctuation">}</span> fill<span class="token operator">=</span><span class="token string">"#fff"</span> stroke<span class="token operator">=</span><span class="token string">"#000"</span> strokeWidth<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+<span class="token keyword">return</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>span ref<span class="token operator">=</span><span class="token punctuation">{</span>refs<span class="token punctuation">.</span>setReference<span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token function">getReferenceProps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span> className<span class="token operator">=</span><span class="token punctuation">{</span>className<span class="token punctuation">}</span> style<span class="token operator">=</span><span class="token punctuation">{</span>style<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>children<span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+    <span class="token punctuation">{</span>
+      <span class="token function">createPortal</span><span class="token punctuation">(</span>floating<span class="token punctuation">,</span> el<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>这样，Popover 浮层就渲染到了 body 下：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/587c2e8d62124c12bf049c4570797f44~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1246&amp;h=1368&amp;s=238675&amp;e=png&amp;b=fbfaf9"></p>
+<p>至此，Popover 组件就封装完了。</p>
+<p>其实 floating-ui 用的非常多，比如下一节会讲的 click-to-react-component，它就用到了 floating-ui 来实现的：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/997df95e386e4cad902a7553702a74f7~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1114&amp;h=680&amp;s=94966&amp;e=png&amp;b=fdfdfd"></p>
+<p>案例代码上传了<a title="https://github.com/QuarkGluonPlasma/react-course-code/tree/main/popover-component" href="https://github.com/QuarkGluonPlasma/react-course-code/tree/main/popover-component">小册仓库</a></p>
+<h2 class="atx" id="总结">总结</h2>
+<p>今天我们封装了 Popover 组件。</p>
+<p>如果完全自己实现，计算位置还是挺麻烦的，有 top、right、left 等不同位置，而且到达边界的时候也要做特殊处理。</p>
+<p>所以我们直接基于 floating-ui 来做，它是专门用于 tooltip、popover、dropdown 等浮动组件的。</p>
+<p>用 useFloating 的 hook 来计算位置，用 useIntersections 的 hook 来处理交互。</p>
+<p>它支持很多中间件，比如 offset 来设置偏移、arrow 来处理箭头位置，可以完成各种复杂的定位功能。</p>
+<p>我们封装了一层，加了一些参数，然后把浮层用 createPortal 渲染到了 body 下。</p>
+<p>这样就是一个功能完整的 Popover 组件了。</p>
+<p>如果完全自己实现 Popover 组件，还是挺麻烦的，但是基于 floating-ui 封装，就很简单。</p>
+</article>
+</body>
+</html>

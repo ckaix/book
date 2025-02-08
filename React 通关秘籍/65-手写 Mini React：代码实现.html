@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+  @font-face {
+  font-family: octicons-link;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #24292e;
+  line-height: 1.5;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b31d28;
+  color: #fafbfc;
+}
+
+.markdown-body .pl-c2 {
+  background-color: #d73a49;
+  color: #fafbfc;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #22863a;
+  font-weight: 700;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #005cc5;
+  font-weight: 700;
+}
+
+.markdown-body .pl-mi {
+  color: #24292e;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #24292e;
+  font-weight: 700;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffeef0;
+  color: #b31d28;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #f0fff4;
+  color: #22863a;
+}
+
+.markdown-body .pl-mc {
+  background-color: #ffebda;
+  color: #e36209;
+}
+
+.markdown-body .pl-mi2 {
+  background-color: #005cc5;
+  color: #f6f8fa;
+}
+
+.markdown-body .pl-mdr {
+  color: #6f42c1;
+  font-weight: 700;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  color: #032f62;
+  text-decoration: underline;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.markdown-body hr:before {
+  content: "";
+  display: table;
+}
+
+.markdown-body hr:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-bottom: 0!important;
+  padding-top: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-bottom: 8px!important;
+  padding-top: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body:before {
+  content: "";
+  display: table;
+}
+
+.markdown-body:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.markdown-body hr {
+  background-color: #e1e4e8;
+  border: 0;
+  height: .25em;
+  margin: 24px 0;
+  padding: 0;
+}
+
+.markdown-body blockquote {
+  border-left: .25em solid #dfe2e5;
+  color: #6a737d;
+  padding: 0 1em;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #fafbfc;
+  border: 1px solid #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+  color: #444d56;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: .3em;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  color: #6a737d;
+  font-size: .85em;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 16px;
+  padding: 0;
+}
+
+.markdown-body dl dd {
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.markdown-body table {
+  display: block;
+  overflow: auto;
+  width: 100%;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  border: 1px solid #dfe2e5;
+  padding: 6px 13px;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  background-color: #fff;
+  box-sizing: content-box;
+  max-width: 100%;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  padding: .2em .4em;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  word-break: normal;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  max-width: auto;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+}
+
+.markdown-body .commit-tease-sha {
+  color: #444d56;
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 90%;
+}
+
+.markdown-body .blob-wrapper {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  color: rgba(27,31,35,.3);
+  cursor: pointer;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  min-width: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+  user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 1%;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  line-height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  color: #24292e;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  overflow: visible;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  background: #ffea7f;
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+  color: #444d56;
+  display: inline-block;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.markdown-body :checked+.radio-label {
+  border-color: #0366d6;
+  position: relative;
+  z-index: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+/*# sourceURL=webpack://./node_modules/github-markdown-css/github-markdown.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL25vZGVfbW9kdWxlcy9naXRodWItbWFya2Rvd24tY3NzL2dpdGh1Yi1tYXJrZG93bi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwwQkFBMEI7RUFDMUIsMkRBQXF0RTtBQUN2dEU7O0FBRUE7RUFDRSxxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLDJCQUEyQjtBQUM3Qjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxjQUFjO0VBQ2Qsa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGFBQWE7QUFDZjs7QUFFQTs7Ozs7O0VBTUUsY0FBYztFQUNkLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7O0FBRUE7Ozs7OztFQU1FLHFCQUFxQjtBQUN2Qjs7QUFFQTs7Ozs7O0VBTUUsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLDhCQUE4QjtFQUM5QixjQUFjO0VBQ2QsZ0JBQWdCO0VBQ2hCLGtJQUFrSTtFQUNsSSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7O0VBRUUsY0FBYztBQUNoQjs7QUFFQTs7RUFFRSxjQUFjO0FBQ2hCOztBQUVBOztFQUVFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTs7Ozs7OztFQU9FLGNBQWM7QUFDaEI7O0FBRUE7O0VBRUUsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsY0FBYztBQUNoQjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0UsY0FBYztFQUNkLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7OztFQUdFLGNBQWM7RUFDZCxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFD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 */
+  </style>
+  <style>
+  /**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #9a6e3a;
+	/* This background color was intended by the author of this theme. */
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function,
+.token.class-name {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+/*# sourceURL=webpack://./node_modules/prismjs/themes/prism.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL25vZGVfbW9kdWxlcy9wcmlzbWpzL3RoZW1lcy9wcmlzbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7RUFJRTs7QUFFRjs7Q0FFQyxZQUFZO0NBQ1osZ0JBQWdCO0NBQ2hCLHdCQUF3QjtDQUN4QixzRUFBc0U7Q0FDdEUsY0FBYztDQUNkLGdCQUFnQjtDQUNoQixnQkFBZ0I7Q0FDaEIsb0JBQW9CO0NBQ3BCLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsZ0JBQWdCOztDQUVoQixnQkFBZ0I7Q0FDaEIsY0FBYztDQUNkLFdBQVc7O0NBRVgscUJBQXFCO0NBQ3JCLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsYUFBYTtBQUNkOztBQUVBOztDQUVDLGlCQUFpQjtDQUNqQixtQkFBbUI7QUFDcEI7O0FBRUE7O0NBRUMsaUJBQWlCO0NBQ2pCLG1CQUFtQjtBQUNwQjs7QUFFQTtDQUNDOztFQUVDLGlCQUFpQjtDQUNsQjtBQUNEOztBQUVBLGdCQUFnQjtBQUNoQjtDQUNDLFlBQVk7Q0FDWixjQUFjO0NBQ2QsY0FBYztBQUNmOztBQUVBOztDQUVDLG1CQUFtQjtBQUNwQjs7QUFFQSxnQkFBZ0I7QUFDaEI7Q0FDQyxhQUFhO0NBQ2IsbUJBQW1CO0NBQ25CLG1CQUFtQjtBQUNwQjs7QUFFQTs7OztDQUlDLGdCQUFnQjtBQUNqQjs7QUFFQTtDQUNDLFdBQVc7QUFDWjs7QUFFQTtDQUNDLFdBQVc7QUFDWjs7QUFFQTs7Ozs7OztDQU9DLFdBQVc7QUFDWjs7QUFFQTs7Ozs7O0NBTUMsV0FBVztBQUNaOztBQUVBOzs7OztDQUtDLGNBQWM7Q0FDZCxvRUFBb0U7Q0FDcEUsaUNBQWlDO0FBQ2xDOztBQUVBOzs7Q0FHQyxXQUFXO0FBQ1o7O0FBRUE7O0NBRUMsY0FBYztBQUNmOztBQUVBOzs7Q0FHQyxXQUFXO0FBQ1o7O0FBRUE7O0NBRUMsaUJBQWlCO0FBQ2xCO0FBQ0E7Q0FDQyxrQkFBa0I7QUFDbkI7O0FBRUE7Q0FDQyxZQUFZO0FBQ2IiLCJzb3VyY2VSb290IjoiIn0= */
+  </style>
+  <style>
+  
+  </style>
+  <style>
+    .markdown-body {
+      font-family: -apple-system,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+
+    @media not print {
+      .markdown-body {
+        padding: 45px;
+      }
+
+      @media (max-width: 767px) {
+        .markdown-body {
+          padding: 15px;
+        }
+      }
+    }
+
+    .hf-container {
+      color: #24292e;
+      line-height: 1.3;
+    }
+
+    .markdown-body .highlight pre,
+    .markdown-body pre {
+      white-space: pre-wrap;
+    }
+    .markdown-body table {
+      display: table;
+    }
+    .markdown-body img[data-align="center"] {
+      display: block;
+      margin: 0 auto;
+    }
+    .markdown-body img[data-align="right"] {
+      display: block;
+      margin: 0 0 0 auto;
+    }
+    .markdown-body li.task-list-item {
+      list-style-type: none;
+    }
+    .markdown-body li > [type=checkbox] {
+      margin: 0 0 0 -1.3em;
+    }
+    .markdown-body input[type="checkbox"] ~ p {
+      margin-top: 0;
+      display: inline-block;
+    }
+    .markdown-body ol ol,
+    .markdown-body ul ol {
+      list-style-type: decimal;
+    }
+    .markdown-body ol ol ol,
+    .markdown-body ol ul ol,
+    .markdown-body ul ol ol,
+    .markdown-body ul ul ol {
+      list-style-type: decimal;
+    }
+  </style>
+  <style>.markdown-body a.footnote-ref {
+  text-decoration: none;
+}
+
+.footnotes {
+  font-size: .85em;
+  opacity: .8;
+}
+
+.footnotes li[role="doc-endnote"] {
+  position: relative;
+}
+
+.footnotes .footnote-back {
+  position: absolute;
+  font-family: initial;
+  top: .2em;
+  right: 1em;
+  text-decoration: none;
+}
+
+.inline-math.invalid,
+.multiple-math.invalid {
+  color: rgb(255, 105, 105);
+}
+
+.toc-container {
+  width: 100%;
+}
+
+.toc-container .toc-title {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+
+.toc-container li,
+.toc-container ul,
+.toc-container ul li {
+  list-style: none !important;
+}
+
+.toc-container > ul {
+  padding-left: 0;
+}
+
+.toc-container ul li span {
+  display : flex;
+}
+
+.toc-container ul li span a {
+  color: inherit;
+  text-decoration: none;
+}
+.toc-container ul li span a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.toc-container ul li span span.dots {
+  flex: 1;
+  height: 0.65em;
+  margin: 0 10px;
+  border-bottom: 2px dotted black;
+}
+
+/*# sourceURL=webpack://./src/muya/lib/assets/styles/exportStyle.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9tdXlhL2xpYi9hc3NldHMvc3R5bGVzL2V4cG9ydFN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixXQUFXO0FBQ2I7O0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsb0JBQW9CO0VBQ3BCLFNBQVM7RUFDVCxVQUFVO0VBQ1YscUJBQXFCO0FBQ3ZCOztBQUVBOztFQUVFLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0FBQ2xCOztBQUVBOzs7RUFHRSwyQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGNBQWM7RUFDZCxxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRSxPQUFPO0VBQ1AsY0FBYztFQUNkLGNBQWM7RUFDZCwrQkFBK0I7QUFDakMiLCJzb3VyY2VSb290IjoiIn0= */</style>
+  <style>.markdown-body{}pre.front-matter{display:none!important;}</style>
+</head>
+<body>
+  <article class="markdown-body"><p>上节我们梳理了 React 渲染流程，这节来具体实现下。</p>
+<p>首先先完成从 JSX 到 React Element 的转换：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f95ad42f43846cbbd8e01da0987b76c~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1080&amp;h=287&amp;s=63028&amp;e=png&amp;b=fffefe"></p>
+<p>从 JSX 到 render function 这步是 babel 或者 tsc 帮我们做的。</p>
+<p>新建个项目：</p>
+<pre><code class="fenced-code-block language-bash"><span class="token function">mkdir</span> mini-react
+<span class="token builtin class-name">cd</span> mini-react
+<span class="token function">npm</span> init -y</code></pre>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49bfabaa05a646c7982c14c301fcb6f8~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=850&amp;h=678&amp;s=84892&amp;e=png&amp;b=000000"></p>
+<p>安装 typescript：</p>
+<pre><code class="fenced-code-block language-css">npm install --save-dev typescript</code></pre>
+<p>创建 tsconfig.json 配置文件：</p>
+<pre><code class="fenced-code-block language-csharp">npx tsc <span class="token operator">--</span>init</code></pre>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cdfafd1e98304b5f8a500e9ab6d201c1~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=708&amp;h=370&amp;s=43175&amp;e=png&amp;b=181818"></p>
+<p>改一下生成的 tsconfig.json</p>
+<pre><code class="fenced-code-block language-json"><span class="token punctuation">{</span>
+  <span class="token property">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"outDir"</span><span class="token operator">:</span> <span class="token string">"dist"</span><span class="token punctuation">,</span>
+    <span class="token property">"target"</span><span class="token operator">:</span> <span class="token string">"es2016"</span><span class="token punctuation">,</span>                                  <span class="token comment">/* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */</span>
+    <span class="token property">"jsx"</span><span class="token operator">:</span> <span class="token string">"react"</span><span class="token punctuation">,</span>                                <span class="token comment">/* Specify what JSX code is generated. */</span>
+    <span class="token property">"jsxFactory"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>                                 <span class="token comment">/* Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'. */</span>
+    <span class="token property">"allowJs"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>                                  <span class="token comment">/* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */</span>
+    <span class="token property">"strict"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>                                      <span class="token comment">/* Enable all strict type-checking options. */</span>
+    <span class="token property">"skipLibCheck"</span><span class="token operator">:</span> <span class="token boolean">true</span>                                 <span class="token comment">/* Skip type checking all .d.ts files. */</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>添加 src/index.jsx</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">const</span> content <span class="token operator">=</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>Guang<span class="token operator">&gt;</span>guang<span class="token operator">&lt;</span><span class="token operator">/</span>Guang<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"xxx"</span><span class="token operator">&gt;</span>link<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></code></pre>
+<p>执行编译：</p>
+<pre><code class="fenced-code-block">npx tsc</code></pre>
+<p>可以看到，生成的代码是这样的：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ab9dd0663054c8cb4f7f26b5a8aef31~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1482&amp;h=780&amp;s=122706&amp;e=png&amp;b=1c1c1c"></p>
+<p>React.createElement 第一个参数是类型，第二个参数是 props，第三个参数是 children。</p>
+<p>具体的 render function 的名字也可以指定：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88f4545decd941a88e6885ae12dc97bc~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=840&amp;h=764&amp;s=90253&amp;e=png&amp;b=202020"></p>
+<p>再次执行编译，生成的就是这样的：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c09d1fd09bfa490db4be8023cdf213a2~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1038&amp;h=248&amp;s=54263&amp;e=png&amp;b=1f1f1f"></p>
+<p>这就是从 jsx 到 render function 这一步，由 babel、tsc 等编译器来做：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/486556f03b3d4fb9ba8966a1bd1f55b6~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1082&amp;h=298&amp;s=80318&amp;e=png&amp;b=fefefe"></p>
+<p>我们只要实现这些 render function，然后返回对应的 React Element 即可。</p>
+<p>创建 src/mini-react.js</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">createElement</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> props<span class="token punctuation">,</span> <span class="token operator">...</span>children</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        type<span class="token punctuation">,</span>
+        <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token operator">...</span>props<span class="token punctuation">,</span>
+            <span class="token literal-property property">children</span><span class="token operator">:</span> children<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">child</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> isTextNode <span class="token operator">=</span> <span class="token keyword">typeof</span> child <span class="token operator">===</span> <span class="token string">"string"</span> <span class="token operator">||</span> <span class="token keyword">typeof</span> child <span class="token operator">===</span> <span class="token string">"number"</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> isTextNode <span class="token operator">?</span> <span class="token function">createTextNode</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span> <span class="token operator">:</span> child<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">createTextNode</span><span class="token punctuation">(</span><span class="token parameter">nodeValue</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"TEXT_ELEMENT"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        nodeValue<span class="token punctuation">,</span>
+            <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> MiniReact <span class="token operator">=</span> <span class="token punctuation">{</span>
+    createElement
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span>MiniReact <span class="token operator">=</span> MiniReact<span class="token punctuation">;</span></code></pre>
+<p>MiniReact.createElement 就是我们实现的 render function。</p>
+<p>为什么文本节点要单独处理呢？</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaa17d2d5207448aaf1b0119c0c457d7~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1006&amp;h=218&amp;s=52473&amp;e=png&amp;b=1f1f1f"></p>
+<p>因为 div 的话，它的 type 是 div，可以有 props 和 children。</p>
+<p>而文本节点是没有 type、children、props 的。</p>
+<p>我们需要给它加个固定的 type TEXT_ELEMENT，并且设置 nodeValue 的 props。</p>
+<p>这样结构统一，方便后面处理。</p>
+<p>改下 index.jsx</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">const</span> content <span class="token operator">=</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"xxx"</span><span class="token operator">&gt;</span>link<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>content<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>编译一下：</p>
+<pre><code class="fenced-code-block">npx tsc -w</code></pre>
+<p>在 dist 下生成了目标代码：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41f42b03844748a6a8f875dd852463cc~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1838&amp;h=902&amp;s=216630&amp;e=png&amp;b=1e1e1e"> 加一个 index.html 引入下 dist 的代码：</p>
+<pre><code class="fenced-code-block language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>root<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./dist/mini-react.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./dist/index.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>然后跑个静态服务：</p>
+<pre><code class="fenced-code-block language-vbscript">npx http-server .</code></pre>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb72721f4e3e4e43beec8e6777349956~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=738&amp;h=600&amp;s=93866&amp;e=png&amp;b=181818"></p>
+<p>浏览器访问下：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e03c9168e124141b7bc8c9275afb4c6~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1712&amp;h=1436&amp;s=141775&amp;e=png&amp;b=ffffff"></p>
+<p>这个就是 React Element 的树，也就是我们常说的 vdom。</p>
+<p>接下来要把它转成 fiber 结构。</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87a5006344964b639654a87a37c999d1~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1144&amp;h=692&amp;s=217286&amp;e=png&amp;b=fefefe"></p>
+<p>这个过程叫做 reconcile。</p>
+<p>它并不是一次性完成的，而是通过调度器调度，根据时间分片放到多个任务里完成，这里我们用 requestIdleCallback 来调度。</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">let</span> nextUnitOfWork <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token keyword">let</span> wipRoot <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token keyword">let</span> currentRoot <span class="token operator">=</span> <span class="token keyword">null</span>
+
+<span class="token keyword">function</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">,</span> container</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    wipRoot <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">dom</span><span class="token operator">:</span> container<span class="token punctuation">,</span>
+        <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span>element<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">alternate</span><span class="token operator">:</span> currentRoot<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    nextUnitOfWork <span class="token operator">=</span> wipRoot
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">workLoop</span><span class="token punctuation">(</span><span class="token parameter">deadline</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> shouldYield <span class="token operator">=</span> <span class="token boolean">false</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>nextUnitOfWork <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>shouldYield<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        nextUnitOfWork <span class="token operator">=</span> <span class="token function">performUnitOfWork</span><span class="token punctuation">(</span>
+            nextUnitOfWork
+        <span class="token punctuation">)</span>
+        shouldYield <span class="token operator">=</span> deadline<span class="token punctuation">.</span><span class="token function">timeRemaining</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">requestIdleCallback</span><span class="token punctuation">(</span>workLoop<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">requestIdleCallback</span><span class="token punctuation">(</span>workLoop<span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">performUnitOfWork</span><span class="token punctuation">(</span><span class="token parameter">fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>child<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> fiber<span class="token punctuation">.</span>child
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> nextFiber <span class="token operator">=</span> fiber
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>nextFiber<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nextFiber<span class="token punctuation">.</span>sibling<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> nextFiber<span class="token punctuation">.</span>sibling
+        <span class="token punctuation">}</span>
+        nextFiber <span class="token operator">=</span> nextFiber<span class="token punctuation">.</span>return
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>我们用 reqeustIdleCallback 来代替 React 的时间分片，把 React Element 树转 fiber 的 reconcile 过程放到不同的任务里跑。</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a3d85633a28455da775592bcda5e8ce~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=898&amp;h=662&amp;s=93435&amp;e=png&amp;b=1f1f1f"></p>
+<p>用 nextUnitOfWork 指向下一个要处理的 fiber 节点。</p>
+<p>每次跑的时候判断下 timeRemaing 是否接近 0，是的话就中断循环，等下次 requestIdleCallback 的回调再继续处理 nextUnitOfWork 指向的 fiber 节点。</p>
+<p>这里的 deadline.timeRemaing 是 requestIdleCallback 提供的，详细了解可以看下 <a title="https://developer.mozilla.org/zh-CN/docs/Web/API/Background_Tasks_API#%E7%A4%BA%E4%BE%8B" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Background_Tasks_API#%E7%A4%BA%E4%BE%8B">MDN 的文档</a>。</p>
+<p>render 方法里设置初始 nextUnitOfWork。</p>
+<p>这里有两个 root，一个是当前正在处理的 fiber 链表的根 wipRoot，一个是之前的历史 fiber 链表的根 currentRoot。</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1dce452b134742239587cd03d72c93d9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=680&amp;h=588&amp;s=66384&amp;e=png&amp;b=1f1f1f"></p>
+<p>为什么有两个 root 呢？</p>
+<p>因为初始渲染会生成一个 fiber 链表，然后后面 setState 更新会再生成一个新的 fiber 链表，两个 fiber 链表要做一些对比里决定对 dom 节点的增删改，所以都要保存。</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fbc13410c2c94e26828bdb05d9f0cea9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1880&amp;h=664&amp;s=120302&amp;e=png&amp;b=ffffff"></p>
+<p>而 performUnitOfWork 处理每个 fiber 节点之后，会按照 child、sibling、return 的顺序返回下一个要处理的 fiber 节点：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81356ad309834a31b72f2ec71f40e9a5~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=638&amp;h=524&amp;s=57085&amp;e=png&amp;b=1f1f1f"></p>
+<p>就是通过这种顺序来把 fiber 树变为链表的：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98ff118b03b14d5f9e56e1dcbeff674d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=640&amp;h=462&amp;s=192599&amp;e=png&amp;b=fcfafa"></p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5332b73820446e082956a8b1696880e~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1668&amp;h=358&amp;s=55910&amp;e=png&amp;b=ffffff"></p>
+<p>处理每个 fiber 节点的时候，要根据类型做不同的处理：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">performUnitOfWork</span><span class="token punctuation">(</span><span class="token parameter">fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> isFunctionComponent <span class="token operator">=</span> fiber<span class="token punctuation">.</span>type <span class="token keyword">instanceof</span> <span class="token class-name">Function</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isFunctionComponent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">updateFunctionComponent</span><span class="token punctuation">(</span>fiber<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">updateHostComponent</span><span class="token punctuation">(</span>fiber<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>child<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> fiber<span class="token punctuation">.</span>child
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> nextFiber <span class="token operator">=</span> fiber
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>nextFiber<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nextFiber<span class="token punctuation">.</span>sibling<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> nextFiber<span class="token punctuation">.</span>sibling
+        <span class="token punctuation">}</span>
+        nextFiber <span class="token operator">=</span> nextFiber<span class="token punctuation">.</span>parent
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> wipFiber <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token keyword">let</span> stateHookIndex <span class="token operator">=</span> <span class="token keyword">null</span>
+
+<span class="token keyword">function</span> <span class="token function">updateFunctionComponent</span><span class="token punctuation">(</span><span class="token parameter">fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  wipFiber <span class="token operator">=</span> fiber
+  stateHookIndex <span class="token operator">=</span> <span class="token number">0</span>
+  wipFiber<span class="token punctuation">.</span>stateHooks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  wipFiber<span class="token punctuation">.</span>effectHooks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token keyword">const</span> children <span class="token operator">=</span> <span class="token punctuation">[</span>fiber<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>props<span class="token punctuation">)</span><span class="token punctuation">]</span>
+  <span class="token function">reconcileChildren</span><span class="token punctuation">(</span>fiber<span class="token punctuation">,</span> children<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">updateHostComponent</span><span class="token punctuation">(</span><span class="token parameter">fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>fiber<span class="token punctuation">.</span>dom<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        fiber<span class="token punctuation">.</span>dom <span class="token operator">=</span> <span class="token function">createDom</span><span class="token punctuation">(</span>fiber<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">reconcileChildren</span><span class="token punctuation">(</span>fiber<span class="token punctuation">,</span> fiber<span class="token punctuation">.</span>props<span class="token punctuation">.</span>children<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>判断下是函数组件（FunctionComponent），还是原生标签（HostComponent），分别做处理。</p>
+<p>函数组件就是传入 props 调用它，并且函数组件的返回值就是要继续 reconcile 的节点。</p>
+<p>这里用 wipFiber 指向当前处理的 fiber（之前的 nextUnitOfWork 是指向下一个要处理的 fiber 节点）</p>
+<p>然后用一个 stateHooks 数组来存储 useState 的 hook 的值，用 effectHooks 数组存储 useEffect 的 hook 的值。</p>
+<p>对于原生标签（HostComponent），就是创建它对应的 dom 节点。</p>
+<p>具体创建 dom 的过程如下：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">createDom</span><span class="token punctuation">(</span><span class="token parameter">fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> dom <span class="token operator">=</span>
+      fiber<span class="token punctuation">.</span>type <span class="token operator">==</span> <span class="token string">"TEXT_ELEMENT"</span>
+        <span class="token operator">?</span> document<span class="token punctuation">.</span><span class="token function">createTextNode</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>
+        <span class="token operator">:</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>type<span class="token punctuation">)</span>
+
+    <span class="token function">updateDom</span><span class="token punctuation">(</span>dom<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> fiber<span class="token punctuation">.</span>props<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> dom
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">isEvent</span> <span class="token operator">=</span> <span class="token parameter">key</span> <span class="token operator">=&gt;</span> key<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"on"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">isProperty</span> <span class="token operator">=</span> <span class="token parameter">key</span> <span class="token operator">=&gt;</span> key <span class="token operator">!==</span> <span class="token string">"children"</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isEvent</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">isNew</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">prev<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token parameter">key</span> <span class="token operator">=&gt;</span> prev<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">!==</span> next<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+<span class="token keyword">const</span> <span class="token function-variable function">isGone</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">prev<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token parameter">key</span> <span class="token operator">=&gt;</span> <span class="token operator">!</span><span class="token punctuation">(</span>key <span class="token keyword">in</span> next<span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">updateDom</span><span class="token punctuation">(</span><span class="token parameter">dom<span class="token punctuation">,</span> prevProps<span class="token punctuation">,</span> nextProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">//Remove old or changed event listeners</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>prevProps<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isEvent<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>
+      <span class="token parameter">key</span> <span class="token operator">=&gt;</span> <span class="token operator">!</span><span class="token punctuation">(</span>key <span class="token keyword">in</span> nextProps<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">isNew</span><span class="token punctuation">(</span>prevProps<span class="token punctuation">,</span> nextProps<span class="token punctuation">)</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> eventType <span class="token operator">=</span> name<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+      dom<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span>eventType<span class="token punctuation">,</span> prevProps<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// Remove old properties</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>prevProps<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isProperty<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token function">isGone</span><span class="token punctuation">(</span>prevProps<span class="token punctuation">,</span> nextProps<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      dom<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// Set new or changed properties</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>nextProps<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isProperty<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token function">isNew</span><span class="token punctuation">(</span>prevProps<span class="token punctuation">,</span> nextProps<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      dom<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> nextProps<span class="token punctuation">[</span>name<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// Add event listeners</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>nextProps<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isEvent<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token function">isNew</span><span class="token punctuation">(</span>prevProps<span class="token punctuation">,</span> nextProps<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> eventType <span class="token operator">=</span> name<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+      dom<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>eventType<span class="token punctuation">,</span> nextProps<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>首先，根据是文本节点还是元素节点用 document.createElement 或 document.createTextNode 来创建。</p>
+<p>然后更新 props。</p>
+<p>首先删除旧的事件监听器，旧的属性，然后添加新的属性、新的事件监听器。</p>
+<p>这样函数组件和原生标签的 reconcile 就处理完了。</p>
+<p>继续处理它们的子节点：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">reconcileChildren</span><span class="token punctuation">(</span><span class="token parameter">wipFiber<span class="token punctuation">,</span> elements</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> oldFiber <span class="token operator">=</span> wipFiber<span class="token punctuation">.</span>alternate<span class="token operator">?.</span>child
+    <span class="token keyword">let</span> prevSibling <span class="token operator">=</span> <span class="token keyword">null</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span> index <span class="token operator">&lt;</span> elements<span class="token punctuation">.</span>length <span class="token operator">||</span> oldFiber <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> element <span class="token operator">=</span> elements<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
+        <span class="token keyword">let</span> newFiber <span class="token operator">=</span> <span class="token keyword">null</span>
+
+        <span class="token keyword">const</span> sameType <span class="token operator">=</span> element<span class="token operator">?.</span>type <span class="token operator">==</span> oldFiber<span class="token operator">?.</span>type
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sameType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            newFiber <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token literal-property property">type</span><span class="token operator">:</span> oldFiber<span class="token punctuation">.</span>type<span class="token punctuation">,</span>
+                <span class="token literal-property property">props</span><span class="token operator">:</span> element<span class="token punctuation">.</span>props<span class="token punctuation">,</span>
+                <span class="token literal-property property">dom</span><span class="token operator">:</span> oldFiber<span class="token punctuation">.</span>dom<span class="token punctuation">,</span>
+                <span class="token keyword">return</span><span class="token operator">:</span> wipFiber<span class="token punctuation">,</span>
+                <span class="token literal-property property">alternate</span><span class="token operator">:</span> oldFiber<span class="token punctuation">,</span>
+                <span class="token literal-property property">effectTag</span><span class="token operator">:</span> <span class="token string">"UPDATE"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>element <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>sameType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            newFiber <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token literal-property property">type</span><span class="token operator">:</span> element<span class="token punctuation">.</span>type<span class="token punctuation">,</span>
+                <span class="token literal-property property">props</span><span class="token operator">:</span> element<span class="token punctuation">.</span>props<span class="token punctuation">,</span>
+                <span class="token literal-property property">dom</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+                <span class="token keyword">return</span><span class="token operator">:</span> wipFiber<span class="token punctuation">,</span>
+                <span class="token literal-property property">alternate</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">effectTag</span><span class="token operator">:</span> <span class="token string">"PLACEMENT"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>oldFiber <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>sameType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            oldFiber<span class="token punctuation">.</span>effectTag <span class="token operator">=</span> <span class="token string">"DELETION"</span>
+            deletions<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>oldFiber<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>oldFiber<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            oldFiber <span class="token operator">=</span> oldFiber<span class="token punctuation">.</span>sibling
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            wipFiber<span class="token punctuation">.</span>child <span class="token operator">=</span> newFiber
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            prevSibling<span class="token punctuation">.</span>sibling <span class="token operator">=</span> newFiber
+        <span class="token punctuation">}</span>
+
+        prevSibling <span class="token operator">=</span> newFiber
+        index<span class="token operator">++</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>当时 wipRoot 我们就制定了 alternate，也就是之前的 fiber 树，这样当 reconcile 创建新的 fiber 树的时候，就可以和之前的做 diff，判断是新增、修改、删除，打上对应的标记。</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7553ed2ef3e14354ad479f296d584e24~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=600&amp;h=380&amp;s=42800&amp;e=png&amp;b=1f1f1f"></p>
+<p>首先，拿到 alternate 的 child，依次取 sibling，逐一和新的 fiber 节点对比。</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/050491e04c9d422ea370a382dee14eaf~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=934&amp;h=1102&amp;s=147454&amp;e=png&amp;b=1f1f1f"></p>
+<p>然后根据对比结果来创建新的 fiber 节点，也是先 child 后 sibling 的方式：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82e090ba2eff4c77979e34b201dfa851~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1016&amp;h=1144&amp;s=152117&amp;e=png&amp;b=1f1f1f"></p>
+<p>这样遍历之前的 fiber 链表和生成新的 fiber 链表的原因，看图很容易搞懂：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ca1fea415194681a6a8e2a76715720c~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=998&amp;h=730&amp;s=385287&amp;e=png&amp;b=fbf9f9"></p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a522e55cf96149f5b791f16af53316d8~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1460&amp;h=348&amp;s=48511&amp;e=png&amp;b=ffffff"></p>
+<p>然后 diff 两个 fiber 链表，就是判断节点 type 是不是一样。</p>
+<p>如果一样，就是修改，不一样，那就是删除或者新增，搭上对应的标记：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e491a6dc8ce4ec386c59e8b5aebac1d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1062&amp;h=944&amp;s=134192&amp;e=png&amp;b=1f1f1f"></p>
+<p>fiber 节点的 type、props 就是类型和参数。</p>
+<p>dom 是对应的 dom 节点，</p>
+<p>alternate 是对应的旧的 fiber 节点。</p>
+<p>effectTag 是增删改的标记。</p>
+<p>这里的 delections 数组，也就是要删除的节点，在 render 的时候初始化：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c502e1241be547bc9bbfbd60d648da61~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=626&amp;h=658&amp;s=69021&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">let</span> nextUnitOfWork <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token keyword">let</span> wipRoot <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token keyword">let</span> currentRoot <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token keyword">let</span> deletions <span class="token operator">=</span> <span class="token keyword">null</span>
+
+<span class="token keyword">function</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">,</span> container</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    wipRoot <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">dom</span><span class="token operator">:</span> container<span class="token punctuation">,</span>
+        <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span>element<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">alternate</span><span class="token operator">:</span> currentRoot<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+
+    deletions <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    nextUnitOfWork <span class="token operator">=</span> wipRoot
+<span class="token punctuation">}</span></code></pre>
+<p>这样，从 wipRoot 开始，逐渐 reconcile 构建新的 fiber 节点，根据 FunctionComponent 还是原生标签（HostComponent）来分别执行函数和创建 dom，并且还对新旧的 fiber 节点做了 diff，搭上增删改标记。</p>
+<p>reconcile 结束，新的 fiber 链表就创建好了。</p>
+<p>其中，函数组件可能会调用 useState 或者 useEffect 的 api，我们也要实现一下：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d1d4fef4b43466386fcf60b28cb6ae1~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1104&amp;h=784&amp;s=113903&amp;e=png&amp;b=1f1f1f"></p>
+<p>首先，useState 的 state 和 useEffect 的 effect 存在哪里呢？</p>
+<p>肯定是在 fiber 上。</p>
+<p>比如用两个数组 stateHooks 和 effectHooks 分别来存储：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3139c166e69d4dabbbca882c6358b809~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1064&amp;h=634&amp;s=78517&amp;e=png&amp;b=ffffff"></p>
+<p>先实现 useState：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token parameter">initialState</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> currentFiber <span class="token operator">=</span> wipFiber<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> oldHook <span class="token operator">=</span> wipFiber<span class="token punctuation">.</span>alternate<span class="token operator">?.</span>stateHooks<span class="token punctuation">[</span>stateHookIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> stateHook <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">state</span><span class="token operator">:</span> oldHook <span class="token operator">?</span> oldHook<span class="token punctuation">.</span>state <span class="token operator">:</span> initialState<span class="token punctuation">,</span>
+      <span class="token literal-property property">queue</span><span class="token operator">:</span> oldHook <span class="token operator">?</span> oldHook<span class="token punctuation">.</span>queue <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    stateHook<span class="token punctuation">.</span>queue<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">action</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      stateHook<span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token function">action</span><span class="token punctuation">(</span>stateHook<span class="token punctuation">.</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    stateHook<span class="token punctuation">.</span>queue <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    stateHookIndex<span class="token operator">++</span><span class="token punctuation">;</span>
+    wipFiber<span class="token punctuation">.</span>stateHooks<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>stateHook<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">setState</span><span class="token punctuation">(</span><span class="token parameter">action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> isFunction <span class="token operator">=</span> <span class="token keyword">typeof</span> action <span class="token operator">===</span> <span class="token string">"function"</span><span class="token punctuation">;</span>
+
+      stateHook<span class="token punctuation">.</span>queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>isFunction <span class="token operator">?</span> <span class="token function-variable function">action</span> <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> action<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      wipRoot <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token operator">...</span>currentFiber<span class="token punctuation">,</span>
+        <span class="token literal-property property">alternate</span><span class="token operator">:</span> currentFiber<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      nextUnitOfWork <span class="token operator">=</span> wipRoot<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>stateHook<span class="token punctuation">.</span>state<span class="token punctuation">,</span> setState<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>我们在 fiber 节点上用 stateHooks 数组来存储 state，还有多次调用 setState 的回调函数。</p>
+<p>比如这样：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45476733e1c048799a899c3a7bbb50cb~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=534&amp;h=202&amp;s=26883&amp;e=png&amp;b=202020"></p>
+<p>那 state 就是 0，然后 queue 里存了三个修改 state 的函数。</p>
+<p>每次调用 useState 时会在 stateHooks 添加一个元素来保存 state：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88fc3bb179454d7b9979cb1914d5f5e2~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1010&amp;h=690&amp;s=112428&amp;e=png&amp;b=1f1f1f"></p>
+<p>state 的初始值是前面一次渲染的 state 值，也就是取 alternate 的同一位置的 state：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0d7849b6b7e4736884fead00f31ebd1~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1050&amp;h=668&amp;s=112312&amp;e=png&amp;b=1f1f1f"></p>
+<p>这样对初始 state 执行多个 action（也就是 setState） 之后，就拿到了最终的 state 值。</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a485bf53823042bfabedd56e27419cc1~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1022&amp;h=670&amp;s=112237&amp;e=png&amp;b=1f1f1f"></p>
+<p>修改完 state 之后清空 queue。</p>
+<p>比如这里初始 state 是 0，调用三次 action 之后，state 变为 3：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/657fd00dc90741d08fbb6e44806604c3~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=530&amp;h=184&amp;s=26923&amp;e=png&amp;b=1f1f1f"></p>
+<p>然后 setState 就是在 action 数组里添加新的 action，并且让 nextUnitOfWork 指向新的 wipRoot，从而开始新的一轮渲染：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4475bce5697040d48ba34d1a96184ff7~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=898&amp;h=418&amp;s=62621&amp;e=png&amp;b=1f1f1f"></p>
+<p>然后是 useEffect：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token parameter">callback<span class="token punctuation">,</span> deps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> effectHook <span class="token operator">=</span> <span class="token punctuation">{</span>
+    callback<span class="token punctuation">,</span>
+    deps<span class="token punctuation">,</span>
+    <span class="token literal-property property">cleanup</span><span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  wipFiber<span class="token punctuation">.</span>effectHooks<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>effectHook<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>它就是在 fiber.effectHooks 上添加一个元素。</p>
+<p>这样，等 reconcile 结束，fiber 链表就构建好了，在 fiber 上打上了增删改的标记，并且也保存了要执行的 effect。</p>
+<p>接下来只要遍历这个构建好的 fiber 链表，执行增删改和 effect 函数就好了。</p>
+<p>这个阶段是 commit。</p>
+<p>前面讲过，requestIdleCallback 在不断进行，每次处理一部分 fiber 的 reconcile。</p>
+<p>我们只要在 reconcile 结束，也就是没有 nextUnitOfWork 的时候执行 commit 就行了：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d2f93a4f8d024b74bb7968cb63b74feb~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=804&amp;h=636&amp;s=91058&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>nextUnitOfWork <span class="token operator">&amp;&amp;</span> wipRoot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">commitRoot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>在 commitRoot 里，我们先把需要删除的节点都删掉，然后遍历 fiber 链表，处理其它节点：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">commitRoot</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    deletions<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>commitWork<span class="token punctuation">)</span>
+    <span class="token function">commitWork</span><span class="token punctuation">(</span>wipRoot<span class="token punctuation">.</span>child<span class="token punctuation">)</span>
+    currentRoot <span class="token operator">=</span> wipRoot
+    wipRoot <span class="token operator">=</span> <span class="token keyword">null</span>
+    deletions <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这里要把当前 wipRoot 设置为 currentRoot，然后把它置空，这就代表这次 reconcile 结束了。</p>
+<p>处理完之后还要把 deletions 数组里保存的要删除的节点置空，这时候已经删除了。</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">commitWork</span><span class="token punctuation">(</span><span class="token parameter">fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>fiber<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token function">commitWork</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>child<span class="token punctuation">)</span>
+    <span class="token function">commitWork</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>sibling<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>commitWork 按照 child、sibling 的顺序来递归遍历 fiber 链表。</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">commitWork</span><span class="token punctuation">(</span><span class="token parameter">fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>fiber<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">let</span> domParentFiber <span class="token operator">=</span> fiber<span class="token punctuation">.</span>return
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>domParentFiber<span class="token punctuation">.</span>dom<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        domParentFiber <span class="token operator">=</span> domParentFiber<span class="token punctuation">.</span>return
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> domParent <span class="token operator">=</span> domParentFiber<span class="token punctuation">.</span>dom
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>effectTag <span class="token operator">===</span> <span class="token string">"PLACEMENT"</span> <span class="token operator">&amp;&amp;</span> fiber<span class="token punctuation">.</span>dom <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        domParent<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>dom<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>effectTag <span class="token operator">===</span> <span class="token string">"UPDATE"</span> <span class="token operator">&amp;&amp;</span> fiber<span class="token punctuation">.</span>dom <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">updateDom</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>dom<span class="token punctuation">,</span> fiber<span class="token punctuation">.</span>alternate<span class="token punctuation">.</span>props<span class="token punctuation">,</span> fiber<span class="token punctuation">.</span>props<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>effectTag <span class="token operator">===</span> <span class="token string">"DELETION"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">commitDeletion</span><span class="token punctuation">(</span>fiber<span class="token punctuation">,</span> domParent<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">commitWork</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>child<span class="token punctuation">)</span>
+    <span class="token function">commitWork</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>sibling<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>首先，不断向上找，找到可以挂载的 dom 节点。</p>
+<p>然后按照增增删改的 effectTag 来分别做处理。</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">commitDeletion</span><span class="token punctuation">(</span><span class="token parameter">fiber<span class="token punctuation">,</span> domParent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>dom<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        domParent<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>dom<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">commitDeletion</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>child<span class="token punctuation">,</span> domParent<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>删除的时候，如果当前 fiber 节点没有对应的 dom，就不断 child 向下找。</p>
+<p>这样遍历完一遍之后，dom 的增删改就完成了。</p>
+<p>此外，我们还需要处理 effect。</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e7edbdc4ae4e4713bfdf46ae6addf6dc~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=550&amp;h=266&amp;s=40987&amp;e=png&amp;b=202020"></p>
+<p>它同样要遍历 fiber 链表：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/694bd9d6f9484cc6bf9eeffc13723f52~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=546&amp;h=378&amp;s=40421&amp;e=png&amp;b=1f1f1f"></p>
+<p>先遍历一遍执行所有的 cleanup 函数，然后再次遍历执行 effect 函数。</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">commitEffectHooks</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">runCleanup</span><span class="token punctuation">(</span><span class="token parameter">fiber</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>fiber<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+        fiber<span class="token punctuation">.</span>alternate<span class="token operator">?.</span>effectHooks<span class="token operator">?.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">hook<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+            <span class="token keyword">const</span> deps <span class="token operator">=</span> fiber<span class="token punctuation">.</span>effectHooks<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>deps<span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>hook<span class="token punctuation">.</span>deps <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">isDepsEqual</span><span class="token punctuation">(</span>hook<span class="token punctuation">.</span>deps<span class="token punctuation">,</span> deps<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                hook<span class="token punctuation">.</span>cleanup<span class="token operator">?.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        <span class="token function">runCleanup</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">runCleanup</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>sibling<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token parameter">fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>fiber<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+        fiber<span class="token punctuation">.</span>effectHooks<span class="token operator">?.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">newHook<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>fiber<span class="token punctuation">.</span>alternate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                hook<span class="token punctuation">.</span>cleanup <span class="token operator">=</span> hook<span class="token punctuation">.</span><span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>newHook<span class="token punctuation">.</span>deps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                hook<span class="token punctuation">.</span>cleanup <span class="token operator">=</span> hook<span class="token punctuation">.</span><span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>newHook<span class="token punctuation">.</span>deps<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> oldHook <span class="token operator">=</span> fiber<span class="token punctuation">.</span>alternate<span class="token operator">?.</span>effectHooks<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isDepsEqual</span><span class="token punctuation">(</span>oldHook<span class="token punctuation">.</span>deps<span class="token punctuation">,</span> newHook<span class="token punctuation">.</span>deps<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    newHook<span class="token punctuation">.</span>cleanup <span class="token operator">=</span> newHook<span class="token punctuation">.</span><span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">run</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">run</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>sibling<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">runCleanup</span><span class="token punctuation">(</span>wipRoot<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">run</span><span class="token punctuation">(</span>wipRoot<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">isDepsEqual</span><span class="token punctuation">(</span><span class="token parameter">deps<span class="token punctuation">,</span> newDeps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>deps<span class="token punctuation">.</span>length <span class="token operator">!==</span> newDeps<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> deps<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>deps<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!==</span> newDeps<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这里遍历 fiber 链表也是递归处理每个节点，每个节点递归处理 child、sibling。</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbfb1f353bd64176a7b0918f6dc73357~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=614&amp;h=726&amp;s=75147&amp;e=png&amp;b=1f1f1f"></p>
+<p>当没有传入 deps 数组，或者 deps 数组和上次不一致时，就执行 cleanup 函数。</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3fd2e7fe39c247d3a83d90e049ad7653~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=902&amp;h=500&amp;s=80515&amp;e=png&amp;b=1f1f1f"></p>
+<p>比如这样：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>当没有传入 deps 或者 deps 数组变化的时候，会执行上次的 clearTimeout。</p>
+<p>之后才会重新执行 effect：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba683dfd7bb947d98b81aee94a0b4043~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=988&amp;h=866&amp;s=138514&amp;e=png&amp;b=1f1f1f"></p>
+<p>当没有 alternate 的时候，就是首次渲染，直接执行所有的 effect。</p>
+<p>否则，如果没传入 deps 或者 deps 数组变化的时候再执行 effect 函数：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8eb1d25c778a4d3c87d4573a4f6c0907~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=994&amp;h=912&amp;s=128180&amp;e=png&amp;b=1f1f1f"></p>
+<p>这样，commit 阶段，我们遍历 fiber 链表做的 dom 的增删改，执行了 effect 函数。</p>
+<p>至此，react 的渲染流程的两大阶段 render 和 commit 就完成了。</p>
+<p>导出 render、useState、useEffect 的 api：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b27d0c9fa3d407b8757c8432d3f0845~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=374&amp;h=242&amp;s=21762&amp;e=png&amp;b=202020"></p>
+<p>然后外面包一层函数，避免污染全局变量：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/302686b9306b4bdf82ed9f54254faa37~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=718&amp;h=532&amp;s=58030&amp;e=png&amp;b=1f1f1f"></p>
+<p>我们整体测试下：</p>
+<p>改下 index.jsx</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> render<span class="token punctuation">,</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token operator">=</span> window<span class="token punctuation">.</span>MiniReact<span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span>setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">function</span> <span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">count</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>count<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>加一<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>App<span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>测试下：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be0fcf0b58704e4793b6f60594ab02ae~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=842&amp;h=556&amp;s=54243&amp;e=gif&amp;f=27&amp;b=fefefe"></p>
+<p>没啥问题。</p>
+<p>再测试下 useEffect：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> render<span class="token punctuation">,</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token operator">=</span> window<span class="token punctuation">.</span>MiniReact<span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span>setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">count</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>count<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>App<span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf1eaf434f07480e9e8f7d0b2c64aa03~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=842&amp;h=556&amp;s=30230&amp;e=gif&amp;f=37&amp;b=fefefe"></p>
+<p>也没啥问题。</p>
+<p>然后我们抽离一个组件，传入初始值和定时器的时间间隔：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> render<span class="token punctuation">,</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token operator">=</span> window<span class="token punctuation">.</span>MiniReact<span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">Counter</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>
+    initialNum<span class="token punctuation">,</span>
+    interval
+  <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>initialNum<span class="token punctuation">)</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">count</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> interval<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>count<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>Counter interval<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1000</span><span class="token punctuation">}</span> initialNum<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Counter<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>App<span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Counter 组件有 interval 和 initialNum 两个参数。</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bbf5f2972f994218874cde1dcd6b4cd9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1082&amp;h=818&amp;s=29853&amp;e=gif&amp;f=26&amp;b=fefefe"></p>
+<p>也没问题。</p>
+<p>这样，我们的 mini react 就完成了。</p>
+<p>案例代码上传了<a title="https://github.com/QuarkGluonPlasma/react-course-code/tree/main/mini-react" href="https://github.com/QuarkGluonPlasma/react-course-code/tree/main/mini-react">小册仓库</a>。</p>
+<h2 class="atx" id="总结">总结</h2>
+<p>我们 React 的渲染流程来实现了下 mini react。</p>
+<p>JSX 转 render function 这步是 babel 或 tsc 等编译器做的。</p>
+<p>我们实现 React.createElement 函数，那执行后返回的就是 React Element 树，也就是 vdom。</p>
+<p>通过 requestIdleCallback 在空闲时执行 React Element 转 fiber 的 reconcile 流程。</p>
+<p>按照函数组件 FunctionComponent 或者原生标签 HostComponent 分别执行函数或者创建 dom。</p>
+<p>reconcile 到子节点的时候要和 alternate 对比，判断是新增、修改还是删除，打上标记。</p>
+<p>这个过程中如果调用了 useState 或者 useEffect 会在对应 fiber 节点的 hooks 数组上添加一些元素。</p>
+<p>之后进入 commit 阶段，从根节点开始遍历 fiber 链表，根据标记来执行 dom 的增删改，以及执行 effect 函数。</p>
+<p>然后 useState 的 setState 会设置新的 nextUnitOfWork，从而触发新的一轮渲染流程。</p>
+<p>这样，和 React 的真实渲染流程类似的 mini react 就完成了。</p>
+</article>
+</body>
+</html>

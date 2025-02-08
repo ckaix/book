@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+  @font-face {
+  font-family: octicons-link;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #24292e;
+  line-height: 1.5;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b31d28;
+  color: #fafbfc;
+}
+
+.markdown-body .pl-c2 {
+  background-color: #d73a49;
+  color: #fafbfc;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #22863a;
+  font-weight: 700;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #005cc5;
+  font-weight: 700;
+}
+
+.markdown-body .pl-mi {
+  color: #24292e;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #24292e;
+  font-weight: 700;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffeef0;
+  color: #b31d28;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #f0fff4;
+  color: #22863a;
+}
+
+.markdown-body .pl-mc {
+  background-color: #ffebda;
+  color: #e36209;
+}
+
+.markdown-body .pl-mi2 {
+  background-color: #005cc5;
+  color: #f6f8fa;
+}
+
+.markdown-body .pl-mdr {
+  color: #6f42c1;
+  font-weight: 700;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  color: #032f62;
+  text-decoration: underline;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.markdown-body hr:before {
+  content: "";
+  display: table;
+}
+
+.markdown-body hr:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-bottom: 0!important;
+  padding-top: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-bottom: 8px!important;
+  padding-top: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body:before {
+  content: "";
+  display: table;
+}
+
+.markdown-body:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.markdown-body hr {
+  background-color: #e1e4e8;
+  border: 0;
+  height: .25em;
+  margin: 24px 0;
+  padding: 0;
+}
+
+.markdown-body blockquote {
+  border-left: .25em solid #dfe2e5;
+  color: #6a737d;
+  padding: 0 1em;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #fafbfc;
+  border: 1px solid #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+  color: #444d56;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: .3em;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  color: #6a737d;
+  font-size: .85em;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 16px;
+  padding: 0;
+}
+
+.markdown-body dl dd {
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.markdown-body table {
+  display: block;
+  overflow: auto;
+  width: 100%;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  border: 1px solid #dfe2e5;
+  padding: 6px 13px;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  background-color: #fff;
+  box-sizing: content-box;
+  max-width: 100%;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  padding: .2em .4em;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  word-break: normal;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  max-width: auto;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+}
+
+.markdown-body .commit-tease-sha {
+  color: #444d56;
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 90%;
+}
+
+.markdown-body .blob-wrapper {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  color: rgba(27,31,35,.3);
+  cursor: pointer;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  min-width: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+  user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 1%;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  line-height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  color: #24292e;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  overflow: visible;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  background: #ffea7f;
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+  color: #444d56;
+  display: inline-block;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.markdown-body :checked+.radio-label {
+  border-color: #0366d6;
+  position: relative;
+  z-index: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+/*# sourceURL=webpack://./node_modules/github-markdown-css/github-markdown.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL25vZGVfbW9kdWxlcy9naXRodWItbWFya2Rvd24tY3NzL2dpdGh1Yi1tYXJrZG93bi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwwQkFBMEI7RUFDMUIsMkRBQXF0RTtBQUN2dEU7O0FBRUE7RUFDRSxxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLDJCQUEyQjtBQUM3Qjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxjQUFjO0VBQ2Qsa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGFBQWE7QUFDZjs7QUFFQTs7Ozs7O0VBTUUsY0FBYztFQUNkLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7O0FBRUE7Ozs7OztFQU1FLHFCQUFxQjtBQUN2Qjs7QUFFQTs7Ozs7O0VBTUUsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLDhCQUE4QjtFQUM5QixjQUFjO0VBQ2QsZ0JBQWdCO0VBQ2hCLGtJQUFrSTtFQUNsSSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7O0VBRUUsY0FBYztBQUNoQjs7QUFFQTs7RUFFRSxjQUFjO0FBQ2hCOztBQUVBOztFQUVFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTs7Ozs7OztFQU9FLGNBQWM7QUFDaEI7O0FBRUE7O0VBRUUsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsY0FBYztBQUNoQjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0UsY0FBYztFQUNkLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7OztFQUdFLGNBQWM7RUFDZCxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFD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 */
+  </style>
+  <style>
+  /**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #9a6e3a;
+	/* This background color was intended by the author of this theme. */
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function,
+.token.class-name {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+/*# sourceURL=webpack://./node_modules/prismjs/themes/prism.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL25vZGVfbW9kdWxlcy9wcmlzbWpzL3RoZW1lcy9wcmlzbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7RUFJRTs7QUFFRjs7Q0FFQyxZQUFZO0NBQ1osZ0JBQWdCO0NBQ2hCLHdCQUF3QjtDQUN4QixzRUFBc0U7Q0FDdEUsY0FBYztDQUNkLGdCQUFnQjtDQUNoQixnQkFBZ0I7Q0FDaEIsb0JBQW9CO0NBQ3BCLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsZ0JBQWdCOztDQUVoQixnQkFBZ0I7Q0FDaEIsY0FBYztDQUNkLFdBQVc7O0NBRVgscUJBQXFCO0NBQ3JCLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsYUFBYTtBQUNkOztBQUVBOztDQUVDLGlCQUFpQjtDQUNqQixtQkFBbUI7QUFDcEI7O0FBRUE7O0NBRUMsaUJBQWlCO0NBQ2pCLG1CQUFtQjtBQUNwQjs7QUFFQTtDQUNDOztFQUVDLGlCQUFpQjtDQUNsQjtBQUNEOztBQUVBLGdCQUFnQjtBQUNoQjtDQUNDLFlBQVk7Q0FDWixjQUFjO0NBQ2QsY0FBYztBQUNmOztBQUVBOztDQUVDLG1CQUFtQjtBQUNwQjs7QUFFQSxnQkFBZ0I7QUFDaEI7Q0FDQyxhQUFhO0NBQ2IsbUJBQW1CO0NBQ25CLG1CQUFtQjtBQUNwQjs7QUFFQTs7OztDQUlDLGdCQUFnQjtBQUNqQjs7QUFFQTtDQUNDLFdBQVc7QUFDWjs7QUFFQTtDQUNDLFdBQVc7QUFDWjs7QUFFQTs7Ozs7OztDQU9DLFdBQVc7QUFDWjs7QUFFQTs7Ozs7O0NBTUMsV0FBVztBQUNaOztBQUVBOzs7OztDQUtDLGNBQWM7Q0FDZCxvRUFBb0U7Q0FDcEUsaUNBQWlDO0FBQ2xDOztBQUVBOzs7Q0FHQyxXQUFXO0FBQ1o7O0FBRUE7O0NBRUMsY0FBYztBQUNmOztBQUVBOzs7Q0FHQyxXQUFXO0FBQ1o7O0FBRUE7O0NBRUMsaUJBQWlCO0FBQ2xCO0FBQ0E7Q0FDQyxrQkFBa0I7QUFDbkI7O0FBRUE7Q0FDQyxZQUFZO0FBQ2IiLCJzb3VyY2VSb290IjoiIn0= */
+  </style>
+  <style>
+  
+  </style>
+  <style>
+    .markdown-body {
+      font-family: -apple-system,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+
+    @media not print {
+      .markdown-body {
+        padding: 45px;
+      }
+
+      @media (max-width: 767px) {
+        .markdown-body {
+          padding: 15px;
+        }
+      }
+    }
+
+    .hf-container {
+      color: #24292e;
+      line-height: 1.3;
+    }
+
+    .markdown-body .highlight pre,
+    .markdown-body pre {
+      white-space: pre-wrap;
+    }
+    .markdown-body table {
+      display: table;
+    }
+    .markdown-body img[data-align="center"] {
+      display: block;
+      margin: 0 auto;
+    }
+    .markdown-body img[data-align="right"] {
+      display: block;
+      margin: 0 0 0 auto;
+    }
+    .markdown-body li.task-list-item {
+      list-style-type: none;
+    }
+    .markdown-body li > [type=checkbox] {
+      margin: 0 0 0 -1.3em;
+    }
+    .markdown-body input[type="checkbox"] ~ p {
+      margin-top: 0;
+      display: inline-block;
+    }
+    .markdown-body ol ol,
+    .markdown-body ul ol {
+      list-style-type: decimal;
+    }
+    .markdown-body ol ol ol,
+    .markdown-body ol ul ol,
+    .markdown-body ul ol ol,
+    .markdown-body ul ul ol {
+      list-style-type: decimal;
+    }
+  </style>
+  <style>.markdown-body a.footnote-ref {
+  text-decoration: none;
+}
+
+.footnotes {
+  font-size: .85em;
+  opacity: .8;
+}
+
+.footnotes li[role="doc-endnote"] {
+  position: relative;
+}
+
+.footnotes .footnote-back {
+  position: absolute;
+  font-family: initial;
+  top: .2em;
+  right: 1em;
+  text-decoration: none;
+}
+
+.inline-math.invalid,
+.multiple-math.invalid {
+  color: rgb(255, 105, 105);
+}
+
+.toc-container {
+  width: 100%;
+}
+
+.toc-container .toc-title {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+
+.toc-container li,
+.toc-container ul,
+.toc-container ul li {
+  list-style: none !important;
+}
+
+.toc-container > ul {
+  padding-left: 0;
+}
+
+.toc-container ul li span {
+  display : flex;
+}
+
+.toc-container ul li span a {
+  color: inherit;
+  text-decoration: none;
+}
+.toc-container ul li span a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.toc-container ul li span span.dots {
+  flex: 1;
+  height: 0.65em;
+  margin: 0 10px;
+  border-bottom: 2px dotted black;
+}
+
+/*# sourceURL=webpack://./src/muya/lib/assets/styles/exportStyle.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9tdXlhL2xpYi9hc3NldHMvc3R5bGVzL2V4cG9ydFN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixXQUFXO0FBQ2I7O0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsb0JBQW9CO0VBQ3BCLFNBQVM7RUFDVCxVQUFVO0VBQ1YscUJBQXFCO0FBQ3ZCOztBQUVBOztFQUVFLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0FBQ2xCOztBQUVBOzs7RUFHRSwyQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGNBQWM7RUFDZCxxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRSxPQUFPO0VBQ1AsY0FBYztFQUNkLGNBQWM7RUFDZCwrQkFBK0I7QUFDakMiLCJzb3VyY2VSb290IjoiIn0= */</style>
+  <style>.markdown-body{}pre.front-matter{display:none!important;}</style>
+</head>
+<body>
+  <article class="markdown-body"><p>基本的布局完成了，我们来添加一些参数：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad04e19e36074b8193b32176742a63ed~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=986&amp;h=708&amp;s=175040&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">CalendarProps</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">value</span><span class="token operator">:</span> Dayjs<span class="token punctuation">;</span>
+    style<span class="token operator">?</span><span class="token operator">:</span> CSSProperties<span class="token punctuation">;</span>
+    className<span class="token operator">?</span><span class="token operator">:</span> string <span class="token operator">|</span> string<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">// 定制日期显示，会完全覆盖日期单元格</span>
+    dateRender<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">currentDate</span><span class="token operator">:</span> Dayjs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> ReactNode<span class="token punctuation">;</span>
+    <span class="token comment">// 定制日期单元格，内容会被添加到单元格内，只在全屏日历模式下生效。</span>
+    dateInnerContent<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">currentDate</span><span class="token operator">:</span> Dayjs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> ReactNode<span class="token punctuation">;</span>
+    <span class="token comment">// 国际化相关</span>
+    locale<span class="token operator">?</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+    onChange<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">date</span><span class="token operator">:</span> Dayjs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>style 和 className 用于修改 Calendar 组件外层容器的样式。</p>
+<p>内部的布局我们都是用的 flex，所以只要外层容器的样式变了，内部的布局会自动适应。</p>
+<p>dateRender 是用来定制日期单元格显示的内容的。</p>
+<p>比如加一些日程安排，加一些农历或者节日信息：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40838b7c5be24a31972ef2de2c4e1805~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1464&amp;h=944&amp;s=77627&amp;e=png&amp;b=ffffff"></p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ab74da1b1a740f0a21347b238d3270f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=928&amp;h=804&amp;s=83664&amp;e=png&amp;b=fefefe"></p>
+<p>dateRender 是整个覆盖，连带日期的数字一起，而 dateInnerContent 只会在日期的数字下添加一些内容。</p>
+<p>这两个 props 是不一样的。</p>
+<p>locale 是用于国际化的，比如切换到中文显示或者是英文显示。</p>
+<p>onChange 是当选择了日期之后会触发的回调。</p>
+<p>然后实现下这些参数对应的逻辑。</p>
+<p>首先是 className 和 style：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5d42ab5e7f944809d35f8d4128a2074~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=812&amp;h=556&amp;s=76401&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">Calendar</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">props</span><span class="token operator">:</span> CalendarProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        value<span class="token punctuation">,</span>
+        style<span class="token punctuation">,</span>
+        className<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> classNames <span class="token operator">=</span> <span class="token function">cs</span><span class="token punctuation">(</span><span class="token string">"calendar"</span><span class="token punctuation">,</span> className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>classNames<span class="token punctuation">}</span> style<span class="token operator">=</span><span class="token punctuation">{</span>style<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Header<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Header<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>MonthCalendar <span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这里用 classnames 这个包来做 className 的合并。</p>
+<pre><code class="fenced-code-block">npm install classnames</code></pre>
+<p>它可以传入对象或者数组，会自动合并，返回最终的 className：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe280117f3fb46c39c45035446a0d2df~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=808&amp;h=134&amp;s=25647&amp;e=png&amp;b=f7f7f7"></p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/478d424e5432401eac1e3d4587656537~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=974&amp;h=122&amp;s=34158&amp;e=png&amp;b=f7f7f7"></p>
+<p>当 className 的确定需要一段复杂计算逻辑的时候，就用 classname 这个包。</p>
+<p>测试下：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b14e913ef9c43b1b6c9625c0d6d7cb2~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1646&amp;h=500&amp;s=94709&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> dayjs <span class="token keyword">from</span> <span class="token string">'dayjs'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Calendar <span class="token keyword">from</span> <span class="token string">'./Calendar'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Calendar value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">'2023-11-08'</span><span class="token punctuation">)</span><span class="token punctuation">}</span> className<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'aaa'</span><span class="token punctuation">}</span> style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token literal-property property">background</span><span class="token operator">:</span> <span class="token string">'yellow'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Calendar<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/245a7527fe844e64ab6ce352f2a7ccf4~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=2398&amp;h=1412&amp;s=133389&amp;e=png&amp;b=ffff54"></p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84aedaf1345b405cb41645358e6a64dd~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=802&amp;h=248&amp;s=78127&amp;e=png&amp;b=fcfcfc"></p>
+<p>className 和 style 的处理没问题。</p>
+<p>然后我们处理下一个 props： dateRender 和 dateInnerContent。</p>
+<p>在 MonthCalendar 里把它取出来，传入到 renderDays 方法里：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/baf098c0ab864264990f3e0e44e14220~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1252&amp;h=972&amp;s=187202&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span>
+    dateRender<span class="token punctuation">,</span>
+    dateInnerContent
+<span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span></code></pre>
+<pre><code class="fenced-code-block language-javascript"><span class="token function">renderDays</span><span class="token punctuation">(</span>allDays<span class="token punctuation">,</span> dateRender<span class="token punctuation">,</span> dateInnerContent<span class="token punctuation">)</span></code></pre>
+<p>dateRender 的处理也很简单，就是把渲染日期的逻辑换一下：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10d52506a90949748b73afe6ef6954b3~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1540&amp;h=806&amp;s=162397&amp;e=png&amp;b=1f1f1f"></p>
+<p>在 App.tsx 里传入 dateRender 参数：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f198d12dd6234ca7a68c3177d17721df~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1542&amp;h=660&amp;s=125409&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> dayjs <span class="token keyword">from</span> <span class="token string">'dayjs'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Calendar <span class="token keyword">from</span> <span class="token string">'./Calendar'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Calendar value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">'2023-11-08'</span><span class="token punctuation">)</span><span class="token punctuation">}</span> dateRender<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token literal-property property">background</span><span class="token operator">:</span> <span class="token string">'yellowgreen'</span><span class="token punctuation">,</span> <span class="token literal-property property">height</span><span class="token operator">:</span> <span class="token string">'50px'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>value<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY/MM/DD'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Calendar<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre>
+<p>这样，渲染的内容就换成自定义的了：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4856e1d44a8d40ce8ba64893d2647487~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=2424&amp;h=1356&amp;s=205462&amp;e=png&amp;b=fcfcfc"></p>
+<p>不过现在我们没有做内容溢出时的处理：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16142f16334c49acb0b95668e6071252~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1608&amp;h=640&amp;s=125836&amp;e=png&amp;b=1f1f1f"></p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4ee9ca327fb4055bfd4baa90ab6b2ff~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=2220&amp;h=950&amp;s=89363&amp;e=png&amp;b=a7cc4f"></p>
+<p>加个 overflow: hidden 就好了：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c4b48ab99454401b610bfe3805f5737~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1024&amp;h=862&amp;s=113803&amp;e=png&amp;b=1f1f1f"></p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a95bb3ea12364443bf5cc50a6eb934cc~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=2434&amp;h=1402&amp;s=209214&amp;e=png&amp;b=a7cc4f"> 而且之前加 padding 的位置也不对。</p>
+<p>改一下渲染日期的逻辑，如果传了 dateRender 那就整个覆盖日期单元格，否则就是只在下面渲染 dateInnerContent 的内容：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e331642accc41e1b6d1d903d3f703ca~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1914&amp;h=1034&amp;s=272471&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">renderDays</span><span class="token punctuation">(</span>
+    <span class="token literal-property property">days</span><span class="token operator">:</span> Array<span class="token operator">&lt;</span><span class="token punctuation">{</span> <span class="token literal-property property">date</span><span class="token operator">:</span> Dayjs<span class="token punctuation">,</span> <span class="token literal-property property">currentMonth</span><span class="token operator">:</span> boolean<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">dateRender</span><span class="token operator">:</span> MonthCalendarProps<span class="token punctuation">[</span><span class="token string">'dateRender'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">dateInnerContent</span><span class="token operator">:</span>  MonthCalendarProps<span class="token punctuation">[</span><span class="token string">'dateInnerContent'</span><span class="token punctuation">]</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> rows <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">6</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> row <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">7</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> item <span class="token operator">=</span> days<span class="token punctuation">[</span>i <span class="token operator">*</span> <span class="token number">7</span> <span class="token operator">+</span> j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            row<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>
+                <span class="token string">"calendar-month-body-cell "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>currentMonth <span class="token operator">?</span> <span class="token string">'calendar-month-body-cell-current'</span> <span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token operator">&gt;</span>
+                <span class="token punctuation">{</span>
+                    dateRender <span class="token operator">?</span> <span class="token function">dateRender</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>date<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">(</span>
+                        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-body-cell-date"</span><span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-body-cell-date-value"</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>date<span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-body-cell-date-content"</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>dateInnerContent<span class="token operator">?.</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>date<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                    <span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token punctuation">}</span>
+        rows<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> rows<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">row</span> <span class="token operator">=&gt;</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-body-row"</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>row<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>改下对应的样式：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33bd14fe20b44cb8950b55dd02aa69e0~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=830&amp;h=790&amp;s=103467&amp;e=png&amp;b=202020"></p>
+<p>把加 padding 的位置改为内部的元素。</p>
+<p>测试下：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d07e7c30017649d1b21bfb2ae8957a08~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1586&amp;h=664&amp;s=126331&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> dayjs <span class="token keyword">from</span> <span class="token string">'dayjs'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Calendar <span class="token keyword">from</span> <span class="token string">'./Calendar'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Calendar value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">'2023-11-08'</span><span class="token punctuation">)</span><span class="token punctuation">}</span> dateInnerContent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>p style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token literal-property property">background</span><span class="token operator">:</span> <span class="token string">'yellowgreen'</span><span class="token punctuation">,</span> <span class="token literal-property property">height</span><span class="token operator">:</span> <span class="token string">'30px'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>value<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY/MM/DD'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Calendar<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a768a64d2de4427913c003f47abc232~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=2416&amp;h=1406&amp;s=242124&amp;e=png&amp;b=fefefe"></p>
+<p>这样，dateRender 和 dateInnerContent 的逻辑就完成了。</p>
+<p>接下来做国际化，也就是 locale 参数的处理。</p>
+<p>国际化就是可以让日历支持中文、英文、日文等，其实也很简单，就是把写死的文案换成按照 key 从配置中取的文案就行了。</p>
+<p>定义下用到的 ts 类型 src/Calendar/locale/interface.ts</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">CalendarType</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">formatYear</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+    <span class="token literal-property property">formatMonth</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+    <span class="token literal-property property">today</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+    <span class="token literal-property property">month</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">January</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">February</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">March</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">April</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">May</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">June</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">July</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">August</span><span class="token operator">:</span> string<span class="token punctuation">;</span>       
+        <span class="token literal-property property">September</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">October</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">November</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">December</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token operator">&amp;</span> Record<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> any<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+    <span class="token literal-property property">week</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">monday</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">tuesday</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">wednesday</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">thursday</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">friday</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">saturday</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+        <span class="token literal-property property">sunday</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token operator">&amp;</span> Record<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> any<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>然后分别定义中文和英文的配置：</p>
+<p>src/Calendar/locale/zh-CN.ts</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> CalendarType <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"./interface"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token literal-property property">CalendarLocale</span><span class="token operator">:</span> CalendarType <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">formatYear</span><span class="token operator">:</span> <span class="token string">'YYYY 年'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">formatMonth</span><span class="token operator">:</span> <span class="token string">'YYYY 年 MM 月'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">today</span><span class="token operator">:</span> <span class="token string">'今天'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">month</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">January</span><span class="token operator">:</span> <span class="token string">'一月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">February</span><span class="token operator">:</span> <span class="token string">'二月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">March</span><span class="token operator">:</span> <span class="token string">'三月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">April</span><span class="token operator">:</span> <span class="token string">'四月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">May</span><span class="token operator">:</span> <span class="token string">'五月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">June</span><span class="token operator">:</span> <span class="token string">'六月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">July</span><span class="token operator">:</span> <span class="token string">'七月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">August</span><span class="token operator">:</span> <span class="token string">'八月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">September</span><span class="token operator">:</span> <span class="token string">'九月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">October</span><span class="token operator">:</span> <span class="token string">'十月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">November</span><span class="token operator">:</span> <span class="token string">'十一月'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">December</span><span class="token operator">:</span> <span class="token string">'十二月'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">week</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">monday</span><span class="token operator">:</span> <span class="token string">'周一'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">tuesday</span><span class="token operator">:</span> <span class="token string">'周二'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">wednesday</span><span class="token operator">:</span> <span class="token string">'周三'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">thursday</span><span class="token operator">:</span> <span class="token string">'周四'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">friday</span><span class="token operator">:</span> <span class="token string">'周五'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">saturday</span><span class="token operator">:</span> <span class="token string">'周六'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">sunday</span><span class="token operator">:</span> <span class="token string">'周日'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> CalendarLocale<span class="token punctuation">;</span></code></pre>
+<p>src/Calendar/locale/zh-CN.ts</p>
+<p>把会用到的文案列出来。</p>
+<p>然后再写个英文版：</p>
+<p>src/Calendar/locale/en-US.ts</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> CalendarType <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"./interface"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token literal-property property">CalendarLocale</span><span class="token operator">:</span> CalendarType <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">formatYear</span><span class="token operator">:</span> <span class="token string">'YYYY'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">formatMonth</span><span class="token operator">:</span> <span class="token string">'MMM YYYY'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">today</span><span class="token operator">:</span> <span class="token string">'Today'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">month</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">January</span><span class="token operator">:</span> <span class="token string">'January'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">February</span><span class="token operator">:</span> <span class="token string">'February'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">March</span><span class="token operator">:</span> <span class="token string">'March'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">April</span><span class="token operator">:</span> <span class="token string">'April'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">May</span><span class="token operator">:</span> <span class="token string">'May'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">June</span><span class="token operator">:</span> <span class="token string">'June'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">July</span><span class="token operator">:</span> <span class="token string">'July'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">August</span><span class="token operator">:</span> <span class="token string">'August'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">September</span><span class="token operator">:</span> <span class="token string">'September'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">October</span><span class="token operator">:</span> <span class="token string">'October'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">November</span><span class="token operator">:</span> <span class="token string">'November'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">December</span><span class="token operator">:</span> <span class="token string">'December'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">week</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">monday</span><span class="token operator">:</span> <span class="token string">'Monday'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">tuesday</span><span class="token operator">:</span> <span class="token string">'Tuesday'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">wednesday</span><span class="token operator">:</span> <span class="token string">'Wednesday'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">thursday</span><span class="token operator">:</span> <span class="token string">'Thursday'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">friday</span><span class="token operator">:</span> <span class="token string">'Friday'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">saturday</span><span class="token operator">:</span> <span class="token string">'Saturday'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">sunday</span><span class="token operator">:</span> <span class="token string">'Sunday'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> CalendarLocale<span class="token punctuation">;</span></code></pre>
+<p>我们先把上面的周一到周日的文案替换了：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58861e3f6c624c4fb9d170d51dedbe92~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=828&amp;h=188&amp;s=16351&amp;e=png&amp;b=fefefe"></p>
+<p>在 MonthCalendar 引入中文的资源包：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/abd559e74c9a4914b3b26211e8f3a191~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=842&amp;h=190&amp;s=42882&amp;e=png&amp;b=1f1f1f"></p>
+<p>然后把之前写死的文案，改成按照 key 从资源包中取值的方式：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e5c2d6715554aeeb67c0497af613c85~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1560&amp;h=1034&amp;s=212364&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">MonthCalendar</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">props</span><span class="token operator">:</span> MonthCalendarProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        dateRender<span class="token punctuation">,</span>
+        dateInnerContent
+    <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> weekList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'sunday'</span><span class="token punctuation">,</span> <span class="token string">'monday'</span><span class="token punctuation">,</span> <span class="token string">'tuesday'</span><span class="token punctuation">,</span> <span class="token string">'wednesday'</span><span class="token punctuation">,</span> <span class="token string">'thursday'</span><span class="token punctuation">,</span> <span class="token string">'friday'</span><span class="token punctuation">,</span> <span class="token string">'saturday'</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">const</span> allDays <span class="token operator">=</span> <span class="token function">getAllDays</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month"</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-week-list"</span><span class="token operator">&gt;</span>
+            <span class="token punctuation">{</span>weekList<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">week</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+                <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-week-list-item"</span> key<span class="token operator">=</span><span class="token punctuation">{</span>week<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+                    <span class="token punctuation">{</span>CalendarLocale<span class="token punctuation">.</span>week<span class="token punctuation">[</span>week<span class="token punctuation">]</span><span class="token punctuation">}</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-body"</span><span class="token operator">&gt;</span>
+            <span class="token punctuation">{</span>
+                <span class="token function">renderDays</span><span class="token punctuation">(</span>allDays<span class="token punctuation">,</span> dateRender<span class="token punctuation">,</span> dateInnerContent<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>现在渲染出来的是这样的：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/625b8a70d4aa452eb8eb8f92fe9a15a9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=792&amp;h=416&amp;s=35846&amp;e=png&amp;b=fefefe"></p>
+<p>只要改一下用的资源包：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/158e69f532f7488bb61626a093c49858~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=904&amp;h=258&amp;s=56739&amp;e=png&amp;b=202020"></p>
+<p>文案就变了：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a220a04bef5423aa909fb3a41081231~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=812&amp;h=280&amp;s=33739&amp;e=png&amp;b=fefdfd"></p>
+<p>这就是国际化。</p>
+<p>当然，现在我们是手动切换的资源包，其实应该是全局统一配置的。</p>
+<p>这个可以通过 context 来做：</p>
+<p>新建 src/Calendar/LocaleContext.tsx</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createContext <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">LocaleContextType</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">locale</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> LocaleContext <span class="token operator">=</span> createContext<span class="token operator">&lt;</span>LocaleContextType<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">locale</span><span class="token operator">:</span> <span class="token string">'zh-CN'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> LocaleContext<span class="token punctuation">;</span></code></pre>
+<p>然后在 Calendar 组件里用 provider 修改 context 的值：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c370135a76024996bff480fe35966402~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=992&amp;h=1056&amp;s=179029&amp;e=png&amp;b=1f1f1f"></p>
+<p>如果传入了参数，就用指定的 locale，否则，就从浏览器取当前语言：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8ad08bd97a04848857198317c219a6b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=424&amp;h=210&amp;s=20259&amp;e=png&amp;b=ffffff"></p>
+<p>加一个国际化资源包的入口：</p>
+<p>src/Calendar/locale/index.ts</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> zhCN <span class="token keyword">from</span> <span class="token string">"./zh-CN"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> enUS <span class="token keyword">from</span> <span class="token string">"./en-US"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> CalendarType <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"./interface"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token literal-property property">allLocales</span><span class="token operator">:</span> Record<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> CalendarType<span class="token operator">&gt;=</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">'zh-CN'</span><span class="token operator">:</span> zhCN<span class="token punctuation">,</span>
+    <span class="token string-property property">'en-US'</span><span class="token operator">:</span> enUS
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> allLocales<span class="token punctuation">;</span></code></pre>
+<p>把 MonthCalendar 组件的 locale 改成从 context 获取的：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/018ea90bc25a4ffb99897214a8749a18~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1114&amp;h=858&amp;s=178665&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">const</span> localeContext <span class="token operator">=</span> <span class="token function">useContext</span><span class="token punctuation">(</span>LocaleContext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> CalendarLocale <span class="token operator">=</span> allLocales<span class="token punctuation">[</span>localeContext<span class="token punctuation">.</span>locale<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+<p>这样，当不指定 locale 时，就会按照浏览器的语言来设置：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1620fb40385420b8afd5165de15ba73~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=796&amp;h=442&amp;s=35771&amp;e=png&amp;b=fefefe"></p>
+<p>当指定 locale 时，就会切换为指定语言的资源包：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8fc40c996f941fabcca4ebec2f603c3~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1190&amp;h=468&amp;s=79980&amp;e=png&amp;b=1f1f1f"></p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/56242c5291e149bea44b13d199f27374~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=840&amp;h=190&amp;s=25138&amp;e=png&amp;b=fefefe"></p>
+<p>接下来，我们实现 value 和 onChange 参数的逻辑。</p>
+<p>在 MonthCalendar 里取出 value 参数，传入 renderDays 方法：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75acc198365c480dad75e52e117388c6~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1334&amp;h=1124&amp;s=233547&amp;e=png&amp;b=1f1f1f"></p>
+<p>用 classnames 的 api 来拼接 className，如果是当前日期，就加一个 xxx-selected 的 className：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/308bab0216f74bb3b57cab2abea03641~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1572&amp;h=1318&amp;s=296996&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">renderDays</span><span class="token punctuation">(</span>
+    <span class="token literal-property property">days</span><span class="token operator">:</span> Array<span class="token operator">&lt;</span><span class="token punctuation">{</span> <span class="token literal-property property">date</span><span class="token operator">:</span> Dayjs<span class="token punctuation">,</span> <span class="token literal-property property">currentMonth</span><span class="token operator">:</span> boolean<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">dateRender</span><span class="token operator">:</span> MonthCalendarProps<span class="token punctuation">[</span><span class="token string">'dateRender'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">dateInnerContent</span><span class="token operator">:</span>  MonthCalendarProps<span class="token punctuation">[</span><span class="token string">'dateInnerContent'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">value</span><span class="token operator">:</span> Dayjs
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> rows <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">6</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> row <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">7</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> item <span class="token operator">=</span> days<span class="token punctuation">[</span>i <span class="token operator">*</span> <span class="token number">7</span> <span class="token operator">+</span> j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            row<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>
+                <span class="token string">"calendar-month-body-cell "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>currentMonth <span class="token operator">?</span> <span class="token string">'calendar-month-body-cell-current'</span> <span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            <span class="token operator">&gt;</span>
+                <span class="token punctuation">{</span>
+                    dateRender <span class="token operator">?</span> <span class="token function">dateRender</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>date<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">(</span>
+                        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-body-cell-date"</span><span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>
+                                <span class="token function">cs</span><span class="token punctuation">(</span><span class="token string">"calendar-month-body-cell-date-value"</span><span class="token punctuation">,</span>
+                                    value<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">)</span> <span class="token operator">===</span> item<span class="token punctuation">.</span>date<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">)</span>
+                                        <span class="token operator">?</span> <span class="token string">"calendar-month-body-cell-date-selected"</span>
+                                        <span class="token operator">:</span> <span class="token string">""</span>
+                                <span class="token punctuation">)</span>
+                            <span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>date<span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-cell-body-date-content"</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>dateInnerContent<span class="token operator">?.</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>date<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                    <span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token punctuation">}</span>
+        rows<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> rows<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">row</span> <span class="token operator">=&gt;</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-body-row"</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>row<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>添加对应的样式：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/954e7f1c16454f9b9a1a4cb1787e42ff~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=862&amp;h=888&amp;s=130289&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-css"><span class="token selector">&amp;-selected</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 28px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 28px<span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> 28px<span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>现在渲染出来是这样的：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49f34937e36840aa8c7f915fe353793a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=830&amp;h=450&amp;s=41310&amp;e=png&amp;b=fefefe"></p>
+<p>然后我们加上点击的处理：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb5dc1f6df73403fadc080edaa930b71~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=920&amp;h=516&amp;s=107777&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">interface</span> <span class="token class-name">MonthCalendarProps</span> <span class="token keyword">extends</span> <span class="token class-name">CalendarProps</span> <span class="token punctuation">{</span>
+    selectHandler<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">date</span><span class="token operator">:</span> Dayjs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span>
+<span class="token punctuation">}</span></code></pre>
+<p>添加一个 selectHandler 的参数，传给 renderDays 方法。</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a50f65e85924b9cae201b1cd446b065~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1378&amp;h=1156&amp;s=208365&amp;e=png&amp;b=1f1f1f"></p>
+<p>renderDays 方法里取出来，给日期添加上点击事件：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e2897d8428441fc819753099a2b462b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1324&amp;h=1322&amp;s=283299&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">renderDays</span><span class="token punctuation">(</span>
+    <span class="token literal-property property">days</span><span class="token operator">:</span> Array<span class="token operator">&lt;</span><span class="token punctuation">{</span> <span class="token literal-property property">date</span><span class="token operator">:</span> Dayjs<span class="token punctuation">,</span> <span class="token literal-property property">currentMonth</span><span class="token operator">:</span> boolean<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">dateRender</span><span class="token operator">:</span> MonthCalendarProps<span class="token punctuation">[</span><span class="token string">'dateRender'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">dateInnerContent</span><span class="token operator">:</span>  MonthCalendarProps<span class="token punctuation">[</span><span class="token string">'dateInnerContent'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">value</span><span class="token operator">:</span> Dayjs<span class="token punctuation">,</span>
+    <span class="token literal-property property">selectHandler</span><span class="token operator">:</span> MonthCalendarProps<span class="token punctuation">[</span><span class="token string">'selectHandler'</span><span class="token punctuation">]</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> rows <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">6</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> row <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">7</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> item <span class="token operator">=</span> days<span class="token punctuation">[</span>i <span class="token operator">*</span> <span class="token number">7</span> <span class="token operator">+</span> j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            row<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>
+                <span class="token string">"calendar-month-body-cell "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>currentMonth <span class="token operator">?</span> <span class="token string">'calendar-month-body-cell-current'</span> <span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+                onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> selectHandler<span class="token operator">?.</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>date<span class="token punctuation">)</span><span class="token punctuation">}</span>
+            <span class="token operator">&gt;</span>
+                <span class="token punctuation">{</span>
+                    dateRender <span class="token operator">?</span> <span class="token function">dateRender</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>date<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">(</span>
+                        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-body-cell-date"</span><span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>
+                                <span class="token function">cs</span><span class="token punctuation">(</span><span class="token string">"calendar-month-body-cell-date-value"</span><span class="token punctuation">,</span>
+                                    value<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">)</span> <span class="token operator">===</span> item<span class="token punctuation">.</span>date<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">)</span>
+                                        <span class="token operator">?</span> <span class="token string">"calendar-month-body-cell-date-selected"</span>
+                                        <span class="token operator">:</span> <span class="token string">""</span>
+                                <span class="token punctuation">)</span>
+                            <span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>date<span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-cell-body-date-content"</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>dateInnerContent<span class="token operator">?.</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>date<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                    <span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token punctuation">}</span>
+        rows<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> rows<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">row</span> <span class="token operator">=&gt;</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-month-body-row"</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>row<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>然后这个参数是在 Calendar 组件传进来的：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cdcbf3f66fa84b7a879d221f9b3d96ae~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1354&amp;h=1220&amp;s=237538&amp;e=png&amp;b=1f1f1f"></p>
+<p>我们添加一个 state 来存储当前日期，selectHandler 里调用 onChange 的参数，并且修改当前日期。</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">Calendar</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">props</span><span class="token operator">:</span> CalendarProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        value<span class="token punctuation">,</span>
+        style<span class="token punctuation">,</span>
+        className<span class="token punctuation">,</span>
+        dateRender<span class="token punctuation">,</span>
+        dateInnerContent<span class="token punctuation">,</span>
+        locale<span class="token punctuation">,</span>
+        onChange
+    <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>curValue<span class="token punctuation">,</span> setCurValue<span class="token punctuation">]</span> <span class="token operator">=</span> useState<span class="token operator">&lt;</span>Dayjs<span class="token operator">&gt;</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> classNames <span class="token operator">=</span> <span class="token function">cs</span><span class="token punctuation">(</span><span class="token string">"calendar"</span><span class="token punctuation">,</span> className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">selectHandler</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">date</span><span class="token operator">:</span> Dayjs</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setCurValue</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        onChange<span class="token operator">?.</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>LocaleContext<span class="token punctuation">.</span>Provider value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">locale</span><span class="token operator">:</span> locale <span class="token operator">||</span> navigator<span class="token punctuation">.</span>language
+    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>classNames<span class="token punctuation">}</span> style<span class="token operator">=</span><span class="token punctuation">{</span>style<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>Header<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Header<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>MonthCalendar <span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span> value<span class="token operator">=</span><span class="token punctuation">{</span>curValue<span class="token punctuation">}</span> selectHandler<span class="token operator">=</span><span class="token punctuation">{</span>selectHandler<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>LocaleContext<span class="token punctuation">.</span>Provider<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>试一下，改下 App.tsx：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> dayjs <span class="token keyword">from</span> <span class="token string">'dayjs'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Calendar <span class="token keyword">from</span> <span class="token string">'./Calendar'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Calendar value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">'2023-11-08'</span><span class="token punctuation">)</span><span class="token punctuation">}</span> onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">date</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">alert</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Calendar<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d20e3db58d79408b8ec2f1f50d05887f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=2090&amp;h=1322&amp;s=512748&amp;e=gif&amp;f=44&amp;b=fdfdfd"></p>
+<p>然后实现下 Header 组件里的日期切换：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e27952c11d440eda8e7003daa164e28~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1424&amp;h=948&amp;s=215045&amp;e=png&amp;b=1f1f1f"></p>
+<p>根据传入的 value 来展示日期，点击上下按钮的时候会调用传进来的回调函数：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Dayjs <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"dayjs"</span><span class="token punctuation">;</span>
+<span class="token keyword">interface</span> <span class="token class-name">HeaderProps</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">curMonth</span><span class="token operator">:</span> Dayjs<span class="token punctuation">;</span>
+    <span class="token function-variable function">prevMonthHandler</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+    <span class="token function-variable function">nextMonthHandler</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">Header</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">props</span><span class="token operator">:</span> HeaderProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        curMonth<span class="token punctuation">,</span>
+        prevMonthHandler<span class="token punctuation">,</span>
+        nextMonthHandler
+    <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header"</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-left"</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-icon"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>prevMonthHandler<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-value"</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>curMonth<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY 年 MM 月'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-icon"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>nextMonthHandler<span class="token punctuation">}</span><span class="token operator">&gt;&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>button className<span class="token operator">=</span><span class="token string">"calendar-header-btn"</span><span class="token operator">&gt;</span>今天<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Header<span class="token punctuation">;</span></code></pre>
+<p>然后在 Calendar 组件创建 curMonth 的 state，点击上下按钮的时候，修改月份：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0531069b511c4f2c81e607223178e0c9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1782&amp;h=1260&amp;s=292861&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">Calendar</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">props</span><span class="token operator">:</span> CalendarProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        value<span class="token punctuation">,</span>
+        style<span class="token punctuation">,</span>
+        className<span class="token punctuation">,</span>
+        dateRender<span class="token punctuation">,</span>
+        dateInnerContent<span class="token punctuation">,</span>
+        locale<span class="token punctuation">,</span>
+        onChange
+    <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>curValue<span class="token punctuation">,</span> setCurValue<span class="token punctuation">]</span> <span class="token operator">=</span> useState<span class="token operator">&lt;</span>Dayjs<span class="token operator">&gt;</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>curMonth<span class="token punctuation">,</span> setCurMonth<span class="token punctuation">]</span> <span class="token operator">=</span> useState<span class="token operator">&lt;</span>Dayjs<span class="token operator">&gt;</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> classNames <span class="token operator">=</span> <span class="token function">cs</span><span class="token punctuation">(</span><span class="token string">"calendar"</span><span class="token punctuation">,</span> className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">selectHandler</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">date</span><span class="token operator">:</span> Dayjs</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setCurValue</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        onChange<span class="token operator">?.</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">prevMonthHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setCurMonth</span><span class="token punctuation">(</span>curMonth<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'month'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">nextMonthHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setCurMonth</span><span class="token punctuation">(</span>curMonth<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'month'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>LocaleContext<span class="token punctuation">.</span>Provider value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">locale</span><span class="token operator">:</span> locale <span class="token operator">||</span> navigator<span class="token punctuation">.</span>language
+    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>classNames<span class="token punctuation">}</span> style<span class="token operator">=</span><span class="token punctuation">{</span>style<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>Header curMonth<span class="token operator">=</span><span class="token punctuation">{</span>curMonth<span class="token punctuation">}</span> prevMonthHandler<span class="token operator">=</span><span class="token punctuation">{</span>prevMonthHandler<span class="token punctuation">}</span> nextMonthHandler<span class="token operator">=</span><span class="token punctuation">{</span>nextMonthHandler<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Header<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>MonthCalendar <span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span> value<span class="token operator">=</span><span class="token punctuation">{</span>curValue<span class="token punctuation">}</span> selectHandler<span class="token operator">=</span><span class="token punctuation">{</span>selectHandler<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>LocaleContext<span class="token punctuation">.</span>Provider<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>测试下：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed079a76ffc14ccfab0c256ee9bccb9d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1956&amp;h=1112&amp;s=178900&amp;e=gif&amp;f=38&amp;b=fdfdfd"></p>
+<p>但现在月份是变了，但下面的日历没有跟着变。</p>
+<p>因为我们之前是拿到 value 所在月份来计算的日历，现在要改成 curMonth 所在的月份。</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a378ba80c565474c8b188965af6ce384~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1364&amp;h=664&amp;s=159426&amp;e=png&amp;b=1f1f1f"></p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32e78e080b764d96b23d1d6926cb6026~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=968&amp;h=716&amp;s=124515&amp;e=png&amp;b=1f1f1f"></p>
+<p>这样，月份切换时，就会显示那个月的日历了：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/283b867cb36e4bce8b60ef3939806c8f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1996&amp;h=1112&amp;s=212853&amp;e=gif&amp;f=29&amp;b=fdfdfd"></p>
+<p>然后我们加上今天按钮的处理：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72a775402c054141ace51916f711afb3~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1410&amp;h=1004&amp;s=235489&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Dayjs <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"dayjs"</span><span class="token punctuation">;</span>
+<span class="token keyword">interface</span> <span class="token class-name">HeaderProps</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">curMonth</span><span class="token operator">:</span> Dayjs<span class="token punctuation">;</span>
+    <span class="token function-variable function">prevMonthHandler</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+    <span class="token function-variable function">nextMonthHandler</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+    <span class="token function-variable function">todayHandler</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">Header</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">props</span><span class="token operator">:</span> HeaderProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        curMonth<span class="token punctuation">,</span>
+        prevMonthHandler<span class="token punctuation">,</span>
+        nextMonthHandler<span class="token punctuation">,</span>
+        todayHandler
+    <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header"</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-left"</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-icon"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>prevMonthHandler<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-value"</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>curMonth<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY 年 MM 月'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-icon"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>nextMonthHandler<span class="token punctuation">}</span><span class="token operator">&gt;&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>button className<span class="token operator">=</span><span class="token string">"calendar-header-btn"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>todayHandler<span class="token punctuation">}</span><span class="token operator">&gt;</span>今天<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Header<span class="token punctuation">;</span></code></pre>
+<p>在 Calendar 里传入 todayHandler：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1071cbdc899940838a6f20ea84af0380~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1666&amp;h=1246&amp;s=274943&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">todayHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> date <span class="token operator">=</span> <span class="token function">dayjs</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">setCurValue</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setCurMonth</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    onChange<span class="token operator">?.</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>同时修改日期和当前月份，并且还要调用 onChange 回调。</p>
+<p>测试下：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc321f45d0eb4c41b9370dcc1b9f2162~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=2156&amp;h=1158&amp;s=228529&amp;e=gif&amp;f=32&amp;b=fdfdfd"></p>
+<p>此外，我们希望点击上下月份的日期的时候，能够跳转到那个月的日历：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c3bfecf64b54141a52ffa578216d05f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1974&amp;h=1424&amp;s=118292&amp;e=gif&amp;f=21&amp;b=fdfdfd"></p>
+<p>这个也简单，切换日期的时候顺便修改下 curMonth 就好了：</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af4e90038f894dd1a33c50c325f05320~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=968&amp;h=798&amp;s=152852&amp;e=png&amp;b=1f1f1f"></p>
+<p>测试下：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3316ab7f8999417fa05e8a592c8a1a16~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=2178&amp;h=1430&amp;s=215113&amp;e=gif&amp;f=36&amp;b=fdfdfd"></p>
+<p>最后，还要加上 Header 的国际化：</p>
+<p><img alt="" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4aba691c98f4fe683e72f596c13cd50~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1592&amp;h=974&amp;s=248124&amp;e=png&amp;b=1f1f1f"></p>
+<p>就是把写死的文案，改成丛资源包取值的方式就好了。</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">Header</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">props</span><span class="token operator">:</span> HeaderProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        curMonth<span class="token punctuation">,</span>
+        prevMonthHandler<span class="token punctuation">,</span>
+        nextMonthHandler<span class="token punctuation">,</span>
+        todayHandler
+    <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> localeContext <span class="token operator">=</span> <span class="token function">useContext</span><span class="token punctuation">(</span>LocaleContext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> CalendarContext <span class="token operator">=</span> allLocales<span class="token punctuation">[</span>localeContext<span class="token punctuation">.</span>locale<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header"</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-left"</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-icon"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>prevMonthHandler<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-value"</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>curMonth<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>CalendarContext<span class="token punctuation">.</span>formatMonth<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"calendar-header-icon"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>nextMonthHandler<span class="token punctuation">}</span><span class="token operator">&gt;&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>button className<span class="token operator">=</span><span class="token string">"calendar-header-btn"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>todayHandler<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>CalendarContext<span class="token punctuation">.</span>today<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>试试看：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/337adbc1fc504ab0a0e1b171e0d10c02~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1438&amp;h=596&amp;s=47215&amp;e=png&amp;b=fefefe"></p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce58656e43d949f0b104feedc34cf55d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1136&amp;h=488&amp;s=83174&amp;e=png&amp;b=1f1f1f"></p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98fa652a7c5c4805b20b63860527dcc8~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1622&amp;h=670&amp;s=59858&amp;e=png&amp;b=fefefe"></p>
+<p>没啥问题。</p>
+<p>这样，我们的 Calendar 组件就完成了。</p>
+<p>最后我们再来优化下代码：</p>
+<p><img alt="" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/635e7fb2fa15465cb6a1990b0111d07d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=968&amp;h=924&amp;s=159132&amp;e=png&amp;b=1f1f1f"></p>
+<p>重复逻辑可以抽离出个方法：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e0dbb87d7c0400ab07920ce002b408f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=924&amp;h=930&amp;s=157221&amp;e=png&amp;b=1f1f1f"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">function</span> <span class="token function">changeDate</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">date</span><span class="token operator">:</span> Dayjs</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setCurValue</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setCurMonth</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    onChange<span class="token operator">?.</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>渲染逻辑抽离出来的函数，放在组件外需要传很多参数，而这个函数只有这里用，可以移到组件内：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1741a3d1f9364cadbe6976694e98374d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1190&amp;h=612&amp;s=124363&amp;e=png&amp;b=1f1f1f"></p>
+<p>这样就不用传那些参数了：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55ea3164867c4910861c6930978604bb~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1300&amp;h=1288&amp;s=254128&amp;e=png&amp;b=1f1f1f"></p>
+<p>此外，我们的 Calendar 的 value 其实是 defaultValue：</p>
+<p><img alt="image.png" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a78dd33fb2a14c8c846ba0de74180a4e~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1088&amp;h=992&amp;s=201638&amp;e=png&amp;b=1f1f1f"></p>
+<p>和迷你 Calendar 一样，我们也用 ahooks 的 useControllableValue 来做。</p>
+<p>安装 ahooks：</p>
+<pre><code class="fenced-code-block language-css">npm install --save ahooks</code></pre>
+<p>把 useState 换成 ahooks 的 useControllableValue：</p>
+<p><img alt="image.png" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66ee47ec58084df7aff8f575c73b1ad3~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1298&amp;h=1150&amp;s=249876&amp;e=png&amp;b=202020"></p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">CalendarProps</span> <span class="token punctuation">{</span>
+    value<span class="token operator">?</span><span class="token operator">:</span> Dayjs<span class="token punctuation">;</span>
+    defaultValue<span class="token operator">?</span><span class="token operator">:</span> Dayjs<span class="token punctuation">;</span>
+    style<span class="token operator">?</span><span class="token operator">:</span> CSSProperties<span class="token punctuation">;</span>
+    className<span class="token operator">?</span><span class="token operator">:</span> string <span class="token operator">|</span> string<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">// 定制日期显示，会完全覆盖日期单元格</span>
+    dateRender<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">currentDate</span><span class="token operator">:</span> Dayjs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> ReactNode<span class="token punctuation">;</span>
+    <span class="token comment">// 定制日期单元格，内容会被添加到单元格内，只在全屏日历模式下生效。</span>
+    dateInnerContent<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">currentDate</span><span class="token operator">:</span> Dayjs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> ReactNode<span class="token punctuation">;</span>
+    <span class="token comment">// 国际化相关</span>
+    locale<span class="token operator">?</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+    onChange<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">date</span><span class="token operator">:</span> Dayjs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">const</span> <span class="token punctuation">[</span>curValue<span class="token punctuation">,</span> setCurValue<span class="token punctuation">]</span> <span class="token operator">=</span> useControllableValue<span class="token operator">&lt;</span>Dayjs<span class="token operator">&gt;</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">defaultValue</span><span class="token operator">:</span> <span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">[</span>curMonth<span class="token punctuation">,</span> setCurMonth<span class="token punctuation">]</span> <span class="token operator">=</span> useState<span class="token operator">&lt;</span>Dayjs<span class="token operator">&gt;</span><span class="token punctuation">(</span>curValue<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>用到 value 的地方加一下 ?：</p>
+<p><img alt="image.png" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc2c3a252fd04541beb9c6376f17bec7~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1200&amp;h=542&amp;s=109960&amp;e=png&amp;b=1f1f1f"></p>
+<p>这样就同时支持受控非受控，也就是 value 和 defaultValue 了。</p>
+<p>试一下 defaultValue 非受控模式：</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> dayjs <span class="token keyword">from</span> <span class="token string">'dayjs'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Calendar <span class="token keyword">from</span> <span class="token string">'./Calendar'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Calendar defaultValue<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">'2023-11-08'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Calendar<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre>
+<p><img alt="2024-08-31 19.00.51.gif" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b82a7ee937447c9b7c6b4a86d373f38~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=2860&amp;h=1408&amp;s=251695&amp;e=gif&amp;f=40&amp;b=fdfdfd"></p>
+<p>value 受控模式:</p>
+<pre><code class="fenced-code-block language-javascript"><span class="token keyword">import</span> dayjs <span class="token keyword">from</span> <span class="token string">'dayjs'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Calendar <span class="token keyword">from</span> <span class="token string">'./Calendar'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span>  <span class="token function">useState</span><span class="token punctuation">(</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">'2023-11-08'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Calendar value<span class="token operator">=</span><span class="token punctuation">{</span>value<span class="token punctuation">}</span> onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setValue</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Calendar<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre>
+<p><img alt="2024-08-31 19.02.47.gif" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea06dfb5d53d49dcba4f04333c98014a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=2860&amp;h=1408&amp;s=287481&amp;e=gif&amp;f=50&amp;b=fdfdfd"></p>
+<p>案例代码上传了<a title="https://github.com/QuarkGluonPlasma/react-course-code/tree/main/calendar-component" href="https://github.com/QuarkGluonPlasma/react-course-code/tree/main/calendar-component">小册仓库</a>。</p>
+<h2 class="atx" id="总结">总结</h2>
+<p>上节我们实现了布局，这节加上了参数并且实现了这些参数对应的逻辑。</p>
+<p>className 和 style 用于修改外层容器的样式，内部用的 flex 布局，只要容器大小变了，内容会自动适应。</p>
+<p>dateRender 和 dateInnerConent 是用于修改日期单元格的内容的，比如显示节日、日程安排等。</p>
+<p>locale 是切换语言，国际化就是把写死的文案换成从资源包取值的方式，我们创建了 zh-CN 和 en-US 两个资源包，并且可以通过 locale 参数来切换。</p>
+<p>通过 createContext 创建 context 对象来保存 locale 配置，然后通过 Provider 修改其中的值，这样子组件里就通过 useContext 把它取出来就知道当前语言了。</p>
+<p>最后我们用 ahooks 的 useControllableValue 同时支持了受控和非受控模式。</p>
+<p>日历组件是一个常用组件，而且是经常需要定制的那种，因为各种场景下对它有不同的要求，所以能够自己实现各种日历组件是一个必备技能。</p>
+</article>
+</body>
+</html>
