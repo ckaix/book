@@ -2,7 +2,7 @@
 
 比如 antd 的 Calendar 组件（或者 DatePicker 组件）：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09c6879de7524b86954c204db9e53506~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=690&h=712&s=52771&e=png&b=fefefe)
+![](./images/07/09c6879de7524b86954c204db9e53506~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 那这种日历组件是怎么实现的呢？
 
@@ -20,37 +20,37 @@ new Date(2023, 6, 30);
 
 可以调用 toLocaleString 来转成当地日期格式的字符串显示：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78612afc9d824ca1bc0dd62ecc05f81d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=596&h=80&s=23205&e=png&b=010101)
+![](./images/07/78612afc9d824ca1bc0dd62ecc05f81d~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 有人说 7 月为啥第二个参数传 6 呢？
 
 因为 Date 的 month 是从 0 开始计数的，取值是 0 到 11：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be98fc0eda5c45d28eddca3189a2ef50~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1222&h=516&s=149747&e=png&b=1e1e1e)
+![](./images/07/be98fc0eda5c45d28eddca3189a2ef50~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 而日期 date 是从 1 到 31。
 
 而且有个小技巧，当你 date 传 0 的时候，取到的是上个月的最后一天：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de5bbe74b5c04341b60e2e2cca1a704e~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=586&h=210&s=60650&e=png&b=010101)
+![](./images/07/de5bbe74b5c04341b60e2e2cca1a704e~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 \-1 就是上个月的倒数第二天，-2 就是倒数第三天这样。
 
 这个小技巧有很大的用处，可以用这个来拿到每个月有多少天：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1421c06d6b5848c9bc41705d2a1716b4~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=476&h=350&s=62001&e=png&b=010101)
+![](./images/07/1421c06d6b5848c9bc41705d2a1716b4~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 今年一月 31 天、二月 28 天、三月 31 天。。。
 
 除了日期外，也能通过 getFullYear、getMonth 拿到年份和月份：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/969daa4d5cd449b78547268dc23b95c5~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=396&h=144&s=19455&e=png&b=010101)
+![](./images/07/969daa4d5cd449b78547268dc23b95c5~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 还可以通过 getDay 拿到星期几。
 
 比如今天（2023-7-19）是星期三：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/256a8d8fe1a74b748b8abb99a09098d5~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=356&h=76&s=11691&e=png&b=010101)
+![](./images/07/256a8d8fe1a74b748b8abb99a09098d5~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 就这么几个 api 就已经可以实现日历组件了。
 
@@ -62,7 +62,7 @@ new Date(2023, 6, 30);
 npx create-react-app --template=typescript calendar-test
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03442f2d3ae446d69d847af836cc015e~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=942&h=486&s=114558&e=png&b=010101)
+![](./images/07/03442f2d3ae446d69d847af836cc015e~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 我们先来写下静态的布局：
 
@@ -71,8 +71,8 @@ npx create-react-app --template=typescript calendar-test
 改下 App.tsx:
 
 ```javascript
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 
 function Calendar() {
   return (
@@ -137,19 +137,19 @@ export default Calendar;
 npm run start
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e42728dcebf458b8dc8c327ba5a7d27~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=714&h=664&s=50998&e=png&b=ffffff)
+![](./images/07/4e42728dcebf458b8dc8c327ba5a7d27~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 这种布局还是挺简单的：
 
 header 就是一个 space-between 的 flex 容器：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c6aac1529dc460da9cc044a029ec864~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=684&h=144&s=23247&e=png&b=fefefe)
+![](./images/07/5c6aac1529dc460da9cc044a029ec864~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 下面是一个 flex-wrap 为 wrap，每个格子宽度为 100% / 7 的容器：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94798a90d05b4cedb56ad218cda2c758~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=664&h=398&s=42828&e=png&b=a8c4e5)
+![](./images/07/94798a90d05b4cedb56ad218cda2c758~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8922dd22da2447a38b9a9fc3b934f071~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=380&h=148&s=20365&e=png&b=ffffff)
+![](./images/07/8922dd22da2447a38b9a9fc3b934f071~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 全部样式如下：
 
@@ -173,7 +173,8 @@ header 就是一个 space-between 的 flex 容器：
   flex-wrap: wrap;
 }
 
-.empty, .day {
+.empty,
+.day {
   width: calc(100% / 7);
   text-align: center;
   line-height: 30px;
@@ -187,7 +188,7 @@ header 就是一个 space-between 的 flex 容器：
 
 然后我们再来写逻辑：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03e58c7c4f9b47299f705ee8c13b363d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1038&h=682&s=130393&e=png&b=1e1e1e)
+![](./images/07/03e58c7c4f9b47299f705ee8c13b363d~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 首先，我们肯定要有一个 state 来保存当前的日期，默认值是今天。
 
@@ -197,21 +198,21 @@ header 就是一个 space-between 的 flex 容器：
 const [date, setDate] = useState(new Date());
 
 const handlePrevMonth = () => {
-    setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
+  setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
 };
 
 const handleNextMonth = () => {
-    setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
+  setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
 };
 ```
 
 然后渲染的年月要改为当前 date 对应的年月：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/407a28f8c6644a43bdb35a3009fa41d6~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1066&h=768&s=96033&e=png&b=1e1e1e)
+![](./images/07/407a28f8c6644a43bdb35a3009fa41d6~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 我们试试看：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1280eb5c25c04948be584a147a94357a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=848&h=732&s=102811&e=gif&f=42&b=fdfdfd)
+![](./images/07/1280eb5c25c04948be584a147a94357a~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 年月部分没问题了。
 
@@ -221,28 +222,32 @@ const handleNextMonth = () => {
 
 ```javascript
 const daysOfMonth = (year: number, month: number) => {
-    return new Date(year, month + 1, 0).getDate();
+  return new Date(year, month + 1, 0).getDate();
 };
 
 const firstDayOfMonth = (year: number, month: number) => {
-    return new Date(year, month, 1).getDay();
+  return new Date(year, month, 1).getDay();
 };
 
 const renderDates = () => {
-    const days = [];
+  const days = [];
 
-    const daysCount = daysOfMonth(date.getFullYear(), date.getMonth());
-    const firstDay = firstDayOfMonth(date.getFullYear(), date.getMonth());
+  const daysCount = daysOfMonth(date.getFullYear(), date.getMonth());
+  const firstDay = firstDayOfMonth(date.getFullYear(), date.getMonth());
 
-    for (let i = 0; i < firstDay; i++) {
-      days.push(<div key={`empty-${i}`} className="empty"></div>);
-    }
+  for (let i = 0; i < firstDay; i++) {
+    days.push(<div key={`empty-${i}`} className="empty"></div>);
+  }
 
-    for (let i = 1; i <= daysCount; i++) {
-      days.push(<div key={i} className="day">{i}</div>);
-    }
+  for (let i = 1; i <= daysCount; i++) {
+    days.push(
+      <div key={i} className="day">
+        {i}
+      </div>
+    );
+  }
 
-    return days;
+  return days;
 };
 ```
 
@@ -260,11 +265,11 @@ const renderDates = () => {
 
 这样就完成了日期渲染：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e36ee8b1e7644cd2a80fc2d7cf9b68cc~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1118&h=1256&s=253973&e=png&b=1f1f1f)
+![](./images/07/e36ee8b1e7644cd2a80fc2d7cf9b68cc~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 我们来试试看：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4432dc0073d34f66b5dee492cbbf54b6~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=846&h=700&s=183101&e=gif&f=52&b=fcfcfc)
+![](./images/07/4432dc0073d34f66b5dee492cbbf54b6~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 没啥问题。
 
@@ -282,29 +287,32 @@ const renderDates = () => {
 
 defaultValue 参数设置为 date 的初始值：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71bb92fc07c4475b9e79a459ea2e78da~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1052&h=606&s=121748&e=png&b=1f1f1f)
+![](./images/07/71bb92fc07c4475b9e79a459ea2e78da~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 试试看：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bdd0429fabba47e191e9a9ec324f92b7~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=954&h=270&s=54466&e=png&b=202020)
+![](./images/07/bdd0429fabba47e191e9a9ec324f92b7~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 ```javascript
 function Test() {
-  return <div>
-    <Calendar defaultValue={new Date('2023-3-1')}></Calendar>
-    <Calendar defaultValue={new Date('2023-8-15')}></Calendar>
-  </div>
+  return (
+    <div>
+      <Calendar defaultValue={new Date("2023-3-1")}></Calendar>
+      <Calendar defaultValue={new Date("2023-8-15")}></Calendar>
+    </div>
+  );
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d6070cdeee040da8dd8bd21315ae1df~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=778&h=1234&s=90966&e=png&b=ffffff)
+![](./images/07/2d6070cdeee040da8dd8bd21315ae1df~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 年月是对了，但是日期对不对我们也看不出来，所以还得加点选中样式：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e82366355e56421a9661d5f3484bac1c~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1082&h=752&s=139001&e=png&b=1e1e1e)
+![](./images/07/e82366355e56421a9661d5f3484bac1c~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 ```css
-.day:hover, .selected {
+.day:hover,
+.selected {
   background-color: #ccc;
   cursor: pointer;
 }
@@ -312,13 +320,13 @@ function Test() {
 
 现在就可以看到选中的日期了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be5612d872e745f69dcd490d41ee39a9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=758&h=1226&s=90671&e=png&b=fefefe)
+![](./images/07/be5612d872e745f69dcd490d41ee39a9~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 没啥问题。
 
 然后我们再加上 onChange 的回调函数：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d107fa38d2140449f98a5fe2194d9d2~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1420&h=856&s=197932&e=png&b=1f1f1f)
+![](./images/07/1d107fa38d2140449f98a5fe2194d9d2~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 就是在点击 day 的时候，setDate 修改内部状态，然后回调 onChange 方法。
 
@@ -326,46 +334,59 @@ function Test() {
 
 ```javascript
 const renderDates = () => {
-    const days = [];
+  const days = [];
 
-    const daysCount = daysOfMonth(date.getFullYear(), date.getMonth());
-    const firstDay = firstDayOfMonth(date.getFullYear(), date.getMonth());
+  const daysCount = daysOfMonth(date.getFullYear(), date.getMonth());
+  const firstDay = firstDayOfMonth(date.getFullYear(), date.getMonth());
 
-    for (let i = 0; i < firstDay; i++) {
-      days.push(<div key={`empty-${i}`} className="empty"></div>);
+  for (let i = 0; i < firstDay; i++) {
+    days.push(<div key={`empty-${i}`} className="empty"></div>);
+  }
+
+  for (let i = 1; i <= daysCount; i++) {
+    const clickHandler = () => {
+      const curDate = new Date(date.getFullYear(), date.getMonth(), i);
+      setDate(curDate);
+      onChange?.(curDate);
+    };
+    if (i === date.getDate()) {
+      days.push(
+        <div key={i} className="day selected" onClick={() => clickHandler()}>
+          {i}
+        </div>
+      );
+    } else {
+      days.push(
+        <div key={i} className="day" onClick={() => clickHandler()}>
+          {i}
+        </div>
+      );
     }
+  }
 
-    for (let i = 1; i <= daysCount; i++) {
-      const clickHandler = () => {
-        const curDate = new Date(date.getFullYear(), date.getMonth(), i);
-        setDate(curDate);
-        onChange?.(curDate);
-      }
-      if(i === date.getDate()) {
-        days.push(<div key={i} className="day selected" onClick={() => clickHandler()}>{i}</div>);  
-      } else {
-        days.push(<div key={i} className="day" onClick={() => clickHandler()}>{i}</div>);
-      }
-    }
-
-    return days;
-}
+  return days;
+};
 ```
 
 我们试试看：
 
 ```javascript
 function Test() {
-    return <div>
-        <Calendar defaultValue={new Date('2023-3-1')} onChange={(date)=> {
-          alert(date.toLocaleDateString())
-        }}></Calendar>
-        <Calendar defaultValue={new Date('2023-8-15')}></Calendar>
+  return (
+    <div>
+      <Calendar
+        defaultValue={new Date("2023-3-1")}
+        onChange={(date) => {
+          alert(date.toLocaleDateString());
+        }}
+      ></Calendar>
+      <Calendar defaultValue={new Date("2023-8-15")}></Calendar>
     </div>
+  );
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1e4f595b0d644a78aaeb238424061ad~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1898&h=1042&s=447023&e=gif&f=45&b=fdfdfd) 也没啥问题。
+![](./images/07/b1e4f595b0d644a78aaeb238424061ad~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif) 也没啥问题。
 
 现在这个 Calendar 组件就是可用的了，可以通过 defaultValue 来传入初始的 date 值，修改 date 之后可以在 onChange 里拿到最新的值。
 
@@ -375,33 +396,33 @@ function Test() {
 
 但其实你还可以再做一步，提供 ref 来暴露一些 Canlendar 组件的 api。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49971ea0652d4d6395d97fa132b8ab1f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=804&h=104&s=18359&e=png&b=1e1e1e)
+![](./images/07/49971ea0652d4d6395d97fa132b8ab1f~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9def670691340afa83bc711bdba5b5d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1542&h=1050&s=166443&e=png&b=1f1f1f)
+![](./images/07/d9def670691340afa83bc711bdba5b5d~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 用的时候这样用：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d69ea8dd52547858837c19c7d594fe9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1212&h=694&s=135186&e=png&b=1f1f1f)
+![](./images/07/4d69ea8dd52547858837c19c7d594fe9~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 ```javascript
-import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import './index.css';
+import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
+import "./index.css";
 
 interface CalendarProps {
-  defaultValue?: Date,
-  onChange?: (date: Date) => void
+  defaultValue?: Date;
+  onChange?: (date: Date) => void;
 }
 
 interface CalendarRef {
-  getDate: () => Date,
-  setDate: (date: Date) => void,
+  getDate: () => Date;
+  setDate: (date: Date) => void;
 }
 
-const InternalCalendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProps> = (props, ref) => {
-  const {
-    defaultValue = new Date(),
-    onChange,
-  } = props;
+const InternalCalendar: React.ForwardRefRenderFunction<
+  CalendarRef,
+  CalendarProps
+> = (props, ref) => {
+  const { defaultValue = new Date(), onChange } = props;
 
   const [date, setDate] = useState(defaultValue);
 
@@ -411,9 +432,9 @@ const InternalCalendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProp
         return date;
       },
       setDate(date: Date) {
-        setDate(date)
-      }
-    }
+        setDate(date);
+      },
+    };
   });
 
   const handlePrevMonth = () => {
@@ -425,18 +446,18 @@ const InternalCalendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProp
   };
 
   const monthNames = [
-    '一月',
-    '二月',
-    '三月',
-    '四月',
-    '五月',
-    '六月',
-    '七月',
-    '八月',
-    '九月',
-    '十月',
-    '十一月',
-    '十二月',
+    "一月",
+    "二月",
+    "三月",
+    "四月",
+    "五月",
+    "六月",
+    "七月",
+    "八月",
+    "九月",
+    "十月",
+    "十一月",
+    "十二月",
   ];
 
   const daysOfMonth = (year: number, month: number) => {
@@ -462,11 +483,19 @@ const InternalCalendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProp
         const curDate = new Date(date.getFullYear(), date.getMonth(), i);
         setDate(curDate);
         onChange?.(curDate);
-      }
-      if(i === date.getDate()) {
-        days.push(<div key={i} className="day selected" onClick={() => clickHandler()}>{i}</div>);  
+      };
+      if (i === date.getDate()) {
+        days.push(
+          <div key={i} className="day selected" onClick={() => clickHandler()}>
+            {i}
+          </div>
+        );
       } else {
-        days.push(<div key={i} className="day" onClick={() => clickHandler()}>{i}</div>);
+        days.push(
+          <div key={i} className="day" onClick={() => clickHandler()}>
+            {i}
+          </div>
+        );
       }
     }
 
@@ -477,7 +506,9 @@ const InternalCalendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProp
     <div className="calendar">
       <div className="header">
         <button onClick={handlePrevMonth}>&lt;</button>
-        <div>{date.getFullYear()}年{monthNames[date.getMonth()]}</div>
+        <div>
+          {date.getFullYear()}年{monthNames[date.getMonth()]}
+        </div>
         <button onClick={handleNextMonth}>&gt;</button>
       </div>
       <div className="days">
@@ -492,12 +523,12 @@ const InternalCalendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProp
       </div>
     </div>
   );
-}
+};
 
 const Calendar = React.forwardRef(InternalCalendar);
 
 function Test() {
-  const calendarRef = useRef<CalendarRef>(null);
+  const calendarRef = useRef < CalendarRef > null;
 
   useEffect(() => {
     console.log(calendarRef.current?.getDate().toLocaleDateString());
@@ -507,19 +538,24 @@ function Test() {
     }, 3000);
   }, []);
 
-  return <div>
-    {/* <Calendar defaultValue={new Date('2023-3-1')} onChange={(date: Date) => {
+  return (
+    <div>
+      {/* <Calendar defaultValue={new Date('2023-3-1')} onChange={(date: Date) => {
         alert(date.toLocaleDateString());
     }}></Calendar> */}
-    <Calendar ref={calendarRef} defaultValue={new Date('2024-8-15')}></Calendar>
-  </div>
+      <Calendar
+        ref={calendarRef}
+        defaultValue={new Date("2024-8-15")}
+      ></Calendar>
+    </div>
+  );
 }
 export default Test;
 ```
 
 试试看：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8ef0f73187e410eae555ac2db918365~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1038&h=988&s=100791&e=gif&f=37&b=fdfdfd)
+![](./images/07/b8ef0f73187e410eae555ac2db918365~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 ref 的 api 也都生效了。
 
@@ -527,7 +563,7 @@ ref 的 api 也都生效了。
 
 你经常用的 Canlendar 或者 DatePicker 组件就是这么实现的，
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92eafff7333742518439ccaaccc39e27~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=668&h=798&s=56051&e=png&b=fefefe)
+![](./images/07/92eafff7333742518439ccaaccc39e27~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image)
 
 当然，这些组件除了本月的日期外，其余的地方不是用空白填充的，而是上个月、下个月的日期。
 
@@ -547,11 +583,11 @@ npm install --save ahooks
 
 把 useState 换成 ahooks 的 useControllableValue：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0731c31e8f434e7f8d05fe4d392e1b5f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1158&h=832&s=148546&e=png&b=1f1f1f)
+![](./images/07/0731c31e8f434e7f8d05fe4d392e1b5f~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 ```javascript
-const [date, setDate] =  useControllableValue(props,{
-    defaultValue: new Date()
+const [date, setDate] = useControllableValue(props, {
+  defaultValue: new Date(),
 });
 ```
 
@@ -559,7 +595,7 @@ const [date, setDate] =  useControllableValue(props,{
 
 clickHanlder 这里就只需要调用 setDate 不用调用 onChange 了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7da6a5197f418b909c4bd9e03fc5f2~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1278&h=740&s=177698&e=png&b=1f1f1f)
+![](./images/07/0f7da6a5197f418b909c4bd9e03fc5f2~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 如果对 useControllable 这个 hook 有疑问，可以看下上节我们自己实现的那个 hook。
 
@@ -571,26 +607,36 @@ clickHanlder 这里就只需要调用 setDate 不用调用 onChange 了：
 function Test() {
   const [date, setDate] = useState(new Date());
 
-  return <Calendar value={date} onChange={(newDate) => {
-      setDate(newDate);
-      alert(newDate.toLocaleDateString());
-  }}></Calendar>
+  return (
+    <Calendar
+      value={date}
+      onChange={(newDate) => {
+        setDate(newDate);
+        alert(newDate.toLocaleDateString());
+      }}
+    ></Calendar>
+  );
 }
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e538709f95d14c88b10625cb1ad18ccd~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1474&h=982&s=277983&e=gif&f=32&b=fdfdfd)
+![](./images/07/e538709f95d14c88b10625cb1ad18ccd~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 非受控模式：
 
 ```javascript
 function Test() {
-  return <Calendar defaultValue={new Date()} onChange={(newDate) => {
-      alert(newDate.toLocaleDateString());
-  }}></Calendar>
+  return (
+    <Calendar
+      defaultValue={new Date()}
+      onChange={(newDate) => {
+        alert(newDate.toLocaleDateString());
+      }}
+    ></Calendar>
+  );
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c7abfff095540cd9bdf84e28a7929f1~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1474&h=982&s=271881&e=gif&f=29&b=fdfdfd)
+![](./images/07/5c7abfff095540cd9bdf84e28a7929f1~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 没啥问题。
 
