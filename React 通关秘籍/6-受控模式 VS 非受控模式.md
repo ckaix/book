@@ -6,7 +6,7 @@
 
 想一下，改变表单值只有两种情况：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/deaf7e807955438f806c5e8cc406fdf1~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=598&h=372&s=22264&e=png&b=ffffff)
+![](./images/06/deaf7e807955438f806c5e8cc406fdf1~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 用户去改变 value 或者代码去改变 value。
 
@@ -14,7 +14,7 @@
 
 但是代码可以给表单设置初始值 defaultValue。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/22b0cd387ff14add97e38232e59365e7~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=862&h=404&s=42877&e=png&b=ffffff)
+![](./images/06/22b0cd387ff14add97e38232e59365e7~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 代码设置表单的初始 value，但是能改变 value 的只有用户，代码通过监听 onChange 来拿到最新的值，或者通过 ref 拿到 dom 之后读取 value。
 
@@ -22,7 +22,7 @@
 
 反过来，代码可以改变表单的 value，就是受控模式。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84aa56a2d78f4150b5256c0aa474b238~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=832&h=410&s=43835&e=png&b=ffffff)
+![](./images/06/84aa56a2d78f4150b5256c0aa474b238~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 注意，value 和 defaultValue 不一样：
 
@@ -48,29 +48,28 @@ defaultValue 会作为 value 的初始值，后面用户改变的是 value。
 npx create-vite
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/350cb963b6fc46db91f38bda0be781a1~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=794&h=436&s=81617&e=png&b=000000)
+![](./images/06/350cb963b6fc46db91f38bda0be781a1~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 创建 vite + react 的项目。
 
 去掉 main.tsx 的 index.css 和 StrictMode：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aace438514924c16848e6b433f486f03~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=988&h=382&s=75846&e=png&b=1f1f1f)
+![](./images/06/aace438514924c16848e6b433f486f03~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 改下 App.tsx
 
 ```javascript
-import { ChangeEvent } from "react"
+import { ChangeEvent } from "react";
 
 function App() {
-
   function onChange(event: ChangeEvent<HTMLInputElement>) {
     console.log(event.target.value);
   }
 
-  return <input defaultValue={'guang'} onChange={onChange}/>
+  return <input defaultValue={"guang"} onChange={onChange} />;
 }
 
-export default App
+export default App;
 ```
 
 跑一下开发服务：
@@ -80,22 +79,21 @@ npm install
 npm run dev
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35fb3becc54b40aba0ce43da3f2ae8cf~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=746&h=264&s=36280&e=png&b=191919)
+![](./images/06/35fb3becc54b40aba0ce43da3f2ae8cf~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 看下效果：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/732f5f2af5304b0baaabe8c7a7993401~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=61819&e=gif&f=20&b=fefefe)
+![](./images/06/732f5f2af5304b0baaabe8c7a7993401~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 defaultValue 作为 value 的初始值，然后用户输入触发 onChange 事件，通过 event.target 拿到了 value。
 
 当然，非受控模式也不一定通过 onChange 拿到最新 value，通过 ref 也可以。
 
 ```javascript
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react";
 
 function App() {
-
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef < HTMLInputElement > null;
 
   useEffect(() => {
     setTimeout(() => {
@@ -103,47 +101,46 @@ function App() {
     }, 2000);
   }, []);
 
-  return <input defaultValue={'guang'} ref={inputRef}/>
+  return <input defaultValue={"guang"} ref={inputRef} />;
 }
 
-export default App
+export default App;
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b8fb77677ba46eaba953f628ecf5d17~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=74953&e=gif&f=27&b=fdfdfd)
+![](./images/06/5b8fb77677ba46eaba953f628ecf5d17~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 接下来看下受控模式的写法：
 
 ```javascript
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useState } from "react";
 
 function App() {
-
-  const [value, setValue] = useState('guang');
+  const [value, setValue] = useState("guang");
 
   function onChange(event: ChangeEvent<HTMLInputElement>) {
     console.log(event.target.value);
     // setValue(event.target.value);
   }
 
-  return <input value={value} onChange={onChange}/>
+  return <input value={value} onChange={onChange} />;
 }
 
-export default App
+export default App;
 ```
 
 我们先把 setValue 注释掉，看下用户可不可以改：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a2631409725478ab80384e1ad99753f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=62606&e=gif&f=23&b=fefefe)
+![](./images/06/6a2631409725478ab80384e1ad99753f~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 可以看到，用户可以输入，onChange 也可以拿到输入后的表单值，但是 value 并没有变。
 
 把 setValue 那一行注释去掉就可以了。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58d241a28c854a53bad86953cd46c779~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=80015&e=gif&f=26&b=fdfdfd)
+![](./images/06/58d241a28c854a53bad86953cd46c779~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 虽然功能上差不多，但这种写法并不推荐：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/daf7021034c04d07acf64e2d9505eae7~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1002&h=624&s=113981&e=png&b=1f1f1f)
+![](./images/06/daf7021034c04d07acf64e2d9505eae7~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 你不让用户自己控制，而是通过代码控制，绕了一圈结果也没改 value 的值，还是原封不动的，图啥呢？
 
@@ -151,17 +148,17 @@ export default App
 
 试一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07b6bd96301642fa884ef5c69d7eb8c0~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=990&h=658&s=112560&e=png&b=1f1f1f)
+![](./images/06/07b6bd96301642fa884ef5c69d7eb8c0~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10bf4aa8a6f44270a8410ba01cc51b74~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=66973&e=gif&f=20&b=fdfdfd)
+![](./images/06/10bf4aa8a6f44270a8410ba01cc51b74~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 每次输入都会 setValue，然后触发组件重新渲染：
 
 而非受控模式下只会渲染一次：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac956a61f55344e788ddffd025fa15bd~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=994&h=576&s=95194&e=png&b=1f1f1f)
+![](./images/06/ac956a61f55344e788ddffd025fa15bd~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed86df9d6fe344c0863c0fa9984dc6d5~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=65892&e=gif&f=19&b=fdfdfd)
+![](./images/06/ed86df9d6fe344c0863c0fa9984dc6d5~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 绕了一圈啥也没改，还导致很多组件的重新渲染，那你用受控模式图啥呢？
 
@@ -172,24 +169,23 @@ export default App
 比如把用户输入改为大写：
 
 ```javascript
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useState } from "react";
 
 function App() {
-
-  const [value, setValue] = useState('guang');
+  const [value, setValue] = useState("guang");
 
   function onChange(event: ChangeEvent<HTMLInputElement>) {
-    console.log(event.target.value)
+    console.log(event.target.value);
     setValue(event.target.value.toUpperCase());
   }
 
-  return <input value={value} onChange={onChange}/>
+  return <input value={value} onChange={onChange} />;
 }
 
-export default App
+export default App;
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd0875b4986e4b2581e1a25fcd9bffa4~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=73818&e=gif&f=22&b=fdfdfd)
+![](./images/06/bd0875b4986e4b2581e1a25fcd9bffa4~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 这种，需要把用户的输入修改一下再设置 value 的。
 
@@ -197,11 +193,11 @@ export default App
 
 有的同学可能会说 Form 组件，确实，用 Form.Item 包裹的表单项都是受控组件：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/708597ee7c644c19bbd9c49b321126e2~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1324&h=1174&s=163982&e=png&b=ffffff)
+![](./images/06/708597ee7c644c19bbd9c49b321126e2~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 确实，那是因为 Form 组件内有一个 Store，会把表单值同步过去，然后集中管理和设置值：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7858591d4e674e9a86dab3494f21344c~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=912&h=1116&s=210459&e=png&b=1f1f1f)
+![](./images/06/7858591d4e674e9a86dab3494f21344c~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 但也因为都是受控组件，随着用户的输入，表单重新渲染很多次，性能会不好。
 
@@ -215,7 +211,7 @@ export default App
 
 比如日历组件：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d183d04d6e3c4909a18f621533e4b79f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=716&h=704&s=50761&e=png&b=fefefe)
+![](./images/06/d183d04d6e3c4909a18f621533e4b79f~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 它的参数就要考虑是支持非受控模式的 defaultValue，还是用受控模式的 value + onChange。
 
@@ -227,13 +223,13 @@ export default App
 
 ant design 的 Calendar 组件就是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1312dd03a10434098d9303a319bce17~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1694&h=522&s=101535&e=png&b=ffffff)
+![](./images/06/f1312dd03a10434098d9303a319bce17~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a45ee586bea040488ff163d8a683435d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1718&h=384&s=66968&e=png&b=fefefe)
+![](./images/06/a45ee586bea040488ff163d8a683435d~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-ColorPicker 组件也是： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c485989dcf764f84b7999e0b322505e0~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1464&h=386&s=68933&e=png&b=fefefe)
+ColorPicker 组件也是： ![](./images/06/c485989dcf764f84b7999e0b322505e0~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a13ca68971a143658361a53f67f50a5b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1488&h=412&s=64966&e=png&b=fefefe)
+![](./images/06/a13ca68971a143658361a53f67f50a5b~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 它同时支持了受控组件和非受控组件。
 
@@ -244,42 +240,62 @@ ColorPicker 组件也是： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfc
 首先写下非受控组件的写法：
 
 ```javascript
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useState } from "react";
 
-interface CalendarProps{
+interface CalendarProps {
   defaultValue?: Date;
   onChange?: (date: Date) => void;
 }
 function Calendar(props: CalendarProps) {
-  
-  const {
-    defaultValue = new Date(),
-    onChange
-  } = props;
+  const { defaultValue = new Date(), onChange } = props;
 
   const [value, setValue] = useState(defaultValue);
 
   function changeValue(date: Date) {
     setValue(date);
     onChange?.(date);
-  } 
+  }
 
-
-  return <div>
-    {value.toLocaleDateString()}
-    <div onClick={()=> {changeValue(new Date('2024-5-1'))}}>2023-5-1</div>
-    <div onClick={()=> {changeValue(new Date('2024-5-2'))}}>2023-5-2</div>
-    <div onClick={()=> {changeValue(new Date('2024-5-3'))}}>2023-5-3</div>
-  </div>
+  return (
+    <div>
+      {value.toLocaleDateString()}
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-1"));
+        }}
+      >
+        2023-5-1
+      </div>
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-2"));
+        }}
+      >
+        2023-5-2
+      </div>
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-3"));
+        }}
+      >
+        2023-5-3
+      </div>
+    </div>
+  );
 }
 
 function App() {
-  return <Calendar defaultValue={new Date('2024-5-1')} onChange={(date) => {
-    console.log(date.toLocaleDateString());
-  }}/>
+  return (
+    <Calendar
+      defaultValue={new Date("2024-5-1")}
+      onChange={(date) => {
+        console.log(date.toLocaleDateString());
+      }}
+    />
+  );
 }
 
-export default App
+export default App;
 ```
 
 这里 Calendar 组件传入 defaultValue 和 onChange 参数。
@@ -290,78 +306,94 @@ defaultValue 会作为 value 的初始值，然后用户点击不同日期会修
 
 试一下；
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3653ceff89c148709b886bfe53646240~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=81671&e=gif&f=20&b=fefefe)
+![](./images/06/3653ceff89c148709b886bfe53646240~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 然后再来写下受控模式的版本：
 
 ```javascript
-import { ChangeEvent, useEffect, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react";
 
-interface CalendarProps{
+interface CalendarProps {
   value: Date;
   onChange?: (date: Date) => void;
 }
 function Calendar(props: CalendarProps) {
-  
-  const {
-    value,
-    onChange
-  } = props;
+  const { value, onChange } = props;
 
   function changeValue(date: Date) {
     onChange?.(date);
-  } 
+  }
 
-  return <div>
-    {value.toLocaleDateString()}
-    <div onClick={()=> {changeValue(new Date('2024-5-1'))}}>2023-5-1</div>
-    <div onClick={()=> {changeValue(new Date('2024-5-2'))}}>2023-5-2</div>
-    <div onClick={()=> {changeValue(new Date('2024-5-3'))}}>2023-5-3</div>
-  </div>
+  return (
+    <div>
+      {value.toLocaleDateString()}
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-1"));
+        }}
+      >
+        2023-5-1
+      </div>
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-2"));
+        }}
+      >
+        2023-5-2
+      </div>
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-3"));
+        }}
+      >
+        2023-5-3
+      </div>
+    </div>
+  );
 }
 
 function App() {
-  const [value, setValue] = useState(new Date('2024-5-1'));
+  const [value, setValue] = useState(new Date("2024-5-1"));
 
-  return <Calendar value={value} onChange={(date) => {
-    console.log(date.toLocaleDateString());
-    setValue(date);
-  }}/>
+  return (
+    <Calendar
+      value={value}
+      onChange={(date) => {
+        console.log(date.toLocaleDateString());
+        setValue(date);
+      }}
+    />
+  );
 }
 
-export default App
+export default App;
 ```
 
 直接用 props 传入的 value，然后切换日期的时候回调 onChange 函数：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/768bf3edbad24b7194004751d30b3164~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1146&h=1098&s=210826&e=png&b=1f1f1f)
+![](./images/06/768bf3edbad24b7194004751d30b3164~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 value 的值的维护在调用方。
 
 这就是受控组件的写法：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6360bf7cb5c42ab9953a28242878389~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=96316&e=gif&f=25&b=fefefe)
+![](./images/06/e6360bf7cb5c42ab9953a28242878389~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 那能不能同时支持受控和非受控模式呢？
 
 可以的，组件库基本都是这么做的：
 
 ```javascript
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 
-interface CalendarProps{
+interface CalendarProps {
   value?: Date;
   defaultValue?: Date;
   onChange?: (date: Date) => void;
 }
 
 function Calendar(props: CalendarProps) {
-  
-  const {
-    value: propsValue,
-    defaultValue,
-    onChange
-  } = props;
+  const { value: propsValue, defaultValue, onChange } = props;
 
   const [value, setValue] = useState(() => {
     if (propsValue !== undefined) {
@@ -374,7 +406,7 @@ function Calendar(props: CalendarProps) {
   const isFirstRender = useRef(true);
 
   useEffect(() => {
-    if(propsValue === undefined && !isFirstRender.current) {
+    if (propsValue === undefined && !isFirstRender.current) {
       setValue(propsValue);
     }
     isFirstRender.current = false;
@@ -387,28 +419,53 @@ function Calendar(props: CalendarProps) {
       setValue(date);
     }
     onChange?.(date);
-  } 
+  }
 
-  return <div>
-    {mergedValue?.toLocaleDateString()}
-    <div onClick={()=> {changeValue(new Date('2024-5-1'))}}>2023-5-1</div>
-    <div onClick={()=> {changeValue(new Date('2024-5-2'))}}>2023-5-2</div>
-    <div onClick={()=> {changeValue(new Date('2024-5-3'))}}>2023-5-3</div>
-  </div>
+  return (
+    <div>
+      {mergedValue?.toLocaleDateString()}
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-1"));
+        }}
+      >
+        2023-5-1
+      </div>
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-2"));
+        }}
+      >
+        2023-5-2
+      </div>
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-3"));
+        }}
+      >
+        2023-5-3
+      </div>
+    </div>
+  );
 }
 
 function App() {
-  return <Calendar defaultValue={new Date('2024-5-1')} onChange={(date) => {
-    console.log(date.toLocaleDateString());
-  }}/>
+  return (
+    <Calendar
+      defaultValue={new Date("2024-5-1")}
+      onChange={(date) => {
+        console.log(date.toLocaleDateString());
+      }}
+    />
+  );
 }
 
-export default App
+export default App;
 ```
 
 参数同时支持 value 和 defaultValue，通过判断 value 是不是 undefined 来区分受控模式和非受控模式。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3684eda35c4641e18ef1e2a5f0ce2aec~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1026&h=1224&s=193393&e=png&b=1f1f1f)
+![](./images/06/3684eda35c4641e18ef1e2a5f0ce2aec~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 如果是受控模式，useState 的初始值设置 props.value，然后渲染用 props.value。
 
@@ -422,21 +479,21 @@ export default App
 
 非受控模式：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/459c2177c2db44e48a2417f9a5c6be60~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1190&h=280&s=52422&e=png&b=1f1f1f)
+![](./images/06/459c2177c2db44e48a2417f9a5c6be60~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=100027&e=gif&f=21&b=fdfdfd)
+![](./images/06/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 受控模式：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d75265a6e4c49fab7f87940845d3183~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=904&h=334&s=59645&e=png&b=1f1f1f)
+![](./images/06/5d75265a6e4c49fab7f87940845d3183~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=100027&e=gif&f=21&b=fdfdfd)
+![](./images/06/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 其实组件库也都是这么做的。
 
 比如 [arco design 的 useMergeValue 的 hook](https://github.com/arco-design/arco-design/blob/1e677c3c5bba72728668c40d78faea6536c480a8/components/_util/hooks/useMergeValue.ts "https://github.com/arco-design/arco-design/blob/1e677c3c5bba72728668c40d78faea6536c480a8/components/_util/hooks/useMergeValue.ts")：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63a909b127b147ad88ee0b8be26f9589~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1426&h=1074&s=217212&e=png&b=1f1f1f)
+![](./images/06/63a909b127b147ad88ee0b8be26f9589~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 代码差不多，它也是 useState 根据 value 是不是 undefined 来设置 value 或者 defaultValue。
 
@@ -446,13 +503,13 @@ export default App
 
 它也处理了 value 从别的值变为 undefined 的情况：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3581f21e298e4de8aca513f53f38f7c4~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1010&h=664&s=130045&e=png&b=1f1f1f)
+![](./images/06/3581f21e298e4de8aca513f53f38f7c4~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 保存了之前的 value，判断是从 props.value 别的值变为 undefined 的情况再修改内部 state 为这个 value。
 
 这里保存之前的值是用的 useRef：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9429cfb5de44b2dbe4a156858ada997~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1208&h=344&s=72809&e=png&b=1f1f1f)
+![](./images/06/f9429cfb5de44b2dbe4a156858ada997~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 ref 的特点是修改了 current 属性不会导致渲染。
 
@@ -460,7 +517,7 @@ ref 的特点是修改了 current 属性不会导致渲染。
 
 再比如 ant design 的工具包 rc-util 里的 [useMergedValue](https://github.com/react-component/util/blob/master/src/hooks/useMergedState.ts "https://github.com/react-component/util/blob/master/src/hooks/useMergedState.ts") 的 hook：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c1c58f26cfc4de1a7db2bafdbf8cbfc~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1204&h=1200&s=230091&e=png&b=ffffff)
+![](./images/06/3c1c58f26cfc4de1a7db2bafdbf8cbfc~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 它也是 useState 根据 value 是不是 undefined 来设置 value 或者 defaultValue
 
@@ -468,11 +525,11 @@ ref 的特点是修改了 current 属性不会导致渲染。
 
 渲染的时候也是判断 value 是不是 undefind 来决定用 props.value 还是 state 的 value：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/669a7c79f02e41cb8576d1d250228f35~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1204&h=1198&s=212563&e=png&b=fffefe)
+![](./images/06/669a7c79f02e41cb8576d1d250228f35~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 并且也做了别的值变为 undefined 的处理。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/654214f3e5894931ac199ae7964e7f4e~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1238&h=1262&s=228520&e=png&b=fffefe)
+![](./images/06/654214f3e5894931ac199ae7964e7f4e~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 大家都这么搞，我们也来封装个 hook：
 
@@ -515,22 +572,18 @@ function useMergeState<T>(
 用一下：
 
 ```javascript
-interface CalendarProps{
+interface CalendarProps {
   value?: Date;
   defaultValue?: Date;
   onChange?: (date: Date) => void;
 }
 
 function Calendar(props: CalendarProps) {
-  const {
-    value: propsValue,
-    defaultValue,
-    onChange
-  } = props;
+  const { value: propsValue, defaultValue, onChange } = props;
 
   const [mergedValue, setValue] = useMergeState(new Date(), {
     value: propsValue,
-    defaultValue
+    defaultValue,
   });
 
   function changeValue(date: Date) {
@@ -538,14 +591,34 @@ function Calendar(props: CalendarProps) {
       setValue(date);
     }
     onChange?.(date);
-  } 
+  }
 
-  return <div>
-    {mergedValue?.toLocaleDateString()}
-    <div onClick={()=> {changeValue(new Date('2024-5-1'))}}>2023-5-1</div>
-    <div onClick={()=> {changeValue(new Date('2024-5-2'))}}>2023-5-2</div>
-    <div onClick={()=> {changeValue(new Date('2024-5-3'))}}>2023-5-3</div>
-  </div>
+  return (
+    <div>
+      {mergedValue?.toLocaleDateString()}
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-1"));
+        }}
+      >
+        2023-5-1
+      </div>
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-2"));
+        }}
+      >
+        2023-5-2
+      </div>
+      <div
+        onClick={() => {
+          changeValue(new Date("2024-5-3"));
+        }}
+      >
+        2023-5-3
+      </div>
+    </div>
+  );
 }
 ```
 
@@ -553,29 +626,29 @@ function Calendar(props: CalendarProps) {
 
 非受控模式：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/459c2177c2db44e48a2417f9a5c6be60~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1190&h=280&s=52422&e=png&b=1f1f1f)
+![](./images/06/459c2177c2db44e48a2417f9a5c6be60~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=100027&e=gif&f=21&b=fdfdfd)
+![](./images/06/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 受控模式：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d75265a6e4c49fab7f87940845d3183~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=904&h=334&s=59645&e=png&b=1f1f1f)
+![](./images/06/5d75265a6e4c49fab7f87940845d3183~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=100027&e=gif&f=21&b=fdfdfd)
+![](./images/06/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 再就是这个 onChange 部分，也应该封装进来：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5335034426b4e85bbc7e43f5034eaec~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1002&h=652&s=100372&e=png&b=1f1f1f)
+![](./images/06/b5335034426b4e85bbc7e43f5034eaec~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 不然用户用的时候还要想着去处理非受控组件的情况。
 
 我看 arco design 里是没封装进去：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef4f3332a81342adb15a8dbb30dc4b2d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1290&h=780&s=212176&e=png&b=1f1f1f)
+![](./images/06/ef4f3332a81342adb15a8dbb30dc4b2d~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 但是 ahooks 的 useControllableValue 就封装进去了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd1ec6bbce6944b7a64b432ff06e6ca8~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1000&h=618&s=110268&e=png&b=ffffff)
+![](./images/06/dd1ec6bbce6944b7a64b432ff06e6ca8~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 我们也加一下：
 
@@ -616,7 +689,7 @@ function useMergeState<T>(
 
   function isFunction(value: unknown): value is Function {
     return typeof value === 'function';
-  } 
+  }
 
   const setState = useCallback((value: SetStateAction<T>) => {
     let res = isFunction(value) ? value(stateValue) : value
@@ -672,27 +745,27 @@ function App() {
 export default App
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ba526f7f22e4354be1b383ef4d5f699~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1114&h=1162&s=211245&e=png&b=1f1f1f)
+![](./images/06/3ba526f7f22e4354be1b383ef4d5f699~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 这里把 onChange 传入了，然后 setState 的时候拿到新的状态值，如果是非受控模式就 setStateValue，然后调用 onChange。
 
 用的时候就不用区分受控非受控了，直接 setState 就行：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14b0ce55b2df415b93a504bb28e19304~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1126&h=714&s=148166&e=png&b=1f1f1f)
+![](./images/06/14b0ce55b2df415b93a504bb28e19304~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
 试试效果：
 
 非受控模式：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/459c2177c2db44e48a2417f9a5c6be60~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1190&h=280&s=52422&e=png&b=1f1f1f)
+![](./images/06/459c2177c2db44e48a2417f9a5c6be60~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=100027&e=gif&f=21&b=fdfdfd)
+![](./images/06/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 受控模式：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d75265a6e4c49fab7f87940845d3183~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=904&h=334&s=59645&e=png&b=1f1f1f)
+![](./images/06/5d75265a6e4c49fab7f87940845d3183~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1000&h=778&s=100027&e=gif&f=21&b=fdfdfd)
+![](./images/06/095da794a8ae424484bbb26f95360f40~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif)
 
 完美！
 
@@ -700,7 +773,7 @@ export default App
 
 平时写组件，你想同时支持受控和非受控，可以像这样自己封装一个 hook，也可以直接用 ahooks 的 useControllableValue，实现逻辑是一样的。
 
-案例代码上传了react 小册仓库：[github.com/QuarkGluonP…](https://github.com/QuarkGluonPlasma/react-course-code/tree/main/controlled-and-uncontrolled "https://github.com/QuarkGluonPlasma/react-course-code/tree/main/controlled-and-uncontrolled")
+案例代码上传了 react 小册仓库：[github.com/QuarkGluonP…](https://github.com/QuarkGluonPlasma/react-course-code/tree/main/controlled-and-uncontrolled "https://github.com/QuarkGluonPlasma/react-course-code/tree/main/controlled-and-uncontrolled")
 
 ## 总结
 
