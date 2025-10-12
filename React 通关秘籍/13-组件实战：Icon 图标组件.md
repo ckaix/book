@@ -2,28 +2,28 @@ Icon 图标组件是非常常用的组件。
 
 它用起来非常简单，只要复制图标的组件名，直接渲染即可：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21ba1ce6940a47edbbb6282f9a5b14a1~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=2086&h=1206&s=182736&e=png&b=fefefe)
+![](./images/13/21ba1ce6940a47edbbb6282f9a5b14a1~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=2086&h=1206&s=182736&e=png&b=fefefe)
 
 它也有一些 props：
 
 spin 是让图标不断转圈：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ddb92e08e42e4082a43e9a072c19e6eb~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=414&h=72&s=9930&e=png&b=ffffff)
+![](./images/13/ddb92e08e42e4082a43e9a072c19e6eb~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=414&h=72&s=9930&e=png&b=ffffff)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f0c59a0853f4e7d80303bd0174575ca~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=44&h=48&s=9652&e=gif&f=14&b=fcfcfc)
+![](./images/13/3f0c59a0853f4e7d80303bd0174575ca~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif#?w=44&h=48&s=9652&e=gif&f=14&b=fcfcfc)
 
 rotate 是指定图标旋转角度：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36d4d5454a134509af3aa00df69d254d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=550&h=64&s=12329&e=png&b=ffffff)
+![](./images/13/36d4d5454a134509af3aa00df69d254d~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=550&h=64&s=12329&e=png&b=ffffff)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45c6c1ed83e044f481e3af1ce2b1e8c8~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=42&h=46&s=3937&e=png&b=fdfdfd)
+![](./images/13/45c6c1ed83e044f481e3af1ce2b1e8c8~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=42&h=46&s=3937&e=png&b=fdfdfd)
 
 antd 内置了很多图标组件，如果觉得不够用，还可以自己扩展：
 
 ```javascript
-import React from 'react';
-import Icon from '@ant-design/icons';
-import type { GetProps } from 'antd';
+import React from "react";
+import Icon from "@ant-design/icons";
+import type { GetProps } from "antd";
 
 type CustomIconComponentProps = GetProps<typeof Icon>;
 
@@ -33,26 +33,28 @@ const HeartSvg = () => (
   </svg>
 );
 
-const HeartIcon = (props: Partial<CustomIconComponentProps>) => <Icon component={HeartSvg} {...props} />;
+const HeartIcon = (props: Partial<CustomIconComponentProps>) => (
+  <Icon component={HeartSvg} {...props} />
+);
 
-const App: React.FC = () => <HeartIcon style={{ color: 'pink' }} />;
+const App: React.FC = () => <HeartIcon style={{ color: "pink" }} />;
 
 export default App;
 ```
 
 只要对 Icon 组件包一层，component 参数传入图标的 svg，那就是一个新的图标组件。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/130b1274ee384491ab57cefe6a346429~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=50&h=50&s=3797&e=png&b=ffffff)
+![](./images/13/130b1274ee384491ab57cefe6a346429~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=50&h=50&s=3797&e=png&b=ffffff)
 
 而且如果你的项目用了 iconfont，你也可以把 iconfont 图标封装成 Icon 组件：
 
 ```javascript
-import React from 'react';
-import { createFromIconfontCN } from '@ant-design/icons';
-import { Space } from 'antd';
+import React from "react";
+import { createFromIconfontCN } from "@ant-design/icons";
+import { Space } from "antd";
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
+  scriptUrl: "//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js",
 });
 
 const App: React.FC = () => (
@@ -66,7 +68,7 @@ const App: React.FC = () => (
 export default App;
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c38487f2300f48a3b48cbfe8d41812d5~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=152&h=72&s=4493&e=png&b=fefefe)
+![](./images/13/c38487f2300f48a3b48cbfe8d41812d5~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=152&h=72&s=4493&e=png&b=fefefe)
 
 用 createFromIconfontCN 的方法，传入 scriptUrl，就可以直接用 IconFont 的组建了。
 
@@ -78,7 +80,7 @@ Icon 组件就这么多用法，还是挺简单的。
 npx create-react-app --template=typescript icon-component
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2411326ed9404793a21cb4e4e7e16c04~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1120&h=306&s=53722&e=png&b=010101)
+![](./images/13/2411326ed9404793a21cb4e4e7e16c04~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1120&h=306&s=53722&e=png&b=010101)
 
 用 cra 创建个项目。
 
@@ -97,14 +99,14 @@ type BaseIconProps = {
 export type IconProps = BaseIconProps & Omit<React.SVGAttributes<SVGElement>, keyof BaseIconProps>;
 
 export const Icon = forwardRef<SVGSVGElement, PropsWithChildren<IconProps>>((props, ref) => {
-    
-    const { 
+
+    const {
         style,
-        className, 
-        spin, 
+        className,
+        spin,
         size = '1em',
         children,
-        ...rest 
+        ...rest
     } = props;
 
     return (
@@ -119,25 +121,25 @@ export const Icon = forwardRef<SVGSVGElement, PropsWithChildren<IconProps>>((pro
 
 此外，因为 Icon 就是对 svg 的封装，所以我们也接受所有 svg 的属性，透传给内部的 svg。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c486153bb12492abf6c0c194461ecb5~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1556&h=1070&s=194099&e=png&b=1f1f1f)
+![](./images/13/0c486153bb12492abf6c0c194461ecb5~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1556&h=1070&s=194099&e=png&b=1f1f1f)
 
 这里还用了 forwardRef 来把 svg 的 ref 转发出去：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b36b306591d44bab42fb66d8f2ad680~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1544&h=1052&s=192521&e=png&b=1f1f1f)
+![](./images/13/5b36b306591d44bab42fb66d8f2ad680~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1544&h=1052&s=192521&e=png&b=1f1f1f)
 
 还有，size 默认为 1em 也就是用 font-size 的大小：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc60b78b3ed341bba2db5162eb8f073d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1508&h=206&s=40836&e=png&b=f8f8fa)
+![](./images/13/fc60b78b3ed341bba2db5162eb8f073d~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1508&h=206&s=40836&e=png&b=f8f8fa)
 
 填充颜色用 currentColor，也就是 color 的值：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a02ff96fa49b4dc08e62aa84a736719f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1572&h=792&s=123253&e=png&b=f9f9f9)
+![](./images/13/a02ff96fa49b4dc08e62aa84a736719f~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1572&h=792&s=123253&e=png&b=f9f9f9)
 
 这就是为什么我们能通过 font-size 和 color 来修改 Icon 组件的大小和颜色。
 
 然后处理下 size 参数：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e45b17de34854b6fadf4f2eba974df93~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1566&h=1218&s=244617&e=png&b=1f1f1f)
+![](./images/13/e45b17de34854b6fadf4f2eba974df93~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1566&h=1218&s=244617&e=png&b=1f1f1f)
 
 size 可以传 \[10px, 10px\] 分别指定宽高，也可以传 10px 来同时指定宽高，所以要做下处理。
 
@@ -165,14 +167,14 @@ export const getSize = (size: IconProps['size']) => {
 };
 
 export const Icon = forwardRef<SVGSVGElement, PropsWithChildren<IconProps>>((props, ref) => {
-    
-    const { 
+
+    const {
         style,
-        className, 
-        spin, 
+        className,
+        spin,
         size = '1em',
         children,
-        ...rest 
+        ...rest
     } = props;
 
     const [width, height] = getSize(size);
@@ -193,16 +195,16 @@ export const Icon = forwardRef<SVGSVGElement, PropsWithChildren<IconProps>>((pro
 npm install --save classnames
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19e26bd271e843968ffab2b789470cfe~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=908&h=800&s=117965&e=png&b=1f1f1f)
+![](./images/13/19e26bd271e843968ffab2b789470cfe~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=908&h=800&s=117965&e=png&b=1f1f1f)
 
 ```javascript
 const cn = cs(
-    'icon',
-    {
-        'icon-spin': spin
-    },
-    className
-)
+  "icon",
+  {
+    "icon-spin": spin,
+  },
+  className
+);
 ```
 
 实现下 icon-spin 的样式：
@@ -241,7 +243,7 @@ icon-spin 执行无限旋转动画。
 
 在 Icon/index.tsx 里引入：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4858b3370054a3eb66f49d5eb8f0cf3~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=916&h=528&s=98876&e=png&b=1f1f1f)
+![](./images/13/d4858b3370054a3eb66f49d5eb8f0cf3~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=916&h=528&s=98876&e=png&b=1f1f1f)
 
 至此，Icon 组件就封装完了。
 
@@ -252,8 +254,8 @@ icon-spin 执行无限旋转动画。
 然后创建 Icon/createIcon.tsx
 
 ```javascript
-import React, { forwardRef } from 'react';
-import { Icon, IconProps } from '.';
+import React, { forwardRef } from "react";
+import { Icon, IconProps } from ".";
 
 interface CreateIconOptions {
   content: React.ReactNode;
@@ -262,13 +264,19 @@ interface CreateIconOptions {
 }
 
 export function createIcon(options: CreateIconOptions) {
-  const { content, iconProps = {}, viewBox = '0 0 1024 1024' } = options;
+  const { content, iconProps = {}, viewBox = "0 0 1024 1024" } = options;
 
-  return forwardRef<SVGSVGElement, IconProps>((props, ref) => {
-    return <Icon ref={ref} viewBox={viewBox} {...iconProps} {...props}>
-      {content}
-    </Icon>
-  });
+  return (
+    forwardRef < SVGSVGElement,
+    IconProps >
+      ((props, ref) => {
+        return (
+          <Icon ref={ref} viewBox={viewBox} {...iconProps} {...props}>
+            {content}
+          </Icon>
+        );
+      })
+  );
 }
 ```
 
@@ -279,7 +287,7 @@ export function createIcon(options: CreateIconOptions) {
 Icon/icons/IconAdd.tsx
 
 ```javascript
-import { createIcon } from '../createIcon';
+import { createIcon } from "../createIcon";
 
 export const IconAdd = createIcon({
   content: (
@@ -293,7 +301,7 @@ export const IconAdd = createIcon({
 Icon/icons/IconEmail.tsx
 
 ```javascript
-import { createIcon } from '../createIcon';
+import { createIcon } from "../createIcon";
 
 export const IconEmail = createIcon({
   content: (
@@ -307,12 +315,12 @@ export const IconEmail = createIcon({
 在 App.tsx 里引入下试试：
 
 ```javascript
-import { IconAdd } from './Icon/icons/IconAdd';
-import { IconEmail } from './Icon/icons/IconEmail';
+import { IconAdd } from "./Icon/icons/IconAdd";
+import { IconEmail } from "./Icon/icons/IconEmail";
 
 function App() {
   return (
-    <div style={ {padding: '50px'} }>
+    <div style={{ padding: "50px" }}>
       <IconAdd></IconAdd>
       <IconEmail></IconEmail>
     </div>
@@ -330,21 +338,20 @@ npm run start
 
 可以看到，Icon 渲染出来了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35626c69fece49a59094cfd2a91a3333~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=250&h=150&s=4890&e=png&b=ffffff)
+![](./images/13/35626c69fece49a59094cfd2a91a3333~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=250&h=150&s=4890&e=png&b=ffffff)
 
 然后试下 props：
 
 ```javascript
-import { IconAdd } from './Icon/icons/IconAdd';
-import { IconEmail } from './Icon/icons/IconEmail';
-
+import { IconAdd } from "./Icon/icons/IconAdd";
+import { IconEmail } from "./Icon/icons/IconEmail";
 
 function App() {
   return (
-    <div style={ {padding: '50px'} }>
-      <IconAdd size='40px'></IconAdd>
+    <div style={{ padding: "50px" }}>
+      <IconAdd size="40px"></IconAdd>
       <IconEmail spin></IconEmail>
-      <IconEmail style={{color: 'blue', fontSize: '50px'}}></IconEmail>
+      <IconEmail style={{ color: "blue", fontSize: "50px" }}></IconEmail>
     </div>
   );
 }
@@ -352,7 +359,7 @@ function App() {
 export default App;
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d7c686370b84d2d9a44050a9e64d1d8~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=354&h=350&s=22270&e=gif&f=17&b=fefefe)
+![](./images/13/1d7c686370b84d2d9a44050a9e64d1d8~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif#?w=354&h=350&s=22270&e=gif&f=17&b=fefefe)
 
 没啥问题。
 
@@ -394,7 +401,7 @@ export function createFromIconfont(scriptUrl: string) {
 }
 ```
 
-createFromIconfont 会传入 scriptUrl，我们在 document.body 上添加 <script> 标签引入它。
+createFromIconfont 会传入 scriptUrl，我们在 document.body 上添加 \<script> 标签引入它。
 
 当然，如果加载过的就不用再次加载了，所以用 Set 来记录下。
 
@@ -402,9 +409,9 @@ createFromIconfont 会传入 scriptUrl，我们在 document.body 上添加 <scri
 
 antd 的就是这么做的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e30cb8e7e4dc4e52acd127674c489442~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1576&h=1168&s=336508&e=png&b=fcfbfb)
+![](./images/13/e30cb8e7e4dc4e52acd127674c489442~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1576&h=1168&s=336508&e=png&b=fcfbfb)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/389ce710a7f84b71b9a837476ad2a99a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1440&h=866&s=183803&e=png&b=fefefe)
+![](./images/13/389ce710a7f84b71b9a837476ad2a99a~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1440&h=866&s=183803&e=png&b=fefefe)
 
 我们测试下：
 
@@ -412,43 +419,48 @@ antd 的就是这么做的：
 
 选几个图标:
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f06c5be3b8a41fd9fca591ceceb6ce6~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1406&h=852&s=282606&e=png&b=181818)
+![](./images/13/1f06c5be3b8a41fd9fca591ceceb6ce6~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1406&h=852&s=282606&e=png&b=181818)
 
 添加到购物车，创建个项目：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/15ca48ed7ebf4f858386b73cd842002a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=732&h=388&s=26647&e=png&b=fafafb)
+![](./images/13/15ca48ed7ebf4f858386b73cd842002a~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=732&h=388&s=26647&e=png&b=fafafb)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7904b82306304d28a41934f2db08e0c6~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=886&h=1188&s=100821&e=png&b=f9f9f9)
+![](./images/13/7904b82306304d28a41934f2db08e0c6~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=886&h=1188&s=100821&e=png&b=f9f9f9)
 
 然后就可以看到在线 js 链接：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4d323261c4f4d7f9fe448043daa0665~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1974&h=1264&s=271236&e=png&b=fbfbfb)
+![](./images/13/d4d323261c4f4d7f9fe448043daa0665~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1974&h=1264&s=271236&e=png&b=fbfbfb)
 
 我们在项目里引入下试试：
 
 ```javascript
-import { createFromIconfont } from './Icon/createFrontIconfont';
-import { IconAdd } from './Icon/icons/IconAdd';
-import { IconEmail } from './Icon/icons/IconEmail';
+import { createFromIconfont } from "./Icon/createFrontIconfont";
+import { IconAdd } from "./Icon/icons/IconAdd";
+import { IconEmail } from "./Icon/icons/IconEmail";
 
-const IconFont = createFromIconfont('//at.alicdn.com/t/c/font_4443338_a2wwqhorbk4.js');
+const IconFont = createFromIconfont(
+  "//at.alicdn.com/t/c/font_4443338_a2wwqhorbk4.js"
+);
 
 function App() {
   return (
     <div>
-      <div style={ {padding: '50px'} }>
+      <div style={{ padding: "50px" }}>
         <IconFont type="icon-shouye-zhihui" size="40px"></IconFont>
-        <IconFont type="icon-gerenzhongxin-zhihui" fill="blue" size="40px"></IconFont>
+        <IconFont
+          type="icon-gerenzhongxin-zhihui"
+          fill="blue"
+          size="40px"
+        ></IconFont>
       </div>
     </div>
   );
 }
 
 export default App;
-
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67845c1ff651446da184c73c126d2cbc~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=378&h=210&s=7628&e=png&b=ffffff)
+![](./images/13/67845c1ff651446da184c73c126d2cbc~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=378&h=210&s=7628&e=png&b=ffffff)
 
 引入成功！
 
