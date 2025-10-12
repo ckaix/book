@@ -36,21 +36,21 @@
 npx create-react-app --template=typescript react-unit-test
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2eb43795740b4e039c69de13cb8e9a6b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1126&h=262&s=66019&e=png&b=000000)
+![](./images/11/2eb43795740b4e039c69de13cb8e9a6b~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1126&h=262&s=66019&e=png&b=000000)
 
 测试 react 组件和 hooks 可以使用 @testing-library/react 这个包，然后测试用例使用 jest 来组织。
 
 这两个包 cra 都给引入了，我们直接跑下 npm run test 就可以看到单测结果。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da47091071444e8e890abef11314e2ad~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=700&h=260&s=37462&e=png&b=1f1f1f)
+![](./images/11/da47091071444e8e890abef11314e2ad~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=700&h=260&s=37462&e=png&b=1f1f1f)
 
 App 组件是这样的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb6813410e654ceab54465d3716cbd6e~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1012&h=996&s=148983&e=png&b=1e1e1e)
+![](./images/11/fb6813410e654ceab54465d3716cbd6e~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1012&h=996&s=148983&e=png&b=1e1e1e)
 
 它的单测是这么写的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/952331492b0448af837e40c9c6db42b3~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=944&h=410&s=81626&e=png&b=1e1e1e)
+![](./images/11/952331492b0448af837e40c9c6db42b3~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=944&h=410&s=81626&e=png&b=1e1e1e)
 
 通过 @testing-library/react 的 render 函数把组件渲染出来。
 
@@ -61,17 +61,17 @@ App 组件是这样的：
 你也可以这么写：
 
 ```javascript
-test('renders learn react link 2', () => {
+test("renders learn react link 2", () => {
   const { container } = render(<App />);
-  const linkElement = container.querySelector('.App-link');
+  const linkElement = container.querySelector(".App-link");
 
-  expect(linkElement?.textContent).toMatch(/learn react/i)
+  expect(linkElement?.textContent).toMatch(/learn react/i);
 });
 ```
 
 render 会返回组件挂载的容器 dom，它是一个 HTMLElement 的对象，有各种 dom 方法。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5a57e0d716340038ef04e6d886b433a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=640&h=406&s=75986&e=png&b=1f1f1f)
+![](./images/11/b5a57e0d716340038ef04e6d886b433a~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=640&h=406&s=75986&e=png&b=1f1f1f)
 
 可以用 querySelector 查找到那个 a 标签，然后判断它的内容是否匹配正则。
 
@@ -83,29 +83,28 @@ render 会返回组件挂载的容器 dom，它是一个 HTMLElement 的对象�
 
 antd 组件的测试也是用的第二种来查找 dom 的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa18b88eae844ead8c722ffa9965bc59~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1422&h=838&s=216155&e=png&b=1e1e1e)
+![](./images/11/aa18b88eae844ead8c722ffa9965bc59~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1422&h=838&s=216155&e=png&b=1e1e1e)
 
 那如果有 onClick、onChange 等事件监听器的组件，怎么测试呢？
 
 我们写个组件 Toggle.tsx：
 
 ```javascript
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 
 function Toggle() {
+  const [status, setStatus] = useState(false);
 
-    const [status, setStatus] = useState(false);
+  const clickHandler = useCallback(() => {
+    setStatus((prevStatus) => !prevStatus);
+  }, []);
 
-    const clickHandler = useCallback(() => {
-        setStatus((prevStatus) => !prevStatus);
-    }, []);
-
-    return (
-        <div>
-            <button onClick={clickHandler}>切换</button>
-            <p>{status ? 'open' : 'close' }</p>
-        </div>
-    );
+  return (
+    <div>
+      <button onClick={clickHandler}>切换</button>
+      <p>{status ? "open" : "close"}</p>
+    </div>
+  );
 }
 
 export default Toggle;
@@ -115,7 +114,7 @@ export default Toggle;
 
 渲染出来是这样的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/178928819cbc46a0aa56dff13daf2da2~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=370&h=338&s=61083&e=gif&f=26&b=fcfcfc)
+![](./images/11/178928819cbc46a0aa56dff13daf2da2~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=370&h=338&s=61083&e=gif&f=26&b=fcfcfc)
 
 这个组件如何测试呢？
 
@@ -133,7 +132,7 @@ test('toggle', () => {
   expect(container.querySelector('p')?.textContent).toBe('close');
 
   fireEvent.click(container.querySelector('button')!)
-  
+
   expect(container.querySelector('p')?.textContent).toBe('open');
 })
 ```
@@ -154,17 +153,17 @@ npm run test
 
 测试通过了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01e5a9ebf26a4fcf92ce6e3297556a18~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=566&h=212&s=31581&e=png&b=1f1f1f)
+![](./images/11/01e5a9ebf26a4fcf92ce6e3297556a18~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=566&h=212&s=31581&e=png&b=1f1f1f)
 
 fireEvent 可以触发任何元素的任何事件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c2837b73349e4ee985222ed9fdf7d8a4~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=536&h=490&s=78116&e=png&b=262627)
+![](./images/11/c2837b73349e4ee985222ed9fdf7d8a4~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=536&h=490&s=78116&e=png&b=262627)
 
 那如何触发 change 事件呢？
 
 这样写：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66cd08d1de4d4db2b8858fa87c51b703~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1232&h=324&s=91715&e=png&b=1e1e1e)
+![](./images/11/66cd08d1de4d4db2b8858fa87c51b703~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1232&h=324&s=91715&e=png&b=1e1e1e)
 
 第二个参数传入 target 的 value 值。
 
@@ -172,43 +171,46 @@ fireEvent 可以触发任何元素的任何事件：
 
 比如 Toggle 组件里点击按钮之后，过了 2s 才改状态：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40468d2629d54908a4decca116046022~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=948&h=812&s=124743&e=png&b=1f1f1f)
+![](./images/11/40468d2629d54908a4decca116046022~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=948&h=812&s=124743&e=png&b=1f1f1f)
 
 ```javascript
 setTimeout(() => {
-    setStatus((prevStatus) => !prevStatus);
+  setStatus((prevStatus) => !prevStatus);
 }, 2000);
 ```
 
 这时候测试用例就报错了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c24c0df407f401cbe9a04bf81229fc0~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1076&h=546&s=88273&e=png&b=1f1f1f)
+![](./images/11/5c24c0df407f401cbe9a04bf81229fc0~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1076&h=546&s=88273&e=png&b=1f1f1f)
 
 这种用 waitFor 包裹下，设置 timeout 的时间就好了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd26fabdd0944863b6bc32e8f970b197~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1402&h=578&s=130942&e=png&b=1e1e1e)
+![](./images/11/bd26fabdd0944863b6bc32e8f970b197~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1402&h=578&s=130942&e=png&b=1e1e1e)
 
 ```javascript
-await waitFor(() => expect(container.querySelector('p')?.textContent).toBe('open'), {
-    timeout: 3000
-});
+await waitFor(
+  () => expect(container.querySelector("p")?.textContent).toBe("open"),
+  {
+    timeout: 3000,
+  }
+);
 ```
 
 测试通过了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0ac8438b9a64fd8a92705ffd5cc44d7~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=700&h=190&s=27885&e=png&b=1f1f1f)
+![](./images/11/e0ac8438b9a64fd8a92705ffd5cc44d7~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=700&h=190&s=27885&e=png&b=1f1f1f)
 
 除了这些之外，还有一个 api 比较常用，就是 act
 
 它是 react-dom 包里的，@testing-library/react 对它做了一层包装。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33379aba49774f5e98705ac2a651f004~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1538&h=396&s=90654&e=png&b=fefefe)
+![](./images/11/33379aba49774f5e98705ac2a651f004~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1538&h=396&s=90654&e=png&b=fefefe)
 
 就是可以把所有浏览器里跑的代码都包一层 act，这样行为会和在浏览器里一样。
 
 文档里的例子是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80961a1881e24e928615d16741c5bf61~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1334&h=1336&s=299485&e=png&b=2b2e36)
+![](./images/11/80961a1881e24e928615d16741c5bf61~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1334&h=1336&s=299485&e=png&b=2b2e36)
 
 把单测里的 fireEvent 用 act 包一层：
 
@@ -233,7 +235,7 @@ test('toggle', async () => {
 
 结果一样：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/802c7db6ab9c457b94585a000c3de809~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=502&h=148&s=20820&e=png&b=1f1f1f)
+![](./images/11/802c7db6ab9c457b94585a000c3de809~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=502&h=148&s=20820&e=png&b=1f1f1f)
 
 组件测试我们学会了，那如果我想单独测试 hooks 呢？
 
@@ -245,13 +247,13 @@ test('toggle', async () => {
 import { useState } from 'react';
 
 type UseCounterReturnType = [
-  count: number, 
-  increment: (delta: number) => void, 
+  count: number,
+  increment: (delta: number) => void,
   decrement: (delta: number) => void
 ];
 
 export default function useCounter(initialCount: number = 0): UseCounterReturnType {
-  
+
   const [count, setCount] = useState(initialCount);
 
   const increment = (delta: number) => {
@@ -269,17 +271,14 @@ export default function useCounter(initialCount: number = 0): UseCounterReturnTy
 先在 App.tsx 里用一下：
 
 ```javascript
-import useCounter from './useCounter';
+import useCounter from "./useCounter";
 
 function App() {
-
   const [count, increment, decrement] = useCounter();
 
   return (
     <div>
-      <div>
-        {count}
-      </div>
+      <div>{count}</div>
       <div>
         <button onClick={() => increment(1)}>加一</button>
         <button onClick={() => decrement(2)}>减二</button>
@@ -297,17 +296,17 @@ export default App;
 npm run start
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d6cef42756b4e499a9cf38df5cb5328~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=634&h=440&s=77213&e=gif&f=29&b=fdfdfd)
+![](./images/11/1d6cef42756b4e499a9cf38df5cb5328~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif#?w=634&h=440&s=77213&e=gif&f=29&b=fdfdfd)
 
 没啥问题。
 
 然后来写下这个 hook 的单测：
 
 ```javascript
-test('useCounter', async () => {
+test("useCounter", async () => {
   const hook = renderHook(() => useCounter(0));
-  
-  const [count, increment, decrement]  = hook.result.current;
+
+  const [count, increment, decrement] = hook.result.current;
 
   act(() => {
     increment(2);
@@ -325,7 +324,7 @@ test('useCounter', async () => {
 
 renderHook 返回的 result.current 就是 hook 的返回值。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a49fa806a98d4b218ab6e8c23fe8c3cd~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=618&h=276&s=39573&e=png&b=191919)
+![](./images/11/a49fa806a98d4b218ab6e8c23fe8c3cd~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=618&h=276&s=39573&e=png&b=191919)
 
 这就是 hook 的单测写法。
 
@@ -341,12 +340,12 @@ renderHook 返回的 result.current 就是 hook 的返回值。
 
 主要是用 @testing-library/react 这个库，它有一些 api：
 
-* render：渲染组件，返回 container 容器 dom 和其他的查询 api
-* fireEvent：触发某个元素的某个事件
-* createEvent：创建某个事件（一般不用这样创建）
-* waitFor：等待异步操作完成再断言，可以指定 timeout
-* act：包裹的代码会更接近浏览器里运行的方式
-* renderHook：执行 hook，可以通过 result.current 拿到 hook 返回值
+- render：渲染组件，返回 container 容器 dom 和其他的查询 api
+- fireEvent：触发某个元素的某个事件
+- createEvent：创建某个事件（一般不用这样创建）
+- waitFor：等待异步操作完成再断言，可以指定 timeout
+- act：包裹的代码会更接近浏览器里运行的方式
+- renderHook：执行 hook，可以通过 result.current 拿到 hook 返回值
 
 其实也没多少东西。
 
