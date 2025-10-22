@@ -2,11 +2,11 @@ Tailwind 是流行的原子化 css 框架。
 
 有多流行呢？
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b1d769592ac4fb58b3f1f89f1088552~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=836&h=254&s=48441&e=png&b=ffffff)
+![](./images/26/4b1d769592ac4fb58b3f1f89f1088552~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=836&h=254&s=48441&e=png&b=ffffff)
 
 它现在有 76k star 了，npm 包的周下载量也很高：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7383f2cbf2b845f384e908525e808706~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=668&h=476&s=42921&e=png&b=fefefe)
+![](./images/26/7383f2cbf2b845f384e908525e808706~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=668&h=476&s=42921&e=png&b=fefefe)
 
 那什么是原子化 css？
 
@@ -18,9 +18,9 @@ Tailwind 是流行的原子化 css 框架。
 
 ```css
 .aaa {
-    font-size: 16px;
-    border: 1px solid #000;
-    padding: 4px;
+  font-size: 16px;
+  border: 1px solid #000;
+  padding: 4px;
 }
 ```
 
@@ -28,7 +28,7 @@ Tailwind 是流行的原子化 css 框架。
 
 也就是 class 里包含多个样式：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aecedc8ad6344918b19bedfb5505a54a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1096&h=638&s=127672&e=png&b=ffffff)
+![](./images/26/aecedc8ad6344918b19bedfb5505a54a~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1096&h=638&s=127672&e=png&b=ffffff)
 
 而原子化 css 是这样的写法：
 
@@ -38,23 +38,23 @@ Tailwind 是流行的原子化 css 框架。
 
 ```css
 .text-base {
-    font-size: 16px;
+  font-size: 16px;
 }
 .p-1 {
-    padding: 4px;
+  padding: 4px;
 }
 .border {
-    border-width: 1px;
+  border-width: 1px;
 }
 .border-black {
-    border-color: black;
+  border-color: black;
 }
 .border-solid {
-    border-style: solid;
+  border-style: solid;
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25e18f4e6eb3470986c8735964f486da~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1696&h=648&s=206422&e=png&b=ffffff)
+![](./images/26/25e18f4e6eb3470986c8735964f486da~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1696&h=648&s=206422&e=png&b=ffffff)
 
 定义一些细粒度的 class，叫做原子 class，然后在 html 里直接引入这些原子化的 class。
 
@@ -78,26 +78,26 @@ npx tailwindcss init
 
 安装 tailwindcss 依赖，创建 tailwindcss 配置文件。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7930ae6846d438ebd7d83586fceaac4~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=802&h=420&s=96574&e=png&b=1e1e1e)
+![](./images/26/f7930ae6846d438ebd7d83586fceaac4~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=802&h=420&s=96574&e=png&b=1e1e1e)
 
 tailwind 实际上是一个 postcss 插件，因为 cra 内部已经做了 postcss 集成 tailwind 插件的配置，这一步就不用做了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc7f7d94bf4e419dabb2cf60446f78c0~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1648&h=976&s=480956&e=png&b=202020)
+![](./images/26/bc7f7d94bf4e419dabb2cf60446f78c0~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1648&h=976&s=480956&e=png&b=202020)
 
 然后在入口 css 里加上这三行代码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd6778fe2dc74822b3735b6c83b55777~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=526&h=256&s=54123&e=png&b=1e1e1e)
+![](./images/26/dd6778fe2dc74822b3735b6c83b55777~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=526&h=256&s=54123&e=png&b=1e1e1e)
 
 这三行分别是引入 tailwind 的基础样式、组件样式、工具样式的。
 
 之后就可以在组件里用 tailwind 提供的 class 了：
 
 ```javascript
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
-    <div className='text-base p-1 border border-black border-solid'>guang</div>
+    <div className="text-base p-1 border border-black border-solid">guang</div>
   );
 }
 
@@ -107,32 +107,32 @@ export default App;
 我们执行把开发服务跑起来:
 
 ```arduino
-npm run start 
+npm run start
 ```
 
 可以看到，它正确的加上了样式：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8c82e20547b4b06a8c523f7e0edd04a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=870&h=202&s=36844&e=png&b=ffffff)
+![](./images/26/a8c82e20547b4b06a8c523f7e0edd04a~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=870&h=202&s=36844&e=png&b=ffffff)
 
 用到的这些原子 class 就是 tailwind 提供的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05094ce1ae1d4adf9a57b5ab74e4bea0~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1356&h=522&s=287199&e=png&b=fefdfd)
+![](./images/26/05094ce1ae1d4adf9a57b5ab74e4bea0~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1356&h=522&s=287199&e=png&b=fefdfd)
 
 这里的 p-1 是 padding:0.25rem，你也可以在配置文件里修改它的值：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/966b4d4f72aa41bcbd111f752d82f1a3~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=810&h=618&s=127847&e=png&b=1f1f1f)
+![](./images/26/966b4d4f72aa41bcbd111f752d82f1a3~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=810&h=618&s=127847&e=png&b=1f1f1f)
 
 在 tailwind.config.js 的 theme.extend 修改 p-1 的值，设置为 30px。
 
 刷新页面，就可以看到 p-1 的样式变了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb389cb5661a4f84a040e9cb87dbbbce~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1210&h=578&s=218911&e=png&b=fdfdfd)
+![](./images/26/bb389cb5661a4f84a040e9cb87dbbbce~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1210&h=578&s=218911&e=png&b=fdfdfd)
 
 .text-base 是 font-size、line-height 两个样式，这种通过数组配置：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/055a97a29ade4afab612340ada86a4c6~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=792&h=736&s=162774&e=png&b=1f1f1f)
+![](./images/26/055a97a29ade4afab612340ada86a4c6~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=792&h=736&s=162774&e=png&b=1f1f1f)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a7fa0353bb24d23a1c3d82c501d338e~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1180&h=468&s=229879&e=png&b=fcfbfb)
+![](./images/26/0a7fa0353bb24d23a1c3d82c501d338e~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1180&h=468&s=229879&e=png&b=fcfbfb)
 
 也就是说所有 tailwind 提供的所有内置原子 class 都可以配置。
 
@@ -140,45 +140,45 @@ npm run start
 
 比如 text-\[14px\]，它就会生成 font-size:14px 的样式：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82af77d4f8da48dc8a4a742a762e4398~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1082&h=524&s=184209&e=png&b=fefefe)
+![](./images/26/82af77d4f8da48dc8a4a742a762e4398~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1082&h=524&s=184209&e=png&b=fefefe)
 
 比如 aspect-\[4/3\]，就是这样的样式：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/259366d7084241789e49a9a428131f28~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1056&h=458&s=218525&e=png&b=ecf2f9)
+![](./images/26/259366d7084241789e49a9a428131f28~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1056&h=458&s=218525&e=png&b=ecf2f9)
 
 我们平时经常指定 hover 时的样式，在 tailwind 里怎么指定呢？
 
 很简单，这样写：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a77e52e52d7a4545b3587668f018dec0~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1154&h=448&s=103528&e=png&b=1f1f1f)
+![](./images/26/a77e52e52d7a4545b3587668f018dec0~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1154&h=448&s=103528&e=png&b=1f1f1f)
 
 生成的就是带状态的 class：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f42c891999c44e3a4d2140fb440abca~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1080&h=314&s=149842&e=png&b=fcfcfc)
+![](./images/26/4f42c891999c44e3a4d2140fb440abca~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1080&h=314&s=149842&e=png&b=fcfcfc)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b3cfb7a2d5444cb39603b5f01e787012~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=860&h=336&s=43299&e=gif&f=15&b=fcfcfc)
+![](./images/26/b3cfb7a2d5444cb39603b5f01e787012~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=860&h=336&s=43299&e=gif&f=15&b=fcfcfc)
 
 此外，写响应式的页面的时候，我们要指定什么宽度的时候用什么样式，这个用 tailwind 怎么写呢？
 
 也是一样的写法：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a865f8e38a9e4c92b5abcbea3a2651e9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1110&h=490&s=106411&e=png&b=1f1f1f)
+![](./images/26/a865f8e38a9e4c92b5abcbea3a2651e9~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1110&h=490&s=106411&e=png&b=1f1f1f)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c9ce674e44414a3e85fcced80085f670~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1740&h=436&s=435221&e=gif&f=21&b=fcfcfc)
+![](./images/26/c9ce674e44414a3e85fcced80085f670~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1740&h=436&s=435221&e=gif&f=21&b=fcfcfc)
 
 生成的是这样的代码：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a466932569514c0c840fe0035f99ff73~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1022&h=508&s=169828&e=png&b=fdfcfc)
+![](./images/26/a466932569514c0c840fe0035f99ff73~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1022&h=508&s=169828&e=png&b=fdfcfc)
 
 这个断点位置自然也是可以配置的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/805f82920d75400ba0a307dea0ace8cb~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=808&h=786&s=176390&e=png&b=1f1f1f)
+![](./images/26/805f82920d75400ba0a307dea0ace8cb~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=808&h=786&s=176390&e=png&b=1f1f1f)
 
 可以看到 md 断点对应的宽度变了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eebd397537274b4693738c97383325d5~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1594&h=614&s=327342&e=png&b=ffffff)
+![](./images/26/eebd397537274b4693738c97383325d5~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1594&h=614&s=327342&e=png&b=ffffff)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ae904d37de049b880badfed8aacfcc9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1628&h=732&s=760413&e=gif&f=17&b=fdfdfd)
+![](./images/26/3ae904d37de049b880badfed8aacfcc9~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1628&h=732&s=760413&e=gif&f=17&b=fdfdfd)
 
 光这些就很方便了。
 
@@ -190,18 +190,18 @@ npm run start
 
 ```css
 .aaa {
-    background: red;
-    font-size: 16px;
+  background: red;
+  font-size: 16px;
 }
 
 .aaa:hover {
-    font-size: 30px;
+  font-size: 30px;
 }
 
-@media(min-width:768px) {
-    .aaa {
-        background: blue;
-    }
+@media (min-width: 768px) {
+  .aaa {
+    background: blue;
+  }
 }
 ```
 
@@ -219,13 +219,13 @@ npm run start
 
 tailwind 文档提到了 3 个好处：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dbac4dde269c4b58bbcf52c7873447bf~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1648&h=668&s=434405&e=png&b=ffffff)
+![](./images/26/dbac4dde269c4b58bbcf52c7873447bf~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1648&h=668&s=434405&e=png&b=ffffff)
 
 不用起 class 名字，这点简直太爽了，我就经常被起 class 名字折磨。
 
 css 不会一直增长，因为如果你用之前的写法可能是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2304e0d40eb4889b92cd898fe78979c~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=396&h=310&s=51482&e=png)
+![](./images/26/a2304e0d40eb4889b92cd898fe78979c~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=396&h=310&s=51482&e=png)
 
 多个 class 里都包含了类似的样式，但你需要写多次，而如果用了原子 class，就只需要定义一次就好了。
 
@@ -253,11 +253,11 @@ css 没有模块作用域，所以可能你在这里加了一个样式，结果�
 
 这个可以用 tailwind css 提供的 vscode 插件来解决：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6a69fce59034989800b424d2bfda9a7~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1514&h=1028&s=816500&e=png&b=1f1f1f)
+![](./images/26/a6a69fce59034989800b424d2bfda9a7~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1514&h=1028&s=816500&e=png&b=1f1f1f)
 
 安装这个 Tailwind CSS IntelliSense 之后的体验是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8adcfd3c52bc4a0bb9c06392a1434910~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=2122&h=1078&s=387358&e=gif&f=18&b=222021)
+![](./images/26/8adcfd3c52bc4a0bb9c06392a1434910~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=2122&h=1078&s=387358&e=gif&f=18&b=222021)
 
 有智能提示，可以查看它对应的样式。
 
@@ -265,33 +265,33 @@ css 没有模块作用域，所以可能你在这里加了一个样式，结果�
 
 这个插件触发提示需要先敲一个空格，这点要注意下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0acf863e44ce47b189ba37ee9e7b044a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.gif#?w=1364&h=494&s=132209&e=gif&f=38&b=1e1e1e)
+![](./images/26/0acf863e44ce47b189ba37ee9e7b044a~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.gif#?w=1364&h=494&s=132209&e=gif&f=38&b=1e1e1e)
 
 **难以调试**
 
 在 chrome devtools 里可以直接看到有啥样式，而且样式之间基本没有交叉，很容易调试：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf37f8087da4406b9d13e29cf8670f96~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1536&h=686&s=402296&e=png&b=fdfcfc)
+![](./images/26/cf37f8087da4406b9d13e29cf8670f96~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1536&h=686&s=402296&e=png&b=fdfcfc)
 
 相反，我倒是觉得之前那种写法容易多个 class 的样式相互覆盖，还要确定优先级和顺序，那个更难调试才对：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a57d24ddeda24c05b888dbe77b7e5bfe~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=840&h=692&s=255663&e=png)
+![](./images/26/a57d24ddeda24c05b888dbe77b7e5bfe~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=840&h=692&s=255663&e=png)
 
 **类型太长了而且重复多次**
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11687714e4044a67ad4e67c84d33acef~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1558&h=884&s=428979&e=png&b=222c3d)
+![](./images/26/11687714e4044a67ad4e67c84d33acef~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1558&h=884&s=428979&e=png&b=222c3d)
 
 这种问题可以用 @layer @apply 指令来扩展：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/010f4acf2c7e48f09d62260a67905965~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1938&h=344&s=128611&e=png&b=1e1e1e)
+![](./images/26/010f4acf2c7e48f09d62260a67905965~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1938&h=344&s=128611&e=png&b=1e1e1e)
 
 前面讲过 @tailwind 是引入不同的样式的，而 @layer 就是在某一层样式做修改和扩充，里面可以用 @apply 应用其他样式。
 
 效果是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2956afd271aa4c49912fc3e8d1a85a2b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=906&h=416&s=88521&e=png&b=1f1f1f)
+![](./images/26/2956afd271aa4c49912fc3e8d1a85a2b~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=906&h=416&s=88521&e=png&b=1f1f1f)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50654d7d033143afba709d6944ab0392~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1818&h=518&s=393898&e=png&b=fdfcfc)
+![](./images/26/50654d7d033143afba709d6944ab0392~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1818&h=518&s=393898&e=png&b=fdfcfc)
 
 **内置 class 不能满足我的需求**
 
@@ -300,30 +300,30 @@ css 没有模块作用域，所以可能你在这里加了一个样式，结果�
 但如果你想跨项目复用，那可以开发个 tailwind 插件
 
 ```javascript
-const plugin = require('tailwindcss/plugin');
+const plugin = require("tailwindcss/plugin");
 
-module.exports = plugin(function({ addUtilities }) {
-    addUtilities({
-        '.guang': {
-            background: 'blue',
-            color: 'yellow'
-        },
-        '.guangguang': {
-            'font-size': '70px'
-        }
-    })
-})
+module.exports = plugin(function ({ addUtilities }) {
+  addUtilities({
+    ".guang": {
+      background: "blue",
+      color: "yellow",
+    },
+    ".guangguang": {
+      "font-size": "70px",
+    },
+  });
+});
 ```
 
 在 tailwind.config.js 里引入：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e87fda951404486ca635d4dce5cdf20f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=904&h=860&s=196287&e=png)
+![](./images/26/e87fda951404486ca635d4dce5cdf20f~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=904&h=860&s=196287&e=png)
 
 这样就可以用这个新加的原子 class 了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4bda8233be614380b21024c8b9481663~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1068&h=416&s=98230&e=png&b=1e1e1e)
+![](./images/26/4bda8233be614380b21024c8b9481663~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1068&h=416&s=98230&e=png&b=1e1e1e)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03ffad6493234519abc76b795db33a53~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1548&h=518&s=239704&e=png&b=fefefe)
+![](./images/26/03ffad6493234519abc76b795db33a53~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1548&h=518&s=239704&e=png&b=fefefe)
 
 插件的方式或者 @layer 的方式都可以扩展。
 
@@ -331,25 +331,25 @@ module.exports = plugin(function({ addUtilities }) {
 
 比如我本来有个 border 的 class：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8849532b5b8d46c399fb8ce31f7a750c~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=422&h=154&s=12781&e=png&b=1e1e1e)
+![](./images/26/8849532b5b8d46c399fb8ce31f7a750c~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=422&h=154&s=12781&e=png&b=1e1e1e)
 
 而 tailwind 也有，不就冲突了么？
 
 这个可以通过加 prefix 解决：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/391a3bb491324a31a3fad76abcc560e4~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=828&h=512&s=70737&e=png&b=1f1f1f)
+![](./images/26/391a3bb491324a31a3fad76abcc560e4~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=828&h=512&s=70737&e=png&b=1f1f1f)
 
 不过这样所有的原子 class 都得加 prefix 了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/468ff84a39fd477980b1a46c1ae9ff0e~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1208&h=388&s=56853&e=png)
+![](./images/26/468ff84a39fd477980b1a46c1ae9ff0e~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1208&h=388&s=56853&e=png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a0a1ce212ce4a169fd50056a3ac326a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1296&h=454&s=148512&e=png)
+![](./images/26/7a0a1ce212ce4a169fd50056a3ac326a~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1296&h=454&s=148512&e=png)
 
 知道了什么是原子 css 以及 tailwind 的用法之后，我们再来看看它的实现原理。
 
 tailwind 可以单独跑，也可以作为 postcss 插件来跑。这是因为如果单独跑的话，它也会跑起 postcss，然后应用 tailwind 的插件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f5e082f60564af69b942d45e8ca605d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1268&h=1340&s=457561&e=png)
+![](./images/26/5f5e082f60564af69b942d45e8ca605d~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1268&h=1340&s=457561&e=png)
 
 所以说，**tailwind 本质上就是个 postcss 插件**。
 
@@ -357,7 +357,7 @@ postcss 是一个 css 编译器，它是 parse、transform、generate 的流程�
 
 在 [astexplorer.net](https://astexplorer.net/#/gist/6fe6d6027cbfdd64359fb203d9df378b/68583ac053782c87e3b85c1c56553985c410b02e "https://astexplorer.net/#/gist/6fe6d6027cbfdd64359fb203d9df378b/68583ac053782c87e3b85c1c56553985c410b02e") 可以看到 postcss 的 AST：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0984ec9ef913416daa9efe3781201fe8~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1970&h=1066&s=255874&e=png)
+![](./images/26/0984ec9ef913416daa9efe3781201fe8~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1970&h=1066&s=255874&e=png)
 
 而 postcss 就是通过 AST 来拿到 @tailwind、@layer、@apply 这些它扩展的指令，分别作相应的处理，也就是对 AST 的增删改查。
 
@@ -367,7 +367,7 @@ postcss 是一个 css 编译器，它是 parse、transform、generate 的流程�
 
 extractor 的功能看下测试用例就明白了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bfb065c57ed34f0e99899eb87275fafa~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1114&h=714&s=284649&e=png&b=1f1f1f)
+![](./images/26/bfb065c57ed34f0e99899eb87275fafa~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1114&h=714&s=284649&e=png&b=1f1f1f)
 
 所以说，**tailwind 就是基于 postcss 的 AST 实现的 css 代码生成工具，并且做了通过 extractor 提取 js、html 中 class 的功能。**
 
@@ -379,7 +379,7 @@ tailwind 还有种叫 JIT 的编译方式，这个原理也容易理解，本来
 
 就是这样的，一个风筝，一个冲浪板：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b17c133b1b1d48b59bc3029886dbe944~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=438&h=410&s=224190&e=png&b=aac4d7)
+![](./images/26/b17c133b1b1d48b59bc3029886dbe944~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=438&h=410&s=224190&e=png&b=aac4d7)
 
 这种运动在顺风 tailwind 和逆风 headwind 下有不同的技巧。而 tailwind 的时候明显更加省力。
 

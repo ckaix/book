@@ -24,19 +24,20 @@
 加上样式：
 
 ```css
-#box1,#box2 {
-    width: 100px;
-    height: 100px;
-    background: blue;
-    color: #fff;
+#box1,
+#box2 {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  color: #fff;
 
-    position: relative;
+  position: relative;
 }
 #box1 {
-    top: 500px;
+  top: 500px;
 }
 #box2 {
-    top: 800px;
+  top: 800px;
 }
 ```
 
@@ -44,24 +45,26 @@
 
 ```javascript
 const intersectionObserver = new IntersectionObserver(
-    function (entries) {
-        console.log('info:');
-        entries.forEach(item => {
-            console.log(item.target, item.intersectionRatio)
-        })
-    }, {
-    threshold: [0.5, 1]
-});
+  function (entries) {
+    console.log("info:");
+    entries.forEach((item) => {
+      console.log(item.target, item.intersectionRatio);
+    });
+  },
+  {
+    threshold: [0.5, 1],
+  }
+);
 
-intersectionObserver.observe( document.querySelector('#box1'));
-intersectionObserver.observe( document.querySelector('#box2'));
+intersectionObserver.observe(document.querySelector("#box1"));
+intersectionObserver.observe(document.querySelector("#box2"));
 ```
 
 创建一个 IntersectionObserver 对象，监听 box1 和 box2 两个元素，当可见比例达到 0.5 和 1 的时候触发回调。
 
 浏览器跑一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b0a7e768453e4bb99365e614a98d8b3f~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1526&h=1482&s=144890&e=gif&f=15)
+![](./images/17/b0a7e768453e4bb99365e614a98d8b3f~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1526&h=1482&s=144890&e=gif&f=15)
 
 可以看到元素 box1 和 box2 在可视范围达到一半（0.5）和全部（1）的时候分别触发了回调。
 
@@ -75,7 +78,7 @@ intersectionObserver.observe( document.querySelector('#box2'));
 
 监听一个普通 JS 对象的变化，我们会用 Object.defineProperty 或者 Proxy：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f7c3f41e1924c62942a741bd7d4baa5~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=608&h=356&s=85544&e=png)
+![](./images/17/5f7c3f41e1924c62942a741bd7d4baa5~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=608&h=356&s=85544&e=png)
 
 而监听元素的属性和子节点的变化，我们可以用 MutationObserver：
 
@@ -101,24 +104,24 @@ intersectionObserver.observe( document.querySelector('#box2'));
 
 就是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/647a660a3f0f40ea90cff9b2a6ea8398~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=252&h=260&s=22988&e=png&b=0000f5)
+![](./images/17/647a660a3f0f40ea90cff9b2a6ea8398~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=252&h=260&s=22988&e=png&b=0000f5)
 
 我们定时对它做下修改：
 
 ```javascript
 setTimeout(() => {
-    box.style.background = 'red';
-},2000);
+  box.style.background = "red";
+}, 2000);
 
 setTimeout(() => {
-    const dom = document.createElement('button');
-    dom.textContent = '东东东';
-    box.appendChild(dom);
-},3000);
+  const dom = document.createElement("button");
+  dom.textContent = "东东东";
+  box.appendChild(dom);
+}, 3000);
 
 setTimeout(() => {
-   document.querySelectorAll('button')[0].remove();
-},5000);
+  document.querySelectorAll("button")[0].remove();
+}, 5000);
 ```
 
 2s 的时候修改背景颜色为红色，3s 的时候添加一个 button 的子元素，5s 的时候删除第一个 button。
@@ -127,12 +130,12 @@ setTimeout(() => {
 
 ```javascript
 const mutationObserver = new MutationObserver((mutationsList) => {
-    console.log(mutationsList)
+  console.log(mutationsList);
 });
 
 mutationObserver.observe(box, {
-    attributes: true,
-    childList: true
+  attributes: true,
+  childList: true,
 });
 ```
 
@@ -140,21 +143,21 @@ mutationObserver.observe(box, {
 
 浏览器跑一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7e836594b754b2e8d262c3fee602ec9~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1088&h=1280&s=122561&e=gif&f=19&b=fefefe)
+![](./images/17/a7e836594b754b2e8d262c3fee602ec9~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1088&h=1280&s=122561&e=gif&f=19&b=fefefe)
 
 可以看到在三次变化的时候都监听到了并打印了一些信息：
 
 第一次改变的是 attributes，属性是 style：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d2b3290ac244c319a307dfe74d9aad8~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=518&h=462&s=144810&e=png&b=fefdfd)
+![](./images/17/7d2b3290ac244c319a307dfe74d9aad8~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=518&h=462&s=144810&e=png&b=fefdfd)
 
 第二次改变的是 childList，添加了一个节点：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35be2e97254f41d9b04e8e7544a1c12b~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=530&h=468&s=146242&e=png&b=fefefe)
+![](./images/17/35be2e97254f41d9b04e8e7544a1c12b~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=530&h=468&s=146242&e=png&b=fefefe)
 
 第三次也是改变的 childList，删除了一个节点：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e22cf73b71342069320a7067fc7d9ef~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=562&h=462&s=142509&e=png&b=fefdfd)
+![](./images/17/2e22cf73b71342069320a7067fc7d9ef~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=562&h=462&s=142509&e=png&b=fefdfd)
 
 都监听到了！
 
@@ -162,11 +165,11 @@ mutationObserver.observe(box, {
 
 比如 antd 的 Watermark 组件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46c803113ecd469cb1341c094636a47a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1136&h=1126&s=295537&e=jpg&b=1f1f1f)
+![](./images/17/46c803113ecd469cb1341c094636a47a~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1136&h=1126&s=295537&e=jpg&b=1f1f1f)
 
 当删除了水印节点，或者修改了水印节点的属性，就会重新渲染水印：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8119b259a5640218a61f530573c956a~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.jpg#?w=1354&h=504&s=132070&e=png&b=202020)
+![](./images/17/f8119b259a5640218a61f530573c956a~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.jpg#?w=1354&h=504&s=132070&e=png&b=202020)
 
 当然，还有很多别的用途，这里只是介绍功能。
 
@@ -188,38 +191,38 @@ mutationObserver.observe(box, {
 
 ```css
 #box {
-    width: 100px;
-    height: 100px;
-    background: blue;
+  width: 100px;
+  height: 100px;
+  background: blue;
 }
 ```
 
 在 2s 的时候修改它的高度：
 
 ```javascript
-const box = document.querySelector('#box');
+const box = document.querySelector("#box");
 
 setTimeout(() => {
-    box.style.width = '200px';
+  box.style.width = "200px";
 }, 3000);
 ```
 
 然后我们用 ResizeObserver 监听它的变化：
 
 ```javascript
-const resizeObserver = new ResizeObserver(entries => {
-    console.log('当前大小', entries)
+const resizeObserver = new ResizeObserver((entries) => {
+  console.log("当前大小", entries);
 });
 resizeObserver.observe(box);
 ```
 
 在浏览器跑一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3712761d69f142e6bbe580db5a712977~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1046&h=1250&s=107817&e=gif&f=14)
+![](./images/17/3712761d69f142e6bbe580db5a712977~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1046&h=1250&s=107817&e=gif&f=14)
 
 大小变化被监听到了，看下打印的信息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c64db90b225e4350b777f8ec57032043~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1344&h=588&s=323064&e=png)
+![](./images/17/c64db90b225e4350b777f8ec57032043~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1344&h=588&s=323064&e=png)
 
 可以拿到元素和它的位置、尺寸。
 
@@ -240,13 +243,13 @@ resizeObserver.observe(box);
 比如 performance 可以用 mark 方法记录某个时间点：
 
 ```javascript
-performance.mark('registered-observer');
+performance.mark("registered-observer");
 ```
 
 用 measure 方法记录某个时间段：
 
 ```javascript
-performance.measure('button clicked', 'from', 'to');
+performance.measure("button clicked", "from", "to");
 ```
 
 后两个个参数是时间点，不传代表从开始到现在。
@@ -255,26 +258,30 @@ performance.measure('button clicked', 'from', 'to');
 
 ```html
 <html>
-<body>
-  <button onclick="measureClick()">Measure</button>
+  <body>
+    <button onclick="measureClick()">Measure</button>
 
-  <img src="https://p9-passport.byteacctimg.com/img/user-avatar/4e9e751e2b32fb8afbbf559a296ccbf2~300x300.image" />
+    <img
+      src="https://p9-passport.byteacctimg.com/img/user-avatar/4e9e751e2b32fb8afbbf559a296ccbf2~300x300.image"
+    />
 
-  <script>
-    const performanceObserver = new PerformanceObserver(list => {
-      list.getEntries().forEach(entry => {
-        console.log(entry);// 上报
-      })
-    });
-    performanceObserver.observe({entryTypes: ['resource', 'mark', 'measure']});
+    <script>
+      const performanceObserver = new PerformanceObserver((list) => {
+        list.getEntries().forEach((entry) => {
+          console.log(entry); // 上报
+        });
+      });
+      performanceObserver.observe({
+        entryTypes: ["resource", "mark", "measure"],
+      });
 
-    performance.mark('registered-observer');
+      performance.mark("registered-observer");
 
-    function measureClick() {
-      performance.measure('button clicked');
-    }
-  </script>
-</body>
+      function measureClick() {
+        performance.measure("button clicked");
+      }
+    </script>
+  </body>
 </html>
 ```
 
@@ -286,21 +293,21 @@ performance.measure('button clicked', 'from', 'to');
 
 我们在浏览器跑一下试试：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5d336a321b147f2ab655e1c6857d55d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1296&h=1092&s=310926&e=gif&f=16)
+![](./images/17/c5d336a321b147f2ab655e1c6857d55d~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1296&h=1092&s=310926&e=gif&f=16)
 
 可以看到 mark 的时间点记录、资源加载的耗时、点击按钮的 measure 时间段记录都监听到了。
 
 分别打印了这三种记录行为的数据：
 
-mark： ![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4aacfb0969534307b2718f27e3b52472~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=532&h=246&s=80565&e=png&b=fefefe)
+mark： ![](./images/17/4aacfb0969534307b2718f27e3b52472~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=532&h=246&s=80565&e=png&b=fefefe)
 
 图片加载：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11a00ac93d614c50a272728b4afd319d~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1332&h=764&s=321599&e=png)
+![](./images/17/11a00ac93d614c50a272728b4afd319d~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1332&h=764&s=321599&e=png)
 
 measure：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0795f5a92e2947caa1d2c8939912dab3~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=562&h=258&s=79238&e=png)
+![](./images/17/0795f5a92e2947caa1d2c8939912dab3~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=562&h=258&s=79238&e=png)
 
 有了这些数据，就可以上报上去做性能分析了。
 
@@ -310,19 +317,19 @@ measure：
 
 当浏览器运行到过时（deprecation）的 api 的时候，会在控制台打印一个过时的报告:
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d7d6bcc99daa4c588ccf9005fbfbb453~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=844&h=64&s=46402&e=png&b=fbf5e9)
+![](./images/17/d7d6bcc99daa4c588ccf9005fbfbb453~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=844&h=64&s=46402&e=png&b=fbf5e9)
 
 浏览器还会在一些情况下对网页行为做一些干预（intervention），比如会把占用 cpu 太多的广告的 iframe 删掉：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7bb6903a6f846908cde63064336ceab~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1510&h=344&s=203693&e=png&b=fefefe)
+![](./images/17/f7bb6903a6f846908cde63064336ceab~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1510&h=344&s=203693&e=png&b=fefefe)
 
 会在网络比较慢的时候把图片替换为占位图片，点击才会加载：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9fa5be3e31ff4846ad8b90b1a61e6ee7~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=1488&h=386&s=255709&e=png)
+![](./images/17/9fa5be3e31ff4846ad8b90b1a61e6ee7~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=1488&h=386&s=255709&e=png)
 
 这些干预都是浏览器做的，会在控制台打印一个报告：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d5f7d6e298a49e8af99792f696ae803~tplv-k3u1fbpfcp-jj-mark:1600:0:0:0:q75.image#?w=608&h=62&s=36860&e=png)
+![](./images/17/7d5f7d6e298a49e8af99792f696ae803~tplv-k3u1fbpfcp-jj-mark_1600_0_0_0_q75.image#?w=608&h=62&s=36860&e=png)
 
 这些干预或者过时的 api 并不是报错，所以不能用错误监听的方式来拿到，但这些情况对网页 app 来说可能也是很重要的：
 
@@ -333,11 +340,14 @@ measure：
 所以自然也要监听，所以浏览器提供了 ReportingObserver 的 api 用来监听这些报告的打印，我们可以拿到这些报告然后上传。
 
 ```javascript
-const reportingObserver = new ReportingObserver((reports, observer) => {
+const reportingObserver = new ReportingObserver(
+  (reports, observer) => {
     for (const report of reports) {
-        console.log(report.body);//上报
+      console.log(report.body); //上报
     }
-}, {types: ['intervention', 'deprecation']});
+  },
+  { types: ["intervention", "deprecation"] }
+);
 
 reportingObserver.observe();
 ```
@@ -352,14 +362,14 @@ reportingObserver.observe();
 
 浏览器提供了这 5 种 Observer：
 
-* IntersectionObserver：监听元素可见性变化，常用来做元素显示的数据采集、图片的懒加载
-* MutationObserver：监听元素属性和子节点变化，比如可以用来做去不掉的水印
-* ResizeObserver：监听元素大小变化
+- IntersectionObserver：监听元素可见性变化，常用来做元素显示的数据采集、图片的懒加载
+- MutationObserver：监听元素属性和子节点变化，比如可以用来做去不掉的水印
+- ResizeObserver：监听元素大小变化
 
 还有两个与元素无关的：
 
-* PerformanceObserver：监听 performance 记录的行为，来上报数据
-* ReportingObserver：监听过时的 api、浏览器的一些干预行为的报告，可以让我们更全面的了解网页 app 的运行情况
+- PerformanceObserver：监听 performance 记录的行为，来上报数据
+- ReportingObserver：监听过时的 api、浏览器的一些干预行为的报告，可以让我们更全面的了解网页 app 的运行情况
 
 这些 api 相比 addEventListener 添加的交互事件来说用的比较少，但是在特定场景下都是很有用的。
 
