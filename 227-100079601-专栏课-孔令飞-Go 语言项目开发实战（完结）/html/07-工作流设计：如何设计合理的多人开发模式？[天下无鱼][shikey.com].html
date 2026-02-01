@@ -1,0 +1,1271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
+    <title>07-工作流设计：如何设计合理的多人开发模式？</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style>
+        html {
+            color: #333;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-rendering: optimizelegibility;
+            font-family: Helvetica Neue, PingFang SC, Verdana, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif
+        }
+
+        html.borderbox *,
+        html.borderbox :after,
+        html.borderbox :before {
+            box-sizing: border-box
+        }
+
+        article,
+        aside,
+        blockquote,
+        body,
+        button,
+        code,
+        dd,
+        details,
+        dl,
+        dt,
+        fieldset,
+        figcaption,
+        figure,
+        footer,
+        form,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        header,
+        hr,
+        input,
+        legend,
+        li,
+        menu,
+        nav,
+        ol,
+        p,
+        pre,
+        section,
+        td,
+        textarea,
+        th,
+        ul {
+            margin: 0;
+            padding: 0
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        menu,
+        nav,
+        section {
+            display: block
+        }
+
+        audio,
+        canvas,
+        video {
+            display: inline-block
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif
+        }
+
+        button::-moz-focus-inner,
+        input::-moz-focus-inner {
+            padding: 0;
+            border: 0
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+
+        fieldset,
+        img {
+            border: 0
+        }
+
+        blockquote {
+            position: relative;
+            color: #999;
+            font-weight: 400;
+            border-left: 1px solid #1abc9c;
+            padding-left: 1em;
+            margin: 1em 3em 1em 2em
+        }
+
+        @media only screen and (max-width: 640px) {
+            blockquote {
+                margin: 1em 0
+            }
+        }
+
+        abbr,
+        acronym {
+            border-bottom: 1px dotted;
+            font-variant: normal
+        }
+
+        abbr {
+            cursor: help
+        }
+
+        del {
+            text-decoration: line-through
+        }
+
+        address,
+        caption,
+        cite,
+        code,
+        dfn,
+        em,
+        th,
+        var {
+            font-style: normal;
+            font-weight: 400
+        }
+
+        ol,
+        ul {
+            list-style: none
+        }
+
+        caption,
+        th {
+            text-align: left
+        }
+
+        q:after,
+        q:before {
+            content: ""
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative
+        }
+
+        :root sub,
+        :root sup {
+            vertical-align: baseline
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        a {
+            color: #1abc9c
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .typo a {
+            border-bottom: 1px solid #1abc9c
+        }
+
+        .typo a:hover {
+            border-bottom-color: #555;
+            color: #555
+        }
+
+        .typo a:hover,
+        a,
+        ins {
+            text-decoration: none
+        }
+
+        .typo-u,
+        u {
+            text-decoration: underline
+        }
+
+        mark {
+            background: #fffdd1;
+            border-bottom: 1px solid #ffedce;
+            padding: 2px;
+            margin: 0 5px
+        }
+
+        code,
+        pre,
+        pre tt {
+            font-family: Courier, Courier New, monospace
+        }
+
+        pre {
+            background: hsla(0, 0%, 97%, .7);
+            border: 1px solid #ddd;
+            padding: 1em 1.5em;
+            display: block;
+            -webkit-overflow-scrolling: touch
+        }
+
+        hr {
+            border: none;
+            border-bottom: 1px solid #cfcfcf;
+            margin-bottom: .8em;
+            height: 10px
+        }
+
+        .typo-small,
+        figcaption,
+        small {
+            font-size: .9em;
+            color: #888
+        }
+
+        b,
+        strong {
+            font-weight: 700;
+            color: #000
+        }
+
+        [draggable] {
+            cursor: move
+        }
+
+        .clearfix:after,
+        .clearfix:before {
+            content: "";
+            display: table
+        }
+
+        .clearfix:after {
+            clear: both
+        }
+
+        .clearfix {
+            zoom: 1
+        }
+
+        .textwrap,
+        .textwrap td,
+        .textwrap th {
+            word-wrap: break-word;
+            word-break: break-all
+        }
+
+        .textwrap-table {
+            table-layout: fixed
+        }
+
+        .serif {
+            font-family: Palatino, Optima, Georgia, serif
+        }
+
+        .typo-dl,
+        .typo-form,
+        .typo-hr,
+        .typo-ol,
+        .typo-p,
+        .typo-pre,
+        .typo-table,
+        .typo-ul,
+        .typo dl,
+        .typo form,
+        .typo hr,
+        .typo ol,
+        .typo p,
+        .typo pre,
+        .typo table,
+        .typo ul,
+        blockquote {
+            margin-bottom: 1rem
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: PingFang SC, Helvetica Neue, Verdana, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+            color: #000;
+            line-height: 1.35
+        }
+
+        .typo-h1,
+        .typo-h2,
+        .typo-h3,
+        .typo-h4,
+        .typo-h5,
+        .typo-h6,
+        .typo h1,
+        .typo h2,
+        .typo h3,
+        .typo h4,
+        .typo h5,
+        .typo h6 {
+            margin-top: 1.2em;
+            margin-bottom: .6em;
+            line-height: 1.35
+        }
+
+        .typo-h1,
+        .typo h1 {
+            font-size: 2em
+        }
+
+        .typo-h2,
+        .typo h2 {
+            font-size: 1.8em
+        }
+
+        .typo-h3,
+        .typo h3 {
+            font-size: 1.6em
+        }
+
+        .typo-h4,
+        .typo h4 {
+            font-size: 1.4em
+        }
+
+        .typo-h5,
+        .typo-h6,
+        .typo h5,
+        .typo h6 {
+            font-size: 1.2em
+        }
+
+        .typo-ul,
+        .typo ul {
+            margin-left: 1.3em;
+            list-style: disc
+        }
+
+        .typo-ol,
+        .typo ol {
+            list-style: decimal;
+            margin-left: 1.9em
+        }
+
+        .typo-ol ol,
+        .typo-ol ul,
+        .typo-ul ol,
+        .typo-ul ul,
+        .typo li ol,
+        .typo li ul {
+            margin-bottom: .8em;
+            margin-left: 2em
+        }
+
+        .typo-ol ul,
+        .typo-ul ul,
+        .typo li ul {
+            list-style: circle
+        }
+
+        .typo-table td,
+        .typo-table th,
+        .typo table caption,
+        .typo table td,
+        .typo table th {
+            border: 1px solid #ddd;
+            padding: .5em 1em;
+            color: #666
+        }
+
+        .typo-table th,
+        .typo table th {
+            background: #fbfbfb
+        }
+
+        .typo-table thead th,
+        .typo table thead th {
+            background: hsla(0, 0%, 95%, .7)
+        }
+
+        .typo table caption {
+            border-bottom: none
+        }
+
+        .typo-input,
+        .typo-textarea {
+            -webkit-appearance: none;
+            border-radius: 0
+        }
+
+        .typo-em,
+        .typo em,
+        caption,
+        legend {
+            color: #000;
+            font-weight: inherit
+        }
+
+        .typo-em {
+            position: relative
+        }
+
+        .typo-em:after {
+            position: absolute;
+            top: .65em;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            content: "\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB"
+        }
+
+        .typo img {
+            max-width: 100%
+        }
+
+        .common-content {
+            font-weight: 400;
+            color: #353535;
+            line-height: 1.75rem;
+            white-space: normal;
+            word-break: normal;
+            font-size: 1rem
+        }
+
+        .common-content img {
+            display: block;
+            max-width: 100%;
+            background-color: #eee
+        }
+
+        .common-content audio,
+        .common-content video {
+            width: 100%;
+            background-color: #eee
+        }
+
+        .common-content center,
+        .common-content font {
+            margin-top: 1rem;
+            display: inline-block
+        }
+
+        .common-content center {
+            width: 100%
+        }
+
+        .common-content pre {
+            margin-top: 1rem;
+            padding-left: 0;
+            padding-right: 0;
+            position: relative;
+            overflow: hidden
+        }
+
+        .common-content pre code {
+            font-size: .8rem;
+            font-family: Consolas, Liberation Mono, Menlo, monospace, Courier;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            overflow-x: auto
+        }
+
+        .common-content hr {
+            border: none;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid #f5f5f5;
+            height: 1px;
+            background: none
+        }
+
+        .common-content b,
+        .common-content h1,
+        .common-content h2,
+        .common-content h3,
+        .common-content h4,
+        .common-content h5,
+        .common-content strong {
+            font-weight: 700
+        }
+
+        .common-content h1,
+        .common-content h2 {
+            font-size: 1.125rem;
+            margin-bottom: .45rem
+        }
+
+        .common-content h3,
+        .common-content h4,
+        .common-content h5 {
+            font-size: 1rem;
+            margin-bottom: .45rem
+        }
+
+        .common-content p {
+            font-weight: 400;
+            color: #353535;
+            margin-top: .15rem
+        }
+
+        .common-content .orange {
+            color: #ff5a05
+        }
+
+        .common-content .reference {
+            font-size: 1rem;
+            color: #888
+        }
+
+        .custom-rich-content h1 {
+            margin-top: 0;
+            font-weight: 400;
+            font-size: 15.25px;
+            border-bottom: 1px solid #eee;
+            line-height: 2.8
+        }
+
+        .custom-rich-content li,
+        .custom-rich-content p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.6
+        }
+
+        table.hljs-ln {
+            margin-bottom: 0;
+            border-spacing: 0;
+            border-collapse: collapse
+        }
+
+        table.hljs-ln,
+        table.hljs-ln tbody,
+        table.hljs-ln td,
+        table.hljs-ln tr {
+            box-sizing: border-box
+        }
+
+        table.hljs-ln td {
+            padding: 0;
+            border: 0
+        }
+
+        table.hljs-ln td.hljs-ln-numbers {
+            min-width: 15px;
+            color: rgba(27, 31, 35, .3);
+            text-align: right;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none
+        }
+
+        table.hljs-ln td.hljs-ln-code,
+        table.hljs-ln td.hljs-ln-numbers {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+            font-size: 12px;
+            line-height: 20px;
+            vertical-align: top
+        }
+
+        table.hljs-ln td.hljs-ln-code {
+            position: relative;
+            padding-right: 10px;
+            padding-left: 10px;
+            overflow: visible;
+            color: #24292e;
+            word-wrap: normal;
+            white-space: pre
+        }
+
+        video::-webkit-media-controls {
+            overflow: hidden !important
+        }
+
+        video::-webkit-media-controls-enclosure {
+            width: calc(100% + 32px);
+            margin-left: auto
+        }
+
+        ._29HP61GA_0 {
+            max-width:800px;
+            margin:0 auto;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #353535;
+            line-height: 1.76;
+            white-space: normal;
+            word-break: normal;
+            font-size: 17px;
+            -webkit-transition: background-color .3s ease;
+            transition: background-color .3s ease
+        }
+
+        ._29HP61GA_0 .MathJax_Display {
+            overflow: auto
+        }
+
+        ._29HP61GA_0 .poster {
+            position: fixed;
+            left: -10000px;
+            top: -10000px;
+            overflow: hidden;
+            padding: 1rem;
+            background: #ececec
+        }
+
+        ._29HP61GA_0 .richcontent-pre-copy {
+            font-size: 13px;
+            color: #888;
+            position: absolute;
+            right: 1em;
+            top: .5em;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        ._29HP61GA_0 .richcontent-pre-copy .iconfont {
+            font-size: 12px;
+            margin-right: .2em
+        }
+
+        ._29HP61GA_0 a {
+            color: #fa8919;
+            border-bottom: 1px solid #fa8919
+        }
+
+        ._29HP61GA_0 img {
+            display: block;
+            max-width: 100%;
+            position: relative;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            background-color: #eee;
+            vertical-align: top;
+            border-radius: 0
+        }
+
+        ._29HP61GA_0 audio,
+        ._29HP61GA_0 video {
+            width: 100%;
+            background-color: #eee
+        }
+
+        ._29HP61GA_0 pre {
+            margin-top: 16px;
+            padding: 34px 0 0;
+            margin-bottom: 30px;
+            position: relative;
+            border-radius: 6px;
+            background: rgba(246, 247, 251, .749);
+            border: 0
+        }
+
+        ._29HP61GA_0 pre code {
+            font-size: 12px;
+            font-family: Consolas, Liberation Mono, Menlo, monospace, Courier;
+            display: block;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            margin-left: 16px;
+            margin-right: 16px;
+            overflow-x: scroll
+        }
+
+        ._29HP61GA_0 pre code:after {
+            content: "";
+            height: 30px;
+            width: 100%;
+            display: block
+        }
+
+        ._29HP61GA_0 hr {
+            border: none;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid #f5f5f5;
+            height: 1px;
+            background: none
+        }
+
+        ._29HP61GA_0 h1,
+        ._29HP61GA_0 h2,
+        ._29HP61GA_0 h3,
+        ._29HP61GA_0 h4,
+        ._29HP61GA_0 h5 {
+            margin-bottom: 20px;
+            margin-top: 0;
+            font-weight: 700
+        }
+
+        ._29HP61GA_0 b,
+        ._29HP61GA_0 strong {
+            font-weight: 700
+        }
+
+        ._29HP61GA_0 h1 {
+            font-size: 21px
+        }
+
+        ._29HP61GA_0 h2 {
+            font-size: 20px
+        }
+
+        ._29HP61GA_0 h3 {
+            font-size: 19px
+        }
+
+        ._29HP61GA_0 h4 {
+            font-size: 18px
+        }
+
+        ._29HP61GA_0 h5 {
+            font-size: 17px
+        }
+
+        ._29HP61GA_0 center,
+        ._29HP61GA_0 p {
+            font-weight: 400;
+            color: #353535;
+            margin-top: 0;
+            margin-bottom: 30px;
+            word-break: break-word
+        }
+
+        ._29HP61GA_0 center {
+            text-align: center
+        }
+
+        ._29HP61GA_0 blockquote {
+            margin-top: 0;
+            margin-bottom: 34px;
+            border-left: 3px solid #e8e8e8;
+            padding-left: 17px;
+            color: #353535
+        }
+
+        ._29HP61GA_0 blockquote p {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        ._29HP61GA_0 ol,
+        ._29HP61GA_0 ul {
+            margin-bottom: 30px
+        }
+
+        ._29HP61GA_0 ol p,
+        ._29HP61GA_0 ul p {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        ._29HP61GA_0 ol {
+            list-style: decimal;
+            margin-left: 20px
+        }
+
+        ._29HP61GA_0 ul li {
+            padding-left: 17px;
+            position: relative;
+            margin-bottom: 10px
+        }
+
+        ._29HP61GA_0 ul li:after {
+            content: "";
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background: #353535;
+            position: absolute;
+            top: 10px;
+            left: 0
+        }
+
+        ._29HP61GA_0 .orange {
+            color: #fa8919
+        }
+
+        ._29HP61GA_0 .reference {
+            color: #888
+        }
+
+        ._29HP61GA_0 .m-right {
+            text-align: right
+        }
+
+        ._29HP61GA_0 .m-center {
+            text-align: center;
+            display: block
+        }
+
+        ._29HP61GA_0 .m-gray {
+            color: #888
+        }
+
+        ._29HP61GA_0 .m-small {
+            font-size: 15px
+        }
+
+        ._29HP61GA_0 table.hljs-ln {
+            margin-bottom: 0;
+            border-spacing: 0;
+            border-collapse: collapse
+        }
+
+        ._29HP61GA_0 table.hljs-ln,
+        ._29HP61GA_0 table.hljs-ln tbody,
+        ._29HP61GA_0 table.hljs-ln td,
+        ._29HP61GA_0 table.hljs-ln tr {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        ._29HP61GA_0 table.hljs-ln td {
+            padding: 0;
+            border: 0
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-numbers {
+            min-width: 15px;
+            font-size: 12px;
+            color: rgba(27, 31, 35, .3);
+            text-align: right;
+            white-space: nowrap;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-code,
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-numbers {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+            line-height: 20px;
+            vertical-align: top
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-code {
+            position: relative;
+            padding-right: 10px;
+            padding-left: 10px;
+            overflow: visible;
+            font-size: 13px;
+            color: #666;
+            word-wrap: normal;
+            white-space: pre
+        }
+
+    </style>
+</head>
+<body>
+<div class="_29HP61GA_0">
+<h1>07-工作流设计：如何设计合理的多人开发模式？</h1>
+<p>你好，我是孔令飞。今天我们来聊聊如何设计合理的开发模式。</p><p>一个企业级项目是由多人合作完成的，不同开发者在本地开发完代码之后，可能提交到同一个代码仓库，同一个开发者也可能同时开发几个功能特性。这种多人合作开发、多功能并行开发的特性如果处理不好，就会带来诸如丢失代码、合错代码、代码冲突等问题。</p><p>所以，在编码之前，我们需要设计一个合理的开发模式。又因为目前开发者基本都是基于 Git 进行开发的，所以本节课，我会教你怎么基于 Git 设计出一个合理的开发模式。</p><p>那么如何设计工作流呢？你可以根据需要，自己设计工作流，也可以采用业界沉淀下来的、设计好的、受欢迎的工作流。一方面，这些工作流经过长时间的实践，被证明是合理的；另一方面，采用一种被大家熟知且业界通用的工作流，会减少团队内部磨合的时间。在这一讲中，我会为你介绍4种受欢迎的工作流，你可以选择其中一种作为你的工作流设计。</p><p>在使用 Git 开发时，有4种常用的工作流，也叫开发模式，按演进顺序分为集中式工作流、功能分支工作流、Git Flow 工作流和Forking 工作流。接下来，我会按演进顺序分别介绍这 4 种工作流。</p><h2>集中式工作流</h2><p>我们先来看看集中式工作流，它是最简单的一种开发方式。集中式工作流的工作模式如下图所示：</p><!-- [[[read_end]]] --><p><img src="https://static001.geekbang.org/resource/image/31/eb/3174a9e1373ed2d6d14471164dcb13eb.png" alt=""></p><p>A、B、C 为 3 位开发者，每位开发者都在本地有一份远程仓库的拷贝：本地仓库。A、B、C 在本地的 master 分支开发完代码之后，将修改后的代码commit到远程仓库，如果有冲突就先解决本地的冲突再提交。在进行了一段时间的开发之后，远程仓库 master 分支的日志可能如下图所示：</p><p><img src="https://static001.geekbang.org/resource/image/fb/c7/fbcc75ba5b91223f6bf243f0bc08bac7.png" alt=""></p><p>集中式工作流是最简单的开发模式，但它的缺点也很明显：不同开发人员的提交日志混杂在一起，难以定位问题。如果同时开发多个功能，不同功能同时往 master 分支合并，代码之间也会相互影响，从而产生代码冲突。</p><p>和其他工作流相比，集中式工作流程的代码管理较混乱，容易出问题，因此适合用在<strong>团队人数少、开发不频繁、不需要同时维护多个版本的小项目</strong>中。当我们想要并行开发多个功能时，这种工作流就不适用了，这时候怎么办呢？我们接下来看功能分支工作流。</p><h2>功能分支工作流</h2><p>功能分支工作流基于集中式工作流演进而来。在开发新功能时，基于 master 分支新建一个功能分支，在功能分支上进行开发，而不是直接在本地的 master 分支开发，开发完成之后合并到 master 分支，如下图所示：</p><p><img src="https://static001.geekbang.org/resource/image/1c/0b/1c0b08a1c9032c87c35b85de6ca6820b.png" alt=""></p><p>相较于集中式工作流，这种工作流让不同功能在不同的分支进行开发，只在最后一步合并到master分支，不仅可以避免不同功能之间的相互影响，还可以使提交历史看起来更加简洁。</p><p>还有，在合并到 master 分支时，需要提交 PR（pull request），而不是直接将代码 merge 到 master 分支。PR 流程不仅可以把分支代码提供给团队其他开发人员进行 CR（Code Review），还可以在 PR 页面讨论代码。通过 CR ，我们可以确保合并到 master 的代码是健壮的；通过 PR 页面的讨论，可以使开发者充分参与到代码的讨论中，有助于提高代码的质量，并且提供了一个代码变更的历史回顾途径。</p><p>那么，功能分支工作流具体的开发流程是什么呢？我们一起来看下。</p><ol>
+<li>基于 master 分支新建一个功能分支，功能分支可以取一些有意义的名字，便于理解，例如feature/rate-limiting。</li>
+</ol><pre><code>$ git checkout -b feature/rate-limiting
+</code></pre><ol start="2">
+<li>在功能分支上进行代码开发，开发完成后 commit 到功能分支。</li>
+</ol><pre><code>$ git add limit.go
+$ git commit -m &quot;add rate limiting&quot;
+</code></pre><ol start="3">
+<li>将本地功能分支代码 push 到远程仓库。</li>
+</ol><pre><code>$ git push origin feature/rate-limiting
+</code></pre><ol start="4">
+<li>在远程仓库上创建 PR（例如：GitHub）。</li>
+</ol><p>进入 GitHub 平台上的项目主页，点击 <strong>Compare &amp; pull request</strong> 提交 PR，如下图所示。</p><p><img src="https://static001.geekbang.org/resource/image/db/ac/dbcd25542515788c7f4f2f592d0029ac.png" alt=""></p><p>点击 <strong>Compare &amp; pull request</strong> 后会进入 PR 页面，在该页面中可以根据需要填写评论，最后点击 <strong>Create pull request</strong> 提交 PR。</p><ol start="5">
+<li>代码管理员收到 PR 后，可以 CR 代码，CR 通过后，再点击 <strong>Merge pull request</strong> 将 PR 合并到 master，如下图所示。</li>
+</ol><p><img src="https://static001.geekbang.org/resource/image/48/c6/48aaa3a94108de765cb07bd34d899fc6.png" alt=""></p><p>图中的“Merge pull request” 提供了 3 种 merge 方法：</p><ul>
+<li><strong>Create a merge commit：</strong>GitHub 的底层操作是 <code>git merge --no-ff</code>。feature 分支上所有的 commit 都会加到 master 分支上，并且会生成一个 merge commit。这种方式可以让我们清晰地知道是谁做了提交，做了哪些提交，回溯历史的时候也会更加方便。</li>
+<li><strong>Squash and merge</strong>：GitHub 的底层操作是 <code>git merge --squash</code>。<strong>Squash and merge</strong>会使该 pull request 上的所有 commit 都合并成一个commit ，然后加到master分支上，但原来的 commit 历史会丢失。如果开发人员在 feature 分支上提交的 commit 非常随意，没有规范，那么我们可以选择这种方法来丢弃无意义的 commit。但是在大型项目中，每个开发人员都应该是遵循 commit 规范的，因此我不建议你在团队开发中使用 Squash and merge。</li>
+<li><strong>Rebase and merge：</strong>GitHub 的底层操作是 <code>git rebase</code>。这种方式会将 pull request 上的所有提交历史按照原有顺序依次添加到 master 分支的头部（HEAD）。因为git rebase 有风险，在你不完全熟悉 Git 工作流时，我不建议merge时选择这个。</li>
+</ul><p>通过分析每个方法的优缺点，在实际的项目开发中，我比较推荐你使用 <strong>Create a merge commit</strong> 方式。</p><p>从刚才讲完的具体开发流程中，我们可以感受到，功能分支工作流上手比较简单，不仅能使你并行开发多个功能，还可以添加code review，从而保障代码质量。当然它也有缺点，就是无法给分支分配明确的目的，不利于团队配合。它适合用在<strong>开发团队相对固定、规模较小的项目</strong>中。接下来我们要讲的Git Flow 工作流以功能分支工作流为基础，较好地解决了上述问题。</p><h2>Git Flow 工作流</h2><p>Git Flow 工作流是一个非常成熟的方案，也是非开源项目中最常用到的工作流。它定义了一个围绕项目发布的严格分支模型，通过为代码开发、发布和维护分配独立的分支来让项目的迭代流程更加顺畅，<strong>比较适合大型的项目或者迭代速度快的项目。</strong>接下来，我会通过介绍Git Flow的5种分支和工作流程，来给你讲解GIt Flow是如何工作的。</p><h3>Git Flow 的5种分支</h3><p>Git Flow 中定义了 5 种分支，分别是 master、develop、feature、release和 hotfix。其中，master 和 develop 为常驻分支，其他为非常驻分支，不同的研发阶段会用到不同的分支。这5种分支的详细介绍见下表：</p><p><img src="https://static001.geekbang.org/resource/image/fa/d9/fa611f83053afd77cf3ddf83561ba1d9.png" alt=""></p><h3>Git Flow 开发流程</h3><p>这里我们用一个实际的例子来演示下Git Flow 的开发流程。场景如下：</p><p>a. 当前版本为：0.9.0。</p><p>b. 需要新开发一个功能，使程序执行时向标准输出输出“hello world”字符串。</p><p>c. 在开发阶段，线上代码有 Bug 需要紧急修复。</p><p>假设我们的 Git 项目名为 gitflow-demo，项目目录下有 2 个文件，分别是 README.md 和 main.go，内容如下。</p><pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;callmainfunction&quot;)
+}
+</code></pre><p>具体的开发流程有 12 步，你可以跟着以下步骤操作练习。</p><ol>
+<li>创建一个常驻的分支：develop。</li>
+</ol><pre><code>$ git checkout -b develop master
+</code></pre><ol start="2">
+<li>基于 develop 分支，新建一个功能分支：feature/print-hello-world。</li>
+</ol><pre><code>$ git checkout -b feature/print-hello-world develop
+</code></pre><ol start="3">
+<li>feature/print-hello-world 分支中，在 main.go 文件中添加一行代码<code>fmt.Println("Hello")</code>，添加后的代码如下。</li>
+</ol><pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;callmainfunction&quot;)
+	fmt.Println(&quot;Hello&quot;)
+}
+</code></pre><ol start="4">
+<li>紧急修复 Bug。</li>
+</ol><p>我们正处在新功能的开发中（只完成了 <code>fmt.Println("Hello")</code>而非 <code>fmt.Println("Hello World")</code>）突然线上代码发现了一个 Bug，我们要立即停止手上的工作，修复线上的 Bug，步骤如下。</p><pre><code>$ git stash # 1. 开发工作只完成了一半，还不想提交，可以临时保存修改至堆栈区
+$ git checkout -b hotfix/print-error master # 2. 从 master 建立 hotfix 分支
+$ vi main.go # 3. 修复 bug，callmainfunction -&gt; call main function
+$ git commit -a -m 'fix print message error bug' # 4. 提交修复
+$ git checkout develop # 5. 切换到 develop 分支
+$ git merge --no-ff hotfix/print-error # 6. 把 hotfix 分支合并到 develop 分支
+$ git checkout master # 7. 切换到 master 分支
+$ git merge --no-ff hotfix/print-error # 8. 把 hotfix 分支合并到 master
+$ git tag -a v0.9.1 -m &quot;fix log bug&quot; # 9. master 分支打 tag
+$ go build -v . # 10. 编译代码，并将编译好的二进制更新到生产环境
+$ git branch -d hotfix/print-error # 11. 修复好后，删除 hotfix/xxx 分支
+$ git checkout feature/print-hello-world # 12. 切换到开发分支下
+$ git merge --no-ff develop # 13. 因为 develop 有更新，这里最好同步更新下
+$ git stash pop # 14. 恢复到修复前的工作状态
+</code></pre><ol start="5">
+<li>继续开发。</li>
+</ol><p>在 main.go 中加入 <code>fmt.Println("Hello World")</code>。</p><ol start="6">
+<li>提交代码到 feature/print-hello-world 分支。</li>
+</ol><pre><code>$ git commit -a -m &quot;print 'hello world'&quot;
+</code></pre><ol start="7">
+<li>在 feature/print-hello-world 分支上做 code review。</li>
+</ol><p>首先，我们需要将 feature/print-hello-world push 到代码托管平台，例如 GitHub 上。</p><pre><code>$ git push origin feature/print-hello-world
+</code></pre><p>然后，我们在 GitHub 上，基于 feature/print-hello-world 创建 pull request，如下图所示。</p><p><img src="https://static001.geekbang.org/resource/image/ac/ea/ac70d5ab86887e47f78c48d1df42f2ea.png" alt=""></p><p>创建完 pull request 之后，我们就可以指定 Reviewers 进行 code review，如下图所示。</p><p><img src="https://static001.geekbang.org/resource/image/bc/50/bc5168fe73abc257ba35342764647250.png" alt=""></p><ol start="8">
+<li>code review 通过后，由代码仓库 matainer 将功能分支合并到 develop 分支。</li>
+</ol><pre><code>$ git checkout develop
+$ git merge --no-ff feature/print-hello-world
+</code></pre><ol start="9">
+<li>基于 develop 分支，创建 release 分支，测试代码。</li>
+</ol><pre><code>$ git checkout -b release/1.0.0 develop
+$ go build -v . # 构建后，部署二进制文件，并测试
+</code></pre><ol start="10">
+<li>测试失败，因为我们要求打印“hello world”，但打印的是“Hello World”，修复的时候，</li>
+</ol><p>我们直接在 release/1.0.0 分支修改代码，修改完成后，提交并编译部署。</p><pre><code>$ git commit -a -m &quot;fix bug&quot;
+$ go build -v .
+</code></pre><ol start="11">
+<li>测试通过后，将功能分支合并到 master 分支和 develop 分支。</li>
+</ol><pre><code>$ git checkout develop
+$ git merge --no-ff release/1.0.0
+$ git checkout master
+$ git merge --no-ff release/1.0.0
+$ git tag -a v1.0.0 -m &quot;add print hello world&quot; # master 分支打 tag
+</code></pre><ol start="12">
+<li>删除 feature/print-hello-world 分支，也可以选择性删除 release/1.0.0 分支。</li>
+</ol><pre><code>$ git branch -d feature/print-hello-world
+</code></pre><p>亲自操作一遍之后，你应该会更了解这种模式的优缺点。它的缺点，就是你刚才已经体会到的，它有一定的上手难度。不过Git Flow工作流还是有很多优点的：Git Flow工作流的每个分支分工明确，这可以最大程度减少它们之间的相互影响。因为可以创建多个分支，所以也可以并行开发多个功能。另外，和功能分支工作流一样，它也可以添加code review，保障代码质量。</p><p>因此，Git Flow工作流比较<strong>适合开发团队相对固定，规模较大的项目</strong>。</p><h2>Forking 工作流</h2><p>上面讲的Git Flow 是非开源项目中最常用的，而在开源项目中，最常用到的是Forking 工作流，例如 Kubernetes、Docker 等项目用的就是这种工作流。这里，我们先来了解下 fork 操作。</p><p>fork 操作是在个人远程仓库新建一份目标远程仓库的副本，比如在 GitHub 上操作时，在项目的主页点击 fork 按钮（页面右上角），即可拷贝该目标远程仓库。Forking 工作流的流程如下图所示。</p><p><img src="https://static001.geekbang.org/resource/image/63/ea/63419f767c61c9580861b59445b90fea.png" alt=""></p><p>假设开发者 A 拥有一个远程仓库，如果开发者 B 也想参与 A 项目的开发，B 可以 fork 一份 A 的远程仓库到自己的 GitHub 账号下。后续 B 可以在自己的项目进行开发，开发完成后，B 可以给 A 提交一个 PR。这时候 A 会收到通知，得知有新的 PR 被提交，A 会去查看 PR 并 code review。如果有问题，A 会直接在 PR 页面提交评论，B 看到评论后会做进一步的修改。最后 A 通过 B 的 PR 请求，将代码合并进了 A 的仓库。这样就完成了 A 代码仓库新特性的开发。如果有其他开发者想给 A 贡献代码，也会执行相同的操作。</p><p>GitHub中的 Forking 工作流详细步骤共有6步（假设目标仓库为 gitflow-demo），你可以跟着以下步骤操作练习。</p><ol>
+<li>Fork 远程仓库到自己的账号下。</li>
+</ol><p>访问<a href="https://github.com/marmotedu/gitflow-demo">https://github.com/marmotedu/gitflow-demo</a> ，点击<strong>fork</strong>按钮。fork 后的仓库地址为：<a href="https://github.com/colin404fork/gitflow-demo">https://github.com/colin404fork/gitflow-demo</a> 。<br>
+2) 克隆 fork 的仓库到本地。</p><pre><code>$ git clone https://github.com/colin404fork/gitflow-demo
+$ cd gitflow-demo
+$ git remote add upstream https://github.com/marmotedu/gitflow-demo
+$ git remote set-url --push upstream no_push # Never push to upstream master
+$ git remote -v # Confirm that your remotes make sense
+origin	https://github.com/colin404fork/gitflow-demo (fetch)
+origin	https://github.com/colin404fork/gitflow-demo (push)
+upstream	https://github.com/marmotedu/gitflow-demo (fetch)
+upstream	https://github.com/marmotedu/gitflow-demo (push)
+</code></pre><ol start="3">
+<li>创建功能分支。</li>
+</ol><p>首先，要同步本地仓库的 master 分支为最新的状态（跟 upstream master 分支一致）。</p><pre><code>$ git fetch upstream
+$ git checkout master
+$ git rebase upstream/master
+</code></pre><p>然后，创建功能分支。</p><pre><code>$ git checkout -b feature/add-function
+</code></pre><ol start="4">
+<li>提交 commit。</li>
+</ol><p>在 feature/add-function 分支上开发代码，开发完代码后，提交 commit。</p><pre><code>$ git fetch upstream # commit 前需要再次同步 feature 跟 upstream/master
+$ git rebase upstream/master
+$ git add &lt;file&gt;
+$ git status
+$ git commit
+</code></pre><p>分支开发完成后，可能会有一堆 commit，但是合并到主干时，我们往往希望只有一个（或最多两三个）commit，这可以使功能修改都放在一个或几个commit中，便于后面的阅读和维护。这个时候，我们可以用 git rebase 来合并和修改我们的 commit，操作如下：</p><pre><code>$ git rebase -i origin/master
+</code></pre><p>第5讲已经介绍过了<code>git rebase -i</code> 的使用方法 ，如果你有疑问可以再去看看，这里不再说明。</p><p>还有另外一种合并 commit 的简便方法，就是先撤销过去 5 个 commit，然后再建一个新的：</p><pre><code>$ git reset HEAD~5
+$ git add .
+$ git commit -am &quot;Here's the bug fix that closes #28&quot;
+$ git push --force
+</code></pre><p>squash 和 fixup 命令，还可以当作命令行参数使用，自动合并 commit。</p><pre><code>$ git commit --fixup
+$ git rebase -i --autosquash
+</code></pre><ol start="5">
+<li>push 功能分支到个人远程仓库。</li>
+</ol><p>在完成了开发，并 commit 后，需要将功能分支 push 到个人远程代码仓库，代码如下：</p><pre><code>$ git push -f origin feature/add-function
+</code></pre><ol start="6">
+<li>在个人远程仓库页面创建 pull request。</li>
+</ol><p>提交到远程仓库以后，我们就可以创建 pull request，然后请求reviewers进行代码 review，确认后合并到 master。这里要注意，创建pull request时，base通常选择目标远程仓库的master分支。</p><p>我们已经讲完了 Forking 工作流的具体步骤，你觉得它有什么优缺点呢？</p><p>结合操作特点，我们来看看它的优点：Forking工作流中，项目远程仓库和开发者远程仓库完全独立，开发者通过提交 Pull Request 的方式给远程仓库贡献代码，项目维护者选择性地接受任何开发者的提交，通过这种方式，可以避免授予开发者项目远程仓库的权限，从而提高项目远程仓库的安全性，这也使得任意开发者都可以参与项目的开发。</p><p>但Forking工作流也有局限性，就是对于职能分工明确且不对外开源的项目优势不大。</p><p>Forking工作流比较适用于以下三种场景：（1）开源项目中；（2）开发者有衍生出自己的衍生版的需求；（3）开发者不固定，可能是任意一个能访问到项目的开发者。</p><h2>总结</h2><p>这一讲中，我基于 Git 向你介绍了 4 种开发模式，现在跟我回顾一下吧。</p><ul>
+<li>集中式工作流：开发者直接在本地 master 分支开发代码，开发完成后 push 到远端仓库 master 分支。</li>
+<li>功能分支工作流：开发者基于 master 分支创建一个新分支，在新分支进行开发，开发完成后合并到远端仓库 master 分支。</li>
+<li>Git Flow 工作流：Git Flow 工作流为不同的分支分配一个明确的角色，并定义分支之间什么时候、如何进行交互，比较适合大型项目的开发。</li>
+<li>Forking 工作流：开发者先 fork 项目到个人仓库，在个人仓库完成开发后，提交 pull request 到目标远程仓库，远程仓库 review 后，合并 pull request 到 master 分支。</li>
+</ul><p>集中式工作流是最早的Git工作流，功能分支工作流以集中式工作流为基础，Git Flow 工作流又是以功能分支工作流为基础，Forking工作流在Git Flow 工作流基础上，解耦了个人远端仓库和项目远端仓库。</p><p>每种开发模式各有优缺点，适用于不同的场景，我总结在下表中：</p><p><img src="https://static001.geekbang.org/resource/image/55/07/5503ce60f7c2ae5d7628222a4d87cc07.png" alt=""></p><p>总的来说，在选择工作流时，我的推荐如下：</p><ul>
+<li>非开源项目采用 Git Flow 工作流。</li>
+<li>开源项目采用 Forking 工作流。</li>
+</ul><p>因为这门课的实战项目对于项目开发者来说是一个偏大型的非开源项目，所以采用了Git Flow工作流。</p><h2>课后练习</h2><ol>
+<li>请你新建立一个项目，并参考<strong>Git Flow开发流程</strong>，自己操作一遍，观察每一步的操作结果。</li>
+<li>请你思考下，在 Git Flow 工作流中，如果要临时解决一个 Bug，该如何操作代码仓库。</li>
+</ol><p>期待在留言区看到你的思考和分享，我们下一讲见！</p><h2>精选留言：</h2>
+        <ul>
+        
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Geek_c3e438  2021-06-08 11:31:29
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            哈哈哈哈，上文刚说了commit规范，这篇就随意了，当然知道仅做演示，开个玩笑~ [6赞]
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-06-08 22:24:28</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">是的，这里主要是演示工作流个演示。这里没有按commit message规范写的原因如下：<br>1. 根据我的研发经验，很多时候，规范对大多数开发者是用来看的，所以如果制定了commit message规范，需要有相应的工具，来强约束大家遵守这个规范，因为是演示所以没搞这么复杂。<br>2. IAM项目的commit 都是符合规范的，里面有工具强约束，可以看下。<br><br>老哥看的很细，是个优化点，今后避免。</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Ethan  2021-06-09 19:38:50
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            这章节给力，比外面专门讲git的教程看得还爽。 [2赞]
+        </div>
+        
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            theseusv  2021-06-08 17:09:03
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            催更催更~ [2赞]
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-06-08 22:29:38</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">我们加油</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            惟新  2021-06-08 15:33:51
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            抓紧更新 [1赞]
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-06-08 22:28:07</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">我们加油</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            OldFox  2021-06-08 12:21:45
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            git checkout develop<br>git merge --no-ff hotfix&#47;print-error # 6. 把 hotfix 分支合并到 develop 分支<br><br>这两步，如果是同时有10个同事在开发十个feature，那就要通知那十个同事合并一下hotfix分支么。 [1赞]
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-06-08 22:27:57</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">不用，合并hotfix分支是在develop和master 不是feature</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            💎A  2021-06-08 08:56:42
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            用source tree 一键git flow. [1赞]
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-06-08 22:16:21</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">牛批!</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            killer  2021-06-12 08:33:15
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            后端同学15人，并行开发版本好几个，线上分支release，版本迭代release拉版本分支feature-xxx，开发完成之后提交pr合并到develop，如果有冲突，develop拉merge-xxx分支合并feature-xxx再提交pr，因为develop可能同时提测好几个版本。还有一种情况当前版本迭代会合并到私有化部署分支，不能完全合并，采用cherry-pick合并，由于提交很多，导致合并繁琐，非常容易出错 
+        </div>
+        
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            大熊  2021-06-11 18:26:17
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            等更啊，这个太棒了。没参加过大型项目的都能了解细节 
+        </div>
+        
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            zzZ  2021-06-10 18:36:24
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            为什么完成开发之后要删除branch呀？ 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-06-10 22:28:23</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">Branch可以选择保留，如果不用就可以删除，branch太多，branch -a时就会有太多branch了，有点乱。<br>就跟书桌上有一个物品，既不能做装饰，又没其他任何作用，何不把东西从书桌上拿走，保持书桌干净整齐。</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Alery  2021-06-09 21:06:06
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            请问Forking 工作流中git rebase upstream&#47;master 这一步是做什么？ 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-06-10 09:18:34</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">合并master分支的代码，跟git merge相比，可以避免很多自动生成的merge记录</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Alery  2021-06-09 20:45:40
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            git flow工作流master合并hotfix分支不需要往远端push一下吗？我们公司是不允许往master分支上强推的，因为有些commit可能会被覆盖点。 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-06-10 09:32:31</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">正常是不用强推的，push就可以了</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Vackine  2021-06-09 09:54:30
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            思考题：git flow 流程下临时bug，是先从master 拉一个 hotfix ，修改之后hotfix 合并到devlop分支同步最新代码，合并到master 发布修复？<br><br>感觉gitflow 流程 的前提是功能划分的解耦，如果合并冲突太多，不也增加了沟通成本。 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-06-10 09:30:15</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">冲突不可避免，只能减少。相对于其他gitflow工作流可以大大减少冲突的概率。而且这个合并是必须要合的，不然主干就会丢失这次的bug修复了</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            jssyjam  2021-06-08 19:59:45
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            只求更新，不够学啊😊 
+        </div>
+        
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Geek_c3e438  2021-06-08 11:44:04
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            1. 一般的开源项目对于Contributor而言并没有Write权限，所以是不是通常情况下不需要这句话：<br>git remote set-url --push upstream no_push<br>2. 在我们公司，各开发者一般都有Repository的Read权限，所以我们采用<br>Forking工作流 + 精简版 Git Flow工作流 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-06-08 22:26:01</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">1的理解是对的</div>
+</div>
+            
+    </div>
+</li>
+            </ul>
+</div>
+</body>
+</html>

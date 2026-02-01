@@ -1,0 +1,1086 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
+    <title>18-错误处理（上）：如何设计一套科学的错误码？</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style>
+        html {
+            color: #333;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-rendering: optimizelegibility;
+            font-family: Helvetica Neue, PingFang SC, Verdana, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif
+        }
+
+        html.borderbox *,
+        html.borderbox :after,
+        html.borderbox :before {
+            box-sizing: border-box
+        }
+
+        article,
+        aside,
+        blockquote,
+        body,
+        button,
+        code,
+        dd,
+        details,
+        dl,
+        dt,
+        fieldset,
+        figcaption,
+        figure,
+        footer,
+        form,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        header,
+        hr,
+        input,
+        legend,
+        li,
+        menu,
+        nav,
+        ol,
+        p,
+        pre,
+        section,
+        td,
+        textarea,
+        th,
+        ul {
+            margin: 0;
+            padding: 0
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        menu,
+        nav,
+        section {
+            display: block
+        }
+
+        audio,
+        canvas,
+        video {
+            display: inline-block
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif
+        }
+
+        button::-moz-focus-inner,
+        input::-moz-focus-inner {
+            padding: 0;
+            border: 0
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+
+        fieldset,
+        img {
+            border: 0
+        }
+
+        blockquote {
+            position: relative;
+            color: #999;
+            font-weight: 400;
+            border-left: 1px solid #1abc9c;
+            padding-left: 1em;
+            margin: 1em 3em 1em 2em
+        }
+
+        @media only screen and (max-width: 640px) {
+            blockquote {
+                margin: 1em 0
+            }
+        }
+
+        abbr,
+        acronym {
+            border-bottom: 1px dotted;
+            font-variant: normal
+        }
+
+        abbr {
+            cursor: help
+        }
+
+        del {
+            text-decoration: line-through
+        }
+
+        address,
+        caption,
+        cite,
+        code,
+        dfn,
+        em,
+        th,
+        var {
+            font-style: normal;
+            font-weight: 400
+        }
+
+        ol,
+        ul {
+            list-style: none
+        }
+
+        caption,
+        th {
+            text-align: left
+        }
+
+        q:after,
+        q:before {
+            content: ""
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative
+        }
+
+        :root sub,
+        :root sup {
+            vertical-align: baseline
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        a {
+            color: #1abc9c
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .typo a {
+            border-bottom: 1px solid #1abc9c
+        }
+
+        .typo a:hover {
+            border-bottom-color: #555;
+            color: #555
+        }
+
+        .typo a:hover,
+        a,
+        ins {
+            text-decoration: none
+        }
+
+        .typo-u,
+        u {
+            text-decoration: underline
+        }
+
+        mark {
+            background: #fffdd1;
+            border-bottom: 1px solid #ffedce;
+            padding: 2px;
+            margin: 0 5px
+        }
+
+        code,
+        pre,
+        pre tt {
+            font-family: Courier, Courier New, monospace
+        }
+
+        pre {
+            background: hsla(0, 0%, 97%, .7);
+            border: 1px solid #ddd;
+            padding: 1em 1.5em;
+            display: block;
+            -webkit-overflow-scrolling: touch
+        }
+
+        hr {
+            border: none;
+            border-bottom: 1px solid #cfcfcf;
+            margin-bottom: .8em;
+            height: 10px
+        }
+
+        .typo-small,
+        figcaption,
+        small {
+            font-size: .9em;
+            color: #888
+        }
+
+        b,
+        strong {
+            font-weight: 700;
+            color: #000
+        }
+
+        [draggable] {
+            cursor: move
+        }
+
+        .clearfix:after,
+        .clearfix:before {
+            content: "";
+            display: table
+        }
+
+        .clearfix:after {
+            clear: both
+        }
+
+        .clearfix {
+            zoom: 1
+        }
+
+        .textwrap,
+        .textwrap td,
+        .textwrap th {
+            word-wrap: break-word;
+            word-break: break-all
+        }
+
+        .textwrap-table {
+            table-layout: fixed
+        }
+
+        .serif {
+            font-family: Palatino, Optima, Georgia, serif
+        }
+
+        .typo-dl,
+        .typo-form,
+        .typo-hr,
+        .typo-ol,
+        .typo-p,
+        .typo-pre,
+        .typo-table,
+        .typo-ul,
+        .typo dl,
+        .typo form,
+        .typo hr,
+        .typo ol,
+        .typo p,
+        .typo pre,
+        .typo table,
+        .typo ul,
+        blockquote {
+            margin-bottom: 1rem
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: PingFang SC, Helvetica Neue, Verdana, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+            color: #000;
+            line-height: 1.35
+        }
+
+        .typo-h1,
+        .typo-h2,
+        .typo-h3,
+        .typo-h4,
+        .typo-h5,
+        .typo-h6,
+        .typo h1,
+        .typo h2,
+        .typo h3,
+        .typo h4,
+        .typo h5,
+        .typo h6 {
+            margin-top: 1.2em;
+            margin-bottom: .6em;
+            line-height: 1.35
+        }
+
+        .typo-h1,
+        .typo h1 {
+            font-size: 2em
+        }
+
+        .typo-h2,
+        .typo h2 {
+            font-size: 1.8em
+        }
+
+        .typo-h3,
+        .typo h3 {
+            font-size: 1.6em
+        }
+
+        .typo-h4,
+        .typo h4 {
+            font-size: 1.4em
+        }
+
+        .typo-h5,
+        .typo-h6,
+        .typo h5,
+        .typo h6 {
+            font-size: 1.2em
+        }
+
+        .typo-ul,
+        .typo ul {
+            margin-left: 1.3em;
+            list-style: disc
+        }
+
+        .typo-ol,
+        .typo ol {
+            list-style: decimal;
+            margin-left: 1.9em
+        }
+
+        .typo-ol ol,
+        .typo-ol ul,
+        .typo-ul ol,
+        .typo-ul ul,
+        .typo li ol,
+        .typo li ul {
+            margin-bottom: .8em;
+            margin-left: 2em
+        }
+
+        .typo-ol ul,
+        .typo-ul ul,
+        .typo li ul {
+            list-style: circle
+        }
+
+        .typo-table td,
+        .typo-table th,
+        .typo table caption,
+        .typo table td,
+        .typo table th {
+            border: 1px solid #ddd;
+            padding: .5em 1em;
+            color: #666
+        }
+
+        .typo-table th,
+        .typo table th {
+            background: #fbfbfb
+        }
+
+        .typo-table thead th,
+        .typo table thead th {
+            background: hsla(0, 0%, 95%, .7)
+        }
+
+        .typo table caption {
+            border-bottom: none
+        }
+
+        .typo-input,
+        .typo-textarea {
+            -webkit-appearance: none;
+            border-radius: 0
+        }
+
+        .typo-em,
+        .typo em,
+        caption,
+        legend {
+            color: #000;
+            font-weight: inherit
+        }
+
+        .typo-em {
+            position: relative
+        }
+
+        .typo-em:after {
+            position: absolute;
+            top: .65em;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            content: "\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB"
+        }
+
+        .typo img {
+            max-width: 100%
+        }
+
+        .common-content {
+            font-weight: 400;
+            color: #353535;
+            line-height: 1.75rem;
+            white-space: normal;
+            word-break: normal;
+            font-size: 1rem
+        }
+
+        .common-content img {
+            display: block;
+            max-width: 100%;
+            background-color: #eee
+        }
+
+        .common-content audio,
+        .common-content video {
+            width: 100%;
+            background-color: #eee
+        }
+
+        .common-content center,
+        .common-content font {
+            margin-top: 1rem;
+            display: inline-block
+        }
+
+        .common-content center {
+            width: 100%
+        }
+
+        .common-content pre {
+            margin-top: 1rem;
+            padding-left: 0;
+            padding-right: 0;
+            position: relative;
+            overflow: hidden
+        }
+
+        .common-content pre code {
+            font-size: .8rem;
+            font-family: Consolas, Liberation Mono, Menlo, monospace, Courier;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            overflow-x: auto
+        }
+
+        .common-content hr {
+            border: none;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid #f5f5f5;
+            height: 1px;
+            background: none
+        }
+
+        .common-content b,
+        .common-content h1,
+        .common-content h2,
+        .common-content h3,
+        .common-content h4,
+        .common-content h5,
+        .common-content strong {
+            font-weight: 700
+        }
+
+        .common-content h1,
+        .common-content h2 {
+            font-size: 1.125rem;
+            margin-bottom: .45rem
+        }
+
+        .common-content h3,
+        .common-content h4,
+        .common-content h5 {
+            font-size: 1rem;
+            margin-bottom: .45rem
+        }
+
+        .common-content p {
+            font-weight: 400;
+            color: #353535;
+            margin-top: .15rem
+        }
+
+        .common-content .orange {
+            color: #ff5a05
+        }
+
+        .common-content .reference {
+            font-size: 1rem;
+            color: #888
+        }
+
+        .custom-rich-content h1 {
+            margin-top: 0;
+            font-weight: 400;
+            font-size: 15.25px;
+            border-bottom: 1px solid #eee;
+            line-height: 2.8
+        }
+
+        .custom-rich-content li,
+        .custom-rich-content p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.6
+        }
+
+        table.hljs-ln {
+            margin-bottom: 0;
+            border-spacing: 0;
+            border-collapse: collapse
+        }
+
+        table.hljs-ln,
+        table.hljs-ln tbody,
+        table.hljs-ln td,
+        table.hljs-ln tr {
+            box-sizing: border-box
+        }
+
+        table.hljs-ln td {
+            padding: 0;
+            border: 0
+        }
+
+        table.hljs-ln td.hljs-ln-numbers {
+            min-width: 15px;
+            color: rgba(27, 31, 35, .3);
+            text-align: right;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none
+        }
+
+        table.hljs-ln td.hljs-ln-code,
+        table.hljs-ln td.hljs-ln-numbers {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+            font-size: 12px;
+            line-height: 20px;
+            vertical-align: top
+        }
+
+        table.hljs-ln td.hljs-ln-code {
+            position: relative;
+            padding-right: 10px;
+            padding-left: 10px;
+            overflow: visible;
+            color: #24292e;
+            word-wrap: normal;
+            white-space: pre
+        }
+
+        video::-webkit-media-controls {
+            overflow: hidden !important
+        }
+
+        video::-webkit-media-controls-enclosure {
+            width: calc(100% + 32px);
+            margin-left: auto
+        }
+
+        ._29HP61GA_0 {
+            max-width:800px;
+            margin:0 auto;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #353535;
+            line-height: 1.76;
+            white-space: normal;
+            word-break: normal;
+            font-size: 17px;
+            -webkit-transition: background-color .3s ease;
+            transition: background-color .3s ease
+        }
+
+        ._29HP61GA_0 .MathJax_Display {
+            overflow: auto
+        }
+
+        ._29HP61GA_0 .poster {
+            position: fixed;
+            left: -10000px;
+            top: -10000px;
+            overflow: hidden;
+            padding: 1rem;
+            background: #ececec
+        }
+
+        ._29HP61GA_0 .richcontent-pre-copy {
+            font-size: 13px;
+            color: #888;
+            position: absolute;
+            right: 1em;
+            top: .5em;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        ._29HP61GA_0 .richcontent-pre-copy .iconfont {
+            font-size: 12px;
+            margin-right: .2em
+        }
+
+        ._29HP61GA_0 a {
+            color: #fa8919;
+            border-bottom: 1px solid #fa8919
+        }
+
+        ._29HP61GA_0 img {
+            display: block;
+            max-width: 100%;
+            position: relative;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            background-color: #eee;
+            vertical-align: top;
+            border-radius: 0
+        }
+
+        ._29HP61GA_0 audio,
+        ._29HP61GA_0 video {
+            width: 100%;
+            background-color: #eee
+        }
+
+        ._29HP61GA_0 pre {
+            margin-top: 16px;
+            padding: 34px 0 0;
+            margin-bottom: 30px;
+            position: relative;
+            border-radius: 6px;
+            background: rgba(246, 247, 251, .749);
+            border: 0
+        }
+
+        ._29HP61GA_0 pre code {
+            font-size: 12px;
+            font-family: Consolas, Liberation Mono, Menlo, monospace, Courier;
+            display: block;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            margin-left: 16px;
+            margin-right: 16px;
+            overflow-x: scroll
+        }
+
+        ._29HP61GA_0 pre code:after {
+            content: "";
+            height: 30px;
+            width: 100%;
+            display: block
+        }
+
+        ._29HP61GA_0 hr {
+            border: none;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid #f5f5f5;
+            height: 1px;
+            background: none
+        }
+
+        ._29HP61GA_0 h1,
+        ._29HP61GA_0 h2,
+        ._29HP61GA_0 h3,
+        ._29HP61GA_0 h4,
+        ._29HP61GA_0 h5 {
+            margin-bottom: 20px;
+            margin-top: 0;
+            font-weight: 700
+        }
+
+        ._29HP61GA_0 b,
+        ._29HP61GA_0 strong {
+            font-weight: 700
+        }
+
+        ._29HP61GA_0 h1 {
+            font-size: 21px
+        }
+
+        ._29HP61GA_0 h2 {
+            font-size: 20px
+        }
+
+        ._29HP61GA_0 h3 {
+            font-size: 19px
+        }
+
+        ._29HP61GA_0 h4 {
+            font-size: 18px
+        }
+
+        ._29HP61GA_0 h5 {
+            font-size: 17px
+        }
+
+        ._29HP61GA_0 center,
+        ._29HP61GA_0 p {
+            font-weight: 400;
+            color: #353535;
+            margin-top: 0;
+            margin-bottom: 30px;
+            word-break: break-word
+        }
+
+        ._29HP61GA_0 center {
+            text-align: center
+        }
+
+        ._29HP61GA_0 blockquote {
+            margin-top: 0;
+            margin-bottom: 34px;
+            border-left: 3px solid #e8e8e8;
+            padding-left: 17px;
+            color: #353535
+        }
+
+        ._29HP61GA_0 blockquote p {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        ._29HP61GA_0 ol,
+        ._29HP61GA_0 ul {
+            margin-bottom: 30px
+        }
+
+        ._29HP61GA_0 ol p,
+        ._29HP61GA_0 ul p {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        ._29HP61GA_0 ol {
+            list-style: decimal;
+            margin-left: 20px
+        }
+
+        ._29HP61GA_0 ul li {
+            padding-left: 17px;
+            position: relative;
+            margin-bottom: 10px
+        }
+
+        ._29HP61GA_0 ul li:after {
+            content: "";
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background: #353535;
+            position: absolute;
+            top: 10px;
+            left: 0
+        }
+
+        ._29HP61GA_0 .orange {
+            color: #fa8919
+        }
+
+        ._29HP61GA_0 .reference {
+            color: #888
+        }
+
+        ._29HP61GA_0 .m-right {
+            text-align: right
+        }
+
+        ._29HP61GA_0 .m-center {
+            text-align: center;
+            display: block
+        }
+
+        ._29HP61GA_0 .m-gray {
+            color: #888
+        }
+
+        ._29HP61GA_0 .m-small {
+            font-size: 15px
+        }
+
+        ._29HP61GA_0 table.hljs-ln {
+            margin-bottom: 0;
+            border-spacing: 0;
+            border-collapse: collapse
+        }
+
+        ._29HP61GA_0 table.hljs-ln,
+        ._29HP61GA_0 table.hljs-ln tbody,
+        ._29HP61GA_0 table.hljs-ln td,
+        ._29HP61GA_0 table.hljs-ln tr {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        ._29HP61GA_0 table.hljs-ln td {
+            padding: 0;
+            border: 0
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-numbers {
+            min-width: 15px;
+            font-size: 12px;
+            color: rgba(27, 31, 35, .3);
+            text-align: right;
+            white-space: nowrap;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-code,
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-numbers {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+            line-height: 20px;
+            vertical-align: top
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-code {
+            position: relative;
+            padding-right: 10px;
+            padding-left: 10px;
+            overflow: visible;
+            font-size: 13px;
+            color: #666;
+            word-wrap: normal;
+            white-space: pre
+        }
+
+    </style>
+</head>
+<body>
+<div class="_29HP61GA_0">
+<h1>18-错误处理（上）：如何设计一套科学的错误码？</h1>
+<p>你好，我是孔令飞。今天我们来聊聊如何设计业务的错误码。</p><p>现代的软件架构，很多都是对外暴露RESTful API接口，内部系统通信采用RPC协议。因为RESTful API接口有一些天生的优势，比如规范、调试友好、易懂，所以通常作为直接面向用户的通信规范。</p><p>既然是直接面向用户，那么首先就要求消息返回格式是规范的；其次，如果接口报错，还要能给用户提供一些有用的报错信息，通常需要包含Code码（用来唯一定位一次错误）和Message（用来展示出错的信息）。这就需要我们设计一套规范的、科学的错误码。</p><p>这一讲，我就来详细介绍下，如何设计一套规范的、科学的错误码。下一讲，我还会介绍如何提供一个errors包来支持我们设计的错误码。</p><h2>期望错误码实现的功能</h2><p>要想设计一套错误码，首先就得弄清我们的需求。</p><p>RESTful API是基于HTTP协议的一系列API开发规范，HTTP请求结束后，无论API请求成功或失败，都需要让客户端感知到，以便客户端决定下一步该如何处理。</p><p>为了让用户拥有最好的体验，需要有一个比较好的错误码实现方式。这里我介绍下在设计错误码时，期望能够实现的功能。</p><p>第一个功能是有业务Code码标识。</p><p>因为HTTP Code码有限，并且都是跟HTTP Transport层相关的Code码，所以我们希望能有自己的错误Code码。一方面，可以根据需要自行扩展，另一方面也能够精准地定位到具体是哪个错误。同时，因为Code码通常是对计算机友好的10进制整数，基于Code码，计算机也可以很方便地进行一些分支处理。当然了，业务码也要有一定规则，可以通过业务码迅速定位出是哪类错误。</p><!-- [[[read_end]]] --><p>第二个功能，考虑到安全，希望能够对外对内分别展示不同的错误信息。</p><p>当开发一个对外的系统，业务出错时，需要一些机制告诉用户出了什么错误，如果能够提供一些帮助文档会更好。但是，我们不可能把所有的错误都暴露给外部用户，这不仅没必要，也不安全。所以也需要能让我们获取到更详细的内部错误信息的机制，这些内部错误信息可能包含一些敏感的数据，不宜对外展示，但可以协助我们进行问题定位。</p><p>所以，我们需要设计的错误码应该是规范的，能方便客户端感知到HTTP是否请求成功，并带有业务码和出错信息。</p><h2>常见的错误码设计方式</h2><p>在业务中，大致有三种错误码实现方式。我用一次因为用户账号没有找到而请求失败的例子，分别给你解释一下：</p><p>第一种方式，不论请求成功或失败，始终返回<code>200 http status code</code>，在HTTP Body中包含用户账号没有找到的错误信息。</p><p>例如Facebook API的错误Code设计，始终返回200 http status code：</p><pre><code>{
+  &quot;error&quot;: {
+    &quot;message&quot;: &quot;Syntax error \&quot;Field picture specified more than once. This is only possible before version 2.1\&quot; at character 23: id,name,picture,picture&quot;,
+    &quot;type&quot;: &quot;OAuthException&quot;,
+    &quot;code&quot;: 2500,
+    &quot;fbtrace_id&quot;: &quot;xxxxxxxxxxx&quot;
+  }
+}
+</code></pre><p>采用固定返回<code>200 http status code</code>的方式，有其合理性。比如，HTTP Code通常代表HTTP Transport层的状态信息。当我们收到HTTP请求，并返回时，HTTP Transport层是成功的，所以从这个层面上来看，HTTP Status固定为200也是合理的。</p><p>但是这个方式的缺点也很明显：对于每一次请求，我们都要去解析HTTP Body，从中解析出错误码和错误信息。实际上，大部分情况下，我们对于成功的请求，要么直接转发，要么直接解析到某个结构体中；对于失败的请求，我们也希望能够更直接地感知到请求失败。这种方式对性能会有一定的影响，对客户端不友好。所以我不建议你使用这种方式。</p><p>第二种方式，返回<code>http 404 Not Found</code>错误码，并在Body中返回简单的错误信息。</p><p>例如：Twitter API的错误设计，会根据错误类型，返回合适的HTTP Code，并在Body中返回错误信息和自定义业务Code。</p><pre><code>HTTP/1.1 400 Bad Request
+x-connection-hash: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+set-cookie: guest_id=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Date: Thu, 01 Jun 2017 03:04:23 GMT
+Content-Length: 62
+x-response-time: 5
+strict-transport-security: max-age=631138519
+Connection: keep-alive
+Content-Type: application/json; charset=utf-8
+Server: tsa_b
+
+{&quot;errors&quot;:[{&quot;code&quot;:215,&quot;message&quot;:&quot;Bad Authentication data.&quot;}]}
+</code></pre><p>这种方式比第一种要好一些，通过<code>http status code</code>可以使客户端非常直接地感知到请求失败，并且提供给客户端一些错误信息供参考。但是仅仅靠这些信息，还不能准确地定位和解决问题。</p><p>第三种方式，返回<code>http 404 Not Found</code>错误码，并在Body中返回详细的错误信息。</p><p>例如：微软Bing API的错误设计，会根据错误类型，返回合适的HTTP Code，并在Body中返回详尽的错误信息。</p><pre><code>HTTP/1.1 400
+Date: Thu, 01 Jun 2017 03:40:55 GMT
+Content-Length: 276
+Connection: keep-alive
+Content-Type: application/json; charset=utf-8
+Server: Microsoft-IIS/10.0
+X-Content-Type-Options: nosniff
+
+{&quot;SearchResponse&quot;:{&quot;Version&quot;:&quot;2.2&quot;,&quot;Query&quot;:{&quot;SearchTerms&quot;:&quot;api error codes&quot;},&quot;Errors&quot;:[{&quot;Code&quot;:1001,&quot;Message&quot;:&quot;Required parameter is missing.&quot;,&quot;Parameter&quot;:&quot;SearchRequest.AppId&quot;,&quot;HelpUrl&quot;:&quot;http\u003a\u002f\u002fmsdn.microsoft.com\u002fen-us\u002flibrary\u002fdd251042.aspx&quot;}]}}
+</code></pre><p>这是我比较推荐的一种方式，既能通过<code>http status code</code>使客户端方便地知道请求出错，又可以使用户根据返回的信息知道哪里出错，以及如何解决问题。同时，返回了机器友好的业务Code码，可以在有需要时让程序进一步判断处理。</p><h2>错误码设计建议</h2><p>综合刚才讲到的，我们可以总结出一套优秀的错误码设计思路：</p><ul>
+<li>有区别于<code>http status code</code>的业务码，业务码需要有一定规则，可以通过业务码判断出是哪类错误。</li>
+<li>请求出错时，可以通过<code>http status code</code>直接感知到请求出错。</li>
+<li>需要在请求出错时，返回详细的信息，通常包括3类信息：业务Code码、错误信息和参考文档（可选）。</li>
+<li>返回的错误信息，需要是可以直接展示给用户的安全信息，也就是说不能包含敏感信息；同时也要有内部更详细的错误信息，方便debug。</li>
+<li>返回的数据格式应该是固定的、规范的。</li>
+<li>错误信息要保持简洁，并且提供有用的信息。</li>
+</ul><p>这里其实还有两个功能点需要我们实现：业务Code码设计，以及请求出错时，如何设置<code>http status code</code>。</p><p>接下来，我会详细介绍下如何实现这两个功能点。</p><h2>业务Code码设计</h2><p>要解决业务Code码如何设计这个问题，我们先来看下为什么要引入业务Code码。</p><p>在实际开发中，引入业务Code码有下面几个好处：</p><ul>
+<li>可以非常方便地定位问题和定位代码行（看到错误码知道什么意思、grep错误码可以定位到错误码所在行、某个错误类型的唯一标识）。</li>
+<li>错误码包含一定的信息，通过错误码可以判断出错误级别、错误模块和具体错误信息。</li>
+<li>Go中的HTTP服务器开发都是引用net/http包，该包中只有60个错误码，基本都是跟HTTP请求相关的错误码，在一个大型系统中，这些错误码完全不够用，而且这些错误码跟业务没有任何关联，满足不了业务的需求。引入业务的Code码，则可以解决这些问题。</li>
+<li>业务开发过程中，可能需要判断错误是哪种类型，以便做相应的逻辑处理，通过定制的错误可以很容易做到这点，例如：</li>
+</ul><pre><code>if err == code.ErrBind {
+    ...
+}
+</code></pre><p>这里要注意，业务Code码可以是一个整数，也可以是一个整型字符串，还可以是一个字符型字符串，它是错误的唯一标识。</p><p>通过研究腾讯云、阿里云、新浪的开放API，我发现新浪的API Code码设计更合理些。所以，我参考新浪的Code码设计，总结出了我推荐的<strong>Code码设计规范：纯数字表示，不同部位代表不同的服务，不同的模块。</strong></p><p>错误代码说明：<code>100101</code></p><ul>
+<li><strong>10:</strong> 服务。</li>
+<li><strong>01:</strong> 某个服务下的某个模块。</li>
+<li><strong>01:</strong> 模块下的错误码序号，每个模块可以注册100个错误。</li>
+</ul><p>通过<code>100101</code>可以知道这个错误是<strong>服务 A</strong>，<strong>数据库</strong>模块下的<strong>记录没有找到错误</strong>。</p><p>你可能会问：按这种设计，每个模块下最多能注册100个错误，是不是有点少？其实在我看来，如果每个模块的错误码超过100个，要么说明这个模块太大了，建议拆分；要么说明错误码设计得不合理，共享性差，需要重新设计。</p><h3>如何设置HTTP Status Code</h3><p>Go net/http包提供了60个错误码，大致分为如下5类：</p><ul>
+<li>1XX - （指示信息）表示请求已接收，继续处理。</li>
+<li>2XX - （请求成功）表示成功处理了请求的状态代码。</li>
+<li>3XX - （请求被重定向）表示要完成请求，需要进一步操作。通常，这些状态代码用来重定向。</li>
+<li>4XX - （请求错误）这些状态代码表示请求可能出错，妨碍了服务器的处理，通常是客户端出错，需要客户端做进一步的处理。</li>
+<li>5XX - （服务器错误）这些状态代码表示服务器在尝试处理请求时发生内部错误。这些错误可能是服务器本身的错误，而不是客户端的问题。</li>
+</ul><p>可以看到HTTP Code有很多种，如果每个Code都做错误映射，会面临很多问题。比如，研发同学不太好判断错误属于哪种<code>http status code</code>，到最后很可能会导致错误或者<code>http status code</code>不匹配，变成一种形式。而且，客户端也难以应对这么多的HTTP错误码。</p><p>所以，这里建议<code>http status code</code>不要太多，基本上只需要这3个HTTP Code:</p><ul>
+<li>200 - 表示请求成功执行。</li>
+<li>400 - 表示客户端出问题。</li>
+<li>500 - 表示服务端出问题。</li>
+</ul><p>如果觉得这3个错误码不够用，最多可以加如下3个错误码：</p><ul>
+<li>401 - 表示认证失败。</li>
+<li>403 - 表示授权失败。</li>
+<li>404 - 表示资源找不到，这里的资源可以是URL或者RESTful资源。</li>
+</ul><p>将错误码控制在适当的数目内，客户端比较容易处理和判断，开发也比较容易进行错误码映射。</p><h2>IAM项目错误码设计规范</h2><p>接下来，我们来看下IAM项目的错误码是如何设计的。</p><h3>Code 设计规范</h3><p>先来看下IAM项目业务的Code码设计规范，具体实现可参考<a href="https://github.com/marmotedu/iam/tree/master/internal/pkg/code">internal/pkg/code目录</a>。IAM项目的错误码设计规范符合上面介绍的错误码设计思路和规范，具体规范见下。</p><p>Code 代码从 <strong>100101</strong> 开始，1000 以下为 <code>github.com/marmotedu/errors</code> 保留 code。</p><p><strong>错误代码说明：</strong><code>100101</code></p><p><img src="https://static001.geekbang.org/resource/image/b9/20/b9fe85362b34c46b05b438a4fca0d220.png?wh=1186x1047" alt=""></p><p><strong>服务和模块说明</strong></p><p><img src="https://static001.geekbang.org/resource/image/2b/b1/2b1ed2f4333fdfe8e4df1d67083443b1.png?wh=1141x988" alt=""></p><p>通用<strong>：</strong>说明所有服务都适用的错误，提高复用性，避免重复造轮子。</p><p><strong>错误信息规范说明</strong></p><ul>
+<li>对外暴露的错误，统一大写开头，结尾不要加<code>.</code>。</li>
+<li>对外暴露的错误要简洁，并能准确说明问题。</li>
+<li>对外暴露的错误说明，应该是 <code>该怎么做</code> 而不是 <code>哪里错了</code>。</li>
+</ul><p>这里你需要注意，错误信息是直接暴露给用户的，不能包含敏感信息。</p><h3>IAM API接口返回值说明</h3><p>如果返回结果中存在 <code>code</code> 字段，则表示调用 API 接口失败。例如：</p><pre><code>{
+  &quot;code&quot;: 100101,
+  &quot;message&quot;: &quot;Database error&quot;,
+  &quot;reference&quot;: &quot;https://github.com/marmotedu/iam/tree/master/docs/guide/zh-CN/faq/iam-apiserver&quot;
+}
+</code></pre><p>上述返回中 <code>code</code> 表示错误码，<code>message</code> 表示该错误的具体信息。每个错误同时也对应一个 HTTP 状态码。比如上述错误码对应了 HTTP 状态码 500(Internal Server Error)。另外，在出错时，也返回了<code>reference</code>字段，该字段包含了可以解决这个错误的文档链接地址。</p><p>关于IAM 系统支持的错误码，我给你列了一个表格，你可以看看：</p><p><img src="https://static001.geekbang.org/resource/image/b5/95/b58ff5b9455d13fc397fdf5228ea7195.png?wh=1441x1518" alt=""><img src="https://static001.geekbang.org/resource/image/c6/d2/c6d356a3f5f2bfc3d6001yy3c05a90d2.png?wh=1321x1570" alt=""></p><h2>总结</h2><p>对外暴露的API接口需要有一套规范的、科学的错误码。目前业界的错误码大概有3种设计方式，我用一次因为用户账号没有找到而请求失败的例子，给你做了解释：</p><ul>
+<li>不论请求成功失败，始终返回<code>200 http status code</code>，在HTTP Body中包含用户账号没有找到的错误信息。</li>
+<li>返回<code>http 404 Not Found</code>错误码，并在Body中返回简单的错误信息。</li>
+<li>返回<code>http 404 Not Found</code>错误码，并在Body中返回详细的错误信息。</li>
+</ul><p>这一讲，我参考这3个错误码设计，给出了自己的错误码设计建议：错误码包含HTTP Code和业务Code，并且业务Code会映射为一个HTTP Code。错误码也会对外暴露两种错误信息，一种是直接暴露给用户的，不包含敏感信息的信息；另一种是供内部开发查看，定位问题的错误信息。该错误码还支持返回参考文档，用于在出错时展示给用户，供用户查看解决问题。</p><p>建议你重点关注我总结的Code码设计规范：<strong>纯数字表示，不同部位代表不同的服务，不同的模块。</strong></p><p>比如错误代码<code>100101</code>，其中10代表服务；中间的01代表某个服务下的某个模块；最后的01代表模块下的错误码序号，每个模块可以注册100个错误。</p><h2>课后练习</h2><ol>
+<li>既然错误码是符合规范的，请思考下：有没有一种Low Code的方式，根据错误码规范，自动生成错误码文档呢？</li>
+<li>思考下你还遇到过哪些更科学的错误码设计。如果有，也欢迎在留言区分享交流。</li>
+</ol><p>欢迎你在留言区与我交流讨论，我们下一讲见。</p><h2>精选留言：</h2>
+        <ul>
+        
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            timidsmile  2021-07-08 00:43:36
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            对于使用 httpCode 表示业务逻辑的情况（针对 错误码设计方式的第二种和第三种），统一监控如何区分是自身服务问题还是业务问题呢？<br>比如，对于 500 类错误，如何区分是自身服务panic等导致的，还是上游请求数据有问题(yaml data couldnt be encde 等)造成的呢？<br>会不会让监控变得复杂？ [1赞]
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-07-10 01:11:36</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">你们的监控如果一定要区分这两种情况，那只能从业务code上区分了。<br><br>如果感觉从业务code区分比较麻烦，那可以将yaml data couldnt be encode这种错误，再映射为一个HTTP Status Code，比如：512。<br><br>这种复杂度，是不可避免的，因为监控是一定要感知到差异的，这些差异要么来自于业务code，要么来自于http status code</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            helloworld  2021-07-06 09:21:59
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            很全面，赞👍 [1赞]
+        </div>
+        
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            pedro  2021-07-06 07:43:39
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            写得好！ [1赞]
+        </div>
+        
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Vfeelit  2021-07-08 08:34:06
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            就http来说 405是一个必须的状态码 比如只允许post  你来get  就要返回405   另外，请求进入应用首先进行路由判断，这个过程可以是405 404 然后是认证校验 可能是400 401   再然后是权限判断 可能是 403   之后就是请求数据校验，这个一般可以使用422，再然后就是内部抛异常，统一使用500   真正需要自定义码的是500  500之前的码基本可以和状态码一样，因为405 401 404已经足够明确了，500就TM不知道是啥，所以需要code。  脑补一下吧 
+        </div>
+        
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            CQS  2021-07-07 15:40:32
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            孔老师你好，我在github 仓库上看到你留有微信我添加并没有通过。麻烦能不能通过一下或者拉我进群一起学习？ 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-07-08 14:46:00</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">加了哈，已入群</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            helloworld  2021-07-07 00:13:10
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            有一个疑问：公司的技术架构如果采用微服务的话，可能有上百个服务，错误码的服务部分只预留两位数，是否会不够用，还是说将微服务分成服务类，以减少服务数量呢 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-07-10 01:21:45</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">如果真的需要很多服务，那错误码可以再多一位。<br><br>规范是人定的，具体需要看是否匹配业务，规范如果不匹配业务，需要修改之前的规范，并形成新的规范，都是可以的。</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            宙斯  2021-07-06 09:50:54
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            三种设计方式有两种返回http 404 Not Found，是写错了吗？ 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">编辑回复2021-07-06 10:20:52</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">收到反馈，我们和老师确认下<br>老师的回复：“没写错哈。虽然后面2个HTTP status code返回的是一样，但是response body中返回的错误信息丰富度是不一样的。”</div>
+</div>
+            
+    </div>
+</li>
+            </ul>
+</div>
+</body>
+</html>

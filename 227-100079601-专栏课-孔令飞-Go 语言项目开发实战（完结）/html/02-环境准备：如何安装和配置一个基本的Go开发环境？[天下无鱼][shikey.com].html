@@ -1,0 +1,1213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
+    <title>02-环境准备：如何安装和配置一个基本的Go开发环境？</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style>
+        html {
+            color: #333;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-rendering: optimizelegibility;
+            font-family: Helvetica Neue, PingFang SC, Verdana, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif
+        }
+
+        html.borderbox *,
+        html.borderbox :after,
+        html.borderbox :before {
+            box-sizing: border-box
+        }
+
+        article,
+        aside,
+        blockquote,
+        body,
+        button,
+        code,
+        dd,
+        details,
+        dl,
+        dt,
+        fieldset,
+        figcaption,
+        figure,
+        footer,
+        form,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        header,
+        hr,
+        input,
+        legend,
+        li,
+        menu,
+        nav,
+        ol,
+        p,
+        pre,
+        section,
+        td,
+        textarea,
+        th,
+        ul {
+            margin: 0;
+            padding: 0
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        menu,
+        nav,
+        section {
+            display: block
+        }
+
+        audio,
+        canvas,
+        video {
+            display: inline-block
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif
+        }
+
+        button::-moz-focus-inner,
+        input::-moz-focus-inner {
+            padding: 0;
+            border: 0
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+
+        fieldset,
+        img {
+            border: 0
+        }
+
+        blockquote {
+            position: relative;
+            color: #999;
+            font-weight: 400;
+            border-left: 1px solid #1abc9c;
+            padding-left: 1em;
+            margin: 1em 3em 1em 2em
+        }
+
+        @media only screen and (max-width: 640px) {
+            blockquote {
+                margin: 1em 0
+            }
+        }
+
+        abbr,
+        acronym {
+            border-bottom: 1px dotted;
+            font-variant: normal
+        }
+
+        abbr {
+            cursor: help
+        }
+
+        del {
+            text-decoration: line-through
+        }
+
+        address,
+        caption,
+        cite,
+        code,
+        dfn,
+        em,
+        th,
+        var {
+            font-style: normal;
+            font-weight: 400
+        }
+
+        ol,
+        ul {
+            list-style: none
+        }
+
+        caption,
+        th {
+            text-align: left
+        }
+
+        q:after,
+        q:before {
+            content: ""
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative
+        }
+
+        :root sub,
+        :root sup {
+            vertical-align: baseline
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        a {
+            color: #1abc9c
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .typo a {
+            border-bottom: 1px solid #1abc9c
+        }
+
+        .typo a:hover {
+            border-bottom-color: #555;
+            color: #555
+        }
+
+        .typo a:hover,
+        a,
+        ins {
+            text-decoration: none
+        }
+
+        .typo-u,
+        u {
+            text-decoration: underline
+        }
+
+        mark {
+            background: #fffdd1;
+            border-bottom: 1px solid #ffedce;
+            padding: 2px;
+            margin: 0 5px
+        }
+
+        code,
+        pre,
+        pre tt {
+            font-family: Courier, Courier New, monospace
+        }
+
+        pre {
+            background: hsla(0, 0%, 97%, .7);
+            border: 1px solid #ddd;
+            padding: 1em 1.5em;
+            display: block;
+            -webkit-overflow-scrolling: touch
+        }
+
+        hr {
+            border: none;
+            border-bottom: 1px solid #cfcfcf;
+            margin-bottom: .8em;
+            height: 10px
+        }
+
+        .typo-small,
+        figcaption,
+        small {
+            font-size: .9em;
+            color: #888
+        }
+
+        b,
+        strong {
+            font-weight: 700;
+            color: #000
+        }
+
+        [draggable] {
+            cursor: move
+        }
+
+        .clearfix:after,
+        .clearfix:before {
+            content: "";
+            display: table
+        }
+
+        .clearfix:after {
+            clear: both
+        }
+
+        .clearfix {
+            zoom: 1
+        }
+
+        .textwrap,
+        .textwrap td,
+        .textwrap th {
+            word-wrap: break-word;
+            word-break: break-all
+        }
+
+        .textwrap-table {
+            table-layout: fixed
+        }
+
+        .serif {
+            font-family: Palatino, Optima, Georgia, serif
+        }
+
+        .typo-dl,
+        .typo-form,
+        .typo-hr,
+        .typo-ol,
+        .typo-p,
+        .typo-pre,
+        .typo-table,
+        .typo-ul,
+        .typo dl,
+        .typo form,
+        .typo hr,
+        .typo ol,
+        .typo p,
+        .typo pre,
+        .typo table,
+        .typo ul,
+        blockquote {
+            margin-bottom: 1rem
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: PingFang SC, Helvetica Neue, Verdana, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+            color: #000;
+            line-height: 1.35
+        }
+
+        .typo-h1,
+        .typo-h2,
+        .typo-h3,
+        .typo-h4,
+        .typo-h5,
+        .typo-h6,
+        .typo h1,
+        .typo h2,
+        .typo h3,
+        .typo h4,
+        .typo h5,
+        .typo h6 {
+            margin-top: 1.2em;
+            margin-bottom: .6em;
+            line-height: 1.35
+        }
+
+        .typo-h1,
+        .typo h1 {
+            font-size: 2em
+        }
+
+        .typo-h2,
+        .typo h2 {
+            font-size: 1.8em
+        }
+
+        .typo-h3,
+        .typo h3 {
+            font-size: 1.6em
+        }
+
+        .typo-h4,
+        .typo h4 {
+            font-size: 1.4em
+        }
+
+        .typo-h5,
+        .typo-h6,
+        .typo h5,
+        .typo h6 {
+            font-size: 1.2em
+        }
+
+        .typo-ul,
+        .typo ul {
+            margin-left: 1.3em;
+            list-style: disc
+        }
+
+        .typo-ol,
+        .typo ol {
+            list-style: decimal;
+            margin-left: 1.9em
+        }
+
+        .typo-ol ol,
+        .typo-ol ul,
+        .typo-ul ol,
+        .typo-ul ul,
+        .typo li ol,
+        .typo li ul {
+            margin-bottom: .8em;
+            margin-left: 2em
+        }
+
+        .typo-ol ul,
+        .typo-ul ul,
+        .typo li ul {
+            list-style: circle
+        }
+
+        .typo-table td,
+        .typo-table th,
+        .typo table caption,
+        .typo table td,
+        .typo table th {
+            border: 1px solid #ddd;
+            padding: .5em 1em;
+            color: #666
+        }
+
+        .typo-table th,
+        .typo table th {
+            background: #fbfbfb
+        }
+
+        .typo-table thead th,
+        .typo table thead th {
+            background: hsla(0, 0%, 95%, .7)
+        }
+
+        .typo table caption {
+            border-bottom: none
+        }
+
+        .typo-input,
+        .typo-textarea {
+            -webkit-appearance: none;
+            border-radius: 0
+        }
+
+        .typo-em,
+        .typo em,
+        caption,
+        legend {
+            color: #000;
+            font-weight: inherit
+        }
+
+        .typo-em {
+            position: relative
+        }
+
+        .typo-em:after {
+            position: absolute;
+            top: .65em;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            content: "\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB"
+        }
+
+        .typo img {
+            max-width: 100%
+        }
+
+        .common-content {
+            font-weight: 400;
+            color: #353535;
+            line-height: 1.75rem;
+            white-space: normal;
+            word-break: normal;
+            font-size: 1rem
+        }
+
+        .common-content img {
+            display: block;
+            max-width: 100%;
+            background-color: #eee
+        }
+
+        .common-content audio,
+        .common-content video {
+            width: 100%;
+            background-color: #eee
+        }
+
+        .common-content center,
+        .common-content font {
+            margin-top: 1rem;
+            display: inline-block
+        }
+
+        .common-content center {
+            width: 100%
+        }
+
+        .common-content pre {
+            margin-top: 1rem;
+            padding-left: 0;
+            padding-right: 0;
+            position: relative;
+            overflow: hidden
+        }
+
+        .common-content pre code {
+            font-size: .8rem;
+            font-family: Consolas, Liberation Mono, Menlo, monospace, Courier;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            overflow-x: auto
+        }
+
+        .common-content hr {
+            border: none;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid #f5f5f5;
+            height: 1px;
+            background: none
+        }
+
+        .common-content b,
+        .common-content h1,
+        .common-content h2,
+        .common-content h3,
+        .common-content h4,
+        .common-content h5,
+        .common-content strong {
+            font-weight: 700
+        }
+
+        .common-content h1,
+        .common-content h2 {
+            font-size: 1.125rem;
+            margin-bottom: .45rem
+        }
+
+        .common-content h3,
+        .common-content h4,
+        .common-content h5 {
+            font-size: 1rem;
+            margin-bottom: .45rem
+        }
+
+        .common-content p {
+            font-weight: 400;
+            color: #353535;
+            margin-top: .15rem
+        }
+
+        .common-content .orange {
+            color: #ff5a05
+        }
+
+        .common-content .reference {
+            font-size: 1rem;
+            color: #888
+        }
+
+        .custom-rich-content h1 {
+            margin-top: 0;
+            font-weight: 400;
+            font-size: 15.25px;
+            border-bottom: 1px solid #eee;
+            line-height: 2.8
+        }
+
+        .custom-rich-content li,
+        .custom-rich-content p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.6
+        }
+
+        table.hljs-ln {
+            margin-bottom: 0;
+            border-spacing: 0;
+            border-collapse: collapse
+        }
+
+        table.hljs-ln,
+        table.hljs-ln tbody,
+        table.hljs-ln td,
+        table.hljs-ln tr {
+            box-sizing: border-box
+        }
+
+        table.hljs-ln td {
+            padding: 0;
+            border: 0
+        }
+
+        table.hljs-ln td.hljs-ln-numbers {
+            min-width: 15px;
+            color: rgba(27, 31, 35, .3);
+            text-align: right;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none
+        }
+
+        table.hljs-ln td.hljs-ln-code,
+        table.hljs-ln td.hljs-ln-numbers {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+            font-size: 12px;
+            line-height: 20px;
+            vertical-align: top
+        }
+
+        table.hljs-ln td.hljs-ln-code {
+            position: relative;
+            padding-right: 10px;
+            padding-left: 10px;
+            overflow: visible;
+            color: #24292e;
+            word-wrap: normal;
+            white-space: pre
+        }
+
+        video::-webkit-media-controls {
+            overflow: hidden !important
+        }
+
+        video::-webkit-media-controls-enclosure {
+            width: calc(100% + 32px);
+            margin-left: auto
+        }
+
+        ._29HP61GA_0 {
+            max-width:800px;
+            margin:0 auto;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #353535;
+            line-height: 1.76;
+            white-space: normal;
+            word-break: normal;
+            font-size: 17px;
+            -webkit-transition: background-color .3s ease;
+            transition: background-color .3s ease
+        }
+
+        ._29HP61GA_0 .MathJax_Display {
+            overflow: auto
+        }
+
+        ._29HP61GA_0 .poster {
+            position: fixed;
+            left: -10000px;
+            top: -10000px;
+            overflow: hidden;
+            padding: 1rem;
+            background: #ececec
+        }
+
+        ._29HP61GA_0 .richcontent-pre-copy {
+            font-size: 13px;
+            color: #888;
+            position: absolute;
+            right: 1em;
+            top: .5em;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        ._29HP61GA_0 .richcontent-pre-copy .iconfont {
+            font-size: 12px;
+            margin-right: .2em
+        }
+
+        ._29HP61GA_0 a {
+            color: #fa8919;
+            border-bottom: 1px solid #fa8919
+        }
+
+        ._29HP61GA_0 img {
+            display: block;
+            max-width: 100%;
+            position: relative;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            background-color: #eee;
+            vertical-align: top;
+            border-radius: 0
+        }
+
+        ._29HP61GA_0 audio,
+        ._29HP61GA_0 video {
+            width: 100%;
+            background-color: #eee
+        }
+
+        ._29HP61GA_0 pre {
+            margin-top: 16px;
+            padding: 34px 0 0;
+            margin-bottom: 30px;
+            position: relative;
+            border-radius: 6px;
+            background: rgba(246, 247, 251, .749);
+            border: 0
+        }
+
+        ._29HP61GA_0 pre code {
+            font-size: 12px;
+            font-family: Consolas, Liberation Mono, Menlo, monospace, Courier;
+            display: block;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            margin-left: 16px;
+            margin-right: 16px;
+            overflow-x: scroll
+        }
+
+        ._29HP61GA_0 pre code:after {
+            content: "";
+            height: 30px;
+            width: 100%;
+            display: block
+        }
+
+        ._29HP61GA_0 hr {
+            border: none;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid #f5f5f5;
+            height: 1px;
+            background: none
+        }
+
+        ._29HP61GA_0 h1,
+        ._29HP61GA_0 h2,
+        ._29HP61GA_0 h3,
+        ._29HP61GA_0 h4,
+        ._29HP61GA_0 h5 {
+            margin-bottom: 20px;
+            margin-top: 0;
+            font-weight: 700
+        }
+
+        ._29HP61GA_0 b,
+        ._29HP61GA_0 strong {
+            font-weight: 700
+        }
+
+        ._29HP61GA_0 h1 {
+            font-size: 21px
+        }
+
+        ._29HP61GA_0 h2 {
+            font-size: 20px
+        }
+
+        ._29HP61GA_0 h3 {
+            font-size: 19px
+        }
+
+        ._29HP61GA_0 h4 {
+            font-size: 18px
+        }
+
+        ._29HP61GA_0 h5 {
+            font-size: 17px
+        }
+
+        ._29HP61GA_0 center,
+        ._29HP61GA_0 p {
+            font-weight: 400;
+            color: #353535;
+            margin-top: 0;
+            margin-bottom: 30px;
+            word-break: break-word
+        }
+
+        ._29HP61GA_0 center {
+            text-align: center
+        }
+
+        ._29HP61GA_0 blockquote {
+            margin-top: 0;
+            margin-bottom: 34px;
+            border-left: 3px solid #e8e8e8;
+            padding-left: 17px;
+            color: #353535
+        }
+
+        ._29HP61GA_0 blockquote p {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        ._29HP61GA_0 ol,
+        ._29HP61GA_0 ul {
+            margin-bottom: 30px
+        }
+
+        ._29HP61GA_0 ol p,
+        ._29HP61GA_0 ul p {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        ._29HP61GA_0 ol {
+            list-style: decimal;
+            margin-left: 20px
+        }
+
+        ._29HP61GA_0 ul li {
+            padding-left: 17px;
+            position: relative;
+            margin-bottom: 10px
+        }
+
+        ._29HP61GA_0 ul li:after {
+            content: "";
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background: #353535;
+            position: absolute;
+            top: 10px;
+            left: 0
+        }
+
+        ._29HP61GA_0 .orange {
+            color: #fa8919
+        }
+
+        ._29HP61GA_0 .reference {
+            color: #888
+        }
+
+        ._29HP61GA_0 .m-right {
+            text-align: right
+        }
+
+        ._29HP61GA_0 .m-center {
+            text-align: center;
+            display: block
+        }
+
+        ._29HP61GA_0 .m-gray {
+            color: #888
+        }
+
+        ._29HP61GA_0 .m-small {
+            font-size: 15px
+        }
+
+        ._29HP61GA_0 table.hljs-ln {
+            margin-bottom: 0;
+            border-spacing: 0;
+            border-collapse: collapse
+        }
+
+        ._29HP61GA_0 table.hljs-ln,
+        ._29HP61GA_0 table.hljs-ln tbody,
+        ._29HP61GA_0 table.hljs-ln td,
+        ._29HP61GA_0 table.hljs-ln tr {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        ._29HP61GA_0 table.hljs-ln td {
+            padding: 0;
+            border: 0
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-numbers {
+            min-width: 15px;
+            font-size: 12px;
+            color: rgba(27, 31, 35, .3);
+            text-align: right;
+            white-space: nowrap;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-code,
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-numbers {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+            line-height: 20px;
+            vertical-align: top
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-code {
+            position: relative;
+            padding-right: 10px;
+            padding-left: 10px;
+            overflow: visible;
+            font-size: 13px;
+            color: #666;
+            word-wrap: normal;
+            white-space: pre
+        }
+
+    </style>
+</head>
+<body>
+<div class="_29HP61GA_0">
+<h1>02-环境准备：如何安装和配置一个基本的Go开发环境？</h1>
+<p>你好，我是孔令飞。</p><p>上一讲我们讲了 IAM 系统的功能和架构，接下来的两讲，我们就将它部署到你的服务器上。不过，在正式部署之前，我们还需要准备一个Go 开发环境，这是因为我们是通过编译源码来获取部署需要的二进制文件的。</p><p>因此，今天这一讲，我先手把手带你配置好一个 Go 的开发环境，供你以后开发、编译用，下一讲再带你部署IAM系统。</p><p>想要配置一个 Go 开发环境，我们可以通过以下 4 步实现：</p><ol>
+<li>Linux 服务器申请和配置</li>
+<li>依赖安装和配置</li>
+<li>Go 编译环境安装和配置</li>
+<li>Go 开发 IDE 安装和配置</li>
+</ol><h2>Linux 服务器申请和配置</h2><p>毫无疑问，要安装一个 Go 开发环境，你首先需要有一个 Linux 服务器。Linux 服务器有很多操作系统可供选择，例如：CentOS、Ubuntu、RHEL、Debian 等，但目前生产环境用得最多的还是 CentOS 系统，为了跟生产环境保持一致，我们选择当前最新的 CentOS 版本：CentOS 8.2。</p><p>因为本专栏的所有操作都是在 CentOS 8.2 系统上进行的，为了避免环境不一致导致的操作失败，我建议你也使用 CentOS 8.2。安装一个 Linux 服务器需要两步：服务器申请和配置。</p><h3>Linux 服务器申请</h3><p>我们可以通过以下 3 种方式来安装一个 CentOS 8.2 系统。</p><!-- [[[read_end]]] --><ol>
+<li>在物理机上安装一个 CentOS 8.2 系统。</li>
+<li>在 Windows/MacBook 上安装虚拟机管理软件，用虚拟机管理软件创建 CentOS 8.2 虚拟机。其中，Windows 建议用 VMWare Workstation 来创建虚拟机，MacBook 建议用 VirtualBox 来创建虚拟机。</li>
+<li>在诸如腾讯云、阿里云、华为云等平台上购买一个虚拟机，并预装 CentOS 8.2 系统。</li>
+</ol><h3>Linux 服务器配置</h3><p>申请完 Linux 服务之后，我们需要通过 SecureCRT 或 Xshell 等工具登录 Linux 服务器，并对服务器做一些简单必要的配置，包括创建普通用户、添加 sudoers、配置 <code>$HOME/.bashrc</code> 文件。接下来，我们一一来说。</p><p><strong>第一步，用Root 用户登录Linux 系统，并创建普通用户。</strong></p><p>一般来说，一个项目会由多个开发人员协作完成，为了节省企业成本，公司不会给每个开发人员都配备一台服务器，而是让所有开发人员共用一个开发机，通过普通用户登录开发机进行开发。因此，为了模拟真实的企业开发环境，我们也通过一个普通用户的身份来进行项目的开发，创建方法如下：</p><pre><code># useradd going # 创建 going 用户，通过 going 用户登录开发机进行开发
+# passwd going # 设置密码
+Changing password for user going.
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully.
+</code></pre><p>不仅如此，使用普通用户登录和操作开发机也可以保证系统的安全性，这是一个比较好的习惯，所以我们在日常开发中也要尽量避免使用 Root 用户。</p><p><strong>第二步，添加 sudoers。</strong></p><p>我们知道很多时候，普通用户也要用到 Root 的一些权限，但 Root 用户的密码一般是由系统管理员维护并定期更改的，每次都向管理员询问密码又很麻烦。因此，我建议你将普通用户加入到 sudoers 中，这样普通用户就可以通过 sudo 命令来暂时获取 Root 的权限。具体来说，你可以执行如下命令添加：</p><pre><code># sed -i '/^root.*ALL=(ALL).*ALL/a\going\tALL=(ALL) \tALL' /etc/sudoers
+</code></pre><p><strong>第三步，用新的用户名（going）和密码登录Linux 服务器。</strong>这一步也可以验证普通用户是否创建成功。</p><p><strong>第四步，配置 $HOME/.bashrc 文件。</strong></p><p>我们登录新服务器后的第一步就是配置 $HOME/.bashrc 文件，以使 Linux 登录 shell 更加易用，例如配置 <code>LANG</code> 解决中文乱码，配置 <code>PS1</code> 可以避免整行都是文件路径，并将 <code>$HOME/bin</code> 加入到 <code>PATH</code> 路径中。配置后的内容如下：</p><pre><code># .bashrc
+ 
+# User specific aliases and functions
+ 
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+ 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+ 
+# User specific environment
+# Basic envs
+export LANG=&quot;en_US.UTF-8&quot; # 设置系统语言为 en_US.UTF-8，避免终端出现中文乱码
+export PS1='[\u@dev \W]\$ ' # 默认的 PS1 设置会展示全部的路径，为了防止过长，这里只展示：&quot;用户名@dev 最后的目录名&quot;
+export WORKSPACE=&quot;$HOME/workspace&quot; # 设置工作目录
+export PATH=$HOME/bin:$PATH # 将 $HOME/bin 目录加入到 PATH 变量中
+ 
+# Default entry folder
+cd $WORKSPACE # 登录系统，默认进入 workspace 目录
+</code></pre><p>有一点需要我们注意，在 export <code>PATH</code> 时，最好把 <code>$PATH</code> 放到最后，因为我们添加到目录中的命令是期望被优先搜索并使用的。配置完 <code>$HOME/.bashrc</code> 后，我们还需要创建工作目录 workspace。将工作文件统一放在 <code>$HOME/workspace</code> 目录中，有几点好处。</p><ul>
+<li>可以使我们的<code>$HOME</code>目录保持整洁，便于以后的文件查找和分类。</li>
+<li>如果哪一天 <code>/分区空间不足，可以将整个</code> <code>workspace</code> 目录 mv 到另一个分区中，并在 <code>/分区中保留软连接，例如：/home/going/workspace -&gt; /data/workspace/</code>。</li>
+<li>如果哪天想备份所有的工作文件，可以直接备份 <code>workspace</code>。</li>
+</ul><p>具体的操作指令是<code>$ mkdir -p $HOME/workspace</code>。配置好 <code>$HOME/.bashrc</code> 文件后，我们就可以执行 bash 命令将配置加载到当前 shell 中了。</p><p>至此，我们就完成了 Linux 开发机环境的申请及初步配置。</p><h2>依赖安装和配置</h2><p>在 Linux 系统上安装 IAM 系统会依赖一些 RPM 包和工具，有些是直接依赖，有些是间接依赖。为了避免后续的操作出现依赖错误，例如，因为包不存在而导致的编译、命令执行错误等，我们先统一依赖安装和配置。安装和配置步骤如下。</p><p><strong>第一步，安装依赖。</strong></p><p>首先，我们在 CentOS 系统上通过 <code>yum</code> 命令来安装所需工具的依赖，安装命令如下：</p><pre><code>$ sudo yum -y install make autoconf automake cmake perl-CPAN libcurl-devel libtool gcc gcc-c++ glibc-headers zlib-devel git-lfs telnet ctags lrzsz jq
+</code></pre><p>虽然有些 CentOS 8.2 系统已经默认安装这些依赖了，但是为了确保它们都能被安装，我仍然会尝试安装一遍。如果系统提示 <code>Package xxx is already installed.</code>，说明已经安装好了，你直接忽略即可。</p><p><strong>第二步，安装 Git。</strong></p><p>因为安装 IAM 系统、执行 <code>go get</code> 命令、安装 protobuf 工具等都是通过 Git 来操作的，所以接下来我们还需要安装 Git。由于低版本的 Git 不支持<code>--unshallow</code> 参数，而 go get 在安装 Go 包时会用到 <code>git fetch --unshallow</code> 命令，因此我们要确保安装一个高版本的 Git，具体的安装方法如下：</p><pre><code>$ cd /tmp
+$ wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.30.2.tar.gz
+$ tar -xvzf git-2.30.2.tar.gz
+$ cd git-2.30.2/
+$ ./configure
+$ make
+$ sudo make install
+$ git --version          # 输出 git 版本号，说明安装成功
+git version 2.30.2
+</code></pre><p>注意啦，按照上面的步骤安装好之后，我们要把 Git 的二进制目录添加到 PATH 路径中，不然 Git 可能会因为找不到一些命令而报错。你可以通过执行以下命令添加目录：</p><pre><code>tee -a $HOME/.bashrc &lt;&lt;'EOF'
+# Configure for git
+export PATH=/usr/local/libexec/git-core:$PATH
+EOF
+</code></pre><p><strong>第三步，配置 Git。</strong>我们直接执行如下命令配置 Git：</p><pre><code>$ git config --global user.name &quot;Lingfei Kong&quot;    # 用户名改成自己的
+$ git config --global user.email &quot;colin404@foxmail.com&quot;    # 邮箱改成自己的
+$ git config --global credential.helper store    # 设置 Git，保存用户名和密码
+$ git config --global core.longpaths true # 解决 Git 中 'Filename too long' 的错误
+</code></pre><p>除了按照上述步骤配置 Git 之外，我们还有几点需要注意。</p><p>首先，在 Git 中，我们会把非 ASCII 字符叫做 Unusual 字符。这类字符在 Git 输出到终端的时候默认是用 8 进制转义字符输出的（以防乱码），但现在的终端多数都支持直接显示非 ASCII 字符，所以我们可以关闭掉这个特性，具体的命令如下：</p><pre><code>$ git config --global core.quotepath off
+</code></pre><p>其次，如果你觉得访问 github.com 太慢，可以通过国内 GitHub 镜像网站来访问，配置方法如下：</p><pre><code>$ git config --global url.&quot;https://github.com.cnpmjs.org/&quot;.insteadOf &quot;https://github.com/&quot;
+</code></pre><p>这里你要注意，通过镜像网站访问仅对 HTTPS 协议生效，对 SSH 协议不生效，并且 github.com.cnpmjs.org 的同步时间间隔为 1 天。</p><p>最后，GitHub 限制最大只能克隆 100M 的仓库，为了能够克隆容量大于 100M 的仓库，我们还需要安装 Git Large File Storage，安装方式如下：</p><pre><code>$ git lfs install --skip-repo
+</code></pre><p>好啦，现在我们就完成了依赖的安装和配置。</p><h2>Go 编译环境安装和配置</h2><p>我们知道，Go 是一门编译型语言，所以在部署 IAM 系统之前，我们需要将代码编译成可执行的二进制文件。因此我们需要安装 Go 编译环境。</p><p>除了 Go，我们也会用 gRPC 框架展示 RPC 通信协议的用法，所以我们也需要将 ProtoBuf 的.proto 文件编译成 Go 语言的接口。因此，我们也需要安装 ProtoBuf 的编译环境。</p><h3>Go 编译环境安装和配置</h3><p>安装 Go 语言相对来说比较简单，我们只需要下载源码包、设置相应的环境变量即可。</p><p>首先，我们从 Go 语言官方网站下载对应的 Go 安装包以及源码包，这里我下载的是 go1.16.2 版本：</p><pre><code>$ wget https://golang.org/dl/go1.16.2.linux-amd64.tar.gz -O /tmp/go1.16.2.linux-amd64.tar.gz
+</code></pre><p>在下载的时候，我们要选择：linux-amd64 的格式。如果因为被墙的原因访问不了 golang.org，你也可以执行下面的命令下载 ：</p><pre><code>$ wget https://marmotedu-1254073058.cos.ap-beijing.myqcloud.com/tools/go1.16.2.linux-amd64.tar.gz -O /tmp/go1.16.2.linux-amd64.tar.gz
+</code></pre><p>接着，我们完成解压和安装，命令如下：</p><pre><code>$ mkdir -p $HOME/go
+$ tar -xvzf /tmp/go1.16.2.linux-amd64.tar.gz -C $HOME/go
+$ mv $HOME/go/go $HOME/go/go1.16.2
+
+</code></pre><p>最后，我们执行以下命令，将下列环境变量追加到<code>$HOME/.bashrc</code> 文件中。</p><pre><code>tee -a $HOME/.bashrc &lt;&lt;'EOF'
+# Go envs
+export GOVERSION=go1.16.2 # Go 版本设置
+export GO_INSTALL_DIR=$HOME/go # Go 安装目录
+export GOROOT=$GO_INSTALL_DIR/$GOVERSION # GOROOT 设置
+export GOPATH=$WORKSPACE/golang # GOPATH 设置
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH # 将 Go 语言自带的和通过 go install 安装的二进制文件加入到 PATH 路径中
+export GO111MODULE=&quot;on&quot; # 开启 Go moudles 特性
+export GOPROXY=https://goproxy.cn,direct # 安装 Go 模块时，代理服务器设置
+export GOPRIVATE=github.com # 指定不走代理的 Go 包域名
+export GOSUMDB=off # 关闭校验 Go 依赖包的哈希值
+EOF
+</code></pre><p>为什么要增加这么多环境变量呢？这是因为，Go 语言就是通过一系列的环境变量来控制 Go 编译器行为的。因此，我们一定要理解每一个环境变量的含义。</p><p><img src="https://static001.geekbang.org/resource/image/4b/c1/4bde380dc05cd9900ec56dc7027c15c1.jpeg" alt=""></p><p>因为 Go 以后会用 Go modules 来管理依赖，所以我建议你将 GO111MODULE 设置为 on。</p><p>在使用模块的时候，<code>$GOPATH</code> 是无意义的，不过它还是会把下载的依赖储存在 <code>$GOPATH/pkg/mod</code> 目录中，也会把 go install 的二进制文件存放在 <code>$GOPATH/bin</code> 目录中。</p><p>另外，我们还要将<code>$GOPATH/bin</code>、<code>$GOROOT/bin</code> 加入到 Linux 可执行文件搜索路径中。这样一来，我们就可以直接在 bash shell 中执行 go 自带的命令，以及通过 go install 安装的命令。</p><p>最后就是进行测试了，如果我们执行 go version 命令可以成功输出 Go 的版本，就说明 Go 编译环境安装成功。具体的命令如下：</p><pre><code>$ bash
+$ go version
+go version go1.16.2 linu x/amd64
+</code></pre><h3>ProtoBuf 编译环境安装</h3><p>接着，我们再来安装 protobuf 的编译器 protoc。protoc 需要 protoc-gen-go 来完成 Go 语言的代码转换，因此我们需要安装 protoc 和 protoc-gen-go 这 2 个工具。它们的安装方法比较简单，你直接看我下面给出的代码和操作注释就可以了。</p><pre><code># 第一步：安装 protobuf
+$ cd /tmp/
+$ git clone --depth=1 https://github.com/protocolbuffers/protobuf
+$ cd protobuf
+$ ./autogen.sh
+$ ./configure
+$ make
+$ sudo make install
+$ protoc --version # 查看 protoc 版本，成功输出版本号，说明安装成功
+libprotoc 3.15.6
+
+# 第二步：安装 protoc-gen-go
+$ go get -u github.com/golang/protobuf/protoc-gen-go
+
+</code></pre><p>当你第一次执行 go get 命令的时候，因为本地无缓存，所以需要下载所有的依赖模块。因此安装速度会比较慢，请你耐心等待。</p><h2>Go 开发 IDE 安装和配置</h2><p>编译环境准备完之后，我们还需要一个代码编辑器才能开始 Go 项目开发，并且为了提高开发效率，我们需要将这个编辑器配置成 Go IDE。</p><p>目前，GoLand、VSCode 这些 IDE 都很优秀，我们使用的也很多，但它们都是 Windows 系统下的 IDE。因此，在 Linux 环境下我们可以选择将 Vim 配置成 Go IDE，熟悉 Vim IDE 的操作之后，它的开发效率不输 GoLand 和 VSCode。</p><p>比如说，我们可以通过 SpaceVim 将 Vim 配置成一个 Go IDE。SpaceVim 是一个社区驱动的模块化的 Vim IDE，以模块的方式组织管理插件以及相关配置， 为不同的语言开发量身定制了相关的开发模块，该模块提供代码自动补全、 语法检查、格式化、调试、REPL 等特性。我们只需要载入相关语言的模块就能得到一个开箱即用的 Vim IDE 了。</p><p>Vim 可以选择 NeoVim，NeoVim 是基于 Vim 的一个 fork 分支，它主要解决了 Vim8 之前版本中的异步执行、开发模式等问题，对 Vim 的兼容性很好。同时对 vim 的代码进行了大量地清理和重构，去掉了对老旧系统的支持，添加了新的特性。</p><p>虽然 Vim8 后来也新增了异步执行等特性，在使用层面两者差异不大，但是 NeoVim 开发更激进，新特性更多，架构也相对更合理，所以我选择了 NeoVim，你也可以根据个人爱好来选择（都是很优秀的编辑器，这里不做优缺点比较）。Vim IDE 的安装和配置主要分五步。</p><p><strong>第一步，安装 NeoVim。</strong>我们直接执行 pip3 和 yum 命令安装即可，安装方法如下：</p><pre><code>$ sudo pip3 install pynvim
+$ sudo yum -y install neovim
+</code></pre><p><strong>第二步，配置</strong> <code>$HOME/.bashrc</code>。先配置 nvim 的别名为 vi，这样当我们执行 vi 时，Linux系统就会默认调用 nvim。同时，配置 EDITOR 环境变量可以使一些工具，例如 Git 默认使用 nvim。配置方法如下：</p><pre><code>tee -a $HOME/.bashrc &lt;&lt;'EOF'
+# Configure for nvim
+export EDITOR=nvim # 默认的编辑器（git 会用到）
+alias vi=&quot;nvim&quot;
+EOF
+</code></pre><p><strong>第三步，检查 nvim 是否安装成功。</strong>我们可以通过查看 NeoVim 版本来确认是否成功安装，如果成功输出版本号，说明 NeoVim 安装成功。</p><pre><code>$ bash
+$ vi --version # 输出 NVIM v0.3.8 说明安装成功
+NVIM v0.3.8
+Build type: RelWithDebInfo
+...
+</code></pre><p><strong>第四步，离线安装 SpaceVim。</strong>安装 SpaceVim 步骤稍微有点复杂，为了简化你的安装，同时消除网络的影响，我将安装和配置 SpaceVim 的步骤做成了一个离线安装包 <a href="https://github.com/marmotedu/marmotVim">marmotVim</a> 。marmotVim 可以进行 SpaceVim 的安装、卸载、打包等操作，安装步骤如下：</p><pre><code>$ cd /tmp
+$ wget https://marmotedu-1254073058.cos.ap-beijing.myqcloud.com/tools/marmotVim.tar.gz
+$ tar -xvzf marmotVim.tar.gz
+$ cd marmotVim
+$ ./marmotVimCtl install
+</code></pre><p>SpaceVim 配置文件为：<code>$HOME/.SpaceVim.d/init.toml</code> 和<code>$HOME/.SpaceVim.d/autoload/custom_init.vim</code>，你可自行配置（配置文件中有配置说明）：</p><ul>
+<li>init.toml：SpaceVim 的配置文件</li>
+<li>custom_init.vim：兼容 vimrc，用户自定义的配置文件</li>
+</ul><p>SpaceVim Go IDE 常用操作的按键映射如下表所示：</p><p><img src="https://static001.geekbang.org/resource/image/f1/d9/f1ec06569a411be4369byy7b8c7469d9.jpeg" alt=""></p><p><strong>第五步，Go 工具安装。</strong></p><p>SpaceVim 会用到一些 Go 工具，比如在函数跳转时会用到 guru、godef 工具，在格式化时会用到 goimports，所以我们也需要安装这些工具。安装方法有 2 种：</p><ol>
+<li>Vim 底线命令安装：vi test.go，然后执行：<code>:GoInstallBinaries</code> 安装。</li>
+<li>拷贝工具：直接将整理好的工具文件拷贝到<code>$GOPATH/bin</code> 目录下。</li>
+</ol><p>为了方便，你可以直接拷贝我已经打包好的 Go 工具到指定目录下：</p><pre><code>$ cd /tmp
+$ wget https://marmotedu-1254073058.cos.ap-beijing.myqcloud.com/tools/gotools-for-spacevim.tgz
+$ mkdir -p $GOPATH/bin
+$ tar -xvzf gotools-for-spacevim.tgz -C $GOPATH/bin
+</code></pre><h2>总结</h2><p>这一讲，我们一起安装和配置了一个 Go 开发环境，为了方便你回顾，我将安装和配置过程绘制成了一个流程图，如下所示。</p><p><img src="https://static001.geekbang.org/resource/image/28/8e/28e52b697e735ecd58770c5fede7e58e.jpg" alt=""></p><p>有了这个开发环境，接下来我们就可以在学习的过程中随时进行编码，来熟悉和验证知识点了，所以你一定要在学习后面的课程之前先完成这一讲的部署。</p><h2>课后练习</h2><p>1.你起试着编写一个 main.go，在 main 函数中打印 <code>Hello World</code>，并执行 <code>go run main.go</code> 运行代码，测试 Go 开发环境。<br>
+2. 你请试着编写一个 main.go，代码如下：</p><pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;Hello World&quot;)
+}
+</code></pre><p>将鼠标放在 <strong>Println</strong> 上，键入 <strong>Enter</strong> 键跳转到函数定义处，键入 <strong>Ctrl + I</strong> 返回到跳转点。</p><p>期待在留言区看到你的思考和答案，也欢迎和我一起探讨环境安装过程中的问题，我们下一讲见！</p><h2>精选留言：</h2>
+        <ul>
+        
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            pedro  2021-05-26 22:29:59
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            已经在腾讯云学生服务器上全部搞定了，但是文中应该有两个问题。<br>一、$HOME&#47;.SpaceVim.d&#47;init.toml 应该是 init.vim 文件。<br>二、wget https:&#47;&#47;marmotedu-1254073058.cos.ap-beijing.myqcloud .com&#47;tools&#47;gotools-for-spacevim.tgz$ 这个命令稍微有点问题，中间多了一个空格。<br><br>另外，由于我的主机版本是 centos7.5，所以默认没有 python3 环境，如果大家跟我一样，可先通过 yum 来安装 python3，然后在安装 neovim，不过由于 centos7 自带 python2，所以进入 nvim 的时候还是会报错，所以吧，还是建议将 python2 的 neovim 也装上，如下：<br>```sh<br>yum install -y python-pip<br>sudo pip install  neovim<br>``` [3赞]
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-05-27 19:52:13</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">看专栏是没有空格的哈</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Q  2021-05-27 11:03:51
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            #我是本地安装虚拟机部署CentOS8<br>#编译git过程中出错的话，需要先安装这两个依赖<br>sudo yum install expat-devel<br>sudo yum -y install openssl-devel [1赞]
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-05-27 12:36:50</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">感谢Q哥补充</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Adrian  2021-05-28 10:26:54
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            Centos8都废弃了呀，为啥不选择centos7或者ubuntu系列呢 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-05-29 10:00:51</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">用新不用久哈，大趋势是高版本</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            柒城  2021-05-28 08:39:48
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            这里没有说对虚拟机的资源要求？具体需要多少cpu。多少内存？ 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-05-29 10:01:25</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">cpu这里是不区分虚拟机和物理机的。前提是虚拟机的cpu不能是超卖</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Geek_sky  2021-05-28 02:00:41
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            老师，我在光标定位使用enter跳转之后，服务器的负载会达到15到20，这个是正常的吗？我选中的服务器配置是1H1G的 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-05-29 10:01:49</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">刚开始，gopls会解析go的标签，计算量大，正常</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            m404  2021-05-27 23:07:00
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            能否问下，现在centos8.2已经无法下载镜像了，是用8.3还是8.0才能更好的跟随课程呢？ 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-05-28 08:24:58</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">8.3吧，系统版本号都是向前兼容的。<br>另外8.x中不同x主要是用来做一些功能优化和bug修复，不会有大变动，所以只要是8.x就没啥问题</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            pedro  2021-05-27 09:33:38
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            怕坑了大家，现在赶紧过来说明一下，对于服务器还是要选择和作者一样的 centos8，后面的 IAM 项目里面安装的依赖全是 centos8 的依赖，大家切记，血的教训！！！ 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-05-27 12:36:14</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">是的，建议还是直接centos8操作。也可以在centos7上部署开发，前提是你理解专栏，知道如何去做适配。</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Daiver  2021-05-26 21:31:52
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            还可以用vagrant 快速创建centos8 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-05-26 23:40:07</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">老哥，优秀!</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            梭罗的小屋  2021-05-26 21:18:22
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            安装NeoVim的第一步中使用pip3安装pynvim这个Python的nvim client，是后续课程会用Python替代vimL写nvim插件吗？<br>网上找到一篇介绍pynvmo用法的文章 https:&#47;&#47;blog.csdn.net&#47;weixin_28853079&#47;article&#47;details&#47;112666776 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-05-26 23:39:49</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">不会哈，pynvim只是neovim的一个依赖。这里可以不用太多关注</div>
+</div>
+            
+    </div>
+</li>
+            
+<br/>
+
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            Leven  2021-05-26 21:14:58
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            老师，有没有mac环境搭建的教程推荐，远程Linux的效果不稳定 
+        </div>
+        <br/>
+<div>
+    <div style="color:#888;font-size:15.25px;font-weight:400;        line-height:1.2">作者回复2021-05-26 23:38:05</div>
+    <div style="color:#353535;font-weight:400;white-space:normal;        word-break:break-all;line-height:1.6">Mac教程还没有，Go是跨平台的语言，你可以尝试用mac部署下，会有些地方需要做适配，不过应该不多。<br><br>后面还有不少课程，都是基于Linux，还是建议你用Linux，这样问题会少很多，学习效率会好很多。使用Linux有什么问题欢迎留言。</div>
+</div>
+            
+    </div>
+</li>
+            </ul>
+</div>
+</body>
+</html>

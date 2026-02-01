@@ -1,0 +1,1084 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
+    <title>35-效率神器：如何设计和实现一个命令行客户端工具？</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style>
+        html {
+            color: #333;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-rendering: optimizelegibility;
+            font-family: Helvetica Neue, PingFang SC, Verdana, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif
+        }
+
+        html.borderbox *,
+        html.borderbox :after,
+        html.borderbox :before {
+            box-sizing: border-box
+        }
+
+        article,
+        aside,
+        blockquote,
+        body,
+        button,
+        code,
+        dd,
+        details,
+        dl,
+        dt,
+        fieldset,
+        figcaption,
+        figure,
+        footer,
+        form,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        header,
+        hr,
+        input,
+        legend,
+        li,
+        menu,
+        nav,
+        ol,
+        p,
+        pre,
+        section,
+        td,
+        textarea,
+        th,
+        ul {
+            margin: 0;
+            padding: 0
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        menu,
+        nav,
+        section {
+            display: block
+        }
+
+        audio,
+        canvas,
+        video {
+            display: inline-block
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif
+        }
+
+        button::-moz-focus-inner,
+        input::-moz-focus-inner {
+            padding: 0;
+            border: 0
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+
+        fieldset,
+        img {
+            border: 0
+        }
+
+        blockquote {
+            position: relative;
+            color: #999;
+            font-weight: 400;
+            border-left: 1px solid #1abc9c;
+            padding-left: 1em;
+            margin: 1em 3em 1em 2em
+        }
+
+        @media only screen and (max-width: 640px) {
+            blockquote {
+                margin: 1em 0
+            }
+        }
+
+        abbr,
+        acronym {
+            border-bottom: 1px dotted;
+            font-variant: normal
+        }
+
+        abbr {
+            cursor: help
+        }
+
+        del {
+            text-decoration: line-through
+        }
+
+        address,
+        caption,
+        cite,
+        code,
+        dfn,
+        em,
+        th,
+        var {
+            font-style: normal;
+            font-weight: 400
+        }
+
+        ol,
+        ul {
+            list-style: none
+        }
+
+        caption,
+        th {
+            text-align: left
+        }
+
+        q:after,
+        q:before {
+            content: ""
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative
+        }
+
+        :root sub,
+        :root sup {
+            vertical-align: baseline
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        a {
+            color: #1abc9c
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .typo a {
+            border-bottom: 1px solid #1abc9c
+        }
+
+        .typo a:hover {
+            border-bottom-color: #555;
+            color: #555
+        }
+
+        .typo a:hover,
+        a,
+        ins {
+            text-decoration: none
+        }
+
+        .typo-u,
+        u {
+            text-decoration: underline
+        }
+
+        mark {
+            background: #fffdd1;
+            border-bottom: 1px solid #ffedce;
+            padding: 2px;
+            margin: 0 5px
+        }
+
+        code,
+        pre,
+        pre tt {
+            font-family: Courier, Courier New, monospace
+        }
+
+        pre {
+            background: hsla(0, 0%, 97%, .7);
+            border: 1px solid #ddd;
+            padding: 1em 1.5em;
+            display: block;
+            -webkit-overflow-scrolling: touch
+        }
+
+        hr {
+            border: none;
+            border-bottom: 1px solid #cfcfcf;
+            margin-bottom: .8em;
+            height: 10px
+        }
+
+        .typo-small,
+        figcaption,
+        small {
+            font-size: .9em;
+            color: #888
+        }
+
+        b,
+        strong {
+            font-weight: 700;
+            color: #000
+        }
+
+        [draggable] {
+            cursor: move
+        }
+
+        .clearfix:after,
+        .clearfix:before {
+            content: "";
+            display: table
+        }
+
+        .clearfix:after {
+            clear: both
+        }
+
+        .clearfix {
+            zoom: 1
+        }
+
+        .textwrap,
+        .textwrap td,
+        .textwrap th {
+            word-wrap: break-word;
+            word-break: break-all
+        }
+
+        .textwrap-table {
+            table-layout: fixed
+        }
+
+        .serif {
+            font-family: Palatino, Optima, Georgia, serif
+        }
+
+        .typo-dl,
+        .typo-form,
+        .typo-hr,
+        .typo-ol,
+        .typo-p,
+        .typo-pre,
+        .typo-table,
+        .typo-ul,
+        .typo dl,
+        .typo form,
+        .typo hr,
+        .typo ol,
+        .typo p,
+        .typo pre,
+        .typo table,
+        .typo ul,
+        blockquote {
+            margin-bottom: 1rem
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: PingFang SC, Helvetica Neue, Verdana, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+            color: #000;
+            line-height: 1.35
+        }
+
+        .typo-h1,
+        .typo-h2,
+        .typo-h3,
+        .typo-h4,
+        .typo-h5,
+        .typo-h6,
+        .typo h1,
+        .typo h2,
+        .typo h3,
+        .typo h4,
+        .typo h5,
+        .typo h6 {
+            margin-top: 1.2em;
+            margin-bottom: .6em;
+            line-height: 1.35
+        }
+
+        .typo-h1,
+        .typo h1 {
+            font-size: 2em
+        }
+
+        .typo-h2,
+        .typo h2 {
+            font-size: 1.8em
+        }
+
+        .typo-h3,
+        .typo h3 {
+            font-size: 1.6em
+        }
+
+        .typo-h4,
+        .typo h4 {
+            font-size: 1.4em
+        }
+
+        .typo-h5,
+        .typo-h6,
+        .typo h5,
+        .typo h6 {
+            font-size: 1.2em
+        }
+
+        .typo-ul,
+        .typo ul {
+            margin-left: 1.3em;
+            list-style: disc
+        }
+
+        .typo-ol,
+        .typo ol {
+            list-style: decimal;
+            margin-left: 1.9em
+        }
+
+        .typo-ol ol,
+        .typo-ol ul,
+        .typo-ul ol,
+        .typo-ul ul,
+        .typo li ol,
+        .typo li ul {
+            margin-bottom: .8em;
+            margin-left: 2em
+        }
+
+        .typo-ol ul,
+        .typo-ul ul,
+        .typo li ul {
+            list-style: circle
+        }
+
+        .typo-table td,
+        .typo-table th,
+        .typo table caption,
+        .typo table td,
+        .typo table th {
+            border: 1px solid #ddd;
+            padding: .5em 1em;
+            color: #666
+        }
+
+        .typo-table th,
+        .typo table th {
+            background: #fbfbfb
+        }
+
+        .typo-table thead th,
+        .typo table thead th {
+            background: hsla(0, 0%, 95%, .7)
+        }
+
+        .typo table caption {
+            border-bottom: none
+        }
+
+        .typo-input,
+        .typo-textarea {
+            -webkit-appearance: none;
+            border-radius: 0
+        }
+
+        .typo-em,
+        .typo em,
+        caption,
+        legend {
+            color: #000;
+            font-weight: inherit
+        }
+
+        .typo-em {
+            position: relative
+        }
+
+        .typo-em:after {
+            position: absolute;
+            top: .65em;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            content: "\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB\30FB"
+        }
+
+        .typo img {
+            max-width: 100%
+        }
+
+        .common-content {
+            font-weight: 400;
+            color: #353535;
+            line-height: 1.75rem;
+            white-space: normal;
+            word-break: normal;
+            font-size: 1rem
+        }
+
+        .common-content img {
+            display: block;
+            max-width: 100%;
+            background-color: #eee
+        }
+
+        .common-content audio,
+        .common-content video {
+            width: 100%;
+            background-color: #eee
+        }
+
+        .common-content center,
+        .common-content font {
+            margin-top: 1rem;
+            display: inline-block
+        }
+
+        .common-content center {
+            width: 100%
+        }
+
+        .common-content pre {
+            margin-top: 1rem;
+            padding-left: 0;
+            padding-right: 0;
+            position: relative;
+            overflow: hidden
+        }
+
+        .common-content pre code {
+            font-size: .8rem;
+            font-family: Consolas, Liberation Mono, Menlo, monospace, Courier;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            overflow-x: auto
+        }
+
+        .common-content hr {
+            border: none;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid #f5f5f5;
+            height: 1px;
+            background: none
+        }
+
+        .common-content b,
+        .common-content h1,
+        .common-content h2,
+        .common-content h3,
+        .common-content h4,
+        .common-content h5,
+        .common-content strong {
+            font-weight: 700
+        }
+
+        .common-content h1,
+        .common-content h2 {
+            font-size: 1.125rem;
+            margin-bottom: .45rem
+        }
+
+        .common-content h3,
+        .common-content h4,
+        .common-content h5 {
+            font-size: 1rem;
+            margin-bottom: .45rem
+        }
+
+        .common-content p {
+            font-weight: 400;
+            color: #353535;
+            margin-top: .15rem
+        }
+
+        .common-content .orange {
+            color: #ff5a05
+        }
+
+        .common-content .reference {
+            font-size: 1rem;
+            color: #888
+        }
+
+        .custom-rich-content h1 {
+            margin-top: 0;
+            font-weight: 400;
+            font-size: 15.25px;
+            border-bottom: 1px solid #eee;
+            line-height: 2.8
+        }
+
+        .custom-rich-content li,
+        .custom-rich-content p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.6
+        }
+
+        table.hljs-ln {
+            margin-bottom: 0;
+            border-spacing: 0;
+            border-collapse: collapse
+        }
+
+        table.hljs-ln,
+        table.hljs-ln tbody,
+        table.hljs-ln td,
+        table.hljs-ln tr {
+            box-sizing: border-box
+        }
+
+        table.hljs-ln td {
+            padding: 0;
+            border: 0
+        }
+
+        table.hljs-ln td.hljs-ln-numbers {
+            min-width: 15px;
+            color: rgba(27, 31, 35, .3);
+            text-align: right;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none
+        }
+
+        table.hljs-ln td.hljs-ln-code,
+        table.hljs-ln td.hljs-ln-numbers {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+            font-size: 12px;
+            line-height: 20px;
+            vertical-align: top
+        }
+
+        table.hljs-ln td.hljs-ln-code {
+            position: relative;
+            padding-right: 10px;
+            padding-left: 10px;
+            overflow: visible;
+            color: #24292e;
+            word-wrap: normal;
+            white-space: pre
+        }
+
+        video::-webkit-media-controls {
+            overflow: hidden !important
+        }
+
+        video::-webkit-media-controls-enclosure {
+            width: calc(100% + 32px);
+            margin-left: auto
+        }
+
+        ._29HP61GA_0 {
+            max-width:800px;
+            margin:0 auto;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #353535;
+            line-height: 1.76;
+            white-space: normal;
+            word-break: normal;
+            font-size: 17px;
+            -webkit-transition: background-color .3s ease;
+            transition: background-color .3s ease
+        }
+
+        ._29HP61GA_0 .MathJax_Display {
+            overflow: auto
+        }
+
+        ._29HP61GA_0 .poster {
+            position: fixed;
+            left: -10000px;
+            top: -10000px;
+            overflow: hidden;
+            padding: 1rem;
+            background: #ececec
+        }
+
+        ._29HP61GA_0 .richcontent-pre-copy {
+            font-size: 13px;
+            color: #888;
+            position: absolute;
+            right: 1em;
+            top: .5em;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        ._29HP61GA_0 .richcontent-pre-copy .iconfont {
+            font-size: 12px;
+            margin-right: .2em
+        }
+
+        ._29HP61GA_0 a {
+            color: #fa8919;
+            border-bottom: 1px solid #fa8919
+        }
+
+        ._29HP61GA_0 img {
+            display: block;
+            max-width: 100%;
+            position: relative;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            background-color: #eee;
+            vertical-align: top;
+            border-radius: 0
+        }
+
+        ._29HP61GA_0 audio,
+        ._29HP61GA_0 video {
+            width: 100%;
+            background-color: #eee
+        }
+
+        ._29HP61GA_0 pre {
+            margin-top: 16px;
+            padding: 34px 0 0;
+            margin-bottom: 30px;
+            position: relative;
+            border-radius: 6px;
+            background: rgba(246, 247, 251, .749);
+            border: 0
+        }
+
+        ._29HP61GA_0 pre code {
+            font-size: 12px;
+            font-family: Consolas, Liberation Mono, Menlo, monospace, Courier;
+            display: block;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            margin-left: 16px;
+            margin-right: 16px;
+            overflow-x: scroll
+        }
+
+        ._29HP61GA_0 pre code:after {
+            content: "";
+            height: 30px;
+            width: 100%;
+            display: block
+        }
+
+        ._29HP61GA_0 hr {
+            border: none;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid #f5f5f5;
+            height: 1px;
+            background: none
+        }
+
+        ._29HP61GA_0 h1,
+        ._29HP61GA_0 h2,
+        ._29HP61GA_0 h3,
+        ._29HP61GA_0 h4,
+        ._29HP61GA_0 h5 {
+            margin-bottom: 20px;
+            margin-top: 0;
+            font-weight: 700
+        }
+
+        ._29HP61GA_0 b,
+        ._29HP61GA_0 strong {
+            font-weight: 700
+        }
+
+        ._29HP61GA_0 h1 {
+            font-size: 21px
+        }
+
+        ._29HP61GA_0 h2 {
+            font-size: 20px
+        }
+
+        ._29HP61GA_0 h3 {
+            font-size: 19px
+        }
+
+        ._29HP61GA_0 h4 {
+            font-size: 18px
+        }
+
+        ._29HP61GA_0 h5 {
+            font-size: 17px
+        }
+
+        ._29HP61GA_0 center,
+        ._29HP61GA_0 p {
+            font-weight: 400;
+            color: #353535;
+            margin-top: 0;
+            margin-bottom: 30px;
+            word-break: break-word
+        }
+
+        ._29HP61GA_0 center {
+            text-align: center
+        }
+
+        ._29HP61GA_0 blockquote {
+            margin-top: 0;
+            margin-bottom: 34px;
+            border-left: 3px solid #e8e8e8;
+            padding-left: 17px;
+            color: #353535
+        }
+
+        ._29HP61GA_0 blockquote p {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        ._29HP61GA_0 ol,
+        ._29HP61GA_0 ul {
+            margin-bottom: 30px
+        }
+
+        ._29HP61GA_0 ol p,
+        ._29HP61GA_0 ul p {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        ._29HP61GA_0 ol {
+            list-style: decimal;
+            margin-left: 20px
+        }
+
+        ._29HP61GA_0 ul li {
+            padding-left: 17px;
+            position: relative;
+            margin-bottom: 10px
+        }
+
+        ._29HP61GA_0 ul li:after {
+            content: "";
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background: #353535;
+            position: absolute;
+            top: 10px;
+            left: 0
+        }
+
+        ._29HP61GA_0 .orange {
+            color: #fa8919
+        }
+
+        ._29HP61GA_0 .reference {
+            color: #888
+        }
+
+        ._29HP61GA_0 .m-right {
+            text-align: right
+        }
+
+        ._29HP61GA_0 .m-center {
+            text-align: center;
+            display: block
+        }
+
+        ._29HP61GA_0 .m-gray {
+            color: #888
+        }
+
+        ._29HP61GA_0 .m-small {
+            font-size: 15px
+        }
+
+        ._29HP61GA_0 table.hljs-ln {
+            margin-bottom: 0;
+            border-spacing: 0;
+            border-collapse: collapse
+        }
+
+        ._29HP61GA_0 table.hljs-ln,
+        ._29HP61GA_0 table.hljs-ln tbody,
+        ._29HP61GA_0 table.hljs-ln td,
+        ._29HP61GA_0 table.hljs-ln tr {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        ._29HP61GA_0 table.hljs-ln td {
+            padding: 0;
+            border: 0
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-numbers {
+            min-width: 15px;
+            font-size: 12px;
+            color: rgba(27, 31, 35, .3);
+            text-align: right;
+            white-space: nowrap;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-code,
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-numbers {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+            line-height: 20px;
+            vertical-align: top
+        }
+
+        ._29HP61GA_0 table.hljs-ln td.hljs-ln-code {
+            position: relative;
+            padding-right: 10px;
+            padding-left: 10px;
+            overflow: visible;
+            font-size: 13px;
+            color: #666;
+            word-wrap: normal;
+            white-space: pre
+        }
+
+    </style>
+</head>
+<body>
+<div class="_29HP61GA_0">
+<h1>35-效率神器：如何设计和实现一个命令行客户端工具？</h1>
+<p>你好，我是孔令飞。今天我们来聊聊，如何实现一个命令行客户端工具。</p><p>如果你用过Kubernetes、Istio、etcd，那你一定用过这些开源项目所提供的命令行工具：kubectl、istioctl、etcdctl。一个 <code>xxx</code> 项目，伴随着一个 <code>xxxctl</code> 命令行工具，这似乎已经成为一种趋势，在一些大型系统中更是常见。提供 <code>xxxctl</code> 命令行工具有这两个好处：</p><ul>
+<li>实现自动化：可以通过在脚本中调用 <code>xxxctl</code> 工具，实现自动化。</li>
+<li>提高效率：通过将应用的功能封装成命令和参数，方便运维、开发人员在Linux服务器上调用。</li>
+</ul><p>其中，kubectl命令设计的功能最为复杂，也是非常优秀的命令行工具，IAM项目的iamctl客户端工具就是仿照kubectl来实现的。这一讲，我就通过剖析iamctl命令行工具的实现，来介绍下如何实现一个优秀的客户端工具。</p><h2>常见客户端介绍</h2><p>在介绍iamctl命令行工具的实现之前，我们先来看下常见的客户端。</p><p>客户端又叫用户端，与后端服务相对应，安装在客户机上，用户可以使用这些客户端访问后端服务。不同的客户端面向的人群不同，所能提供的访问能力也有差异。常见的客户端有下面这几种：</p><ul>
+<li>前端，包括浏览器、手机应用；</li>
+<li>SDK；</li>
+<li>命令行工具；</li>
+<li>其他终端。</li>
+</ul><!-- [[[read_end]]] --><p>接下来，我就来分别介绍下。</p><p>浏览器和手机应用提供一个交互界面供用户访问后端服务，使用体验最好，面向的人群是最终的用户。这两类客户端也称为前端。前端由前端开发人员进行开发，并通过API接口，调用后端的服务。后端开发人员不需要关注这两类客户端，只需要关注如何提供API接口即可。</p><p>SDK（Software Development Kit）也是一个客户端，供开发者调用。开发者调用API时，如果是通过HTTP协议，需要编写HTTP的调用代码、HTTP请求包的封装和返回包的解封，还要处理HTTP的状态码，使用起来不是很方便。SDK其实是封装了API接口的一系列函数集合，开发者通过调用SDK中的函数调用API接口，提供SDK主要是方便开发者调用，减少工作量。</p><p>命令行工具是可以在操作系统上执行的一个二进制程序，提供了一种比SDK和API接口更方便快捷的访问后端服务的途径，供运维或者开发人员在服务器上直接执行使用，或者在自动化脚本中调用。</p><p>还有其他各类客户端，这里我列举一些常见的。</p><ul>
+<li>终端设备：POS机、学习机、智能音箱等。</li>
+<li>第三方应用程序：通过调用API接口或者SDK，调用我们提供的后端服务，从而实现自身的功能。</li>
+<li>脚本：脚本中通过API接口或者命令行工具，调用我们提供的后端服务，实现自动化。</li>
+</ul><p>这些其他的各类客户端，都是通过调用API接口使用后端服务的，它们跟前端一样，也不需要后台开发人员开发。</p><p>需要后台开发人员投入工作量进行研发的客户端是SDK和命令行工具。这两类客户端工具有个调用和被调用的顺序，如下图所示：</p><p><img src="https://static001.geekbang.org/resource/image/e9/91/e97e547bec77dc7129615b11792f1291.jpg?wh=1920x568" alt="图片"></p><p>你可以看到，命令行工具和SDK最终都是通过API接口调用后端服务的，通过这种方式可以保证服务的一致性，并减少为适配多个客户端所带来的额外开发工作量。</p><h2>大型系统客户端（xxxctl）的特点</h2><p>通过学习kubectl、istioctl、etcdctl这些优秀的命令行工具，可以发现一个大型系统的命令行工具，通常具有下面这些特点：</p><ul>
+<li>支持命令和子命令，命令/子命名有自己独有的命令行参数。</li>
+<li>支持一些特殊的命令。比如支持completion命令，completion命令可以输出bash/zsh自动补全脚本，实现命令行及参数的自动补全。还支持 version命令，version命令不仅可以输出客户端的版本，还可以输出服务端的版本（如果有需要）。</li>
+<li>支持全局option，全局option可以作为所有命令及子命令的命令行参数。</li>
+<li>支持-h/help，-h/help可以打印xxxctl的帮助信息，例如：</li>
+</ul><pre><code class="language-bash">$ iamctl -h
+iamctl controls the iam platform, is the client side tool for iam platform.
+
+&nbsp;Find more information at:
+https://github.com/marmotedu/iam/blob/master/docs/guide/en-US/cmd/iamctl/iamctl.md
+
+Basic Commands:
+&nbsp; info&nbsp; &nbsp; &nbsp; &nbsp; Print the host information
+&nbsp; color&nbsp; &nbsp; &nbsp; &nbsp;Print colors supported by the current terminal
+&nbsp; new&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Generate demo command code
+&nbsp; jwt&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;JWT command-line tool
+
+Identity and Access Management Commands:
+&nbsp; user&nbsp; &nbsp; &nbsp; &nbsp; Manage users on iam platform
+&nbsp; secret&nbsp; &nbsp; &nbsp; Manage secrets on iam platform
+&nbsp; policy&nbsp; &nbsp; &nbsp; Manage authorization policies on iam platform
+
+Troubleshooting and Debugging Commands:
+&nbsp; validate&nbsp; &nbsp; Validate the basic environment for iamctl to run
+
+Settings Commands:
+&nbsp; set&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Set specific features on objects
+&nbsp; completion&nbsp; Output shell completion code for the specified shell (bash or zsh)
+
+Other Commands:
+&nbsp; version&nbsp; &nbsp; &nbsp;Print the client and server version information
+
+Usage:
+&nbsp; iamctl [flags] [options]
+
+Use "iamctl &lt;command&gt; --help" for more information about a given command.
+Use "iamctl options" for a list of global command-line options (applies to all commands).
+</code></pre><ul>
+<li>支持 <code>xxxctl help [command | command subcommand] [command | command subcommand] -h</code> ，打印命令/子命令的帮助信息，格式通常为 <code>命令描述 + 使用方法</code>  。例如：</li>
+</ul><pre><code class="language-bash">$ istioctl help register
+Registers a service instance (e.g. VM) joining the mesh
+&nbsp;
+Usage:
+&nbsp; istioctl register &lt;svcname&gt; &lt;ip&gt; [name1:]port1 [name2:]port2 ... [flags]
+</code></pre><p>除此之外，一个大型系统的命令行工具还可以支持一些更高阶的功能，例如：支持命令分组，支持配置文件，支持命令的使用example，等等。</p><p>在Go生态中，如果我们要找一个符合上面所有特点的命令行工具，那非<a href="https://github.com/kubernetes/kubernetes/blob/master/cmd/kubectl/">kubectl</a>莫属。因为我今天要重点讲的iamctl客户端工具，就是仿照它来实现的，所以这里就不展开介绍kubectl了，不过还是建议你认真研究下kubectl的实现。</p><h2>iamctl的核心实现</h2><p>接下来，我就来介绍IAM系统自带的iamctl客户端工具，它是仿照kubectl来实现的，能够满足一个大型系统客户端工具的需求。我会从iamctl的功能、代码结构、命令行选项和配置文件解析4个方面来介绍。</p><h3>iamctl的功能</h3><p>iamctl将命令进行了分类。这里，我也建议你对命令进行分类，因为通过分类，不仅可以协助你理解命令的用途，还能帮你快速定位某类命令。另外，当命令很多时，分类也可以使命令看起来更规整。</p><p>iamctl实现的命令如下：</p><p><img src="https://static001.geekbang.org/resource/image/1d/da/1dee217f8be94ae1c3c1d9b29d627eda.jpg?wh=1920x1696" alt="图片"></p><p>更详细的功能，你可以参考 <code>iamctl -h</code> 。我建议你在实现xxxctl工具时，考虑实现下面这几个功能。</p><ul>
+<li>API功能：平台具有的API功能，都能通过xxxctl方便地进行调用。</li>
+<li>工具：一些使用IAM系统时有用的功能，比如签发JWT Token。</li>
+<li>version、completion、validate命令。</li>
+</ul><h3>代码结构</h3><p>iamctl工具的main函数位于<a href="https://github.com/marmotedu/iam/blob/v1.0.6/cmd/iamctl/iamctl.go">iamctl.go</a>文件中。命令的实现存放在<a href="https://github.com/marmotedu/iam/blob/v1.0.6/internal/iamctl/cmd/cmd.go">internal/iamctl/cmd/cmd.go</a>文件中。iamctl的命令统一存放在<a href="https://github.com/marmotedu/iam/tree/v1.0.6/internal/iamctl/cmd">internal/iamctl/cmd</a>目录下，每个命令都是一个Go包，包名即为命令名，具体实现存放在 <code>internal/iamctl/cmd/&lt;命令&gt;/&lt;命令&gt;.go</code> 文件中。如果命令有子命令，则子命令的实现存放在 <code>internal/iamctl/cmd/&lt;命令&gt;/&lt;命令&gt;_&lt;子命令&gt;.go</code> 文件中。</p><p>使用这种代码组织方式，即使是在命令很多的情况下，也能让代码井然有序，方便定位和维护代码。</p><h3>命令行选项</h3><p>添加命令行选项的代码在<a href="https://github.com/marmotedu/iam/blob/v1.0.6/internal/iamctl/cmd/cmd.go#L41-L130">NewIAMCtlCommand</a>函数中，核心代码为：</p><pre><code class="language-go">flags := cmds.PersistentFlags()
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+iamConfigFlags := genericclioptions.NewConfigFlags(true).WithDeprecatedPasswordFlag().WithDeprecatedSecretFlag()
+iamConfigFlags.AddFlags(flags)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+matchVersionIAMConfigFlags := cmdutil.NewMatchVersionFlags(iamConfigFlags)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+matchVersionIAMConfigFlags.AddFlags(cmds.PersistentFlags())
+</code></pre><p><code>NewConfigFlags(true)</code> 返回带有默认值的参数，并通过 <code>iamConfigFlags.AddFlags(flags)</code> 添加到cobra的命令行flag中。</p><p><code>NewConfigFlags(true)</code> 返回结构体类型的值都是指针类型，这样做的好处是：程序可以判断出是否指定了某个参数，从而可以根据需要添加参数。例如：可以通过 <code>WithDeprecatedPasswordFlag()</code> 和 <code>WithDeprecatedSecretFlag()</code> 添加密码和密钥认证参数。</p><p><code>NewMatchVersionFlags</code> 指定是否需要服务端版本和客户端版本一致。如果不一致，在调用服务接口时会报错。</p><h3>配置文件解析</h3><p>iamctl需要连接iam-apiserver，来完成用户、策略和密钥的增删改查，并且需要进行认证。要完成这些功能，需要有比较多的配置项。这些配置项如果每次都在命令行选项指定，会很麻烦，也容易出错。</p><p>最好的方式是保存到配置文件中，并加载配置文件。加载配置文件的代码位于NewIAMCtlCommand函数中，代码如下：</p><pre><code class="language-go">_ = viper.BindPFlags(cmds.PersistentFlags())
+cobra.OnInitialize(func() {
+&nbsp; &nbsp; genericapiserver.LoadConfig(viper.GetString(genericclioptions.FlagIAMConfig), "config")
+})&nbsp;&nbsp;
+</code></pre><p>iamctl会按以下优先级加载配置文件：</p><ol>
+<li>命令行参 <code>--iamconfig</code> 指定的配置文件。</li>
+<li>当前目录下的config.yaml文件。</li>
+<li><code>$HOME/.iam/config.yaml</code> 文件。</li>
+</ol><p>这种加载方式具有两个好处。首先是可以手动指定不同的配置文件，这在多环境、多配置下尤为重要。其次是方便使用，可以把配置存放在默认的加载路径中，在执行命令时，就不用再指定 <code>--iamconfig</code> 参数。</p><p>加载完配置文件之后，就可以通过 <code>viper.Get&lt;Type&gt;()</code> 函数来获取配置。例如，iamctl使用了以下 <code>viper.Get&lt;Type&gt;</code> 方法：</p><p><img src="https://static001.geekbang.org/resource/image/8b/42/8bce5d0b9ab45b5238d70b73175cf642.png?wh=1920x813" alt="图片"></p><h2>iamctl中子命令是如何构建的？</h2><p>讲完了iamctl命令行工具的核心实现，我们再来看看iamctl命令行工具中，子命令是如何构建的。</p><p>命令行工具的核心是命令，有很多种方法可以构建一个命令，但还是有一些比较好的构建方法，值得我们去参考。接下来，我来介绍下如何用比较好的方式去构建命令。</p><h3>命令构建</h3><p>命令行工具的核心能力是提供各类命令，来完成不同功能，每个命令构建的方式可以完全不同，但最好能按相同的方式去构建，并抽象成一个模型。如下图所示：</p><p><img src="https://static001.geekbang.org/resource/image/1e/93/1e78d2f387be0bcbae573d486e391e93.jpg?wh=1920x916" alt="图片"></p><p>你可以将一个命令行工具提供的命令进行分组。每个分组包含多个命令，每个命令又可以具有多个子命令，子命令和父命令在构建方式上完全一致。</p><p>每个命令可以按下面的四种方式构建。具体代码你可以参考<a href="https://github.com/marmotedu/iam/blob/v1.0.6/internal/iamctl/cmd/user/user_update.go">internal/iamctl/cmd/user/user_update.go</a>。</p><ul>
+<li>通过 <code>NewCmdXyz</code> 函数创建命令框架。 <code>NewCmdXyz</code> 函数通过创建一个 <code>cobra.Command</code> 类型的变量来创建命令；通过指定 <code>cobra.Command</code> 结构体类型的Short、Long、Example字段，来指定该命令的使用文档<code>iamctl -h</code> 、详细使用文档<code>iamctl xyz -h</code> 和使用示例。</li>
+<li>通过 <code>cmd.Flags().XxxxVar</code> 来给该命令添加命令行选项。</li>
+<li>为了在不指定命令行参数时，能够按照默认的方式执行命令，可以通过 <code>NewXyzOptions</code> 函数返回一个设置了默认选项的 <code>XyzOptions</code> 类型的变量。</li>
+<li><code>XyzOptions</code> 选项具有 Complete 、Validate 和 Run 三个方法，分别完成选项补全、选项验证和命令执行。命令的执行逻辑可以在 <code>func (o *XyzOptions) Run(args []string) error</code> 函数中编写。</li>
+</ul><p>按相同的方式去构建命令，抽象成一个通用模型，这种方式有下面四个好处。</p><ul>
+<li>减少理解成本：理解一个命令的构建方式，就可以理解其他命令的构建方式。</li>
+<li>提高新命令的开发效率：可以复用其他命令的开发框架，新命令只需填写业务逻辑即可。</li>
+<li>自动生成命令：可以按照规定的命令模型，自动生成新的命令。</li>
+<li>易维护：因为所有的命令都来自于同一个命令模型，所以可以保持一致的代码风格，方便后期维护。</li>
+</ul><h3>自动生成命令</h3><p>上面讲到，自动生成命令模型的好处之一是可以自动生成命令，下面让我们来具体看下。</p><p>iamctl自带了命令生成工具，下面我们看看生成方法，一共可以分成5步。这里假设生成 <code>xyz</code> 命令。</p><p>第一步，新建一个 <code>xyz</code> 目录，用来存放 <code>xyz</code> 命令源码：</p><pre><code class="language-bash">$ mkdir internal/iamctl/cmd/xyz
+</code></pre><p>第二步，在xyz目录下，使用 <code>iamctl new</code> 命令生成 <code>xyz</code> 命令源码：</p><pre><code class="language-bash">$ cd internal/iamctl/cmd/xyz/
+$ iamctl new xyz
+Command file generated: xyz.go
+</code></pre><p>第三步，将 <code>xyz</code>  命令添加到root命令中，假设 <code>xyz</code> 属于 <code>Settings Commands</code> 命令分组。</p><p>在 <code>NewIAMCtlCommand</code> 函数中，找到 <code>Settings Commands</code> 分组，将 <code>NewCmdXyz</code> 追加到Commands数组后面：</p><pre><code class="language-go">&nbsp; &nbsp; &nbsp; &nbsp;{
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Message: "Settings Commands:",
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Commands: []*cobra.Command{
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; set.NewCmdSet(f, ioStreams),
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; completion.NewCmdCompletion(ioStreams.Out, ""),
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xyz.NewCmdXyz(f, ioStreams),
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },
+&nbsp; &nbsp; &nbsp; &nbsp; },&nbsp;
+</code></pre><p>第四步，编译iamctl：</p><pre><code class="language-bash">$ make build BINS=iamctl  
+</code></pre><p>第五步，测试：</p><pre><code class="language-bash">$ iamctl xyz -h
+A longer description that spans multiple lines and likely contains examples and usage of using your command. For
+example:
+&nbsp;
+&nbsp;Cobra is a CLI library for Go that empowers applications. This application is a tool to generate the needed files to
+quickly create a Cobra application.
+&nbsp;
+Examples:
+&nbsp; # Print all option values for xyz
+&nbsp; iamctl xyz marmotedu marmotedupass
+&nbsp;
+Options:
+&nbsp; -b, --bool=false: Bool option.
+&nbsp; -i, --int=0: Int option.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --slice=[]: String slice option.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --string='default': String option.
+&nbsp;
+Usage:
+&nbsp; iamctl xyz USERNAME PASSWORD [options]
+&nbsp;
+Use "iamctl options" for a list of global command-line options (applies to all commands).
+$ iamctl xyz marmotedu marmotedupass
+The following is option values:
+==&gt; --string: default(complete)
+==&gt; --slice: []
+==&gt; --int: 0
+==&gt; --bool: false
+&nbsp;
+The following is args values:
+==&gt; username: marmotedu
+==&gt; password: marmotedupass
+</code></pre><p>你可以看到，经过短短的几步，就添加了一个新的命令 <code>xyz</code> 。 <code>iamctl new</code> 命令不仅可以生成不带子命令的命令，还可以生成带有子命令的命令，生成方式如下：</p><pre><code class="language-bash">$ iamctl new -g xyz
+Command file generated: xyz.go
+Command file generated: xyz_subcmd1.go
+Command file generated: xyz_subcmd2.go
+</code></pre><h3>命令自动补全</h3><p>cobra会根据注册的命令自动生成补全脚本，可以补全父命令、子命令和选项参数。在bash下，可以按下面的方式配置自动补全功能。</p><p>第一步，生成自动补全脚本：</p><pre><code class="language-bash">$ iamctl completion bash &gt; ~/.iam/completion.bash.inc
+</code></pre><p>第二步，登陆时加载bash，自动补全脚本：</p><pre><code class="language-bash">$ echo "source '$HOME/.iam/completion.bash.inc'" &gt;&gt; $HOME/.bash_profile
+$ source $HOME/.bash_profile
+</code></pre><p>第三步，测试自动补全功能：</p><pre><code class="language-bash">$ iamctl xy&lt;TAB&gt; # 按TAB键，自动补全为：iamctl xyz
+$ iamctl xyz --b&lt;TAB&gt; # 按TAB键，自动补全为：iamctl xyz --bool
+</code></pre><h3>更友好的输出</h3><p>在开发命令时，可以通过一些技巧来提高使用体验。我经常会在输出中打印一些彩色输出，或者将一些输出以表格的形式输出，如下图所示：</p><p><img src="https://static001.geekbang.org/resource/image/74/42/74ef80708c853c20811e1e7bed7bde42.png?wh=651x226" alt="图片"></p><p>这里，使用 <code>github.com/olekukonko/tablewriter</code> 包来实现表格功能，使用 <code>github.com/fatih/color</code> 包来打印带色彩的字符串。具体使用方法，你可以参考<a href="https://github.com/marmotedu/iam/blob/v1.0.6/internal/iamctl/cmd/validate/validate.go">internal/iamctl/cmd/validate/validate.go</a>文件。</p><p><code>github.com/fatih/color</code> 包可以给字符串标示颜色，字符串和颜色的对应关系可通过 <code>iamctl color</code> 来查看，如下图所示：</p><p><img src="https://static001.geekbang.org/resource/image/47/b9/47593869e1b10b15a35e16c661d818b9.png?wh=991x672" alt="图片"></p><h2>iamctl是如何进行API调用的？</h2><p>上面我介绍了iamctl命令的构建方式，那么这里我们再来看下iamctl是如何请求服务端API接口的。</p><p>Go后端服务的功能通常通过API接口来对外暴露，一个后端服务可能供很多个终端使用，比如浏览器、命令行工具、手机等。为了保持功能的一致性，这些终端都会调用同一套API来完成相同的功能，如下图所示：</p><p><img src="https://static001.geekbang.org/resource/image/fb/bb/fb6de4f63454dd6471e023d73b8548bb.jpg?wh=1920x742" alt="图片"></p><p>如果命令行工具需要用到后端服务的功能，也需要通过API调用的方式。理想情况下，Go后端服务对外暴露的所有API功能，都可以通过命令行工具来完成。一个API接口对应一个命令，API接口的参数映射到命令的参数。</p><p>要调用服务端的API接口，最便捷的方法是通过SDK来调用，对于一些没有实现SDK的接口，也可以直接调用。所以，在命令行工具中，需要支持以下两种调用方式：</p><ul>
+<li>通过SDK调用服务端 API 接口。</li>
+<li>直接调用服务端的API接口（本专栏是REST API接口）。</li>
+</ul><p>iamctl通过<a href="https://github.com/marmotedu/iam/blob/v1.0.6/internal/iamctl/cmd/cmd.go#L82">cmdutil.NewFactory</a>创建一个 <code>Factory</code> 类型的变量 <code>f</code> ， <code>Factory</code> 定义为：</p><pre><code class="language-go">type Factory interface {
+&nbsp; &nbsp; genericclioptions.RESTClientGetter
+&nbsp; &nbsp; IAMClientSet() (*marmotedu.Clientset, error)
+&nbsp; &nbsp; RESTClient() (*restclient.RESTClient, error)
+}
+</code></pre><p>将变量 <code>f</code> 传入到命令中，在命令中使用Factory接口提供的 <code>RESTClient()</code> 和 <code>IAMClientSet()</code> 方法，分别返回RESTful API客户端和SDK客户端，从而使用客户端提供的接口函数。代码可参考<a href="https://github.com/marmotedu/iam/blob/v1.0.6/internal/iamctl/cmd/version/version.go">internal/iamctl/cmd/version/version.go</a>。</p><h3>客户端配置文件</h3><p>如果要创建RESTful API客户端和SDK的客户端，需要调用 <code>f.ToRESTConfig()</code> 函数返回 <code>*github.com/marmotedu/marmotedu-sdk-go/rest.Config</code> 类型的配置变量，然后再基于 <code>rest.Config</code> 类型的配置变量创建客户端。</p><p><code>f.ToRESTConfig</code> 函数最终是调用<a href="https://github.com/marmotedu/iam/blob/v1.0.6/pkg/cli/genericclioptions/config_flags.go#L92-L98">toRawIAMConfigLoader</a>函数来生成配置的，代码如下：</p><pre><code class="language-go">func (f *ConfigFlags) toRawIAMConfigLoader() clientcmd.ClientConfig {
+&nbsp; &nbsp; config := clientcmd.NewConfig()
+&nbsp; &nbsp; if err := viper.Unmarshal(&amp;config); err != nil {
+&nbsp; &nbsp; &nbsp; &nbsp; panic(err)
+&nbsp; &nbsp; }
+
+&nbsp; &nbsp; return clientcmd.NewClientConfigFromConfig(config)
+}
+</code></pre><p><code>toRawIAMConfigLoader</code> 返回 <code>clientcmd.ClientConfig</code> 类型的变量， <code>clientcmd.ClientConfig</code> 类型提供了 <code>ClientConfig</code> 方法，用来返回<code>*rest.Config</code>类型的变量。</p><p>在 <code>toRawIAMConfigLoader</code> 函数内部，通过 <code>viper.Unmarshal</code> 将viper中存储的配置解析到 <code>clientcmd.Config</code> 类型的结构体变量中。viper中存储的配置，是在cobra命令启动时通过LoadConfig函数加载的，代码如下（位于 <code>NewIAMCtlCommand</code> 函数中）：</p><pre><code class="language-go">cobra.OnInitialize(func() {&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; genericapiserver.LoadConfig(viper.GetString(genericclioptions.FlagIAMConfig), "config")
+})&nbsp;
+</code></pre><p>你可以通过 <code>--config</code> 选项，指定配置文件的路径。</p><h3>SDK调用</h3><p>通过<a href="https://github.com/marmotedu/iam/blob/v1.0.6/internal/iamctl/cmd/util/factory_client_access.go#L41-L47">IAMClient</a>返回SDK客户端，代码如下：</p><pre><code class="language-go">func (f *factoryImpl) IAMClient() (*iam.IamClient, error) {
+	clientConfig, err := f.ToRESTConfig()
+	if err != nil {
+		return nil, err
+	}
+	return iam.NewForConfig(clientConfig)
+}
+</code></pre><p><code>marmotedu.Clientset</code> 提供了iam-apiserver的所有接口。</p><h3>REST API调用</h3><p>通过<a href="https://github.com/marmotedu/iam/blob/v1.0.6/internal/iamctl/cmd/util/factory_client_access.go#L49-L56">RESTClient()</a>返回RESTful API客户端，代码如下：</p><pre><code class="language-go">func (f *factoryImpl) RESTClient() (*restclient.RESTClient, error) {
+	clientConfig, err := f.ToRESTConfig()
+	if err != nil {
+		return nil, err
+	}
+	setIAMDefaults(clientConfig)
+	return restclient.RESTClientFor(clientConfig)
+}
+</code></pre><p>可以通过下面的方式访问RESTful API接口：</p><pre><code class="language-go">serverVersion *version.Info
+
+client, _ := f.RESTClient()
+if err := client.Get().AbsPath("/version").Do(context.TODO()).Into(&amp;serverVersion); err != nil {
+&nbsp; &nbsp; return err
+}
+</code></pre><p>上面的代码请求了iam-apiserver的/version接口，并将返回结果保存在 <code>serverVersion</code> 变量中。</p><h2>总结</h2><p>这一讲，我主要剖析了iamctl命令行工具的实现，进而向你介绍了如何实现一个优秀的客户端工具。</p><p>对于一个大型系统 <code>xxx</code> 来说，通常需要有一个 <code>xxxctl</code> 命令行工具， <code>xxxctl</code> 命令行工具可以方便开发、运维使用系统功能，并能实现功能自动化。</p><p>IAM项目参考kubectl，实现了命令行工具 iamctl。iamctl集成了很多功能，我们可以通过iamctl子命令来使用这些功能。例如，我们可以通过iamctl对用户、密钥和策略进行CURD操作；可以设置iamctl自动补全脚本；可以查看IAM系统的版本信息。甚至，你还可以使用 <code>iamctl new</code> 命令，快速创建一个iamctl子命令模板。</p><p>iamctl使用了cobra、pflag、viper包来构建，每个子命令又包含了一些基本的功能，例如短描述、长描述、使用示例、命令行选项、选项校验等。iamctl命令可以加载不同的配置文件，来连接不同的客户端。iamctl通过SDK调用、REST API调用两种方式来调用服务端API接口。</p><h2>课后练习</h2><ol>
+<li>尝试在 <code>iamctl</code> 中添加一个 <code>cliprint</code> 子命令，该子命令会读取并打印命令行选项。</li>
+<li>思考下，还有哪些好的命令行工具构建方式，欢迎在留言区分享。</li>
+</ol><p>欢迎你在留言区与我交流讨论，我们下一讲见。</p><h2>精选留言：</h2>
+        <ul>
+        
+<li>
+    <div>
+        <div style="color: #888;font-size:15.25px;font-weight:400;            line-height:1.2">
+            pedro  2021-08-14 09:35:33
+        </div>
+        <div style="color:#353535;font-weight:400;white-space:normal;            word-break:break-all;line-height:1.6">
+            cool! 
+        </div>
+        
+    </div>
+</li>
+            </ul>
+</div>
+</body>
+</html>
