@@ -1,0 +1,316 @@
+<html><head><meta charset="utf-8"><title>20 按钮的设计与开发-慕课专栏</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+			<meta name="renderer" content="webkit">
+			<meta property="qc:admins" content="77103107776157736375">
+			<meta property="wb:webmaster" content="c4f857219bfae3cb">
+			<meta http-equiv="Access-Control-Allow-Origin" content="*">
+			<meta http-equiv="Cache-Control" content="no-transform ">
+			<meta http-equiv="Cache-Control" content="no-siteapp">
+			<link rel="apple-touch-icon" sizes="76x76" href="https://www.imooc.com/static/img/common/touch-icon-ipad.png">
+			<link rel="apple-touch-icon" sizes="120x120" href="https://www.imooc.com/static/img/common/touch-icon-iphone-retina.png">
+			<link rel="apple-touch-icon" sizes="152x152" href="https://www.imooc.com/static/img/common/touch-icon-ipad-retina.png">
+			<link href="https://moco.imooc.com/captcha/style/captcha.min.css" rel="stylesheet">
+			<link rel="stylesheet" href="https://www.imooc.com/static/moco/v1.0/dist/css/moco.min.css?t=201907021539" type="text/css">
+			<link rel="stylesheet" href="https://www.imooc.com/static/lib/swiper/swiper-3.4.2.min.css?t=201907021539">
+			<link rel="stylesheet" href="https://static.mukewang.com/static/css/??base.css,common/common-less.css?t=2.5,column/zhuanlanChapter-less.css?t=2.5,course/inc/course_tipoff-less.css?t=2.5?v=201907051055" type="text/css">
+			<link charset="utf-8" rel="stylesheet" href="https://www.imooc.com/static/lib/ueditor/themes/imooc/css/ueditor.css?v=201907021539"><link rel="stylesheet" href="https://www.imooc.com/static/lib/baiduShare/api/css/share_style0_16.css?v=6aba13f0.css"></head>
+			<body><div id="main">
+
+<div class="container clearfix" id="top" style="display: block; width: 1134px;">
+    
+    <div class="center_con js-center_con l" style="width: 1134px;">
+        <div class="article-con">
+                            <!-- 买过的阅读 -->
+                <div class="map">
+                    <a href="/read" target="_blank"><i class="imv2-feather-o"></i></a>
+                    <a href="/read/36" target="_blank">手把手带你打造自己的UI样式库</a>
+                    <a href="" target="_blank">
+                        <span>
+                            / 3-7 20 按钮的设计与开发
+                        </span>
+                    </a>
+                </div>
+
+            
+
+
+            <div class="art-title" style="margin-top: 0px;">
+                20 按钮的设计与开发
+            </div>
+            <div class="art-info">
+                
+                <span>
+                    更新时间：2019-07-15 13:27:21
+                </span>
+            </div>
+            <div class="art-top">
+                                <img src="https://img3.mukewang.com/5d1580110001d4b506400359.jpg" alt="">
+                                                <div class="famous-word-box">
+                    <img src="https://www.imooc.com/static/img/column/bg-l.png" alt="" class="bg1 bg">
+                    <img src="https://www.imooc.com/static/img/column/bg-r.png" alt="" class="bg2 bg">
+                    <div class="famous-word">今天应做的事没有做，明天再早也是耽误了。<p class="author">——裴斯泰洛齐</p></div>
+                </div>
+                            </div>
+            <div class="art-content js-lookimg">
+                <div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">在 UI 设计中，按钮是用户和系统进行沟通最重要的工具，我们这一节就来做一下按钮的设计和开发。在一个系统里，不同场景下使用的按钮，在设计上也是不一样的。比如不同功能的按钮样式就会不一样，主要操作的就尽量的明显一点，次要操作尽量不抢夺用户的注意力，而一些危险操作就会使用警示色。而不同的地方使用的按钮大小也不一样，像提交订单一类比较重要的按钮就会做的比较大，利于提高转化率；而像加关注、点赞这类非主要的按钮，都会设计的比较小。下来我们就来进行对按钮的开发。</p>
+</div><div class="cl-preview-section"><h2 id="基础按钮" style="font-size: 30px;">基础按钮</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">在开发之前，先把我们这一节的文件建立出来，首先新建一个 /demo/button.html，在里面放上页面模板：</p>
+</div><div class="cl-preview-section"><pre class="  language-html"><code class="prism  language-html"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width=device-width,initial-scale=1.0,user-scalable=no<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../src/tuitui-ui.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>按钮的设计与开发<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!-- 标准按钮 --&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>标准按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-body<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>默认按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这段代码里就在 tt-panel-body 里加了一个 a 标签，给他起名叫 tt-btn，这就是一个最基本的按钮。我这里用了 a 标签，是可以直接用作超链接，也可以使用 span 或者 button 等标签代替。我们将要实现的样式如下：<br>
+<img src="http://img.mukewang.com/5d2c00250001d51a02900087.png" alt="图片描述" data-original="http://img.mukewang.com/5d2c00250001d51a02900087.png" class="" style="cursor: pointer;"><br>
+对于标准按钮我们要有如下要求：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">默认为块级元素，自己单独占一行空间，且水平居中。</li>
+<li style="font-size: 20px; line-height: 38px;">按钮内文字水平竖直居中。</li>
+<li style="font-size: 20px; line-height: 38px;">默认按钮可以清淡一点，可以适用于各种场景。</li>
+<li style="font-size: 20px; line-height: 38px;">单行内容超长时自动隐藏，并显示省略号。</li>
+</ol>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">按着刚才的样式和这几条要求，我们可以对它添加样式了。下来我们新建一个 /src/button.css，然后在 /src/tuitui-ui.css 里把这个文件引入进去。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">在 /src/tuitui-ui.css 的最后追加：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* 按钮的样式 */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">'./button.css'</span><span class="token punctuation">;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">然后在 /src/tuitui-ui.css 里填写如下样式：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/*
+ * @Author: Rosen 
+ * @Date: 2019-07-06 10:55:19 
+ * @Last Modified by: Rosen
+ * @Last Modified time: 2019-07-07 10:11:25
+ */</span>
+ 
+<span class="token comment">/* 按钮默认样式 */</span>
+<span class="token selector"><span class="token class">.tt-btn</span></span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">10</span>rem<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">.5</span>rem <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid <span class="token hexcode">#ccc</span><span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">.7</span>rem<span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#000000</span><span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">5</span>px<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+    <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+    <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
+    <span class="token property">user-select</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">使用这个样式后，基本按钮的样式就会和刚才的示意图一样了。在这些样式中最后一条的作用要单独提一下，“user-select:none;” 表示用户不能对按钮的内容进行选中，防止因用户按住按钮太久而导致出现文本选择的选项。</p>
+</div><div class="cl-preview-section"><h2 id="按钮的种类" style="font-size: 30px;">按钮的种类</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">刚才完成的默认按钮可以用在大部分场景里，但是这个按钮并没有特定的含义。从单一的功能上看这个按钮怎么用都行，但是从整个应用来说，不同类型的操作都用同一种按钮肯定是容易引起歧义的。所以我们要来做几种不同用途的按钮，用来区分不同的应用场景。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><strong>一、主操作按钮</strong></p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">一个页面都是有特定的功能，也是有特定的目的。比如商品的详情页是展示商品细节的，但这个页面的目的是引导用户下单；订单确认页展示的是订单内容，但这个页面的目的是引导用户付款。这些页面里，都有一个非常强的目的性。为了引导用户进行下一步操作，这些页面中就会把引导用的按钮设计的更显眼，更方便用户点击。这就是页面的主操作按钮，我们这里把主操作按钮设计成下面的样式：<br>
+<img src="http://img.mukewang.com/5d2c00510001f34402540131.png" alt="图片描述" data-original="http://img.mukewang.com/5d2c00510001f34402540131.png" class="" style="cursor: pointer;"><br>
+在默认按钮的基础上，加深了按钮的背景色，让其更加显眼。同时为了和背景色匹配，把字体颜色也改成了白色。这个主操作按钮我们可以在默认按钮的基础上进行样式覆盖，这样经过简单的变更就可以实现新的样式。<br>
+下来我们用 .tt-btn-primary 来覆盖 .tt-btn 的样式。<br>
+HTML:</p>
+</div><div class="cl-preview-section"><pre class="  language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-primary<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>主操作按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这种使用另外的 class 进行的样式覆盖，也有点像我们在写逻辑语言时使用的参数。把 tt-btn 作为基础，然后通过追加各种各样的附加类来定制按钮的样式。下来我们改下 .tt-btn-primary 的样式：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* 定制主操作按钮样式 */</span>
+<span class="token selector"><span class="token class">.tt-btn.tt-btn-primary</span></span><span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#1AAD19</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这里我们用交集选择器来定义这个样式覆盖，这样这个追加的样式只会对 .tt-btn 生效，不会影响其他的元素。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">二、带警示功能的按钮<br>
+在页面中，还有一类操作是比较敏感的，不希望用户点击或者需要谨慎点击的。这些操作不需要很强的引导性，反而需要对用户进行警示，也就是我们这里说的带警示功能的按钮。在设计上，通常使用红色作为警示色，这里我们把警示按钮设计成下面这样：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d2c007d000131b302490132.png" alt="图片描述" data-original="http://img.mukewang.com/5d2c007d000131b302490132.png" class="" style="cursor: pointer;"><br>
+定制这样的按钮做法也很简单，就是在默认按钮的基础上修改字体颜色和背景色。我们用“tt-btn-warning”来标记警示类型按钮的样式。它的HTML如下：</p>
+</div><div class="cl-preview-section"><pre class="  language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-warning<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>警示按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">而样式上的做法和前面讲的实现主操作按钮的方法非常类似，同样使用交集选择器标记按钮的样式：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* 定制警示类按钮样式 */</span>
+<span class="token selector"><span class="token class">.tt-btn.tt-btn-warning</span></span><span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#E64340</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这样就可以实现出警示按钮的样式。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><strong>三、不可用按钮</strong><br>
+在页面中，还有一类比较特殊的按钮，就是不可用按钮。这类按钮通常是有约束条件的，在某种情况下才可用。而在不满足条件的时候，就是不可用状态。不可用按钮通常用对比度较弱的配色来表示，目的是让用户忽略这个按钮的存在。我们这里用下面这个样式来表示不可用按钮：<br>
+<img src="http://img.mukewang.com/5d2c00a20001fc6502680128.png" alt="图片描述" data-original="http://img.mukewang.com/5d2c00a20001fc6502680128.png" class="" style="cursor: pointer;"><br>
+这个按钮在默认按钮的基础上把背景和字体都变成了对比度不强的灰色，另外为了让它更加的不明显，还给它加上了一定的透明度。我们“tt-btn-disabled”来标记不可用按钮，它的 HTML 如下：</p>
+</div><div class="cl-preview-section"><pre class="  language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-disabled<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>不可用按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">而样式和前面也都类似，只不过多加了一条调整透明度的样式：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* 定制不可用按钮的样式 */</span>
+<span class="token selector"><span class="token class">.tt-btn.tt-btn-disabled</span></span><span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#F7F7F7</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#999</span><span class="token punctuation">;</span>
+    <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">.6</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这样这个按钮的样式就可以实现出来了。</p>
+</div><div class="cl-preview-section"><blockquote>
+<p style="font-size: 20px; line-height: 38px;"><strong>@ Tips：</strong><br>
+在一些设计中，有些是非常不希望用户点击但又不得不加的按钮，也会使用这种不可用按钮。比如取消订单、删除应用和某些确认操作里的取消按钮等，通常使用这种手段（也可以说是技巧）来阻碍用户进行对产品不利的操作。</p>
+</blockquote>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">最终，各类按钮集合在一起的效果就是这样：<br>
+<img src="http://img.mukewang.com/5d2c00c20001a66a03850311.png" alt="图片描述" data-original="http://img.mukewang.com/5d2c00c20001a66a03850311.png" class="" style="cursor: pointer;"></p>
+</div><div class="cl-preview-section"><h2 id="定制按钮的大小" style="font-size: 30px;">定制按钮的大小</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">除了场景的区分外，在不同位置使用的按钮样式也是有区别的。比如在一些需要强引导的页面中，会使用比标准更明显一些的按钮，有时为了让用户随时能进行操作还会把按钮固定在页面的底部，不参与页面的滚动。而在一些小的区域里，比如单行的区域，则会使用一些小号的行内按钮。我们接下来就要在默认按钮的基础上，改变一下按钮的大小。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><strong>一、大按钮</strong></p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">刚才提到了，大按钮通常用于强引导，这里我们把它设计成宽度占满全屏，样式如下：<br>
+<img src="http://img.mukewang.com/5d2c00e40001837803910351.png" alt="图片描述" data-original="http://img.mukewang.com/5d2c00e40001837803910351.png" class="" style="cursor: pointer;"><br>
+我们把四种类型的按钮都放了出来，大按钮和标准按钮有如下区别：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">宽度占满全屏。</li>
+<li style="font-size: 20px; line-height: 38px;">字体字号变大一些。</li>
+<li style="font-size: 20px; line-height: 38px;">左右的边框去掉。</li>
+<li style="font-size: 20px; line-height: 38px;">按钮的圆角去掉。</li>
+</ol>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">我们用“tt-btn-large”来标记大按钮的样式，这个样式和刚才定制按钮样式的类是从不同维度来定义按钮的，所以可以和用来区分按钮类型的类同时使用，这样按钮定制起来就更灵活了。下来是 HTML 的内容：</p>
+</div><div class="cl-preview-section"><pre class="  language-html"><code class="prism  language-html"><span class="token comment">&lt;!-- 大按钮 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>大按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-body no-padding<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-large<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>大按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-primary tt-btn-large<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>大按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-warning tt-btn-large<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>大按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-disabled tt-btn-large<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>大按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这里为了能撑满整个页面，我们给 Panel 容器加上了“no-padding”的类。这里在各种类型的按钮上都加上了一个“tt-btn-large”的类，我们通过指定这个类的样式来修改样式的大小。根据刚才的改动情况，很容易就能实现出大按钮的样式了：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* 大按钮 */</span>
+<span class="token selector"><span class="token class">.tt-btn.tt-btn-large</span></span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">.9</span>rem<span class="token punctuation">;</span>
+    <span class="token property">border-left</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">border-right</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这样大按钮的样式就可以实现出来了。</p>
+</div><div class="cl-preview-section"><blockquote>
+<p style="font-size: 20px; line-height: 38px;"><strong>@ Tips：</strong><br>
+在做全宽的按钮时使用了“width: 100%;”，但这个样式对容器是有要求的，要求它的参考容器也是全宽的才可以。在 CSS3 中还有一个单位是 vw，这个单位也是一个相对单位，它的参考系是屏幕的宽度，像这种需要占满全屏的需求就可以直接使用“width: 100vw;”，这样就可以不用考虑外层容器的情况了。和 vw 对应的还有个 vh 单位，它是相对于屏幕高度的。但是！！！这里要注意，这两个单位在安卓 4.3 及以前的机器上是不支持的，如果用的话一定要确定自己产品中低版本安卓的占比。根据谷歌在 2018 年 8 月发布的统计数据来看，安卓 4.3 及之前版本还占安卓市场将近 4% 的份额。这里也推荐一个查询各种样式或者单位兼容性情况的网站：<a href="https://caniuse.com">caniuse.com</a></p>
+</blockquote>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><strong>二、小按钮</strong></p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">下来还有一个小按钮的开发，小按钮通常是用作比较小的区域，通常以行内元素出现。所以在制作小按钮的时候，除了尺寸的变化外，还要把小按钮改成行内元素，这里我们可以使用行内块。我们用“tt-btn-small”来标记小按钮的样式，下面是 HMTL:</p>
+</div><div class="cl-preview-section"><pre class="  language-html"><code class="prism  language-html"><span class="token comment">&lt;!-- 小按钮 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>小按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-body<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-small<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>小按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-primary tt-btn-small<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>小按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-warning tt-btn-small<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>小按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn tt-btn-disabled tt-btn-small<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>小按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">根据刚才的描述，小按钮的样式也比较简单：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* 小按钮 */</span>
+<span class="token selector"><span class="token class">.tt-btn.tt-btn-small</span></span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">3</span>rem<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">.2</span>rem <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">.7</span>rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">最后的实现效果就是一排小按钮了：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d2c0109000182a203840109.png" alt="图片描述" data-original="http://img.mukewang.com/5d2c0109000182a203840109.png" class="" style="cursor: pointer;"><br>
+到这里我们所有的按钮样式就实现完成了。</p>
+</div><div class="cl-preview-section"><h2 id="结语" style="font-size: 30px;">结语</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">相比前面的章节，这一节的内容就比较简单了。希望同学们学会使用组合的方式从不同维度定义一个组件样式的方法，这种定义方式在设计通用组件时非常实用。这一节内容结果如下：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d2c011e0001e39503410406.png" alt="图片描述" data-original="http://img.mukewang.com/5d2c011e0001e39503410406.png" class="" style="cursor: pointer;"><br>
+我们对按钮的设计和开发也就完成了，同学们可以访问【<a href="http://ui.tuituitech.com/demo/button.html">按钮在线预览</a>】来查看这一节的演示效果。到这里我们布局和基础组件这部分的内容也都完成了，下面的一节将对这一章的内容做个总结。</p>
+</div></div>
+            </div>
+                            <!-- 买过的阅读 -->
+                <div class="art-next-prev clearfix">
+                                                                        <!-- 已买且开放 或者可以试读 -->
+                            <a href="/read/36/article/399">
+                                                    <div class="prev l clearfix">
+                                <div class="icon l">
+                                    <i class="imv2-arrow3_l"></i>
+                                </div>
+                                <p>
+                                    19 表单元素的开发
+                                </p>
+                            </div>
+                        </a>
+                                                                                            <!-- 已买且开放 或者可以试读 -->
+                            <a href="/read/36/article/402">
+                                                    <div class="next r clearfix">
+                                <p>
+                                    21 本章总结
+                                </p>
+                                <div class="icon r">
+                                    <i class="imv2-arrow3_r"></i>
+                                </div>
+
+                            </div>
+                        </a>
+                                    </div>
+                    </div>
+        <div class="comments-con js-comments-con" id="coments_con">
+        </div>
+
+
+
+    </div>
+    
+    
+    
+
+</div>
+ 
+<!-- 专栏介绍页专栏评价 -->
+
+<!-- 专栏介绍页底部三条评价 -->
+
+<!-- 专栏阅读页弹层目录和介绍页页面目录 -->
+
+<!-- 专栏阅读页发布回复 -->
+
+<!-- 专栏阅读页发布评论 -->
+
+<!-- 专栏阅读页底部评论 -->
+
+<!-- 专栏阅读 单个 评论 -->
+
+<!-- 新增回复和展开三条以外回复 -->
+
+<!-- 立即订阅的弹窗 -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div></body></html>

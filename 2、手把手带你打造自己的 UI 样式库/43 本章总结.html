@@ -1,0 +1,170 @@
+<html><head><meta charset="utf-8"><title>43 本章总结-慕课专栏</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+			<meta name="renderer" content="webkit">
+			<meta property="qc:admins" content="77103107776157736375">
+			<meta property="wb:webmaster" content="c4f857219bfae3cb">
+			<meta http-equiv="Access-Control-Allow-Origin" content="*">
+			<meta http-equiv="Cache-Control" content="no-transform ">
+			<meta http-equiv="Cache-Control" content="no-siteapp">
+			<link rel="apple-touch-icon" sizes="76x76" href="https://www.imooc.com/static/img/common/touch-icon-ipad.png">
+			<link rel="apple-touch-icon" sizes="120x120" href="https://www.imooc.com/static/img/common/touch-icon-iphone-retina.png">
+			<link rel="apple-touch-icon" sizes="152x152" href="https://www.imooc.com/static/img/common/touch-icon-ipad-retina.png">
+			<link href="https://moco.imooc.com/captcha/style/captcha.min.css" rel="stylesheet">
+			<link rel="stylesheet" href="https://www.imooc.com/static/moco/v1.0/dist/css/moco.min.css?t=201907021539" type="text/css">
+			<link rel="stylesheet" href="https://www.imooc.com/static/lib/swiper/swiper-3.4.2.min.css?t=201907021539">
+			<link rel="stylesheet" href="https://static.mukewang.com/static/css/??base.css,common/common-less.css?t=2.5,column/zhuanlanChapter-less.css?t=2.5,course/inc/course_tipoff-less.css?t=2.5?v=201907051055" type="text/css">
+			<link charset="utf-8" rel="stylesheet" href="https://www.imooc.com/static/lib/ueditor/themes/imooc/css/ueditor.css?v=201907021539"><link rel="stylesheet" href="https://www.imooc.com/static/lib/baiduShare/api/css/share_style0_16.css?v=6aba13f0.css"></head>
+			<body><div id="main">
+
+
+<div class="main-con hide-menu">
+    <!-- 左侧菜单 & 索引 -->
+    
+    <div class="right-content" style="padding-left: 0px;">
+        <div class="container clearfix" id="top" style="width: 1134px; display: block;">
+            
+            
+            <div class="center_con js-center_con l" style="width: 1134px;">
+                <div class="article-con">
+                                            <!-- 买过的阅读 -->
+                        
+
+                    
+                    <div class="art-title" style="margin-top: 0px;">
+                        43 本章总结
+                    </div>
+                    <div class="art-info clearfix">
+                        
+                        <span class="l">
+                            更新时间：2019-09-04 13:49:58
+                        </span>
+                    </div>
+                    <div class="art-top">
+                                                <img src="https://img4.mukewang.com/5d6e512b0001c6a606400359.jpg" alt="">
+                                                                        <div class="famous-word-box">
+                            <img src="https://www.imooc.com/static/img/column/bg-l.png" alt="" class="bg1 bg">
+                            <img src="https://www.imooc.com/static/img/column/bg-r.png" alt="" class="bg2 bg">
+                            <div class="famous-word">能够生存下来的物种,并不是那些最强壮的,也不是那些最聪明的,而是那些对变化作出快速反应的。<p class="author">——达尔文</p></div>
+                        </div>
+                                            </div>
+                    <div class="art-content js-lookimg">
+                        <div id="article_content">
+                            <div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">“实战” 的部分到这里就结束了，这一章里，我们实现了几种常用的页面，来体验一下使用 UI 框架的快感。经过这一章的开发，我们会发现 HTML 结构大多可以从 UI 框架的 Demo 中复制，稍作修改就可以用，样式文件需要自己写的代码也比较少。在实际项目中，如果有这种 UI 框架的帮助，一个重构工程师是可以每天完成 3~5 个移动端页面的。这一章另外一个目的，是教会大家怎么做页面的切图，通过对页面结构良好的设计，可以让 JS 工程师在开发逻辑时更加方便。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">在做总结之前，我们还是要把这章中对框架的改动进行发布。我们这里再回顾下之前的发布顺序。</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">在 “tuitui-ui” 项目中执行打包脚本，对源文件进行打包。</li>
+<li style="font-size: 20px; line-height: 38px;">将打包生成的压缩文件 “tuitui-ui.min.css” 复制到 “tuitui-ui-npm” 项目中，覆盖原有文件，并去掉文件中 @import 方式的远程依赖。</li>
+<li style="font-size: 20px; line-height: 38px;">package.json 文件中插件版本号升级 1 个小版本，改为 0.1.2。</li>
+<li style="font-size: 20px; line-height: 38px;">执行发布操作，把插件发布到 npm 的源上。</li>
+</ol>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">代码发布好以后，0.1.2 就是最新的版本了，这个小版本里包含了我们这一章里做的改动。下面，我们对这一章内容做一个总结。由于这一章涉及到的技术性的问题比较少，所以就不使用提问的方式进行回顾了，我们来总结一下这一章做过的事情。</p>
+</div><div class="cl-preview-section"><h2 id="首页的设计与开发" style="font-size: 30px;">首页的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">首页是一个网站的门面，通常是核心功能的展示区或者入口。在一个项目里，改动最频繁的应该就是首页了，开发和设计人员会变着法的来提高首页的转化率。在我们演示项目的首页中，放置了三个入口，分别是搜索、分类入口和推荐入口。这个页面中使用到了 Search 搜索组件、Grid 网格组件、Panel 面板组件、List 复杂列表等组件。</p>
+</div><div class="cl-preview-section"><h2 id="列表页的设计与开发" style="font-size: 30px;">列表页的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">列表页是某一类内容的集合，展示多个内容最主要的信息，并且也是到内容详情的入口。这个页面里我们用到了 Search 组件来满足搜索的需求，然后自己实现了列表排序用的两个按钮，最后就是一个带加载提示功能的复杂列表。</p>
+</div><div class="cl-preview-section"><h2 id="文章详情页的设计与开发" style="font-size: 30px;">文章详情页的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">文章详情页展示的是文章的具体内容。在这一节里我们用到文本组件来展示文章的内容，并在文章详情中加入了 “喜欢” 的功能。在页面的最后，还是用 Panel 面板组件和 List 复杂列表组件做了一个相关推荐的模块。</p>
+</div><div class="cl-preview-section"><h2 id="个人中心页的设计与开发" style="font-size: 30px;">个人中心页的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">个人中心页面通常用来展示用户信息，另外一些不太重要的页面或者设置，也会把入口放在这里。这个页面里有两部分内容，一个是用户信息部分，包括用户的头像、信息和收藏关注数量；另外一部分就是使用 Menu 菜单组件实现的各种功能的引导，这其中还包括用来在当前页面展示信息的 Modal 模态框组件和操作确认用的 Action Sheet 弹出式菜单组件。</p>
+</div><div class="cl-preview-section"><h2 id="结果提示页的设计与开发" style="font-size: 30px;">结果提示页的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">结果提示页用来展示一些重要操作的结果，例如下单、支付和提交反馈这些。这个页面的内容很简单，就是图标、文本和按钮的组合。在这个页面里我们实现了操作成功提示和操作失败提示，用到的组件也就是最基础的图标组件和按钮组件。</p>
+</div><div class="cl-preview-section"><h2 id="结语" style="font-size: 30px;">结语</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">经历这几节的打拼，“实战” 的部分就到这里了。这一章里很寻速的开发出来了五个页面，也了解到了重构工程师的工作职责和一些常用的切图技巧。在做前端开发的时候，无论切图和 JS 逻辑是不是由同一个人完成，我们都可以先做切图再做逻辑，这样流水线的工作方式对提高效率是有帮助的。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">下面是这一章的结构：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img class="" src="https://img.mukewang.com/5d6e510e0001261205440533.png" data-original="//img.mukewang.com/5d6e510e0001261205440533.png" alt="图片描述"><br>
+这也是最后一个开发章节，接下来最后一章我们将对整个课程做一个总结和回顾。这一章先到这。</p>
+</div>}
+                        </div>
+                    </div>
+                                            <!-- 买过的阅读 -->
+                        <div class="art-next-prev clearfix">
+                                                                                                <!-- 已买且开放 或者可以试读 -->
+                                    <a href="/read/36/article/424">
+                                                                    <div class="prev l clearfix">
+                                        <div class="icon l">
+                                            <i class="imv2-arrow3_l"></i>
+                                        </div>
+                                        <p>
+                                            42 结果提示页的设计与开发
+                                        </p>
+                                    </div>
+                                </a>
+                                                                                                                            <!-- 已买且开放 或者可以试读 -->
+                                    <a href="/read/36/article/426">
+                                                                    <div class="next r clearfix">
+                                        <p>
+                                            44 本课程知识点汇总
+                                        </p>
+                                        <div class="icon r">
+                                            <i class="imv2-arrow3_r"></i>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                                    </div>
+                                    </div>
+                <div class="comments-con js-comments-con" id="coments_con">
+                </div>
+
+                
+            </div>
+            
+            
+            
+
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-jiaQun-new hide" id="modal-jiaQun">
+    <div class="inner" style="">
+        <div class="modal-close js-close-jiaQun">
+            <i class="imv2-close"></i>
+        </div>
+        <div class="content">
+            <img src="https://img1.mukewang.com/5d5a718f0001363505400600.jpg">
+            <div class="right-info">
+                <div class="title">
+                    扫码加入慕课前端核心用户群
+                </div>
+                <div class="desc">
+                                            <p class="mb6">验证信息：<span id="joincode">1906161826526121</span><span class="copy js-copy-joincode">复制</span></p>
+                                        <p class="mb6">QQ讨论群号：722466314</p>
+                                            <p>QQ群URL：<a href="https://jq.qq.com/?_wv=1027&amp;k=5l9EFfc" target="_blank">点击访问</a></p>
+                                    </div>
+            </div>
+            <p class="tip">若遇到搜索不到QQ群或加群失败，请联系客服邮箱:kf@imooc.com</p>
+        </div>
+    </div>
+</div>
+ 
+<!-- 专栏介绍页专栏评价 -->
+
+<!-- 专栏介绍页底部三条评价 -->
+
+<!-- 专栏阅读页弹层目录和介绍页页面目录 -->
+
+<!-- 专栏阅读页发布回复 -->
+
+<!-- 专栏阅读页发布评论 -->
+
+<!-- 专栏阅读页底部评论 -->
+
+<!-- 专栏阅读 单个 评论 -->
+
+<!-- 新增回复和展开三条以外回复 -->
+
+<!-- 立即订阅的弹窗 -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div></body></html>

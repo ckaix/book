@@ -1,0 +1,226 @@
+<html><head><meta charset="utf-8"><title>32 本章总结-慕课专栏</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+			<meta name="renderer" content="webkit">
+			<meta property="qc:admins" content="77103107776157736375">
+			<meta property="wb:webmaster" content="c4f857219bfae3cb">
+			<meta http-equiv="Access-Control-Allow-Origin" content="*">
+			<meta http-equiv="Cache-Control" content="no-transform ">
+			<meta http-equiv="Cache-Control" content="no-siteapp">
+			<link rel="apple-touch-icon" sizes="76x76" href="https://www.imooc.com/static/img/common/touch-icon-ipad.png">
+			<link rel="apple-touch-icon" sizes="120x120" href="https://www.imooc.com/static/img/common/touch-icon-iphone-retina.png">
+			<link rel="apple-touch-icon" sizes="152x152" href="https://www.imooc.com/static/img/common/touch-icon-ipad-retina.png">
+			<link href="https://moco.imooc.com/captcha/style/captcha.min.css" rel="stylesheet">
+			<link rel="stylesheet" href="https://www.imooc.com/static/moco/v1.0/dist/css/moco.min.css?t=201907021539" type="text/css">
+			<link rel="stylesheet" href="https://www.imooc.com/static/lib/swiper/swiper-3.4.2.min.css?t=201907021539">
+			<link rel="stylesheet" href="https://static.mukewang.com/static/css/??base.css,common/common-less.css?t=2.5,column/zhuanlanChapter-less.css?t=2.5,course/inc/course_tipoff-less.css?t=2.5?v=201907051055" type="text/css">
+			<link charset="utf-8" rel="stylesheet" href="https://www.imooc.com/static/lib/ueditor/themes/imooc/css/ueditor.css?v=201907021539"><link rel="stylesheet" href="https://www.imooc.com/static/lib/baiduShare/api/css/share_style0_16.css?v=6aba13f0.css"></head>
+			<body><div id="main">
+
+
+<div class="main-con hide-menu">
+    <!-- 左侧菜单 & 索引 -->
+    
+    <div class="right-content" style="padding-left: 0px;">
+        <div class="container clearfix" id="top" style="width: 1134px; display: block;">
+            
+            
+            <div class="center_con js-center_con l" style="width: 1134px;">
+                <div class="article-con">
+                                            <!-- 买过的阅读 -->
+                        
+
+                    
+                    <div class="art-title" style="margin-top: 0px;">
+                        32 本章总结
+                    </div>
+                    <div class="art-info clearfix">
+                        
+                        <span class="l">
+                            更新时间：2019-08-09 09:00:13
+                        </span>
+                    </div>
+                    <div class="art-top">
+                                                <img src="https://img1.mukewang.com/5d2fd192000189c206400359.jpg" alt="">
+                                                                        <div class="famous-word-box">
+                            <img src="https://www.imooc.com/static/img/column/bg-l.png" alt="" class="bg1 bg">
+                            <img src="https://www.imooc.com/static/img/column/bg-r.png" alt="" class="bg2 bg">
+                            <div class="famous-word">人不可有傲气，但不可无傲骨。<p class="author">——徐悲鸿</p></div>
+                        </div>
+                                            </div>
+                    <div class="art-content js-lookimg">
+                        <div id="article_content">
+                            <div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">我们这一章的定位是“操练”，在上一章的基础结构上，我们又填充了九种常用的组件。看到这里的同学们会发现，这一章很少有大篇幅的知识点了，更多的是一些组件的要求、设计思路和实现技巧。下面我们还是以问题的形式来回顾一下这一章都讲过什么。</p>
+</div><div class="cl-preview-section"><h2 id="search搜索组件的设计与开发" style="font-size: 30px;">Search搜索组件的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节讲的是搜索组件的开发，这个组件分为输入和非输入两种状态。在非输入状态下这个组件是简单的输入框样式。当进入输入状态后，组件提供了一键清除和取消功能，另外还会在输入的时候显示搜索提示。在这一章中我们会留下以下问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">如果希望在一个输入框输入完以后，直接点击键盘上的回车/提交按钮来完成下一步操作，应该怎么做？</li>
+<li style="font-size: 20px; line-height: 38px;">伪类选择器 :valid 有什么作用？可以在什么样的场景下应用?</li>
+<li style="font-size: 20px; line-height: 38px;">让一个高度不确定的元素在容器竖直方向上居中，可以怎么做？请至少给出两种方法。</li>
+<li style="font-size: 20px; line-height: 38px;">vh 是什么单位？有什么作用？</li>
+<li style="font-size: 20px; line-height: 38px;">是否了解 align-items 的用法？</li>
+<li style="font-size: 20px; line-height: 38px;">如果使用 type=“search” 类型的输入框，怎样去掉浏览器自带的样式？</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="list列表组件的设计与开发" style="font-size: 30px;">List列表组件的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节实现了 2 种列表的样式，分别是简单列表和复杂列表。这一节比较简单，就是 2 种样式布局。在基础知识部分还介绍了 justify-content 属性的用法。下来看下这一节会有的问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">复杂列表的图片和文字区域的布局怎么实现？如果不用弹性布局还可以怎么实现？</li>
+<li style="font-size: 20px; line-height: 38px;">如果希望一个容器里的多个盒子水平居中，应该怎么做（类似“text-align: center;”的效果）？</li>
+<li style="font-size: 20px; line-height: 38px;">复杂列表中，希望通过在容器上添加一个类就把现有列表样式改成两列式的列表，要怎么实现?</li>
+<li style="font-size: 20px; line-height: 38px;">复杂列表的文本区域，要求上下两个元素贴住容器边缘，中间的内容自动调整上下的间距，怎么实现的?</li>
+<li style="font-size: 20px; line-height: 38px;">一个容器最多显示两行内容，超出部分截断并添加省略号，应该怎么实现？如果这个容器高度需要随内容调整，又该怎么实现？</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="grid网格组件的设计与开发" style="font-size: 30px;">Grid网格组件的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节实现了网格组件的样式，这节包含两部分内容，一个是九宫格的实现，另外一部分是可定制的多列网格的实现。关于这一节的内容，会有以下问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">网格组件都可以在什么场景下应用？</li>
+<li style="font-size: 20px; line-height: 38px;">弹性盒子在容器一行内放不下自动折行要怎么实现？</li>
+<li style="font-size: 20px; line-height: 38px;">网格组件中，希望相邻的盒子中间用边框隔开，而靠近屏幕边缘的盒子去掉边框，怎么实现？</li>
+<li style="font-size: 20px; line-height: 38px;">如果希望网格中的格子之间不加隔离线，应该怎么实现？</li>
+<li style="font-size: 20px; line-height: 38px;">怎样修改网格的列数？</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="menu菜单组件的设计与开发" style="font-size: 30px;">Menu菜单组件的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节是实现了菜单组件。基础的菜单组件很好实现，这一节的重点就是在菜单里开关按钮的实现上。这一节会有如下的问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">怎么去掉“checkbox”默认的样式？</li>
+<li style="font-size: 20px; line-height: 38px;">伪元素选择器 ::before 和 ::after 可以在什么场景下使用？</li>
+<li style="font-size: 20px; line-height: 38px;">box-shadow 属性怎么使用，它和 border 属性有什么不同？</li>
+<li style="font-size: 20px; line-height: 38px;">页面中元素变化时，过渡效果怎么实现？我们都可以指定过渡效果中哪些参数？</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="modal模态框组件的设计与开发" style="font-size: 30px;">Modal模态框组件的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节实现了两种形式的模态框。一种是带有操作按钮的样式，用来做信息的提示。另外一种是简单的图片和关闭按钮的组合，通常用来做活动页面的引导入口。关于这一节的内容，我们有如下问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">模态框都有什么应用场景？</li>
+<li style="font-size: 20px; line-height: 38px;">如何让一个高度不确定的元素的重心在竖直方向上任意位置？</li>
+<li style="font-size: 20px; line-height: 38px;">试着用 CSS 样式实现一个可透视的立方体。</li>
+<li style="font-size: 20px; line-height: 38px;">元素通过 transform 属性改变样式后，会不会引起页面的重排和重绘？为怎么？</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="loading加载提示组件的设计与开发" style="font-size: 30px;">Loading加载提示组件的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节实现了两种类型的加载提示组件，一种是页面加载提示，另一种是列表加载的提示。这一节里的内容也不算多，最主要的就是实现了图标上下振动的的动画效果。我们来看一下这一节的问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">如何用 CSS 实现动画效果？</li>
+<li style="font-size: 20px; line-height: 38px;">animation 属性都可以设置哪些参数？这些参数都有什么用？</li>
+<li style="font-size: 20px; line-height: 38px;">文本两侧添加两条水平线的效果，都可以怎么实现？</li>
+<li style="font-size: 20px; line-height: 38px;">如何实现元素上下振动的效果？试着写一下。</li>
+<li style="font-size: 20px; line-height: 38px;">在做元素上下振动的效果的时候，为什么推荐使用 transform 属性，而不是靠调节 margin 或者 top 值来实现效果？</li>
+<li style="font-size: 20px; line-height: 38px;">图标的旋转是怎么实现的？</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="toast提示组件的设计与开发" style="font-size: 30px;">Toast提示组件的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节实现的有弹出效果的 Toast 组件，这一节最主要的内容就是完成 Toast 组件的入场和出场效果。这一节的问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">Toast 组件的入场和出场效果应该怎样实现？</li>
+<li style="font-size: 20px; line-height: 38px;">为什么组件出场后还需要使用 JS 把组件的 DOM 移除掉？</li>
+<li style="font-size: 20px; line-height: 38px;">为什么组件的入场和出场不能用 display 属性来控制？</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="actionsheet弹出式菜单组件的设计与开发" style="font-size: 30px;">ActionSheet弹出式菜单组件的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节实现的是弹出式菜单的样式。这个组件在显示的时候会从底部滑出，操作完成后再收回到底部隐藏起来。关于这个组件的实现，有下面 2 个问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">弹出式菜单组件不会使用 JS 去移除，怎么解决蒙版会挡住后面内容的问题？</li>
+<li style="font-size: 20px; line-height: 38px;">pointer-events 这个属性有什么作用？它可以取哪些值？</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="article文本组件的设计与开发" style="font-size: 30px;">Article文本组件的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">最后一节实现的是文本组件。这个组件中定义了文章的基本格式，而这一节的重点是在文章展开按钮的样式上。关于这一节的内容，有如下问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">文章在什么场景下需要被折叠起来？</li>
+<li style="font-size: 20px; line-height: 38px;">背景使用的渐变效果怎么实现？提供两种方法。</li>
+<li style="font-size: 20px; line-height: 38px;">linear-gradient 这个属性值怎么使用？</li>
+<li style="font-size: 20px; line-height: 38px;">尝试实现一下径向的渐变效果。</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="结语" style="font-size: 30px;">结语</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">到这里我们这一章的内容就结束了，实际上我们这个课程的核心部分也就完成了。后面的三章就是对这个项目做集成、测试和总结。在这一章都学习里，用的比较多的是对组件状态切换的控制、组件的入场和出场的效果等。通过这一章的学习，应该能自己去设计和开发项目中需要的 UI 组件了。这一章的结构如下：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img class="" src="https://img.mukewang.com/5d4cc5080001176705230572.png" data-original="//img.mukewang.com/5d4cc5080001176705230572.png" alt="图片描述"><br>
+我们这一章的内容就到这里，下一章就要进入“集结”的步骤，把我们这几章的成果集合起来，做成一个可以被直接调用的项目。</p>
+</div>}
+                        </div>
+                    </div>
+                                            <!-- 买过的阅读 -->
+                        <div class="art-next-prev clearfix">
+                                                                                                <!-- 已买且开放 或者可以试读 -->
+                                    <a href="/read/36/article/413">
+                                                                    <div class="prev l clearfix">
+                                        <div class="icon l">
+                                            <i class="imv2-arrow3_l"></i>
+                                        </div>
+                                        <p>
+                                            31 Article文本样式的设计与开发
+                                        </p>
+                                    </div>
+                                </a>
+                                                                                                                            <!-- 已买且开放 或者可以试读 -->
+                                    <a href="/read/36/article/415">
+                                                                    <div class="next r clearfix">
+                                        <p>
+                                            33 UI 框架的集成
+                                        </p>
+                                        <div class="icon r">
+                                            <i class="imv2-arrow3_r"></i>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                                    </div>
+                                    </div>
+                <div class="comments-con js-comments-con" id="coments_con">
+                </div>
+
+                
+            </div>
+            
+            
+            
+
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-jiaQun-new hide" id="modal-jiaQun">
+    <div class="inner" style="">
+        <div class="modal-close js-close-jiaQun">
+            <i class="imv2-close"></i>
+        </div>
+        <div class="content">
+            <img src="https://img1.mukewang.com/5d5a718f0001363505400600.jpg">
+            <div class="right-info">
+                <div class="title">
+                    扫码加入慕课前端核心用户群
+                </div>
+                <div class="desc">
+                                            <p class="mb6">验证信息：<span id="joincode">1906161826526121</span><span class="copy js-copy-joincode">复制</span></p>
+                                        <p class="mb6">QQ讨论群号：722466314</p>
+                                            <p>QQ群URL：<a href="https://jq.qq.com/?_wv=1027&amp;k=5l9EFfc" target="_blank">点击访问</a></p>
+                                    </div>
+            </div>
+            <p class="tip">若遇到搜索不到QQ群或加群失败，请联系客服邮箱:kf@imooc.com</p>
+        </div>
+    </div>
+</div>
+ 
+<!-- 专栏介绍页专栏评价 -->
+
+<!-- 专栏介绍页底部三条评价 -->
+
+<!-- 专栏阅读页弹层目录和介绍页页面目录 -->
+
+<!-- 专栏阅读页发布回复 -->
+
+<!-- 专栏阅读页发布评论 -->
+
+<!-- 专栏阅读页底部评论 -->
+
+<!-- 专栏阅读 单个 评论 -->
+
+<!-- 新增回复和展开三条以外回复 -->
+
+<!-- 立即订阅的弹窗 -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div></body></html>

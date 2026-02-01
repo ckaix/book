@@ -1,0 +1,345 @@
+<html><head><meta charset="utf-8"><title>28 Loading加载提示样式的设计与开发-慕课专栏</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+			<meta name="renderer" content="webkit">
+			<meta property="qc:admins" content="77103107776157736375">
+			<meta property="wb:webmaster" content="c4f857219bfae3cb">
+			<meta http-equiv="Access-Control-Allow-Origin" content="*">
+			<meta http-equiv="Cache-Control" content="no-transform ">
+			<meta http-equiv="Cache-Control" content="no-siteapp">
+			<link rel="apple-touch-icon" sizes="76x76" href="https://www.imooc.com/static/img/common/touch-icon-ipad.png">
+			<link rel="apple-touch-icon" sizes="120x120" href="https://www.imooc.com/static/img/common/touch-icon-iphone-retina.png">
+			<link rel="apple-touch-icon" sizes="152x152" href="https://www.imooc.com/static/img/common/touch-icon-ipad-retina.png">
+			<link href="https://moco.imooc.com/captcha/style/captcha.min.css" rel="stylesheet">
+			<link rel="stylesheet" href="https://www.imooc.com/static/moco/v1.0/dist/css/moco.min.css?t=201907021539" type="text/css">
+			<link rel="stylesheet" href="https://www.imooc.com/static/lib/swiper/swiper-3.4.2.min.css?t=201907021539">
+			<link rel="stylesheet" href="https://static.mukewang.com/static/css/??base.css,common/common-less.css?t=2.5,column/zhuanlanChapter-less.css?t=2.5,course/inc/course_tipoff-less.css?t=2.5?v=201907051055" type="text/css">
+			<link charset="utf-8" rel="stylesheet" href="https://www.imooc.com/static/lib/ueditor/themes/imooc/css/ueditor.css?v=201907021539"><link rel="stylesheet" href="https://www.imooc.com/static/lib/baiduShare/api/css/share_style0_16.css?v=6aba13f0.css"></head>
+			<body><div id="main">
+
+<div class="container clearfix" id="top" style="display: block; width: 1134px;">
+    
+    <div class="center_con js-center_con l" style="width: 1134px;">
+        <div class="article-con">
+                            <!-- 买过的阅读 -->
+                <div class="map">
+                    <a href="/read" target="_blank"><i class="imv2-feather-o"></i></a>
+                    <a href="/read/36" target="_blank">手把手带你打造自己的UI样式库</a>
+                    <a href="" target="_blank">
+                        <span>
+                            / 4-7 28 Loading加载提示样式的设计与开发
+                        </span>
+                    </a>
+                </div>
+
+            
+
+
+            <div class="art-title" style="margin-top: 0px;">
+                28 Loading加载提示样式的设计与开发
+            </div>
+            <div class="art-info">
+                
+                <span>
+                    更新时间：2019-07-31 16:20:16
+                </span>
+            </div>
+            <div class="art-top">
+                                <img src="https://img.mukewang.com/5d2f03b80001610d06400359.jpg" alt="">
+                                                <div class="famous-word-box">
+                    <img src="https://www.imooc.com/static/img/column/bg-l.png" alt="" class="bg1 bg">
+                    <img src="https://www.imooc.com/static/img/column/bg-r.png" alt="" class="bg2 bg">
+                    <div class="famous-word">衡量一个人的真正品格，是看他在知道没人看见的时候干些什么。<p class="author">——孟德斯鸠</p></div>
+                </div>
+                            </div>
+            <div class="art-content js-lookimg">
+                <div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">我们这一节来实现移动端常用的加载提示组件。移动端中需要用到加载提示工具的地方一般就有三种场景，我们分别来介绍一下。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">第一种场景是整个页面的加载时，这时候需要一个加载中或者加载失败的提示信息。这种场景下整个页面都是空白的，所以需要一个大一些的提示信息来填充空白的页面，就可以使用下面这种大的加载提示组件：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d414a810001b1cd03820396.png" alt="图片描述" data-original="http://img.mukewang.com/5d414a810001b1cd03820396.png" class="" style="cursor: pointer;"><br>
+第二种场景是列表在拉到头的时候，会去加载下一页的内容，这个时候需要在列表的尾部添加一个加载的状态，也就是下面这类提示组件：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d414a9f0001ddd506900526.png" alt="图片描述" data-original="http://img.mukewang.com/5d414a9f0001ddd506900526.png" class="" style="cursor: pointer;"><br>
+第三种需要加载提示的组件就是在做某些重要操作的时候，比如订单的确认、支付的操作等。由于这类操作耗时会比较长，所以需要给出一个正在操作的提示信息，就会像下面这种 Toast 形式的信息提示组件：<br>
+<img src="http://img.mukewang.com/5d414ab70001408c05800470.png" alt="图片描述" data-original="http://img.mukewang.com/5d414ab70001408c05800470.png" class="" style="cursor: pointer;"><br>
+我们这一节要实现的加载提示组件会包含前两种，而第三种 Toast 形式的提示组件我们放到下一节，作为 Toast 提示组件的内容来完成。</p>
+</div><div class="cl-preview-section"><h2 id="加载提示组件的需求" style="font-size: 30px;">加载提示组件的需求</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">接下来，我们聊一下对这一节要完成的两种加载提示组件都有什么要求。</p>
+</div><div class="cl-preview-section"><h3 id="一、页面加载提示工具">一、页面加载提示工具</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">加载提示组件并不是只有加载中的状态下才用的到，在页面加载出现异常情况下，也可以使用这个组件进行提示。页面如果加载成功了就会显示页面的内容，因此不需要有加载成功的信息的提示。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">对于页面加载提示工具，我们有如下要求：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">提示工具分为图标和文本两部分，两种内容水平居中。</li>
+<li style="font-size: 20px; line-height: 38px;">如果是载入中的提示，图标使用旋转的loading图标。</li>
+<li style="font-size: 20px; line-height: 38px;">如果是其他类型的提示，使用静态的图标即可。</li>
+<li style="font-size: 20px; line-height: 38px;">图标和文字的颜色要浅一些，不会抢占用户的视线。</li>
+</ol>
+</div><div class="cl-preview-section"><h3 id="二、列表加载提示工具">二、列表加载提示工具</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">对于列表加载提示工具，也是会有几种状态。最常见的就是加载中的状态。此外，还有当拉到页面底部，可能会用到提示操作的上拉加载更多的提示，还有在没有更多数据的时候显示已经到底的信息等。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">对于列表中使用的单行加载提示工具，会有以下要求：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">提示工具中的文本水平居中。</li>
+<li style="font-size: 20px; line-height: 38px;">文本的左右有两个线条，作为提示文本的装饰。</li>
+<li style="font-size: 20px; line-height: 38px;">如果是正在加载的提示，左侧添加旋转的加载图标。</li>
+<li style="font-size: 20px; line-height: 38px;">其他情况下，提示信息只包含纯文本。</li>
+<li style="font-size: 20px; line-height: 38px;">如果是提示上拉加载更多的提示，在右侧添加上下振动的上箭头图标作为引导。</li>
+</ol>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">有了需求，下面就进入设计和开发的阶段。</p>
+</div><div class="cl-preview-section"><h2 id="加载提示的组件的设计与开发" style="font-size: 30px;">加载提示的组件的设计与开发</h2>
+</div><div class="cl-preview-section"><h3 id="一、文件的建立">一、文件的建立</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">老规矩，第一步我们先把这节需要的文件建立出来。首先是HTML文件/demo/loading.html:</p>
+</div><div class="cl-preview-section"><pre class="  language-html"><code class="prism  language-html"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../src/tuitui-ui.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>推推UI-Loading加载提示组件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!-- 页面加载提示组件 --&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>页面加载提示组件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-body<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token comment">&lt;!-- ... --&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!-- 单行加载提示组件 --&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>单行加载提示组件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-body<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token comment">&lt;!-- ... --&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">然后是对应的CSS文件/src/loading.css：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/*
+ * @Author: Rosen 
+ * @Date: 2019-07-29 21:21:29 
+ * @Last Modified by: Rosen
+ * @Last Modified time: 2019-07-30 15:46:29
+ */</span>
+
+<span class="token comment">/* 页面加载提示组件 */</span>
+<span class="token selector"><span class="token class">.tt-loading</span></span><span class="token punctuation">{</span>
+    
+<span class="token punctuation">}</span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">最后把刚建好的CSS文件加入到主文件/src/tuitui-ui.css中：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* 加载提示组件 */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">'./loading.css'</span><span class="token punctuation">;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这样所有需要的文件就建好了。</p>
+</div><div class="cl-preview-section"><h3 id="二、页面加载提示工具的设计与开发">二、页面加载提示工具的设计与开发</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">我们先来开发页面使用的加载提示工具。根据需求，这个组件会很容易实现，其实就是一个图标和一个说明文字。我们先来完成HTML的部分：</p>
+</div><div class="cl-preview-section"><pre class="  language-html"><code class="prism  language-html"><span class="token comment">&lt;!-- 页面加载提示组件 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>页面加载提示组件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-body<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-loading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fa fa-circle-o-notch fa-spin tt-loading-icon<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-loading-info<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>用力载入中...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-loading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fa fa-refresh tt-loading-icon<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-loading-info<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>加载出错，点我重新加载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">从 HTML 结构来看，这个组件确实很简单，主要的结构就是一个容器套住一个图标和一行文本。这里注意前面的需求中要求如果是加载中的状态，需要图标进行旋转。我们这里直接在图标元素上加了“fa-spin”这个 class，就能达到图标旋转的效果。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">下来就是实现这三个元素的样式了，在 /src/loading.css 添加如下样式：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* 页面加载提示组件 */</span>
+<span class="token selector"><span class="token class">.tt-loading</span></span><span class="token punctuation">{</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">1</span>rem <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 页面加载提示组件的图标 */</span>
+<span class="token selector"><span class="token class">.tt-loading</span> &gt; <span class="token class">.tt-loading-icon</span></span><span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">4.5</span>rem<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">.05</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 页面加载提示组件的提示信息 */</span>
+<span class="token selector"><span class="token class">.tt-loading</span> &gt; <span class="token class">.tt-loading-info</span></span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+    <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">.6</span>rem<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">.8</span>rem<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#ccc</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这里就是很基础的样式，唯一值得注意的是在使用图标颜色的时候用了 rgba 的形式，这是因为通过 rgba 设置透明度的方式实现的淡化效果比纯灰色看起来会更舒服。这样页面加载提示组件就完成了。</p>
+</div><div class="cl-preview-section"><h3 id="三、列表加载提示工具">三、列表加载提示工具</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">单行的列表加载提示工具的结构也很简单，也是由文本和图标组成。这里面唯一要注意的就是文本两侧两条横线的实现方式。最直接的做法就是做两个盒子分别放在文本的左右两侧，但是还有更简单的方法，就是直接使用当前容器的边框来实现，再使用文本的背景色把实线中间的部分遮盖住。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">我们先来定义这种类型提示工具的HTML结构：</p>
+</div><div class="cl-preview-section"><pre><code>&lt;div class="tt-loading-inline"&gt;
+    &lt;span class="tt-loading-info"&gt;
+        &lt;i class="fa fa-circle-o-notch fa-spin tt-loading-icon"&gt;&lt;/i&gt;
+        用力加载中
+    &lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这个结构和我们刚才用的有所区别，外层容器用了一个新的类名 tt-loading-inlie，这是因为这个加载组件的样式和刚才的页面加载工具结构不太一样，所以直接用了一个新域名，而没有采用样式覆盖的方式。另外一个不同点是这个组件的图标 tt-loading-icon 被包在了 tt-loading-info 容器里，而不是和页面加载提示工具里那样放在了同一级。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">对于这个结构，我们就可以采用下面的样式来完成它的要求：</p>
+</div><div class="cl-preview-section"><pre class=" language-css"><code class="prism  language-css"><span class="token comment">/* 单行加载提示组件 */</span>
+<span class="token selector"><span class="token class">.tt-loading-inline</span></span><span class="token punctuation">{</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">1.5</span>rem auto <span class="token number">1</span>rem<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">12.5</span>rem<span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#999</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">1</span>rem<span class="token punctuation">;</span>
+    <span class="token property">border-top</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 单行加载提示组件的文本信息 */</span>
+<span class="token selector"><span class="token class">.tt-loading-inline</span> &gt; <span class="token class">.tt-loading-info</span></span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">.5</span>rem<span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -<span class="token number">.7</span>rem<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">1</span>rem<span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">1</span>rem<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">.7</span>rem<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 单行加载提示组件的图标 */</span>
+<span class="token selector"><span class="token class">.tt-loading-inline</span> &gt; <span class="token class">.tt-loading-info</span> &gt; <span class="token class">.tt-loading-icon</span></span><span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">.2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这里面唯一需要注意的就是文本两边横线的实现方式，我们对 tt-loading-inline 容器加了个上边框，用它来充当那条横实线。然后再把内容使用“position: relative; top: -.7rem;”这两个属性向上移动了 .7rem 的距离，这样容器的边框就正好在文本的中间了。最后给文本加上白色背景和左右的内边距，就把背后的横线遮住了一段，看起来就是下图这样的效果了：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d414afe0001f5fa06740122.png" alt="图片描述" data-original="http://img.mukewang.com/5d414afe0001f5fa06740122.png" class="" style="cursor: pointer;"><br>
+根据需求，在提示信息是上拉加载更多时，需要一个一直在上下振动的上箭头。这个箭头也是图标库里有现成的，我们只需要让它冻起来就可以了。在实现效果之前，我们先来介绍一下 CSS3 中制作动画用的 animation 属性。</p>
+</div><div class="cl-preview-section"><blockquote>
+<p style="font-size: 20px; line-height: 38px;"><strong>@Tips：</strong><br>
+CSS3 中定义的 animation 属性，可以允许用户自己定义一些简单的动画效果。animation 的语法如下：</p>
+<pre><code>animation: name duration timing-function delay iteration-count direction;
+</code></pre>
+<p style="font-size: 20px; line-height: 38px;">animation 里有很多个属性，如果同学们仔细观察的话，动画里的参数和 transition 属性很相似。实际上，我们就可以把 animation 理解成更复杂的渐变效果。下面我们先来介绍下这几个参数：<br>
+<strong>animation-name（动画的名称）</strong>，这个参数是用来指定使用哪个效果的动画，这里的名称是需要我们使用 @keyframes 定义出来的。我们先把 @keyframes 放一边，等介绍完 animation 的属性再来介绍这个东西。<br>
+<strong>animation-duration（动画持续的时间）</strong>，这个就和渐变属性 transition 里的 duration 一样了，就是一轮动画持续的时间。<br>
+<strong>animation-timing-function（时间函数）</strong>，定义了动画的播放速度曲线。<br>
+<strong>animation-delay（延迟时间）</strong>，定义了动画播放的延迟时间，表示多长时间以后再开始播放。<br>
+<strong>animation-iteration-count（循环次数）</strong>，这个参数式之前没见过的，它定义了动画执行几遍。这个值可以取正整数n,表示动画会播放n遍后停止。如果需要动画一直重复播放的话，把这个参数值设置成“infinite”就可以了。<br>
+<strong>animation-direction（动画播放方向）</strong>，这个参数定义了动画播放的模式，它的取值可以是“normal”、“reverse”、“alternate”和“alternate-reverse”这四个值，默认的“normal”表示正常从前到后的播放；“reverse”表示动画从后往前播放；“alternate”表示先从前往后播放，然后再从后往前到播放；“alternate-reverse”表示的就是先从后往前播放，再从前往后播放。</p>
+<p style="font-size: 20px; line-height: 38px;">这些就是关于 animation 的属性的介绍下来我们回到刚才的 @keyframes 的用法。如果有细心的同学翻看过 Font Awesome 的源码，看过 fa-spin 类的实现方法的话，就应该看过 @keyframes 的用法：</p>
+<p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d414b7d0001ba7b07120130.png" alt="图片描述" data-original="http://img.mukewang.com/5d414b7d0001ba7b07120130.png" class="" style="cursor: pointer;"><br>
+<img src="http://img.mukewang.com/5d414bb00001fa5605840310.png" alt="图片描述" data-original="http://img.mukewang.com/5d414bb00001fa5605840310.png" class="" style="cursor: pointer;"><br>
+Font Awesome里实现图标旋转的效果，其实就是使用了这两部分代码。前面一部分是定义 fa-spin 的元素样式，就是加了一个动画效果。后面这段代码，就是定义了一个名为 fa-spin 的动画。要主意这个动画的名称和 .fa-spin 选择器没什么关系，只不过用了相同的名字。这个名为 fa-spin 的动画定义了在一个动画周期中，开始位置是旋转 0 度，动画最后旋转到 359 度，看起来就是转了一圈。然后在 animation属性中使用“infinite”值指定了动画一直循环播放，所以我们就看见了一直旋转的加载图标。</p>
+<p style="font-size: 20px; line-height: 38px;">这就是 @keyframes 的主要用法，只需要在里面指定几个关键节点，浏览器就会计算出对应的动画效果。这里起始位置是 0 %，当然还可以加很多个中间状态，最后动画结束的位置就是 100% 时指定的样式。</p>
+<p style="font-size: 20px; line-height: 38px;">如果像刚才截图的那样，动画简单到只有起始和结束状态，那么还可以把“0%”替换成“from”，把“100%”替换成“to”，像下面这样：</p>
+<p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d414ca90001f0fa06260298.png" alt="图片描述" data-original="http://img.mukewang.com/5d414ca90001f0fa06260298.png" class="" style="cursor: pointer;"><br>
+上面这种写法和之前那种百分比的写法效果是完全一样的，只有在有多个中间状态时，百分比形式的写法才有意义。</p>
+</blockquote>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">了解了 animation 这个属性后，就可以直接在图标的文件中加入需求中要求的动画效果了。我们把这个动画效果归到图标的样式里，就可以在 /src/icon.css 中加入下面的代码：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* 垂直方向上振动 */</span>
+<span class="token selector"><span class="token class">.fa-vibrate-y</span></span><span class="token punctuation">{</span>
+    <span class="token property">animation</span><span class="token punctuation">:</span> fa-vibrate-y <span class="token number">1.5</span>s infinite ease-in<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 振动轨迹 */</span>
+<span class="token atrule"><span class="token rule">@keyframes</span> fa-vibrate-y</span><span class="token punctuation">{</span>
+    <span class="token selector">0% </span><span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>-<span class="token number">10%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">50% </span><span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span><span class="token number">10%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">100% </span><span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>-<span class="token number">10%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这里我们给图标定义了一个 fa-vibrate-y 的类，它和用作图标旋转的 fa-spin 类是同一类作用，只不过使用的是上下振动的动画效果。这个动画就是在图标高度的正负 10% 的位置不停的上下振动。有了这个类，我们再回到加载提示组件的 HMTL 文件中，在 tt-panel-body 中加入如下结构：</p>
+</div><div class="cl-preview-section"><pre class="  language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-loading-inline<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-loading-info<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        上拉加载更多
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fa fa-long-arrow-up fa-vibrate-y tt-loading-icon<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">通过给 tt-loading-icon 加上“fa-vibrate-y”这个 class，就达到了需要的动画效果：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d414d0500013de704230070.gif" alt="图片描述" data-original="http://img.mukewang.com/5d414d0500013de704230070.gif" class="" style="cursor: pointer;"><br>
+最后还剩下两种静态的信息提示就可以直接用了，不再需要额外的样式：</p>
+</div><div class="cl-preview-section"><pre class="  language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-loading-inline<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-loading-info<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        我可是有底线的
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-loading-inline<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-loading-info<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        ·
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">把这四种单行加载组件放在一起，就是下面这样最终的效果了：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d414d2b00010c7a06360484.png" alt="图片描述" data-original="http://img.mukewang.com/5d414d2b00010c7a06360484.png" class="" style="cursor: pointer;"><br>
+这样，这两种加载提示组件的设计和开发就完成了。</p>
+</div><div class="cl-preview-section"><h2 id="结语" style="font-size: 30px;">结语</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节我们讲了两种加载提示组件的设计和开发，主要用到的技巧就是实现文本两侧添加水平实线的方式，还有使用 animation 属性实现动画效果的用法。我们这一节的结构如下：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d414d8d0001966a13300496.png" alt="图片描述" data-original="http://img.mukewang.com/5d414d8d0001966a13300496.png" class="" style="cursor: pointer;"><br>
+我们这一节的内容到这，同学们可以访问【<a href="http://ui.tuituitech.com/demo/loading.html">加载提示组件在线预览</a>】来查看这一节的演示效果，下一节将进行加载组件的开发。</p>
+</div></div>
+            </div>
+                            <!-- 买过的阅读 -->
+                <div class="art-next-prev clearfix">
+                                                                        <!-- 已买且开放 或者可以试读 -->
+                            <a href="/read/36/article/409">
+                                                    <div class="prev l clearfix">
+                                <div class="icon l">
+                                    <i class="imv2-arrow3_l"></i>
+                                </div>
+                                <p>
+                                    27 Modal模态框样式的设计与开发
+                                </p>
+                            </div>
+                        </a>
+                                                                                        <!-- 未买不可试读或者未开放 -->
+                            <a href="javascript:;" class="js-cantIn" data-ifopen="1" data-cantaste="1">
+                                                    <div class="next r clearfix">
+                                <p>
+                                    29 Toast提示工具的样式与开发
+                                </p>
+                                <div class="icon r">
+                                    <i class="imv2-arrow3_r"></i>
+                                </div>
+
+                            </div>
+                        </a>
+                                    </div>
+                    </div>
+        <div class="comments-con js-comments-con" id="coments_con">     <div class="number">精选留言 <span class="js-number">0</span></div>     <div class="comments">         <div class="input-fake js-showcommentModal">             欢迎在这里发表留言，作者筛选后可公开显示         </div>                      <div class="noData">                 <p>                     <i class="imv2-error_c"></i>                 </p>                 <p>目前暂无任何讨论</p>             </div>              </div>  </div>
+
+
+
+    </div>
+    
+    
+    
+
+</div>
+ 
+<!-- 专栏介绍页专栏评价 -->
+
+<!-- 专栏介绍页底部三条评价 -->
+
+<!-- 专栏阅读页弹层目录和介绍页页面目录 -->
+
+<!-- 专栏阅读页发布回复 -->
+
+<!-- 专栏阅读页发布评论 -->
+
+<!-- 专栏阅读页底部评论 -->
+
+<!-- 专栏阅读 单个 评论 -->
+
+<!-- 新增回复和展开三条以外回复 -->
+
+<!-- 立即订阅的弹窗 -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div></body></html>

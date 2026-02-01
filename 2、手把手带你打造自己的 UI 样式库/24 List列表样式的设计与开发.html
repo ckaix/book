@@ -1,0 +1,335 @@
+<html><head><meta charset="utf-8"><title>24 List列表样式的设计与开发-慕课专栏</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+			<meta name="renderer" content="webkit">
+			<meta property="qc:admins" content="77103107776157736375">
+			<meta property="wb:webmaster" content="c4f857219bfae3cb">
+			<meta http-equiv="Access-Control-Allow-Origin" content="*">
+			<meta http-equiv="Cache-Control" content="no-transform ">
+			<meta http-equiv="Cache-Control" content="no-siteapp">
+			<link rel="apple-touch-icon" sizes="76x76" href="https://www.imooc.com/static/img/common/touch-icon-ipad.png">
+			<link rel="apple-touch-icon" sizes="120x120" href="https://www.imooc.com/static/img/common/touch-icon-iphone-retina.png">
+			<link rel="apple-touch-icon" sizes="152x152" href="https://www.imooc.com/static/img/common/touch-icon-ipad-retina.png">
+			<link href="https://moco.imooc.com/captcha/style/captcha.min.css" rel="stylesheet">
+			<link rel="stylesheet" href="https://www.imooc.com/static/moco/v1.0/dist/css/moco.min.css?t=201907021539" type="text/css">
+			<link rel="stylesheet" href="https://www.imooc.com/static/lib/swiper/swiper-3.4.2.min.css?t=201907021539">
+			<link rel="stylesheet" href="https://static.mukewang.com/static/css/??base.css,common/common-less.css?t=2.5,column/zhuanlanChapter-less.css?t=2.5,course/inc/course_tipoff-less.css?t=2.5?v=201907051055" type="text/css">
+			<link charset="utf-8" rel="stylesheet" href="https://www.imooc.com/static/lib/ueditor/themes/imooc/css/ueditor.css?v=201907021539"><link rel="stylesheet" href="https://www.imooc.com/static/lib/baiduShare/api/css/share_style0_16.css?v=6aba13f0.css"></head>
+			<body><div id="main">
+
+<div class="container clearfix" id="top" style="display: block; width: 1134px;">
+    
+    <div class="center_con js-center_con l" style="width: 1134px;">
+        <div class="article-con">
+                            <!-- 买过的阅读 -->
+                <div class="map">
+                    <a href="/read" target="_blank"><i class="imv2-feather-o"></i></a>
+                    <a href="/read/36" target="_blank">手把手带你打造自己的UI样式库</a>
+                    <a href="" target="_blank">
+                        <span>
+                            / 4-3 24 List列表样式的设计与开发
+                        </span>
+                    </a>
+                </div>
+
+            
+
+
+            <div class="art-title" style="margin-top: 0px;">
+                24 List列表样式的设计与开发
+            </div>
+            <div class="art-info">
+                
+                <span>
+                    更新时间：2019-07-31 17:43:28
+                </span>
+            </div>
+            <div class="art-top">
+                                <img src="https://img2.mukewang.com/5d2efd0700016e9606400359.jpg" alt="">
+                                                <div class="famous-word-box">
+                    <img src="https://www.imooc.com/static/img/column/bg-l.png" alt="" class="bg1 bg">
+                    <img src="https://www.imooc.com/static/img/column/bg-r.png" alt="" class="bg2 bg">
+                    <div class="famous-word">你若要喜爱你自己的价值，你就得给世界创造价值。<p class="author">——歌德</p></div>
+                </div>
+                            </div>
+            <div class="art-content js-lookimg">
+                <div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节我们来实现列表组件。在移动端，列表最常用的有两个地方。一种是用来展示城市或通讯名单这类比较单一的数据，这种列表的内容一般就是单行的文本。另外一种列表是用来展示商品信息这类内容，这种列表里每一行里的内容会比较多，需要对内容的排布进行设计。移动端里很少使用表格，表格的功能通常就是用列表来实现的。接下来我们就来设计和实现两种形式的列表。</p>
+</div><div class="cl-preview-section"><h2 id="列表组件的需求" style="font-size: 30px;">列表组件的需求</h2>
+</div><div class="cl-preview-section"><h3 id="一、简单列表">一、简单列表</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">简单列表的设计就很简单了，和我们之前做过的一些组件有相似的地方。比如在表单元素中存放每一条表单的容器，还有上一节的搜索建议部分，其实和简单列表的样式都很相似。我们按如下的样式设计：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d347014000134d003160293.png" alt="图片描述" data-original="http://img.mukewang.com/5d347014000134d003160293.png" class="" style="cursor: pointer;"><br>
+这个列表的样式很好实现，这里面只需要注意为了和复杂列表共用每一行的容器，我们不要对每一行的元素做高度和行高的限制。</p>
+</div><div class="cl-preview-section"><h3 id="二、复杂列表">二、复杂列表</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">复杂列表的每一行因为要呈现多个信息，所以内容区要重新布局。公司的业务里主要是商品展示，所以在UI里我们使用商品信息作为复杂列表的填充内容，样式如下：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d3470320001559403220448.png" alt="图片描述" data-original="http://img.mukewang.com/5d3470320001559403220448.png" class="" style="cursor: pointer;"><br>
+在这个复杂列表中，我们会有如下要求：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">复杂列表和简单列表可以使用相同的内边距撑开内容区和边界的距离。</li>
+<li style="font-size: 20px; line-height: 38px;">每一行的内容区分左右结构，左边图片固定宽度，右侧文字区充满剩余区域。</li>
+<li style="font-size: 20px; line-height: 38px;">内容区分多行，其中要保证第一行和内容区上边对齐，最后一行和内容区底边对齐。</li>
+<li style="font-size: 20px; line-height: 38px;">第一行为标题，限制最多显示两行内容，可以自动隐藏超长部分，并在文本末尾追加省略号。</li>
+</ol>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">针对这些需求，下来我们就可以做列表组件的设计与开发了。</p>
+</div><div class="cl-preview-section"><h2 id="列表组件的设计与开发" style="font-size: 30px;">列表组件的设计与开发</h2>
+</div><div class="cl-preview-section"><h3 id="一、文件的建立">一、文件的建立</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">第一步，我们还是先把这一节需要的文件建立出来。我们先来建一个空的html文件/demo/list.html:</p>
+</div><div class="cl-preview-section"><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"&gt;
+        &lt;link rel="stylesheet" href="../src/tuitui-ui.css"&gt;
+        &lt;title&gt;推推UI-列表&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="tt-content"&gt;
+            &lt;h1 class="tt-panel-title"&gt;简单列表&lt;/h1&gt;
+            &lt;div class="tt-panel-body no-padding"&gt;
+                &lt;!-- 简单列表 --&gt;
+            &lt;/div&gt;
+            &lt;h1 class="tt-panel-title"&gt;复杂列表&lt;/h1&gt;
+            &lt;div class="tt-panel-body no-padding"&gt;
+                &lt;!-- 复杂列表 --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">然后是对应的 CSS 文件 /src/list.css:</p>
+</div><div class="cl-preview-section"><pre><code>/*
+ * @Author: Rosen 
+ * @Date: 2019-07-18 11:10:09 
+ * @Last Modified by: Rosen
+ * @Last Modified time: 2019-07-19 23:57:26
+ */
+
+/* 列表的样式 */
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">最后在 /src/tuitui-ui.css 主文件最后引入刚才添加的 list.css文件：</p>
+</div><div class="cl-preview-section"><pre><code>/* 列表的样式 */
+@import './list.css';
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这样，这一节所需要的文件就建好了，下来我们开始设计和开发两种列表。</p>
+</div><div class="cl-preview-section"><h3 id="二、简单列表的设计与开发">二、简单列表的设计与开发</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">我们先来开发简单列表，简单列表的样式比较简单，我们之前也做过类似的样式，所以这里就直接贴代码了。直接在HTML中“&lt;!-- 简单列表 --&gt;”的位置后面加上下面的代码：</p>
+</div><div class="cl-preview-section"><pre><code>&lt;!-- 简单列表 --&gt;
+&lt;ul class="tt-list"&gt;
+    &lt;li class="tt-list-item"&gt;北京&lt;/li&gt;
+    &lt;li class="tt-list-item"&gt;上海&lt;/li&gt;
+    &lt;li class="tt-list-item"&gt;天津&lt;/li&gt;
+    &lt;li class="tt-list-item"&gt;重庆&lt;/li&gt;
+    &lt;li class="tt-list-item"&gt;厦门&lt;/li&gt;
+    &lt;li class="tt-list-item"&gt;广州&lt;/li&gt;
+    &lt;li class="tt-list-item"&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这里我们以城市列表为例，使用ul元素来实现这个列表。这个列表的样式也是给 .tt-list-item 加上一些简单样式就可以实现了，我们可以在 /src/list.css 中添加下列样式：</p>
+</div><div class="cl-preview-section"><pre><code>/* 列表里每一行的容器 */
+.tt-list &gt; .tt-list-item{
+    position: relative;
+    padding: .5rem 1rem;
+    font-size: .8rem;
+    background: #fff;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">只需要这一条样式，简单列表的样式就实现了。</p>
+</div><div class="cl-preview-section"><h3 id="三、复杂列表的设计与实现">三、复杂列表的设计与实现</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">复杂列表中，每一行的外层容器可以和简单列表共用，比较麻烦的就是处理每一行里内容区的布局。按着示意图里的样式，图片和文本区域左右排列，如下图：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d34707f0001ab9203120109.png" alt="图片描述" data-original="http://img.mukewang.com/5d34707f0001ab9203120109.png" class="" style="cursor: pointer;"><br>
+这个结构里，左侧图片固定宽度，右侧文本区域需要填充剩余空间的需求，所以这又是一个特别适合弹性布局的场景。左边的图片区域可以直接使用一个 img 元素，但我们这里会在 img 外层加一层容器，这样如果需要在图片位置加一些标签的话会更容易定位。右侧区域就是三个文本段落依次排列。按着这样的结构，我们可以先建立出复杂列表的HTML结构，在 /demo/list.html 文件中“&lt;!-- 复杂列表 --&gt;”的后面加入复杂列表的HTML代码：</p>
+</div><div class="cl-preview-section"><pre><code>&lt;!-- 复杂列表 --&gt;
+&lt;ul class="tt-list"&gt;
+    &lt;li class="tt-list-item"&gt;
+        &lt;div class="item-img-wrap"&gt;
+            &lt;img class="item-img" src="img/list-img.jpg" alt="机械键盘"&gt;
+        &lt;/div&gt;
+        &lt;div class="item-content-wrap"&gt;
+            &lt;h1 class="item-title"&gt;FILCO斐尔可 机械键盘87游戏无线圣手忍者二代红轴茶青黑蓝牙双模&lt;/h1&gt;
+            &lt;p class="item-price"&gt;￥998&lt;/p&gt;
+            &lt;p class="item-desc"&gt;已售1834件&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li class="tt-list-item"&gt;
+        &lt;div class="item-img-wrap"&gt;
+            &lt;img class="item-img" src="img/list-img.jpg" alt="机械键盘"&gt;
+        &lt;/div&gt;
+        &lt;div class="item-content-wrap"&gt;
+            &lt;h1 class="item-title"&gt;FILCO斐尔可 机械键盘87游戏无线圣手忍者二代红轴茶青黑蓝牙双模&lt;/h1&gt;
+            &lt;p class="item-price"&gt;￥998&lt;/p&gt;
+            &lt;p class="item-desc"&gt;已售1834件&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;!-- ...其他多个列表项 --&gt;
+&lt;/ul&gt;
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">为了缩短篇幅，这个列表里只包含了两条列表数据。在实现列表里内容区样式的时候，左右结构的处理和图片的处理都比较常规，只有右侧文本区的要求有些多。文本区分为标题、价格和销量这三部分内容，这三个元素要占满文本区域的高度，并且标题要靠顶，销量描述要贴底。对于这种需求能想到最简单的做法就是先固定每个元素的高度，然后通过计算出的内边距或外边距来撑开整个区域。但是我们这里准备用弹性布局里的“justify-content”属性来实现这个效果。下面先来介绍一下“justify-content”。</p>
+</div><div class="cl-preview-section"><blockquote>
+<p style="font-size: 20px; line-height: 38px;"><strong>@ Tips:</strong><br>
+justify-content 属性是在弹性布局中，用来定义主轴上元素的排列方式的，这个属性要作用于弹性布局中的容器上。这个属性有以下可取的值：<br>
+<strong>flex-start</strong>：弹性盒子里的所有元素从容器起始位置开始依次排列。这个起始位置并不是固定的，它会受到“flex-direction”的影响。比如“flex-direction”的值如果是“column-reverse”，那起始位置就在容器的最下面；如果“flex-direction”的值是默认的“row”，那么起始位置就是容器的最左边。效果如下：<br>
+<img src="http://img.mukewang.com/5d3470c300015d6103690120.png" alt="图片描述" data-original="http://img.mukewang.com/5d3470c300015d6103690120.png" class="" style="cursor: pointer;"><br>
+<strong>flex-end</strong>：和上面的 flex-start 相反，使用这个属性时，所有元素会和弹性盒子的末尾对齐。但要注意，使用这个属性值并不会改变元素的排布顺序。使用 flex-end 的效果如下：<br>
+<img src="http://img.mukewang.com/5d3470e60001b21403750118.png" alt="图片描述" data-original="http://img.mukewang.com/5d3470e60001b21403750118.png" class="" style="cursor: pointer;"><br>
+<strong>center</strong>：这个属性会让弹性盒子里的所有元素排布在页面的中间，把所有空白区域平均分配在容器的两边。使用center时的效果如下：<br>
+<img src="http://img.mukewang.com/5d34710300012b4a03710121.png" alt="图片描述" data-original="http://img.mukewang.com/5d34710300012b4a03710121.png" class="" style="cursor: pointer;"><br>
+<strong>space-between</strong>：这个属性是让容器里的空白空间平均分配在每两个元素中间，也就是第一个元素和容器起始位置对齐，最后一个元素和容器结束位置对齐，而每两个元素中间都留下等距的空间。这个属性就和上面列表项里文本区域排布的需求比较吻合，只是在竖直方向上应用就可以了。下面是使用 space-between 时的效果：<br>
+<img src="http://img.mukewang.com/5d3471250001e52303740120.png" alt="图片描述" data-original="http://img.mukewang.com/5d3471250001e52303740120.png" class="" style="cursor: pointer;"><br>
+<strong>space-around</strong>：这个属性也是会把空白空间进行切割分配，和space-between不同的是这种分隔方式会给每个元素两侧都分配等距的空间。这样在容器的两边会留出一份的空间，而每两个元素中间会有两份空间的间隔。使用space-around时的效果如下：<br>
+<img src="http://img.mukewang.com/5d34713e0001445b03710119.png" alt="图片描述" data-original="http://img.mukewang.com/5d34713e0001445b03710119.png" class="" style="cursor: pointer;"><br>
+在使用justify-content属性的时候有两点要注意：</p>
+<ol>
+<li style="font-size: 20px; line-height: 38px;">justify-content是弹性布局中特有的属性，所以要和“display: flex;”配合使用。</li>
+<li style="font-size: 20px; line-height: 38px;">如果弹性盒子里的元素有使用“flex-grow:1;”这类属性或者其他方式导致弹性容器已经被撑满，那么这时候justify-content就没什么意义了。</li>
+</ol>
+</blockquote>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">前面已经把复杂列表的结构分析完了，也补上了 justify-content 属性的知识，下面我们进入开发环节。首先修改一下在实现简单列表时建立的列表项容器的样式，只需要给它加上弹性布局的属性：</p>
+</div><div class="cl-preview-section"><pre><code>/* 列表里每一行的容器 */
+.tt-list &gt; .tt-list-item{
++   display: flex;
+    position: relative;
+    padding: .5rem 1rem;
+    font-size: .8rem;
+    background: #fff;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">接下来是图片的部分，我们给图片的容器固定的宽度和高度，并且不允许伸缩，然后加一个右侧的外边距来和内容区留下一点距离，最后再加上轻微的圆角效果即可：</p>
+</div><div class="cl-preview-section"><pre><code>/* 列表项的图片容器 */
+.tt-list .item-img-wrap{
+    flex: 0 0 5rem;
+    height: 5rem;
+    margin-right: .5rem;
+    border-radius: .2rem;
+    overflow: hidden;
+}
+/* 列表项的图片 */
+.tt-list .item-img-wrap &gt; .item-img{
+    width: 100%;
+    height: 100%;
+}
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这里有一点需要注意下，就是“.tt-list .item-img-wrap”这个选择器使用的是后代选择器，而没有使用子代选择器，这是因为经常会在列表项里加上跳转用的a标签，使用后代选择器更合理。我们这里也省略了.tt-list-item这一层，直接把.item-img-wrap限制在了.tt-list里即可。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">下来就是文本区域的容器样式：</p>
+</div><div class="cl-preview-section"><pre><code>/* 列表项的文字区域 */
+.tt-list .item-content-wrap{
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这个容器要占满左右结构里的空白空间，所以可以使用“flex:1;”；然后为了方便容器里绝对定位元素的使用，给它设置成相对定位；最后就是它里面三个元素需要竖直方向排列，且需要两边对齐，所以这里我们使用了“flex-direction”和“justify-content”这两个弹性布局的属性配合来实现需要的效果。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">再下来就是文本区域里三个元素的样式了，这里面标题部分需要两行的高度，并且超长的时候要截断，这里我们会使用下面这个固定的搭配来实现多行的折行截断效果：</p>
+</div><div class="cl-preview-section"><pre><code>div{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这三条固定的搭配就可以实现文本多行的截断，并且在截断处自动追加省略号。但需要注意的是，这几个属性并不是CSS3中标准的属性，并且只有在webkit内核的浏览器中且加上-webkit-前缀才有效。我们最需要的是对多行文本超出的部分做隐藏，而对添加省略号的需求不是很强，所以这几个元素可以配合height和line-height来使用，这样哪怕这三个属性失效了，也能保证正常的显示效果。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">有了上面的基础，再去实现文本内容区的几个样式就简单了，我们直接贴代码吧：</p>
+</div><div class="cl-preview-section"><pre><code>/* 列表项的标题 */
+.tt-list .item-content-wrap &gt; .item-title{
+    height: 2rem;
+    line-height: 1rem;
+    font-size: .8rem;
+    font-weight: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+/* 列表项的加个字段 */
+.tt-list .item-content-wrap &gt; .item-price{
+    font-size: .8rem;
+    font-weight: 600;
+    color: #e0652f;
+}
+/* 列表项的描述字段 */
+.tt-list .item-content-wrap &gt; .item-desc{    
+    color: #999;
+    font-size: .6rem;
+}
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">标题部分我们通过把高度设置成行高的两倍，来控制最多显示两行文本，其余两个元素就是设置了简单的文本样式。这样我们整个复杂列表也就完成了，最终的结果就会和开始贴的效果图完全一致。到这里，我们这一节的任务就结束了。</p>
+</div><div class="cl-preview-section"><h2 id="结语" style="font-size: 30px;">结语</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节我们开发了两种类型的列表，简单列表的开发很简单，复杂列表里主要讲的是各个元素的排列方式。这一节涉及了弹性布局中的justify-content属性的应用，同学们下去把例子里的效果图都自己实现一下。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">下面给同学们留一个思考题，在移动端还有一种比较常用的两列的列表，例如下面这样：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d3471720001ac4703160439.png" alt="图片描述" data-original="http://img.mukewang.com/5d3471720001ac4703160439.png" class="" style="cursor: pointer;"><br>
+同学们下去试着在现有的基础上，实现通过一个class来切换两种列表的样式。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">最后附上这一节内容的结构：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img src="http://img.mukewang.com/5d34718a0001e7b006210303.png" alt="图片描述" data-original="http://img.mukewang.com/5d34718a0001e7b006210303.png" class="" style="cursor: pointer;"><br>
+我们这一节的内容就到这里，同学们可以访问【<a href="http://ui.tuituitech.com/demo/list.html">List列表组件在线预览</a>】来查看这一节的演示效果，下一节将网格组件的开发。</p>
+</div></div>
+            </div>
+                            <!-- 买过的阅读 -->
+                <div class="art-next-prev clearfix">
+                                                                        <!-- 已买且开放 或者可以试读 -->
+                            <a href="/read/36/article/404">
+                                                    <div class="prev l clearfix">
+                                <div class="icon l">
+                                    <i class="imv2-arrow3_l"></i>
+                                </div>
+                                <p>
+                                    23 Search搜索框样式的设计与开发
+                                </p>
+                            </div>
+                        </a>
+                                                                                            <!-- 已买且开放 或者可以试读 -->
+                            <a href="/read/36/article/406">
+                                                    <div class="next r clearfix">
+                                <p>
+                                    25 Grid网格样式的设计与开发
+                                </p>
+                                <div class="icon r">
+                                    <i class="imv2-arrow3_r"></i>
+                                </div>
+
+                            </div>
+                        </a>
+                                    </div>
+                    </div>
+        <div class="comments-con js-comments-con" id="coments_con">     <div class="number">精选留言 <span class="js-number">1</span></div>     <div class="comments">         <div class="input-fake js-showcommentModal">             欢迎在这里发表留言，作者筛选后可公开显示         </div>                      <ul class="comments-list js-comments-list">                                                        <li class="comment clearfix">                                          <a href="//www.imooc.com/u/2419129/articles" target="_blank">                             <div class="head-img l" style="background-image:url(//img2.mukewang.com/56a8e5680001a7e102380215-100-100.jpg)"></div>                         </a>                         <div class="comment-detail l">                             <div class="hoverDisplay">                                 <div class="com-author clearfix">                                                                                                               <a href="//www.imooc.com/u/2419129/articles" target="_blank">                                         <div class="name l">iam593</div>                                     </a>                                                                                                                                                                                              </div>                                 <div class="com-content">                                     小小笔误：CSS 文件 /src/list.html -》 CSS 文件 /src/list.css                                 </div>                                 <div class="com-other clearfix">                                                                              <!-- 没点过赞 -->                                         <div class="btn-agree js-agree l" data-commentid="1129">                                                                                  <i class="imv2-thumb_up"></i>                                             <span>0</span>                                         </div>                                                                                                               <div class="btn-reply l js-reply" data-replyid="1129">回复</div>                                     <!-- 没登录不显示举报 -->                                                                              <div class="btn-report l js-tip-off comment-report" data-id="1129" data-uid="2419129" data-src="/read/36/article/405" data-type="15">举报</div>                                                                          <div class="time r">2天前</div>                                 </div>                             </div>                                                              <ul class="replys-list js-replys-list">                                                                              <li class="reply clearfix">                                             <a href="//www.imooc.com/u/2667037/articles" target="_blank">                                                 <div class="head-img l" style="background-image:url(//img2.mukewang.com/5a40c9420001192f00900090-100-100.jpg)"></div>                                             </a>                                             <div class="reply-detail l">                                                 <div class="rep-author clearfix">                                                                                                          <a href="//www.imooc.com/u/2667037/articles" target="_blank">                                                         <div class="name l">chenchen1111</div>                                                     </a>                                                                                                                                                                   <div class="to l clearfix">                                                             <span class="l">回复</span>                                                                                                                          <a href="//www.imooc.com/u/2419129/articles" target="_blank">                                                                 <div class="name l">iam593</div>                                                             </a>                                                         </div>                                                                                                      </div>                                                 <div class="rep-content">                                                     感谢反馈~~已经改正~~                                                 </div>                                                 <div class="rep-other clearfix">                                                     <div class="btn-reply l js-reply" data-replyid="953" data-name="chenchen1111">回复</div>                                                                                                              <div class="btn-report l js-tip-off reply-report" data-id="953" data-uid="2667037" data-src="/read/36/article/405" data-type="16">举报</div>                                                                                                          <div class="time r">1天前</div>                                                 </div>                                             </div>                                         </li>                                                                      </ul>                                                                                   </div>                     </li>                              </ul>                           </div>  </div>
+
+
+
+    </div>
+    
+    
+    
+
+</div>
+ 
+<!-- 专栏介绍页专栏评价 -->
+
+<!-- 专栏介绍页底部三条评价 -->
+
+<!-- 专栏阅读页弹层目录和介绍页页面目录 -->
+
+<!-- 专栏阅读页发布回复 -->
+
+<!-- 专栏阅读页发布评论 -->
+
+<!-- 专栏阅读页底部评论 -->
+
+<!-- 专栏阅读 单个 评论 -->
+
+<!-- 新增回复和展开三条以外回复 -->
+
+<!-- 立即订阅的弹窗 -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div></body></html>

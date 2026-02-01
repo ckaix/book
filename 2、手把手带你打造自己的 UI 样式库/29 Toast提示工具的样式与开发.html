@@ -1,0 +1,287 @@
+<html><head><meta charset="utf-8"><title>29 Toast提示工具的样式与开发-慕课专栏</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+			<meta name="renderer" content="webkit">
+			<meta property="qc:admins" content="77103107776157736375">
+			<meta property="wb:webmaster" content="c4f857219bfae3cb">
+			<meta http-equiv="Access-Control-Allow-Origin" content="*">
+			<meta http-equiv="Cache-Control" content="no-transform ">
+			<meta http-equiv="Cache-Control" content="no-siteapp">
+			<link rel="apple-touch-icon" sizes="76x76" href="https://www.imooc.com/static/img/common/touch-icon-ipad.png">
+			<link rel="apple-touch-icon" sizes="120x120" href="https://www.imooc.com/static/img/common/touch-icon-iphone-retina.png">
+			<link rel="apple-touch-icon" sizes="152x152" href="https://www.imooc.com/static/img/common/touch-icon-ipad-retina.png">
+			<link href="https://moco.imooc.com/captcha/style/captcha.min.css" rel="stylesheet">
+			<link rel="stylesheet" href="https://www.imooc.com/static/moco/v1.0/dist/css/moco.min.css?t=201907021539" type="text/css">
+			<link rel="stylesheet" href="https://www.imooc.com/static/lib/swiper/swiper-3.4.2.min.css?t=201907021539">
+			<link rel="stylesheet" href="https://static.mukewang.com/static/css/??base.css,common/common-less.css?t=2.5,column/zhuanlanChapter-less.css?t=2.5,course/inc/course_tipoff-less.css?t=2.5?v=201907051055" type="text/css">
+			<link charset="utf-8" rel="stylesheet" href="https://www.imooc.com/static/lib/ueditor/themes/imooc/css/ueditor.css?v=201907021539"><link rel="stylesheet" href="https://www.imooc.com/static/lib/baiduShare/api/css/share_style0_16.css?v=6aba13f0.css"></head>
+			<body><div id="main">
+
+
+<div class="main-con hide-menu">
+    <!-- 左侧菜单 & 索引 -->
+    
+    <div class="right-content" style="padding-left: 0px;">
+        <div class="container clearfix" id="top" style="width: 1134px; display: block;">
+            
+            
+            <div class="center_con js-center_con l" style="width: 1134px;">
+                <div class="article-con">
+                                            <!-- 买过的阅读 -->
+                        
+
+                    
+                    <div class="art-title" style="margin-top: 0px;">
+                        29 Toast提示工具的样式与开发
+                    </div>
+                    <div class="art-info clearfix">
+                        
+                        <span class="l">
+                            更新时间：2019-08-08 14:48:07
+                        </span>
+                    </div>
+                    <div class="art-top">
+                                                <img src="https://img4.mukewang.com/5d2f04c90001b39a06400359.jpg" alt="">
+                                                                        <div class="famous-word-box">
+                            <img src="https://www.imooc.com/static/img/column/bg-l.png" alt="" class="bg1 bg">
+                            <img src="https://www.imooc.com/static/img/column/bg-r.png" alt="" class="bg2 bg">
+                            <div class="famous-word">谁和我一样用功，谁就会和我一样成功。<p class="author">——莫扎特</p></div>
+                        </div>
+                                            </div>
+                    <div class="art-content js-lookimg">
+                        <div id="article_content">
+                            <div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这次要实现的是 Toast 提示工具组件，这个组件会使用比较小的一个区域来提示信息，过几秒之后这个提示信息又会自己消失，它的样式可以像这样：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img class="" src="https://img.mukewang.com/5d43ddcd0001924403180564.png" data-original="//img.mukewang.com/5d43ddcd0001924403180564.png" alt="图片描述"><br>
+中间操作成功部分的提示就是我们要实现的 Toast 提示工具。这个组件比较特殊的是它的名字，Toast 本意是面包片，看起来和我们要做的这个组件一点关系都没有。但这个组件出现时的效果是弹出来的，很像吐司面包片在面包机刚烤好时弹出来的那个动作，于是就根据组件出现的方式起了“Toast”这个名字。总感觉这个名字起的有点随意，但也没想到更好的名字来给它命名。</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">下来我们也是先来聊一下这个组件的需求。</p>
+</div><div class="cl-preview-section"><h2 id="toast提示组件的需求" style="font-size: 30px;">Toast提示组件的需求</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">我们对 Toast 组件有如下要求：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">弹窗在水平方向居中，竖直方向上在中间偏上的位置。</li>
+<li style="font-size: 20px; line-height: 38px;">弹窗包含一个图标和一个提示信息，且背景半透明。</li>
+<li style="font-size: 20px; line-height: 38px;">在弹出时，有向上弹出的入场动画，整个弹窗透明度逐渐升高。</li>
+<li style="font-size: 20px; line-height: 38px;">在消失时，有向下滑动的离场动画，整个弹窗透明度逐渐降低。</li>
+</ol>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这个 toast 组件的静态样式是很简单了，容器的做法可以参考 Modal 模态框的做法，里面的图标和文字的布局又和上一节加载提示组件很相似。所以这个组件的难点就在入场和出场动画了。下来我们进入开发环节，来重点设计一下这个组件的入场和出场的动画效果。</p>
+</div><div class="cl-preview-section"><h2 id="toast提示组件的设计与开发" style="font-size: 30px;">Toast提示组件的设计与开发</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">在设计和开发这部分中，除了像前面章节一样要介绍文件的建立和设计与开发过程外，多加了一个效果演示的内容。这是因为这一节要实现的组件是动态的，要观察它的入场和出场的动画，所以不得不借助 JS 语言来触发入场和出场的效果。我们下来开始这个组件的设计和开发。</p>
+</div><div class="cl-preview-section"><h3 id="一、文件的建立">一、文件的建立</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">最开始还是要建立文件，我们先建立 HTML 文件：/demo/toast.html：</p>
+</div><div class="cl-preview-section"><pre class=" language-html"><code class="prism  language-html"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../src/tuitui-ui.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>推推UI-Toast提示组件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Toast提示组件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-panel-body<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn btn-primary<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>js-show-toast-loading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>加载中提示<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-btn btn-primary<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>js-show-toast-success<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>成功提示<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-toast<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>js-toast-loading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fa fa-spinner fa-spin tt-toast-icon<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-toast-info<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>操作进行中<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-toast<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>js-toast-success<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fa fa-check tt-toast-icon<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tt-toast-info<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>操作成功<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这个结构里，需要注意下面几点：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">在内容区里建立了两个按钮，预留后面触发 Toast 组件的效果。</li>
+<li style="font-size: 20px; line-height: 38px;">我们把 Toast 组件也放在了内容区 tt-content 的后面，这是因为把 Toast 弹出提示也算作了蒙版层的内容，只不过没有加遮罩屏幕的蒙版。</li>
+<li style="font-size: 20px; line-height: 38px;">我们建立了两个 Toast 组件的 HTML，分别演示加载中和操作成功这两个样式的 Toast。这个加载中的状态也是上一节中我们提到过的，用来对某些操作过程进行提示。</li>
+</ol>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">接下来是空的 CSS 文件 /src/toast.css：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/*
+ * @Author: Rosen 
+ * @Date: 2019-07-31 22:24:22 
+ * @Last Modified by: Rosen
+ * @Last Modified time: 2019-07-31 22:25:02
+ */</span>
+
+<span class="token comment">/* Toast提示工具 */</span>
+<span class="token selector"><span class="token class">.tt-toast</span></span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">最后，把新建的 toast.css 文件引入到 /src/tuitui-ui.css 中，在 /src/tuitui-ui.css 文件的最后追加：</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* Toast弹出提示组件 */</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">'./toast.css'</span><span class="token punctuation">;</span></span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这样，基础的文件就建好了。</p>
+</div><div class="cl-preview-section"><h3 id="二、toast提示组件的设计与开发">二、Toast提示组件的设计与开发</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">Toast 组件的样式不算麻烦，根据前面的开发经验，我们可以先来看代码。</p>
+</div><div class="cl-preview-section"><pre class="  language-css"><code class="prism  language-css"><span class="token comment">/* Toast提示工具 */</span>
+<span class="token selector"><span class="token class">.tt-toast</span></span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">7</span>rem<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">45%</span><span class="token punctuation">;</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>-<span class="token number">40%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">1</span>rem <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">.6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">.4</span>rem<span class="token punctuation">;</span>
+    <span class="token property">transition</span><span class="token punctuation">:</span> transform <span class="token number">.3</span>s, opacity <span class="token number">.3</span>s<span class="token punctuation">;</span>
+    <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token number">301</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 显示Toast组件 */</span>
+<span class="token selector"><span class="token class">.tt-toast.show</span></span><span class="token punctuation">{</span>
+    <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>-<span class="token number">50%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* Toast组件中的图标 */</span>
+<span class="token selector"><span class="token class">.tt-toast</span> &gt; <span class="token class">.tt-toast-icon</span></span><span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">2.2</span>rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* Toast组件中的文本部分 */</span>
+<span class="token selector"><span class="token class">.tt-toast</span> &gt; <span class="token class">.tt-toast-info</span></span><span class="token punctuation">{</span>
+    <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">.5</span>rem<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">.7</span>rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">Toast 组件的样式通过这四组样式就可以实现了，这个样式里的技巧都是我们之前用过的。第 1、3、4 组样式用来给Toast 添加静态样式，然后通过第 2 组 .tt-toast.show 的样式来控制组件是否显示。这里和模态框组件唯一不同的就是这里的显示和隐藏使用的 opacity 属性，而没有用 display 属性。这是因为如果使用“display: none;”属性，当“show“这个 class 一去掉，组件会立即消失，出场动画就没有办法实现了。所以这个组件在使用的时候会分四步进行：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">需要显示的时候会使用 JS 动态的把组件添加到文档中。</li>
+<li style="font-size: 20px; line-height: 38px;">使用添加“show”这个 class，从而达到入场的效果。</li>
+<li style="font-size: 20px; line-height: 38px;">Toast 组件需要消失的时候，去掉“show”这个 class，从而达到出场的效果。</li>
+<li style="font-size: 20px; line-height: 38px;">等组件完全消失后，再使用 JS 把整个 Toast 的 Dom 移除掉。</li>
+</ol>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这样做是因为 Toast 是一个一次性的组件，不使用的时候不需要让它停留在文档中。这样做还能避免当元素是“opacity: 0;”的时候会挡住底层内容区的操作。</p>
+</div><div class="cl-preview-section"><h3 id="三、toast组件的效果演示">三、Toast组件的效果演示</h3>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">最后我们来处理下这个组件的入场和出场的控制，这里我们只处理入场和出场两个部分。想要实现 Toast 组的入场和出场的演示，我们只需要使用 JS 控制 Toast 组件中“show”这个 class。在一开始的 HTML 中我们创建了两个按钮和两个Toast组件，我们下来用这两个按钮分别控制两个 Toast，可以使用下面的 JS 代码：</p>
+</div><div class="cl-preview-section"><pre class="  language-javascript"><code class="prism  language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+    window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+        <span class="token comment">// 显示加载中的Toast</span>
+        document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#js-show-toast-loading'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> toastEle <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#js-toast-loading'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            toastEle<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'show'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                toastEle<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'show'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2e3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token comment">// 显示操作成功的Toast</span>
+        document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#js-show-toast-success'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> toastEle <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#js-toast-success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            toastEle<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'show'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                toastEle<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'show'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2e3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这段 JS 代码做的就是当点击按钮的时候，在对应的 Toast 组件上添加“show”这个 class。等到 2 秒过后再把“show”这个 class 移除。这样做就能实现效果的演示了，实际使用的时候要考虑的需要更仔细，比如不允许同时出现两个 Toast 组件等。组件演示的部分就简单介绍这些，最终的效果如下：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img class="" src="https://img.mukewang.com/5d43ddf400014aa500450004.gif" data-original="//img.mukewang.com/5d43ddf400014aa500450004.gif" alt="图片描述"></p>
+</div><div class="cl-preview-section"><h2 id="结语" style="font-size: 30px;">结语</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">因为有了前面章节的基础，我们这一节内容讲的比较简单了，也没有太多的新知识。这一节要注意的一个是做入场和出场动画的时候使不能用 display 来控制元素的显示效果，另外一个就是要了解 Toast 提示组件使用时的操作步骤。下面是这一节的内容结构：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img class="" src="https://img.mukewang.com/5d43de08000134ee05690201.png" data-original="//img.mukewang.com/5d43de08000134ee05690201.png" alt="图片描述"><br>
+我们这一节到这，同学们可以访问【<a href="http://ui.tuituitech.com/demo/toast.html">Toast提示组件在线预览</a>】来查看这一节的演示效果，下一节将进行 ActionSheet 组件的开发。</p>
+</div>}
+                        </div>
+                    </div>
+                                            <!-- 买过的阅读 -->
+                        <div class="art-next-prev clearfix">
+                                                                                                <!-- 已买且开放 或者可以试读 -->
+                                    <a href="/read/36/article/410">
+                                                                    <div class="prev l clearfix">
+                                        <div class="icon l">
+                                            <i class="imv2-arrow3_l"></i>
+                                        </div>
+                                        <p>
+                                            28 Loading加载提示样式的设计与开发
+                                        </p>
+                                    </div>
+                                </a>
+                                                                                                                            <!-- 已买且开放 或者可以试读 -->
+                                    <a href="/read/36/article/412">
+                                                                    <div class="next r clearfix">
+                                        <p>
+                                            30 ActionSheet弹出式菜单组件的设计与开发 
+                                        </p>
+                                        <div class="icon r">
+                                            <i class="imv2-arrow3_r"></i>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                                    </div>
+                                    </div>
+                <div class="comments-con js-comments-con" id="coments_con">
+                </div>
+
+                
+            </div>
+            
+            
+            
+
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-jiaQun-new hide" id="modal-jiaQun">
+    <div class="inner" style="">
+        <div class="modal-close js-close-jiaQun">
+            <i class="imv2-close"></i>
+        </div>
+        <div class="content">
+            <img src="https://img4.mukewang.com/5d5a718f0001363505400600.jpg">
+            <div class="right-info">
+                <div class="title">
+                    扫码加入慕课前端核心用户群
+                </div>
+                <div class="desc">
+                                            <p class="mb6">验证信息：<span id="joincode">1906161826526121</span><span class="copy js-copy-joincode">复制</span></p>
+                                        <p class="mb6">QQ讨论群号：722466314</p>
+                                            <p>QQ群URL：<a href="https://jq.qq.com/?_wv=1027&amp;k=5l9EFfc" target="_blank">点击访问</a></p>
+                                    </div>
+            </div>
+            <p class="tip">若遇到搜索不到QQ群或加群失败，请联系客服邮箱:kf@imooc.com</p>
+        </div>
+    </div>
+</div>
+ 
+<!-- 专栏介绍页专栏评价 -->
+
+<!-- 专栏介绍页底部三条评价 -->
+
+<!-- 专栏阅读页弹层目录和介绍页页面目录 -->
+
+<!-- 专栏阅读页发布回复 -->
+
+<!-- 专栏阅读页发布评论 -->
+
+<!-- 专栏阅读页底部评论 -->
+
+<!-- 专栏阅读 单个 评论 -->
+
+<!-- 新增回复和展开三条以外回复 -->
+
+<!-- 立即订阅的弹窗 -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div></body></html>

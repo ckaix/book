@@ -1,0 +1,172 @@
+<html><head><meta charset="utf-8"><title>36 本章总结-慕课专栏</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+			<meta name="renderer" content="webkit">
+			<meta property="qc:admins" content="77103107776157736375">
+			<meta property="wb:webmaster" content="c4f857219bfae3cb">
+			<meta http-equiv="Access-Control-Allow-Origin" content="*">
+			<meta http-equiv="Cache-Control" content="no-transform ">
+			<meta http-equiv="Cache-Control" content="no-siteapp">
+			<link rel="apple-touch-icon" sizes="76x76" href="https://www.imooc.com/static/img/common/touch-icon-ipad.png">
+			<link rel="apple-touch-icon" sizes="120x120" href="https://www.imooc.com/static/img/common/touch-icon-iphone-retina.png">
+			<link rel="apple-touch-icon" sizes="152x152" href="https://www.imooc.com/static/img/common/touch-icon-ipad-retina.png">
+			<link href="https://moco.imooc.com/captcha/style/captcha.min.css" rel="stylesheet">
+			<link rel="stylesheet" href="https://www.imooc.com/static/moco/v1.0/dist/css/moco.min.css?t=201907021539" type="text/css">
+			<link rel="stylesheet" href="https://www.imooc.com/static/lib/swiper/swiper-3.4.2.min.css?t=201907021539">
+			<link rel="stylesheet" href="https://static.mukewang.com/static/css/??base.css,common/common-less.css?t=2.5,column/zhuanlanChapter-less.css?t=2.5,course/inc/course_tipoff-less.css?t=2.5?v=201907051055" type="text/css">
+			<link charset="utf-8" rel="stylesheet" href="https://www.imooc.com/static/lib/ueditor/themes/imooc/css/ueditor.css?v=201907021539"><link rel="stylesheet" href="https://www.imooc.com/static/lib/baiduShare/api/css/share_style0_16.css?v=6aba13f0.css"></head>
+			<body><div id="main">
+
+
+<div class="main-con hide-menu">
+    <!-- 左侧菜单 & 索引 -->
+    
+    <div class="right-content" style="padding-left: 0px;">
+        <div class="container clearfix" id="top" style="width: 1134px; display: block;">
+            
+            
+            <div class="center_con js-center_con l" style="width: 1134px;">
+                <div class="article-con">
+                                            <!-- 买过的阅读 -->
+                        
+
+                    
+                    <div class="art-title" style="margin-top: 0px;">
+                        36 本章总结
+                    </div>
+                    <div class="art-info clearfix">
+                        
+                        <span class="l">
+                            更新时间：2019-08-19 14:18:48
+                        </span>
+                    </div>
+                    <div class="art-top">
+                                                <img src="https://img2.mukewang.com/5d5a3f2b00017ed704590365.jpg" alt="">
+                                                                        <div class="famous-word-box">
+                            <img src="https://www.imooc.com/static/img/column/bg-l.png" alt="" class="bg1 bg">
+                            <img src="https://www.imooc.com/static/img/column/bg-r.png" alt="" class="bg2 bg">
+                            <div class="famous-word">老骥伏枥，志在千里； 烈士暮年，壮心不已。 <p class="author">——曹操</p></div>
+                        </div>
+                                            </div>
+                    <div class="art-content js-lookimg">
+                        <div id="article_content">
+                            <div class="cl-preview-section"><h2 id="本章总结" style="font-size: 30px;">#本章总结</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节的集结工作很快就完成了，这一章里我们一共做了两个事情，第一步是把之前开发的代码处理成一个可以在线上使用的最终压缩版本的文件，第二步是把这个最终文件又改成了一个符合 npm 规则的插件，并发布到了官方的 npm 源上。下来我们回忆一下这两个步骤中我们都做了什么，又会有什么问题。</p>
+</div><div class="cl-preview-section"><h2 id="文件方式的集成" style="font-size: 30px;">文件方式的集成</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">这一节内容里，我们介绍里 npm 的用法，并使用 npm 安装了 postcss-cli、postcss-import、autoprefixer 和 cssnano 这几个插件，分别处理了代码的引入问题、兼容问题和压缩问题，最终把零散的源文件打包到一个压缩文件里。在这一节的最后，还是用 shell 脚本编写了一个自动打包的小工具，作为同学们的了解内容。这一节中，我们有下面几个问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">使用 npm 安装插件的时候，-D、-S、-g、–save、–save-dev这几个参数都有什么作用？</li>
+<li style="font-size: 20px; line-height: 38px;">如果不使用 npx，还有什么其他方式可以调用 postcss 命令？</li>
+<li style="font-size: 20px; line-height: 38px;">是否了解 browserslist 的配置方法？</li>
+<li style="font-size: 20px; line-height: 38px;">尝试用 webpack 重新完成这一步的内容。</li>
+<li style="font-size: 20px; line-height: 38px;">如果让你设计一个压缩 CSS 文件的工具，都可以做些什么？</li>
+<li style="font-size: 20px; line-height: 38px;">尝试在 shell 脚本里加入项目初始化的功能，可以通过执行脚本时使用不同的参数做不同的操作。</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="npm方式的集成" style="font-size: 30px;">npm方式的集成</h2>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">在以 npm 方式集成的这一步，我们按着 npm 的要求制作了一个 npm 包，包括初始化项目、修改对其他工具的依赖方式和添加说明文件，然后又在 npm 官方源上发布了我们自己的 npm 包。关于这一节的内容，可以有下面这几个问题：</p>
+</div><div class="cl-preview-section"><ol>
+<li style="font-size: 20px; line-height: 38px;">我们在项目中引入 npm 插件的时候，npm 都会去哪里找这个插件？顺序是怎样的？</li>
+<li style="font-size: 20px; line-height: 38px;">是不是了解 MarkDown 语法？平时用的多么？</li>
+<li style="font-size: 20px; line-height: 38px;">如何查看你现在用的 npm 源，怎么切换？</li>
+<li style="font-size: 20px; line-height: 38px;">在发布 npm 包的时候，为什么要把源切换到官方地址上？</li>
+<li style="font-size: 20px; line-height: 38px;">当我们发布了一个有问题的 npm 包，应该怎么做？</li>
+</ol>
+</div><div class="cl-preview-section"><h2 id="结语" style="font-size: 30px;">结语</h2>
+</div><div class="cl-preview-section"><hr>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;">上面的内容就是这一章的总结。到这里，这一章的“集结”工作就完成了，我们实现的这一套 UI 样式库也变成了正规军，可以在线上系统工作了。但我们打造的这套样式库到底好不好用，会不会有问题？到下一章，我们就会直接进入实战部分，用这个样式库实现几种常用的页面，把这些组件组合起来用，来检验下这个组件库的效果。这一章的内容比较少，结构如下：</p>
+</div><div class="cl-preview-section"><p style="font-size: 20px; line-height: 38px;"><img class="" src="https://img.mukewang.com/5d5a3f0f0001bdae04980297.png" data-original="//img.mukewang.com/5d5a3f0f0001bdae04980297.png" alt="图片描述"><br>
+我们这一章的内容就到这里了，下章开始进入实战部分。</p>
+</div>}
+                        </div>
+                    </div>
+                                            <!-- 买过的阅读 -->
+                        <div class="art-next-prev clearfix">
+                                                                                                <!-- 已买且开放 或者可以试读 -->
+                                    <a href="/read/36/article/417">
+                                                                    <div class="prev l clearfix">
+                                        <div class="icon l">
+                                            <i class="imv2-arrow3_l"></i>
+                                        </div>
+                                        <p>
+                                            35 使用 npm 形式集成
+                                        </p>
+                                    </div>
+                                </a>
+                                                                                                                            <!-- 已买且开放 或者可以试读 -->
+                                    <a href="/read/36/article/419">
+                                                                    <div class="next r clearfix">
+                                        <p>
+                                            37 常用页面切图的设计与开发
+                                        </p>
+                                        <div class="icon r">
+                                            <i class="imv2-arrow3_r"></i>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                                    </div>
+                                    </div>
+                <div class="comments-con js-comments-con" id="coments_con">
+                </div>
+
+                
+            </div>
+            
+            
+            
+
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-jiaQun-new hide" id="modal-jiaQun">
+    <div class="inner" style="">
+        <div class="modal-close js-close-jiaQun">
+            <i class="imv2-close"></i>
+        </div>
+        <div class="content">
+            <img src="https://img4.mukewang.com/5d5a718f0001363505400600.jpg">
+            <div class="right-info">
+                <div class="title">
+                    扫码加入慕课前端核心用户群
+                </div>
+                <div class="desc">
+                                            <p class="mb6">验证信息：<span id="joincode">1906161826526121</span><span class="copy js-copy-joincode">复制</span></p>
+                                        <p class="mb6">QQ讨论群号：722466314</p>
+                                            <p>QQ群URL：<a href="https://jq.qq.com/?_wv=1027&amp;k=5l9EFfc" target="_blank">点击访问</a></p>
+                                    </div>
+            </div>
+            <p class="tip">若遇到搜索不到QQ群或加群失败，请联系客服邮箱:kf@imooc.com</p>
+        </div>
+    </div>
+</div>
+ 
+<!-- 专栏介绍页专栏评价 -->
+
+<!-- 专栏介绍页底部三条评价 -->
+
+<!-- 专栏阅读页弹层目录和介绍页页面目录 -->
+
+<!-- 专栏阅读页发布回复 -->
+
+<!-- 专栏阅读页发布评论 -->
+
+<!-- 专栏阅读页底部评论 -->
+
+<!-- 专栏阅读 单个 评论 -->
+
+<!-- 新增回复和展开三条以外回复 -->
+
+<!-- 立即订阅的弹窗 -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div></body></html>
